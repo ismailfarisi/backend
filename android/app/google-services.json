@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1019029583509",
+    "project_id": "meal-app-uae",
+    "storage_bucket": "meal-app-uae.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019029583509:android:30cdd0ee8947e8993e0d9c",
+        "android_client_info": {
+          "package_name": "ae.f.c"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDVby-fR9NwpFgx1_Nro2P1gfqfvQCb-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019029583509:android:d36b013fd851cdbd3e0d9c",
+        "android_client_info": {
+          "package_name": "com.ekiaart.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDVby-fR9NwpFgx1_Nro2P1gfqfvQCb-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
