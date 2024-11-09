@@ -3,8 +3,12 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meal_app/models/vendor.dart';
+import 'package:meal_app/views/home_layout/home_layout.dart';
 import 'package:meal_app/views/home_page/home_page.dart';
 import 'package:meal_app/views/login/login_page.dart';
+import 'package:meal_app/views/profile_page/profile_page.dart';
+import 'package:meal_app/views/vendor_detail_page/vendor_detail_page.dart';
 
 import '../app/auth_bloc/auth_bloc.dart';
 import '../injection/injection.dart';
@@ -13,27 +17,51 @@ class AppRouter {
   static final GoRouter router = GoRouter(
       refreshListenable: GoRouterRefreshStream(getIt<AuthBloc>().stream),
       // observers: [routerObserver],
+      initialLocation: "/${HomePage.routeName}",
       redirect: (context, state) {
         final authState = getIt<AuthBloc>().state;
         if (authState.authStatus == AuthStatus.Authenticated) {
           return "/${HomePage.routeName}";
+        } else if (authState.authStatus == AuthStatus.UnAuthenticated) {
+          return "/${HomePage.routeName}";
+          // "/${LoginPage.routeName}";
         } else {
-          return "/${LoginPage.routeName}";
+          return null;
         }
       },
       routes: [
-        GoRoute(
-          path: "/${HomePage.routeName}",
-          name: HomePage.routeName,
-          pageBuilder: (context, state) =>
-              const CupertinoPage(child: HomePage()),
-        ),
+        ShellRoute(
+            builder: (context, state, child) => HomeLayout(child: child),
+            routes: [
+              GoRoute(
+                path: "/${HomePage.routeName}",
+                name: HomePage.routeName,
+                pageBuilder: (context, state) =>
+                    const CupertinoPage(child: HomePage()),
+              ),
+              GoRoute(
+                path: "/${ProfilePage.routeName}",
+                name: ProfilePage.routeName,
+                pageBuilder: (context, state) =>
+                    const CupertinoPage(child: ProfilePage()),
+              ),
+            ]),
         GoRoute(
           path: "/${LoginPage.routeName}",
           name: LoginPage.routeName,
           pageBuilder: (context, state) =>
               const CupertinoPage(child: LoginPage()),
         ),
+        GoRoute(
+            path: "/${VendorDetailPage.routeName}",
+            name: VendorDetailPage.routeName,
+            pageBuilder: (context, state) {
+              final vendor = state.extra as Vendor;
+              return CupertinoPage(
+                  child: VendorDetailPage(
+                vendor: vendor,
+              ));
+            }),
       ]);
 }
 

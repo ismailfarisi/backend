@@ -13,6 +13,10 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
 import '../app/auth_bloc/auth_bloc.dart' as _i584;
+import '../models/vendor.dart' as _i569;
+import '../views/home_page/cubit/home_cubit.dart' as _i607;
+import '../views/order_page/cubit/order_cubit.dart' as _i943;
+import '../views/vendor_detail_page/cubit/vendor_detail_cubit.dart' as _i237;
 import 'injectable_module.dart' as _i109;
 
 const String _Stage = 'Stage';
@@ -30,7 +34,11 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final registerModules = _$RegisterModules();
+    gh.factory<_i607.HomeCubit>(() => _i607.HomeCubit());
+    gh.factory<_i943.OrderCubit>(() => _i943.OrderCubit());
     gh.singleton<_i584.AuthBloc>(() => _i584.AuthBloc());
+    gh.factory<_i237.VendorDetailCubit>(
+        () => _i237.VendorDetailCubit(vendor: gh<_i569.Vendor>()));
     gh.factory<String>(
       () => registerModules.baseUrl,
       instanceName: 'BaseUrl',

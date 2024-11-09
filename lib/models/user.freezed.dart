@@ -24,12 +24,16 @@ mixin _$User {
   String? get email => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String? get whatsapp => throw _privateConstructorUsedError;
-  @JsonKey(name: "first_name")
-  String get firstName => throw _privateConstructorUsedError;
-  @JsonKey(name: "last_name")
-  String get lastName => throw _privateConstructorUsedError;
+  @JsonKey(name: "full_name")
+  String get fullName => throw _privateConstructorUsedError;
   String? get city => throw _privateConstructorUsedError;
   String? get photo => throw _privateConstructorUsedError;
+  List<String> get dietaryPreferences => throw _privateConstructorUsedError;
+  List<String> get allergies => throw _privateConstructorUsedError;
+  bool get isVegetarian => throw _privateConstructorUsedError;
+  DeliveryAddress? get defaultAddress => throw _privateConstructorUsedError;
+  NotificationSettings get notificationSettings =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,10 +50,17 @@ abstract class $UserCopyWith<$Res> {
       String? email,
       String phone,
       String? whatsapp,
-      @JsonKey(name: "first_name") String firstName,
-      @JsonKey(name: "last_name") String lastName,
+      @JsonKey(name: "full_name") String fullName,
       String? city,
-      String? photo});
+      String? photo,
+      List<String> dietaryPreferences,
+      List<String> allergies,
+      bool isVegetarian,
+      DeliveryAddress? defaultAddress,
+      NotificationSettings notificationSettings});
+
+  $DeliveryAddressCopyWith<$Res>? get defaultAddress;
+  $NotificationSettingsCopyWith<$Res> get notificationSettings;
 }
 
 /// @nodoc
@@ -69,10 +80,14 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = freezed,
     Object? phone = null,
     Object? whatsapp = freezed,
-    Object? firstName = null,
-    Object? lastName = null,
+    Object? fullName = null,
     Object? city = freezed,
     Object? photo = freezed,
+    Object? dietaryPreferences = null,
+    Object? allergies = null,
+    Object? isVegetarian = null,
+    Object? defaultAddress = freezed,
+    Object? notificationSettings = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -91,13 +106,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
               as String,
       city: freezed == city
           ? _value.city
@@ -107,7 +118,48 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String?,
+      dietaryPreferences: null == dietaryPreferences
+          ? _value.dietaryPreferences
+          : dietaryPreferences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      allergies: null == allergies
+          ? _value.allergies
+          : allergies // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      isVegetarian: null == isVegetarian
+          ? _value.isVegetarian
+          : isVegetarian // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultAddress: freezed == defaultAddress
+          ? _value.defaultAddress
+          : defaultAddress // ignore: cast_nullable_to_non_nullable
+              as DeliveryAddress?,
+      notificationSettings: null == notificationSettings
+          ? _value.notificationSettings
+          : notificationSettings // ignore: cast_nullable_to_non_nullable
+              as NotificationSettings,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DeliveryAddressCopyWith<$Res>? get defaultAddress {
+    if (_value.defaultAddress == null) {
+      return null;
+    }
+
+    return $DeliveryAddressCopyWith<$Res>(_value.defaultAddress!, (value) {
+      return _then(_value.copyWith(defaultAddress: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NotificationSettingsCopyWith<$Res> get notificationSettings {
+    return $NotificationSettingsCopyWith<$Res>(_value.notificationSettings,
+        (value) {
+      return _then(_value.copyWith(notificationSettings: value) as $Val);
+    });
   }
 }
 
@@ -123,10 +175,19 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String? email,
       String phone,
       String? whatsapp,
-      @JsonKey(name: "first_name") String firstName,
-      @JsonKey(name: "last_name") String lastName,
+      @JsonKey(name: "full_name") String fullName,
       String? city,
-      String? photo});
+      String? photo,
+      List<String> dietaryPreferences,
+      List<String> allergies,
+      bool isVegetarian,
+      DeliveryAddress? defaultAddress,
+      NotificationSettings notificationSettings});
+
+  @override
+  $DeliveryAddressCopyWith<$Res>? get defaultAddress;
+  @override
+  $NotificationSettingsCopyWith<$Res> get notificationSettings;
 }
 
 /// @nodoc
@@ -143,10 +204,14 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? email = freezed,
     Object? phone = null,
     Object? whatsapp = freezed,
-    Object? firstName = null,
-    Object? lastName = null,
+    Object? fullName = null,
     Object? city = freezed,
     Object? photo = freezed,
+    Object? dietaryPreferences = null,
+    Object? allergies = null,
+    Object? isVegetarian = null,
+    Object? defaultAddress = freezed,
+    Object? notificationSettings = null,
   }) {
     return _then(_$UserImpl(
       id: null == id
@@ -165,13 +230,9 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.whatsapp
           : whatsapp // ignore: cast_nullable_to_non_nullable
               as String?,
-      firstName: null == firstName
-          ? _value.firstName
-          : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      lastName: null == lastName
-          ? _value.lastName
-          : lastName // ignore: cast_nullable_to_non_nullable
+      fullName: null == fullName
+          ? _value.fullName
+          : fullName // ignore: cast_nullable_to_non_nullable
               as String,
       city: freezed == city
           ? _value.city
@@ -181,6 +242,26 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
               as String?,
+      dietaryPreferences: null == dietaryPreferences
+          ? _value._dietaryPreferences
+          : dietaryPreferences // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      allergies: null == allergies
+          ? _value._allergies
+          : allergies // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      isVegetarian: null == isVegetarian
+          ? _value.isVegetarian
+          : isVegetarian // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultAddress: freezed == defaultAddress
+          ? _value.defaultAddress
+          : defaultAddress // ignore: cast_nullable_to_non_nullable
+              as DeliveryAddress?,
+      notificationSettings: null == notificationSettings
+          ? _value.notificationSettings
+          : notificationSettings // ignore: cast_nullable_to_non_nullable
+              as NotificationSettings,
     ));
   }
 }
@@ -193,10 +274,16 @@ class _$UserImpl implements _User {
       required this.email,
       this.phone = '',
       this.whatsapp,
-      @JsonKey(name: "first_name") this.firstName = '',
-      @JsonKey(name: "last_name") this.lastName = '',
+      @JsonKey(name: "full_name") this.fullName = '',
       this.city,
-      this.photo});
+      this.photo,
+      final List<String> dietaryPreferences = const [],
+      final List<String> allergies = const [],
+      this.isVegetarian = false,
+      this.defaultAddress,
+      this.notificationSettings = const NotificationSettings()})
+      : _dietaryPreferences = dietaryPreferences,
+        _allergies = allergies;
 
   factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserImplFromJson(json);
@@ -211,19 +298,43 @@ class _$UserImpl implements _User {
   @override
   final String? whatsapp;
   @override
-  @JsonKey(name: "first_name")
-  final String firstName;
-  @override
-  @JsonKey(name: "last_name")
-  final String lastName;
+  @JsonKey(name: "full_name")
+  final String fullName;
   @override
   final String? city;
   @override
   final String? photo;
+  final List<String> _dietaryPreferences;
+  @override
+  @JsonKey()
+  List<String> get dietaryPreferences {
+    if (_dietaryPreferences is EqualUnmodifiableListView)
+      return _dietaryPreferences;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dietaryPreferences);
+  }
+
+  final List<String> _allergies;
+  @override
+  @JsonKey()
+  List<String> get allergies {
+    if (_allergies is EqualUnmodifiableListView) return _allergies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allergies);
+  }
+
+  @override
+  @JsonKey()
+  final bool isVegetarian;
+  @override
+  final DeliveryAddress? defaultAddress;
+  @override
+  @JsonKey()
+  final NotificationSettings notificationSettings;
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, phone: $phone, whatsapp: $whatsapp, firstName: $firstName, lastName: $lastName, city: $city, photo: $photo)';
+    return 'User(id: $id, email: $email, phone: $phone, whatsapp: $whatsapp, fullName: $fullName, city: $city, photo: $photo, dietaryPreferences: $dietaryPreferences, allergies: $allergies, isVegetarian: $isVegetarian, defaultAddress: $defaultAddress, notificationSettings: $notificationSettings)';
   }
 
   @override
@@ -236,18 +347,38 @@ class _$UserImpl implements _User {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.whatsapp, whatsapp) ||
                 other.whatsapp == whatsapp) &&
-            (identical(other.firstName, firstName) ||
-                other.firstName == firstName) &&
-            (identical(other.lastName, lastName) ||
-                other.lastName == lastName) &&
+            (identical(other.fullName, fullName) ||
+                other.fullName == fullName) &&
             (identical(other.city, city) || other.city == city) &&
-            (identical(other.photo, photo) || other.photo == photo));
+            (identical(other.photo, photo) || other.photo == photo) &&
+            const DeepCollectionEquality()
+                .equals(other._dietaryPreferences, _dietaryPreferences) &&
+            const DeepCollectionEquality()
+                .equals(other._allergies, _allergies) &&
+            (identical(other.isVegetarian, isVegetarian) ||
+                other.isVegetarian == isVegetarian) &&
+            (identical(other.defaultAddress, defaultAddress) ||
+                other.defaultAddress == defaultAddress) &&
+            (identical(other.notificationSettings, notificationSettings) ||
+                other.notificationSettings == notificationSettings));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, phone, whatsapp,
-      firstName, lastName, city, photo);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      email,
+      phone,
+      whatsapp,
+      fullName,
+      city,
+      photo,
+      const DeepCollectionEquality().hash(_dietaryPreferences),
+      const DeepCollectionEquality().hash(_allergies),
+      isVegetarian,
+      defaultAddress,
+      notificationSettings);
 
   @JsonKey(ignore: true)
   @override
@@ -269,10 +400,14 @@ abstract class _User implements User {
       required final String? email,
       final String phone,
       final String? whatsapp,
-      @JsonKey(name: "first_name") final String firstName,
-      @JsonKey(name: "last_name") final String lastName,
+      @JsonKey(name: "full_name") final String fullName,
       final String? city,
-      final String? photo}) = _$UserImpl;
+      final String? photo,
+      final List<String> dietaryPreferences,
+      final List<String> allergies,
+      final bool isVegetarian,
+      final DeliveryAddress? defaultAddress,
+      final NotificationSettings notificationSettings}) = _$UserImpl;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
 
@@ -285,15 +420,22 @@ abstract class _User implements User {
   @override
   String? get whatsapp;
   @override
-  @JsonKey(name: "first_name")
-  String get firstName;
-  @override
-  @JsonKey(name: "last_name")
-  String get lastName;
+  @JsonKey(name: "full_name")
+  String get fullName;
   @override
   String? get city;
   @override
   String? get photo;
+  @override
+  List<String> get dietaryPreferences;
+  @override
+  List<String> get allergies;
+  @override
+  bool get isVegetarian;
+  @override
+  DeliveryAddress? get defaultAddress;
+  @override
+  NotificationSettings get notificationSettings;
   @override
   @JsonKey(ignore: true)
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
