@@ -7,12 +7,17 @@ import '../../models/meal_selection.dart';
 import '../../models/subscription_order.dart';
 import '../../utils/enums.dart';
 import 'cubit/order_cubit.dart';
+import 'dialogs/cancel_subscription_sheet.dart';
+import 'dialogs/feedback_sheet.dart';
+import 'dialogs/pause_subscription_sheet.dart';
+import 'dialogs/renew_subscription_dialog.dart';
 import 'widgets/current_subscription_card.dart';
 import 'widgets/meal_schedule_card.dart';
 import 'widgets/subscription_history_card.dart';
 import 'widgets/subscription_summary_card.dart';
 
 class OrdersPage extends StatelessWidget {
+  static const routeName = 'orders-page';
   const OrdersPage({Key? key}) : super(key: key);
 
   @override

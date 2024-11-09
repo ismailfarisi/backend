@@ -21,7 +21,9 @@ DeliveryTimeSlot _$DeliveryTimeSlotFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DeliveryTimeSlot {
   String get id => throw _privateConstructorUsedError;
+  @TimeOfDayConverter()
   TimeOfDay get startTime => throw _privateConstructorUsedError;
+  @TimeOfDayConverter()
   TimeOfDay get endTime => throw _privateConstructorUsedError;
   List<String> get availableDays => throw _privateConstructorUsedError;
   bool get isActive => throw _privateConstructorUsedError;
@@ -41,8 +43,8 @@ abstract class $DeliveryTimeSlotCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
-      TimeOfDay startTime,
-      TimeOfDay endTime,
+      @TimeOfDayConverter() TimeOfDay startTime,
+      @TimeOfDayConverter() TimeOfDay endTime,
       List<String> availableDays,
       bool isActive,
       String? specialInstructions});
@@ -107,8 +109,8 @@ abstract class _$$DeliveryTimeSlotImplCopyWith<$Res>
   @useResult
   $Res call(
       {String id,
-      TimeOfDay startTime,
-      TimeOfDay endTime,
+      @TimeOfDayConverter() TimeOfDay startTime,
+      @TimeOfDayConverter() TimeOfDay endTime,
       List<String> availableDays,
       bool isActive,
       String? specialInstructions});
@@ -166,8 +168,8 @@ class __$$DeliveryTimeSlotImplCopyWithImpl<$Res>
 class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
   const _$DeliveryTimeSlotImpl(
       {required this.id,
-      required this.startTime,
-      required this.endTime,
+      @TimeOfDayConverter() required this.startTime,
+      @TimeOfDayConverter() required this.endTime,
       required final List<String> availableDays,
       this.isActive = true,
       this.specialInstructions})
@@ -179,8 +181,10 @@ class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
   @override
   final String id;
   @override
+  @TimeOfDayConverter()
   final TimeOfDay startTime;
   @override
+  @TimeOfDayConverter()
   final TimeOfDay endTime;
   final List<String> _availableDays;
   @override
@@ -247,8 +251,8 @@ class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
 abstract class _DeliveryTimeSlot implements DeliveryTimeSlot {
   const factory _DeliveryTimeSlot(
       {required final String id,
-      required final TimeOfDay startTime,
-      required final TimeOfDay endTime,
+      @TimeOfDayConverter() required final TimeOfDay startTime,
+      @TimeOfDayConverter() required final TimeOfDay endTime,
       required final List<String> availableDays,
       final bool isActive,
       final String? specialInstructions}) = _$DeliveryTimeSlotImpl;
@@ -259,8 +263,10 @@ abstract class _DeliveryTimeSlot implements DeliveryTimeSlot {
   @override
   String get id;
   @override
+  @TimeOfDayConverter()
   TimeOfDay get startTime;
   @override
+  @TimeOfDayConverter()
   TimeOfDay get endTime;
   @override
   List<String> get availableDays;

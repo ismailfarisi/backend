@@ -7,11 +7,13 @@ import 'package:meal_app/models/vendor.dart';
 import 'package:meal_app/views/home_layout/home_layout.dart';
 import 'package:meal_app/views/home_page/home_page.dart';
 import 'package:meal_app/views/login/login_page.dart';
+import 'package:meal_app/views/order_page/order_page.dart';
 import 'package:meal_app/views/profile_page/profile_page.dart';
 import 'package:meal_app/views/vendor_detail_page/vendor_detail_page.dart';
 
 import '../app/auth_bloc/auth_bloc.dart';
 import '../injection/injection.dart';
+import '../views/subscription_page/subscription_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -45,12 +47,32 @@ class AppRouter {
                 pageBuilder: (context, state) =>
                     const CupertinoPage(child: ProfilePage()),
               ),
+              GoRoute(
+                path: "/${OrdersPage.routeName}",
+                name: OrdersPage.routeName,
+                pageBuilder: (context, state) =>
+                    const CupertinoPage(child: OrdersPage()),
+              ),
             ]),
         GoRoute(
           path: "/${LoginPage.routeName}",
           name: LoginPage.routeName,
           pageBuilder: (context, state) =>
               const CupertinoPage(child: LoginPage()),
+        ),
+        GoRoute(
+          path: '/subscription',
+          builder: (context, state) => const MealTypeSelectionScreen(),
+          routes: [
+            GoRoute(
+              path: 'vendors',
+              builder: (context, state) => const VendorSelectionScreen(),
+            ),
+            GoRoute(
+              path: 'review',
+              builder: (context, state) => const SubscriptionReviewScreen(),
+            ),
+          ],
         ),
         GoRoute(
             path: "/${VendorDetailPage.routeName}",

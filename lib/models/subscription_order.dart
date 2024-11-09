@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:meal_app/models/address.dart';
+import 'package:meal_app/models/meal_selection.dart';
+import 'package:meal_app/models/subscription_change.dart';
 
 import 'subscription.dart';
 
