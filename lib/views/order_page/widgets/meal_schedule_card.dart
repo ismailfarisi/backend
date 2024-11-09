@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../../models/meal_selection.dart';
-import '../../models/subscription.dart';
+import '../../../models/meal_selection.dart';
+import '../../../models/subscription.dart';
 
 class MealScheduleCard extends StatelessWidget {
   final MealSelection mealSelection;

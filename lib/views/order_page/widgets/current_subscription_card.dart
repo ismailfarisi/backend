@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import '../../../models/subscription_order.dart';
-import '../../models/meal_selection.dart';
-import '../../models/subscription.dart';
 
 class CurrentSubscriptionCard extends StatelessWidget {
   final SubscriptionOrder subscription;

@@ -1,230 +1,266 @@
-// lib/features/orders/widgets/current_subscription_card.dart
+// lib/features/orders/pages/orders_page.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../models/meal_selection.dart';
-import '../../models/subscription.dart';
+import '../../models/subscription_order.dart';
+import '../../utils/enums.dart';
+import 'cubit/order_cubit.dart';
+import 'widgets/current_subscription_card.dart';
+import 'widgets/meal_schedule_card.dart';
+import 'widgets/subscription_history_card.dart';
+import 'widgets/subscription_summary_card.dart';
 
-class CurrentSubscriptionCard extends StatelessWidget {
-  final SubscriptionOrder subscription;
-  final VoidCallback onPause;
-  final VoidCallback onResume;
-  final VoidCallback onCancel;
-  final VoidCallback onRenew;
-
-  const CurrentSubscriptionCard({
-    Key? key,
-    required this.subscription,
-    required this.onPause,
-    required this.onResume,
-    required this.onCancel,
-    required this.onRenew,
-  }) : super(key: key);
+class OrdersPage extends StatelessWidget {
+  const OrdersPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final isActive = subscription.status == SubscriptionStatus.active;
-    final isPaused = subscription.status == SubscriptionStatus.paused;
-    final daysLeft = subscription.endDate.difference(DateTime.now()).inDays;
-
-    return Card(
-      margin: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor.withOpacity(0.1),
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(12)),
+    return BlocProvider(
+      create: (context) => OrderCubit(),
+      child: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: const Text('My Subscriptions'),
+            bottom: const TabBar(
+              tabs: [
+                Tab(text: 'Current'),
+                Tab(text: 'Schedule'),
+                Tab(text: 'History'),
+              ],
             ),
-            child: Row(
+          ),
+          body: const TabBarView(
+            children: [
+              CurrentSubscriptionTab(),
+              MealScheduleTab(),
+              SubscriptionHistoryTab(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// lib/features/orders/pages/tabs/current_subscription_tab.dart
+class CurrentSubscriptionTab extends StatelessWidget {
+  const CurrentSubscriptionTab({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<OrderCubit, OrderState>(
+      builder: (context, state) {
+        if (state.status == AppStatus.loading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (state.status == AppStatus.failure) {
+          return Center(
+            child: Text(state.errorMessage ?? 'Failed to load subscription'),
+          );
+        }
+
+        if (state.activeSubscription == null) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.restaurant,
-                  color: Theme.of(context).primaryColor,
+                const Icon(
+                  Icons.no_meals,
+                  size: 64,
+                  color: Colors.grey,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(height: 16),
                 Text(
-                  'Current Subscription',
+                  'No Active Subscription',
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
-                const Spacer(),
-                _StatusChip(status: subscription.status),
+                const SizedBox(height: 8),
+                Text(
+                  'Subscribe to get started with your meal plan',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey,
+                      ),
+                ),
+                const SizedBox(height: 24),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    // Navigate to subscription plans
+                    context.push('/subscription/plans');
+                  },
+                  icon: const Icon(Icons.add),
+                  label: const Text('Subscribe Now'),
+                ),
               ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _SubscriptionDetail(
-                  icon: Icons.calendar_today,
-                  title: 'Duration',
-                  value:
-                      '${DateFormat('MMM d').format(subscription.startDate)} - ${DateFormat('MMM d').format(subscription.endDate)}',
-                ),
-                const SizedBox(height: 8),
-                _SubscriptionDetail(
-                  icon: Icons.access_time,
-                  title: 'Subscribed Meals',
-                  value: subscription.subscribedMeals
-                      .map((meal) => meal.name)
-                      .join(', '),
-                ),
-                const SizedBox(height: 8),
-                _SubscriptionDetail(
-                  icon: Icons.currency_rupee,
-                  title: 'Monthly Amount',
-                  value: '₹${subscription.monthlyAmount}',
-                ),
-                if (isPaused && subscription.pausedUntil != null) ...[
-                  const SizedBox(height: 8),
-                  _SubscriptionDetail(
-                    icon: Icons.pause_circle_outline,
-                    title: 'Paused Until',
-                    value:
-                        DateFormat('MMM d').format(subscription.pausedUntil!),
-                  ),
-                ],
-                const SizedBox(height: 16),
-                Row(
-                  children: [
-                    if (isActive) ...[
-                      Expanded(
-                        child: OutlinedButton.icon(
-                          onPressed: onPause,
-                          icon: const Icon(Icons.pause),
-                          label: const Text('Pause'),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: OutlinedButton.icon(
-                          onPressed: onCancel,
-                          icon: const Icon(Icons.cancel_outlined),
-                          label: const Text('Cancel'),
-                        ),
-                      ),
-                    ] else if (isPaused) ...[
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: onResume,
-                          icon: const Icon(Icons.play_arrow),
-                          label: const Text('Resume'),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-                if (daysLeft <= 7 && isActive) ...[
-                  const SizedBox(height: 16),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: onRenew,
-                      icon: const Icon(Icons.refresh),
-                      label: const Text('Renew Subscription'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).primaryColor,
-                        foregroundColor: Colors.white,
-                      ),
+          );
+        }
+
+        return RefreshIndicator(
+          onRefresh: () => context.read<OrderCubit>().loadOrders(),
+          child: ListView(
+            children: [
+              CurrentSubscriptionCard(
+                subscription: state.activeSubscription!,
+                onPause: () => _showPauseDialog(context),
+                onResume: () => context.read<OrderCubit>().resumeSubscription(
+                      state.activeSubscription!.id,
                     ),
-                  ),
-                ],
+                onCancel: () => _showCancelDialog(context),
+                onRenew: () => _showRenewDialog(context),
+              ),
+              if (state.summary != null) ...[
+                SubscriptionSummaryCard(summary: state.summary!),
+              ],
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  void _showPauseDialog(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => const PauseSubscriptionSheet(),
+    );
+  }
+
+  void _showCancelDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => const CancelSubscriptionDialog(),
+    );
+  }
+
+  void _showRenewDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => const RenewSubscriptionDialog(),
+    );
+  }
+}
+
+// lib/features/orders/pages/tabs/meal_schedule_tab.dart
+class MealScheduleTab extends StatelessWidget {
+  const MealScheduleTab({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<OrderCubit, OrderState>(
+      builder: (context, state) {
+        if (state.status == AppStatus.loading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (state.status == AppStatus.failure) {
+          return Center(
+            child: Text(state.errorMessage ?? 'Failed to load meal schedule'),
+          );
+        }
+
+        if (state.activeSubscription == null) {
+          return const Center(
+            child: Text('No active subscription'),
+          );
+        }
+
+        final sortedMealSelections = [
+          ...state.activeSubscription!.mealSelections
+        ]..sort((a, b) => b.date.compareTo(a.date));
+
+        return ListView.builder(
+          itemCount: sortedMealSelections.length,
+          itemBuilder: (context, index) {
+            final mealSelection = sortedMealSelections[index];
+            return MealScheduleCard(
+              mealSelection: mealSelection,
+              onFeedback: () => _showFeedbackDialog(context, mealSelection),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void _showFeedbackDialog(BuildContext context, MealSelection mealSelection) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) => FeedbackSheet(mealSelection: mealSelection),
+    );
+  }
+}
+
+// lib/features/orders/pages/tabs/subscription_history_tab.dart
+class SubscriptionHistoryTab extends StatelessWidget {
+  const SubscriptionHistoryTab({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<OrderCubit, OrderState>(
+      builder: (context, state) {
+        if (state.status == AppStatus.loading) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        if (state.status == AppStatus.failure) {
+          return Center(
+            child: Text(state.errorMessage ?? 'Failed to load history'),
+          );
+        }
+
+        final pastSubscriptions = state.orders
+            .where((order) =>
+                order.status == SubscriptionStatus.expired ||
+                order.status == SubscriptionStatus.cancelled)
+            .toList();
+
+        if (pastSubscriptions.isEmpty) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(
+                  Icons.history,
+                  size: 64,
+                  color: Colors.grey,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  'No Subscription History',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Your past subscriptions will appear here',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Colors.grey,
+                      ),
+                ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+          );
+        }
 
-class _StatusChip extends StatelessWidget {
-  final SubscriptionStatus status;
-
-  const _StatusChip({
-    Key? key,
-    required this.status,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      decoration: BoxDecoration(
-        color: status.color.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            status == SubscriptionStatus.active
-                ? Icons.check_circle
-                : status == SubscriptionStatus.paused
-                    ? Icons.pause_circle
-                    : Icons.cancel,
-            size: 16,
-            color: status.color,
-          ),
-          const SizedBox(width: 4),
-          Text(
-            status.displayName,
-            style: TextStyle(
-              color: status.color,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SubscriptionDetail extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String value;
-
-  const _SubscriptionDetail({
-    Key? key,
-    required this.icon,
-    required this.title,
-    required this.value,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          icon,
-          size: 20,
-          color: Colors.grey,
-        ),
-        const SizedBox(width: 8),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodySmall
-                  ?.copyWith(color: Colors.grey),
-            ),
-            Text(
-              value,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-            ),
-          ],
-        ),
-      ],
+        return ListView.builder(
+          itemCount: pastSubscriptions.length,
+          itemBuilder: (context, index) {
+            final subscription = pastSubscriptions[index];
+            return SubscriptionHistoryCard(
+              subscription: subscription,
+              onViewDetails: () => context.push(
+                '/orders/history/${subscription.id}',
+                extra: subscription,
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }
