@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDDVby-fR9NwpFgx1_Nro2P1gfqfvQCb-Q',
-    appId: '1:1019029583509:android:30cdd0ee8947e8993e0d9c',
+    appId: '1:1019029583509:android:8ef5b1b2831fa90a3e0d9c',
     messagingSenderId: '1019029583509',
     projectId: 'meal-app-uae',
     storageBucket: 'meal-app-uae.firebasestorage.app',

@@ -12,6 +12,7 @@ import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../app/auth_bloc/auth_bloc.dart' as _i584;
 import 'injectable_module.dart' as _i109;
 
 const String _Stage = 'Stage';
@@ -29,6 +30,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final registerModules = _$RegisterModules();
+    gh.singleton<_i584.AuthBloc>(() => _i584.AuthBloc());
     gh.factory<String>(
       () => registerModules.baseUrl,
       instanceName: 'BaseUrl',

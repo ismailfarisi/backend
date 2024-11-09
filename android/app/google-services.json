@@ -7,28 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1019029583509:android:30cdd0ee8947e8993e0d9c",
+        "mobilesdk_app_id": "1:1019029583509:android:8ef5b1b2831fa90a3e0d9c",
         "android_client_info": {
-          "package_name": "ae.f.c"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDDVby-fR9NwpFgx1_Nro2P1gfqfvQCb-Q"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1019029583509:android:d36b013fd851cdbd3e0d9c",
-        "android_client_info": {
-          "package_name": "com.ekiaart.app"
+          "package_name": "com.example.meal_app"
         }
       },
       "oauth_client": [],
