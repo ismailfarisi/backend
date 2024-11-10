@@ -9,37 +9,52 @@ part of 'subscription.dart';
 _$SubscriptionImpl _$$SubscriptionImplFromJson(Map<String, dynamic> json) =>
     _$SubscriptionImpl(
       id: json['id'] as String?,
-      type: $enumDecode(_$SubscriptionTypeEnumMap, json['type']),
-      startDate: json['startDate'] == null
-          ? null
-          : DateTime.parse(json['startDate'] as String),
-      endDate: json['endDate'] == null
-          ? null
-          : DateTime.parse(json['endDate'] as String),
-      meals: (json['meals'] as List<dynamic>?)
-              ?.map((e) => $enumDecode(_$MealTypeEnumMap, e))
-              .toList() ??
-          const [],
+      userId: json['userId'] as String,
       price: (json['price'] as num).toDouble(),
-      currentVendor: json['currentVendor'] as String,
+      mealSelections: (json['mealSelections'] as List<dynamic>)
+          .map((e) => MealVendorSelection.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      startDate: DateTime.parse(json['startDate'] as String),
+      endDate: DateTime.parse(json['endDate'] as String),
+      status: $enumDecode(_$SubscriptionStatusEnumMap, json['status']),
+      isAutoRenewal: json['isAutoRenewal'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$SubscriptionImplToJson(_$SubscriptionImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'type': _$SubscriptionTypeEnumMap[instance.type]!,
-      'startDate': instance.startDate?.toIso8601String(),
-      'endDate': instance.endDate?.toIso8601String(),
-      'meals': instance.meals.map((e) => _$MealTypeEnumMap[e]!).toList(),
+      'userId': instance.userId,
       'price': instance.price,
-      'currentVendor': instance.currentVendor,
+      'mealSelections': instance.mealSelections,
+      'startDate': instance.startDate.toIso8601String(),
+      'endDate': instance.endDate.toIso8601String(),
+      'status': _$SubscriptionStatusEnumMap[instance.status]!,
+      'isAutoRenewal': instance.isAutoRenewal,
     };
 
-const _$SubscriptionTypeEnumMap = {
-  SubscriptionType.basic: 'basic',
-  SubscriptionType.premium: 'premium',
-  SubscriptionType.none: 'none',
+const _$SubscriptionStatusEnumMap = {
+  SubscriptionStatus.active: 'active',
+  SubscriptionStatus.paused: 'paused',
+  SubscriptionStatus.cancelled: 'cancelled',
+  SubscriptionStatus.expired: 'expired',
 };
+
+_$MealVendorSelectionImpl _$$MealVendorSelectionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MealVendorSelectionImpl(
+      mealType: $enumDecode(_$MealTypeEnumMap, json['mealType']),
+      vendorIds: (json['vendorIds'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
+    );
+
+Map<String, dynamic> _$$MealVendorSelectionImplToJson(
+        _$MealVendorSelectionImpl instance) =>
+    <String, dynamic>{
+      'mealType': _$MealTypeEnumMap[instance.mealType]!,
+      'vendorIds': instance.vendorIds,
+    };
 
 const _$MealTypeEnumMap = {
   MealType.breakfast: 'breakfast',

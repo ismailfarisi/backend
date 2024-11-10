@@ -62,17 +62,7 @@ class AppRouter {
         ),
         GoRoute(
           path: '/subscription',
-          builder: (context, state) => const MealTypeSelectionScreen(),
-          routes: [
-            GoRoute(
-              path: 'vendors',
-              builder: (context, state) => const VendorSelectionScreen(),
-            ),
-            GoRoute(
-              path: 'review',
-              builder: (context, state) => const SubscriptionReviewScreen(),
-            ),
-          ],
+          builder: (context, state) => const SubscriptionFlowScreen(),
         ),
         GoRoute(
             path: "/${VendorDetailPage.routeName}",

@@ -2,20 +2,14 @@ part of 'subscription_cubit.dart';
 
 @freezed
 class SubscriptionState with _$SubscriptionState {
-  const factory SubscriptionState.initial() = _Initial;
-  const factory SubscriptionState.loading() = _Loading;
-  const factory SubscriptionState.error(String message) = _Error;
-  const factory SubscriptionState.mealTypeSelection({
+  const factory SubscriptionState({
     @Default([]) List<MealType> selectedMealTypes,
-  }) = _MealTypeSelection;
-  const factory SubscriptionState.vendorSelection({
-    required List<MealType> selectedMealTypes,
-    required Map<MealType, List<String>> selectedVendors,
-    required Map<MealType, List<Vendor>> availableVendors,
-  }) = _VendorSelection;
-  const factory SubscriptionState.review({
-    required SubscriptionPlan plan,
-  }) = _Review;
-  const factory SubscriptionState.success({
-    required SubscriptionPlan plan,
-  }) = _Success;
+    Map<MealType, List<String>>? selectedVendors,
+    Map<MealType, List<VendorMenu>>? availableVendors,
+    Subscription? subscriptionPlan,
+    @Default(AppStatus.init) AppStatus status,
+    String? errorMessage,
+    @Default(AppStatus.init) AppStatus submitStatus,
+    String? submitErrorMessage,
+  }) = _SubscriptionState;
+}

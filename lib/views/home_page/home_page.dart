@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton.extended(
           onPressed: () {
-            // Navigate to subscription selection page
+            context.push('/subscription');
           },
           icon: const Icon(Icons.add),
           label: const Text('Subscribe'),

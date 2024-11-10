@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:meal_app/models/subscription_order.dart';
 import 'package:meal_app/utils/enums.dart';
 
 import '../../../models/subscription.dart';
@@ -27,14 +28,13 @@ class HomeCubit extends Cubit<HomeState> {
 
       // Mock subscription data
       final subscription = Subscription(
-        id: '123',
-        type: SubscriptionType.premium,
-        startDate: DateTime.now(),
-        endDate: DateTime.now().add(const Duration(days: 30)),
-        meals: [MealType.breakfast, MealType.dinner],
-        price: 2999,
-        currentVendor: 'Vendor A',
-      );
+          id: '123',
+          userId: "22",
+          startDate: DateTime.now(),
+          endDate: DateTime.now().add(const Duration(days: 30)),
+          price: 2999,
+          mealSelections: [],
+          status: SubscriptionStatus.active);
 
       // Mock vendors data
       final vendors = [
