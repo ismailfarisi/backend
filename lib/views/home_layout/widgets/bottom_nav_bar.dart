@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
+import 'package:meal_app/app/auth_bloc/auth_bloc.dart';
+import 'package:meal_app/injection/injection.dart';
 import 'package:meal_app/views/home_page/home_page.dart';
+import 'package:meal_app/views/login/login_page.dart';
 import 'package:meal_app/views/order_page/order_page.dart';
 import 'package:meal_app/views/profile_page/profile_page.dart';
 
@@ -64,6 +67,7 @@ class BottomNavBar extends StatelessWidget {
   }
 
   void _onItemTapped(int index, BuildContext context) {
+    final user = getIt<AuthBloc>().state.user;
     switch (index) {
       case 0:
         context.goNamed(HomePage.routeName);
@@ -72,10 +76,18 @@ class BottomNavBar extends StatelessWidget {
         context.goNamed(HomePage.routeName);
         break;
       case 2:
-        context.goNamed(OrdersPage.routeName);
+        if (user != null) {
+          context.goNamed(OrdersPage.routeName);
+        } else {
+          context.pushNamed(LoginPage.routeName);
+        }
         break;
       case 3:
-        context.goNamed(ProfilePage.routeName);
+        if (user != null) {
+          context.goNamed(ProfilePage.routeName);
+        } else {
+          context.pushNamed(LoginPage.routeName);
+        }
         break;
     }
   }

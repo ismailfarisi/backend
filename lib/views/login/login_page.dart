@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           listener: (context, state) {
             if (state.loginStatus == AppStatus.success) {
               // Navigate to home page
-              Navigator.pushReplacementNamed(context, '/home');
+              context.pop();
             } else if (state.loginStatus == AppStatus.failure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

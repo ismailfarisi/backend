@@ -19,9 +19,9 @@ class AuthData implements AuthRepo {
       {required String userName, required String password}) async {
     try {
       var loginResponse = await _dio.post(
-        '/v1/auth/login',
+        '/login',
         data: {
-          "email": userName,
+          "username": userName,
           "password": password,
           "notification_token": await _notification.getToken()
         },
@@ -44,11 +44,11 @@ class AuthData implements AuthRepo {
   }) async {
     try {
       final response = await _dio.post(
-        '/v1/auth/register',
+        '/register',
         data: {
           "email": email,
           "password": password,
-          "full_name": fullName,
+          "fullName": fullName,
           "phone": phone,
           "notification_token": await _notification.getToken()
         },
@@ -61,5 +61,11 @@ class AuthData implements AuthRepo {
     } catch (e, stack) {
       return onError(e, stack, log);
     }
+  }
+
+  @override
+  Future<Result<User>> getLoggedInUser() {
+    // TODO: implement getLoggedInUser
+    throw UnimplementedError();
   }
 }
