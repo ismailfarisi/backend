@@ -47,7 +47,7 @@ class CurrentSubscriptionCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   'Current Subscription',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const Spacer(),
                 _StatusChip(status: subscription.status),
@@ -77,7 +77,7 @@ class CurrentSubscriptionCard extends StatelessWidget {
                 _SubscriptionDetail(
                   icon: Icons.currency_rupee,
                   title: 'Monthly Amount',
-                  value: '₹${subscription.monthlyAmount}',
+                  value: 'AED${subscription.monthlyAmount}',
                 ),
                 if (isPaused && subscription.pausedUntil != null) ...[
                   const SizedBox(height: 8),

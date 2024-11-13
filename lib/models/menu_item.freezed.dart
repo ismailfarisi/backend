@@ -22,9 +22,10 @@ MenuItem _$MenuItemFromJson(Map<String, dynamic> json) {
 mixin _$MenuItem {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
+  Vendor? get vendor => throw _privateConstructorUsedError;
+  MealType? get type => throw _privateConstructorUsedError;
   bool get isVegetarian => throw _privateConstructorUsedError;
   List<String> get allergens => throw _privateConstructorUsedError;
 
@@ -42,11 +43,14 @@ abstract class $MenuItemCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String description,
       double price,
       String? imageUrl,
+      Vendor? vendor,
+      MealType? type,
       bool isVegetarian,
       List<String> allergens});
+
+  $VendorCopyWith<$Res>? get vendor;
 }
 
 /// @nodoc
@@ -64,9 +68,10 @@ class _$MenuItemCopyWithImpl<$Res, $Val extends MenuItem>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
     Object? price = null,
     Object? imageUrl = freezed,
+    Object? vendor = freezed,
+    Object? type = freezed,
     Object? isVegetarian = null,
     Object? allergens = null,
   }) {
@@ -79,10 +84,6 @@ class _$MenuItemCopyWithImpl<$Res, $Val extends MenuItem>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -91,6 +92,14 @@ class _$MenuItemCopyWithImpl<$Res, $Val extends MenuItem>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      vendor: freezed == vendor
+          ? _value.vendor
+          : vendor // ignore: cast_nullable_to_non_nullable
+              as Vendor?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as MealType?,
       isVegetarian: null == isVegetarian
           ? _value.isVegetarian
           : isVegetarian // ignore: cast_nullable_to_non_nullable
@@ -100,6 +109,18 @@ class _$MenuItemCopyWithImpl<$Res, $Val extends MenuItem>
           : allergens // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $VendorCopyWith<$Res>? get vendor {
+    if (_value.vendor == null) {
+      return null;
+    }
+
+    return $VendorCopyWith<$Res>(_value.vendor!, (value) {
+      return _then(_value.copyWith(vendor: value) as $Val);
+    });
   }
 }
 
@@ -114,11 +135,15 @@ abstract class _$$MenuItemImplCopyWith<$Res>
   $Res call(
       {String id,
       String name,
-      String description,
       double price,
       String? imageUrl,
+      Vendor? vendor,
+      MealType? type,
       bool isVegetarian,
       List<String> allergens});
+
+  @override
+  $VendorCopyWith<$Res>? get vendor;
 }
 
 /// @nodoc
@@ -134,9 +159,10 @@ class __$$MenuItemImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
     Object? price = null,
     Object? imageUrl = freezed,
+    Object? vendor = freezed,
+    Object? type = freezed,
     Object? isVegetarian = null,
     Object? allergens = null,
   }) {
@@ -149,10 +175,6 @@ class __$$MenuItemImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
@@ -161,6 +183,14 @@ class __$$MenuItemImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      vendor: freezed == vendor
+          ? _value.vendor
+          : vendor // ignore: cast_nullable_to_non_nullable
+              as Vendor?,
+      type: freezed == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as MealType?,
       isVegetarian: null == isVegetarian
           ? _value.isVegetarian
           : isVegetarian // ignore: cast_nullable_to_non_nullable
@@ -179,9 +209,10 @@ class _$MenuItemImpl implements _MenuItem {
   const _$MenuItemImpl(
       {required this.id,
       required this.name,
-      required this.description,
       required this.price,
       this.imageUrl,
+      this.vendor,
+      this.type,
       this.isVegetarian = false,
       final List<String> allergens = const []})
       : _allergens = allergens;
@@ -194,11 +225,13 @@ class _$MenuItemImpl implements _MenuItem {
   @override
   final String name;
   @override
-  final String description;
-  @override
   final double price;
   @override
   final String? imageUrl;
+  @override
+  final Vendor? vendor;
+  @override
+  final MealType? type;
   @override
   @JsonKey()
   final bool isVegetarian;
@@ -213,7 +246,7 @@ class _$MenuItemImpl implements _MenuItem {
 
   @override
   String toString() {
-    return 'MenuItem(id: $id, name: $name, description: $description, price: $price, imageUrl: $imageUrl, isVegetarian: $isVegetarian, allergens: $allergens)';
+    return 'MenuItem(id: $id, name: $name, price: $price, imageUrl: $imageUrl, vendor: $vendor, type: $type, isVegetarian: $isVegetarian, allergens: $allergens)';
   }
 
   @override
@@ -223,11 +256,11 @@ class _$MenuItemImpl implements _MenuItem {
             other is _$MenuItemImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
             (identical(other.price, price) || other.price == price) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
+            (identical(other.vendor, vendor) || other.vendor == vendor) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.isVegetarian, isVegetarian) ||
                 other.isVegetarian == isVegetarian) &&
             const DeepCollectionEquality()
@@ -236,8 +269,16 @@ class _$MenuItemImpl implements _MenuItem {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, description, price,
-      imageUrl, isVegetarian, const DeepCollectionEquality().hash(_allergens));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      price,
+      imageUrl,
+      vendor,
+      type,
+      isVegetarian,
+      const DeepCollectionEquality().hash(_allergens));
 
   @JsonKey(ignore: true)
   @override
@@ -257,9 +298,10 @@ abstract class _MenuItem implements MenuItem {
   const factory _MenuItem(
       {required final String id,
       required final String name,
-      required final String description,
       required final double price,
       final String? imageUrl,
+      final Vendor? vendor,
+      final MealType? type,
       final bool isVegetarian,
       final List<String> allergens}) = _$MenuItemImpl;
 
@@ -271,11 +313,13 @@ abstract class _MenuItem implements MenuItem {
   @override
   String get name;
   @override
-  String get description;
-  @override
   double get price;
   @override
   String? get imageUrl;
+  @override
+  Vendor? get vendor;
+  @override
+  MealType? get type;
   @override
   bool get isVegetarian;
   @override

@@ -153,7 +153,7 @@ class VendorDetailPage extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Order ${state.selectedMenuItem!.name} - ₹${state.selectedMenuItem!.price}',
+                      'Order ${state.selectedMenuItem!.name} - AED${state.selectedMenuItem!.price}',
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

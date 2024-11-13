@@ -56,7 +56,7 @@ class VendorSelectionTab extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        '₹${vendor.price.toStringAsFixed(0)}/meal',
+                        'AED${vendor.price.toStringAsFixed(0)}/meal',
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       Row(

@@ -35,14 +35,12 @@ class VendorDetailCubit extends Cubit<VendorDetailState> {
               const MenuItem(
                 id: '1',
                 name: 'Idli Sambar',
-                description: 'Soft idli with sambar and chutney',
                 price: 60,
                 isVegetarian: true,
               ),
               const MenuItem(
                 id: '2',
                 name: 'Masala Dosa',
-                description: 'Crispy dosa with potato masala',
                 price: 80,
                 isVegetarian: true,
               ),
@@ -51,20 +49,17 @@ class VendorDetailCubit extends Cubit<VendorDetailState> {
               const MenuItem(
                 id: '3',
                 name: 'Chicken Biryani',
-                description: 'Fragrant rice with spiced chicken',
                 price: 160,
               ),
               const MenuItem(
                 id: '4',
                 name: 'Rice and Curry',
-                description: 'Steamed rice with curry of the day',
                 price: 120,
                 isVegetarian: true,
               ),
               const MenuItem(
                 id: '5',
                 name: 'Ghee Rice and Beef Curry',
-                description: 'Ghee rice with spicy beef curry',
                 price: 180,
               ),
             ],
@@ -72,14 +67,12 @@ class VendorDetailCubit extends Cubit<VendorDetailState> {
               const MenuItem(
                 id: '6',
                 name: 'Chapathi and Curry',
-                description: 'Whole wheat chapathi with curry',
                 price: 100,
                 isVegetarian: true,
               ),
               const MenuItem(
                 id: '7',
                 name: 'Porotta and Beef Fry',
-                description: 'Kerala porotta with spicy beef fry',
                 price: 140,
               ),
             ],

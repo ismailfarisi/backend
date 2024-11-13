@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../utils/enums.dart';
+import 'subscription.dart';
 import 'vendor.dart';
 
 part 'menu_item.freezed.dart';
@@ -11,9 +12,10 @@ class MenuItem with _$MenuItem {
   const factory MenuItem({
     required String id,
     required String name,
-    required String description,
     required double price,
     String? imageUrl,
+    Vendor? vendor,
+    MealType? type,
     @Default(false) bool isVegetarian,
     @Default([]) List<String> allergens,
   }) = _MenuItem;

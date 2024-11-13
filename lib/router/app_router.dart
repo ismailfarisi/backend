@@ -9,17 +9,19 @@ import 'package:meal_app/views/home_page/home_page.dart';
 import 'package:meal_app/views/login/login_page.dart';
 import 'package:meal_app/views/order_page/order_page.dart';
 import 'package:meal_app/views/profile_page/profile_page.dart';
+import 'package:meal_app/views/register_page/register_page.dart';
 import 'package:meal_app/views/vendor_detail_page/vendor_detail_page.dart';
 
 import '../app/auth_bloc/auth_bloc.dart';
 import '../injection/injection.dart';
+import '../views/onborading_page/onboarding_page.dart';
 import '../views/subscription_page/subscription_page.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
       refreshListenable: GoRouterRefreshStream(getIt<AuthBloc>().stream),
       // observers: [routerObserver],
-      initialLocation: "/${HomePage.routeName}",
+      initialLocation: "/${OnboardingScreen.routeName}",
       redirect: (context, state) {
         final authState = getIt<AuthBloc>().state;
         if (authState.authStatus == AuthStatus.Authenticated) {
@@ -61,8 +63,19 @@ class AppRouter {
               const CupertinoPage(child: LoginPage()),
         ),
         GoRoute(
+          path: "/${RegisterPage.routeName}",
+          name: RegisterPage.routeName,
+          pageBuilder: (context, state) =>
+              const CupertinoPage(child: RegisterPage()),
+        ),
+        GoRoute(
           path: '/subscription',
           builder: (context, state) => const SubscriptionFlowScreen(),
+        ),
+        GoRoute(
+          path: "/${OnboardingScreen.routeName}",
+          name: OnboardingScreen.routeName,
+          builder: (context, state) => const OnboardingScreen(),
         ),
         GoRoute(
             path: "/${VendorDetailPage.routeName}",

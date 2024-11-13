@@ -104,10 +104,6 @@ class MealScheduleCard extends StatelessWidget {
                           entry.value.name,
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
-                        Text(
-                          entry.value.description,
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
                       ],
                     ),
                   ),

@@ -24,8 +24,10 @@ mixin _$Vendor {
   String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
+  int get totalRatings => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
   List<String> get specialities => throw _privateConstructorUsedError;
+  List<MealType> get availableMealTypes => throw _privateConstructorUsedError;
   Map<MealType, double> get mealPrices => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,8 +45,10 @@ abstract class $VendorCopyWith<$Res> {
       String name,
       String description,
       double rating,
+      int totalRatings,
       String imageUrl,
       List<String> specialities,
+      List<MealType> availableMealTypes,
       Map<MealType, double> mealPrices});
 }
 
@@ -65,8 +69,10 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
     Object? name = null,
     Object? description = null,
     Object? rating = null,
+    Object? totalRatings = null,
     Object? imageUrl = null,
     Object? specialities = null,
+    Object? availableMealTypes = null,
     Object? mealPrices = null,
   }) {
     return _then(_value.copyWith(
@@ -86,6 +92,10 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
+      totalRatings: null == totalRatings
+          ? _value.totalRatings
+          : totalRatings // ignore: cast_nullable_to_non_nullable
+              as int,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -94,6 +104,10 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
           ? _value.specialities
           : specialities // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      availableMealTypes: null == availableMealTypes
+          ? _value.availableMealTypes
+          : availableMealTypes // ignore: cast_nullable_to_non_nullable
+              as List<MealType>,
       mealPrices: null == mealPrices
           ? _value.mealPrices
           : mealPrices // ignore: cast_nullable_to_non_nullable
@@ -114,8 +128,10 @@ abstract class _$$VendorImplCopyWith<$Res> implements $VendorCopyWith<$Res> {
       String name,
       String description,
       double rating,
+      int totalRatings,
       String imageUrl,
       List<String> specialities,
+      List<MealType> availableMealTypes,
       Map<MealType, double> mealPrices});
 }
 
@@ -134,8 +150,10 @@ class __$$VendorImplCopyWithImpl<$Res>
     Object? name = null,
     Object? description = null,
     Object? rating = null,
+    Object? totalRatings = null,
     Object? imageUrl = null,
     Object? specialities = null,
+    Object? availableMealTypes = null,
     Object? mealPrices = null,
   }) {
     return _then(_$VendorImpl(
@@ -155,6 +173,10 @@ class __$$VendorImplCopyWithImpl<$Res>
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
+      totalRatings: null == totalRatings
+          ? _value.totalRatings
+          : totalRatings // ignore: cast_nullable_to_non_nullable
+              as int,
       imageUrl: null == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
@@ -163,6 +185,10 @@ class __$$VendorImplCopyWithImpl<$Res>
           ? _value._specialities
           : specialities // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      availableMealTypes: null == availableMealTypes
+          ? _value._availableMealTypes
+          : availableMealTypes // ignore: cast_nullable_to_non_nullable
+              as List<MealType>,
       mealPrices: null == mealPrices
           ? _value._mealPrices
           : mealPrices // ignore: cast_nullable_to_non_nullable
@@ -179,10 +205,13 @@ class _$VendorImpl implements _Vendor {
       required this.name,
       required this.description,
       required this.rating,
+      this.totalRatings = 0,
       required this.imageUrl,
       final List<String> specialities = const [],
+      final List<MealType> availableMealTypes = const [],
       required final Map<MealType, double> mealPrices})
       : _specialities = specialities,
+        _availableMealTypes = availableMealTypes,
         _mealPrices = mealPrices;
 
   factory _$VendorImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,6 +226,9 @@ class _$VendorImpl implements _Vendor {
   @override
   final double rating;
   @override
+  @JsonKey()
+  final int totalRatings;
+  @override
   final String imageUrl;
   final List<String> _specialities;
   @override
@@ -205,6 +237,16 @@ class _$VendorImpl implements _Vendor {
     if (_specialities is EqualUnmodifiableListView) return _specialities;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_specialities);
+  }
+
+  final List<MealType> _availableMealTypes;
+  @override
+  @JsonKey()
+  List<MealType> get availableMealTypes {
+    if (_availableMealTypes is EqualUnmodifiableListView)
+      return _availableMealTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableMealTypes);
   }
 
   final Map<MealType, double> _mealPrices;
@@ -217,7 +259,7 @@ class _$VendorImpl implements _Vendor {
 
   @override
   String toString() {
-    return 'Vendor(id: $id, name: $name, description: $description, rating: $rating, imageUrl: $imageUrl, specialities: $specialities, mealPrices: $mealPrices)';
+    return 'Vendor(id: $id, name: $name, description: $description, rating: $rating, totalRatings: $totalRatings, imageUrl: $imageUrl, specialities: $specialities, availableMealTypes: $availableMealTypes, mealPrices: $mealPrices)';
   }
 
   @override
@@ -230,10 +272,14 @@ class _$VendorImpl implements _Vendor {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.totalRatings, totalRatings) ||
+                other.totalRatings == totalRatings) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
             const DeepCollectionEquality()
                 .equals(other._specialities, _specialities) &&
+            const DeepCollectionEquality()
+                .equals(other._availableMealTypes, _availableMealTypes) &&
             const DeepCollectionEquality()
                 .equals(other._mealPrices, _mealPrices));
   }
@@ -246,8 +292,10 @@ class _$VendorImpl implements _Vendor {
       name,
       description,
       rating,
+      totalRatings,
       imageUrl,
       const DeepCollectionEquality().hash(_specialities),
+      const DeepCollectionEquality().hash(_availableMealTypes),
       const DeepCollectionEquality().hash(_mealPrices));
 
   @JsonKey(ignore: true)
@@ -270,8 +318,10 @@ abstract class _Vendor implements Vendor {
       required final String name,
       required final String description,
       required final double rating,
+      final int totalRatings,
       required final String imageUrl,
       final List<String> specialities,
+      final List<MealType> availableMealTypes,
       required final Map<MealType, double> mealPrices}) = _$VendorImpl;
 
   factory _Vendor.fromJson(Map<String, dynamic> json) = _$VendorImpl.fromJson;
@@ -285,9 +335,13 @@ abstract class _Vendor implements Vendor {
   @override
   double get rating;
   @override
+  int get totalRatings;
+  @override
   String get imageUrl;
   @override
   List<String> get specialities;
+  @override
+  List<MealType> get availableMealTypes;
   @override
   Map<MealType, double> get mealPrices;
   @override

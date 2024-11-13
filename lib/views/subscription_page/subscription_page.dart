@@ -107,7 +107,7 @@ class _MealTypeSelectionPage extends StatelessWidget {
             children: [
               Text(
                 'Select Your Meals',
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 8),
               Text(

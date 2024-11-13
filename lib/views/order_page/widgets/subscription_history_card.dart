@@ -59,7 +59,7 @@ class SubscriptionHistoryCard extends StatelessWidget {
               _DetailRow(
                 icon: Icons.payments,
                 label: 'Amount Paid',
-                value: '₹${subscription.monthlyAmount}',
+                value: 'AED${subscription.monthlyAmount}',
               ),
               if (subscription.cancelReason != null) ...[
                 const SizedBox(height: 8),

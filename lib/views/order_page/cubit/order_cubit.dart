@@ -46,13 +46,11 @@ class OrderCubit extends Cubit<OrderState> {
               MealType.breakfast: const MenuItem(
                 id: '1',
                 name: 'Masala Dosa',
-                description: 'Crispy dosa with potato filling',
                 price: 80,
               ),
               MealType.dinner: const MenuItem(
                 id: '2',
                 name: 'Chapathi Curry',
-                description: 'Whole wheat chapathi with curry',
                 price: 120,
               ),
             },

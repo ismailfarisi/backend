@@ -1,13 +1,21 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
+import 'package:meal_app/data_repositories/auth_repo.dart';
+import 'package:meal_app/utils/result.dart';
 
+import '../../../app/auth_bloc/auth_bloc.dart';
+import '../../../injection/injection.dart';
 import '../../../utils/enums.dart';
 
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';
 
+@injectable
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginState());
+  LoginCubit(this._authRepo) : super(const LoginState());
+
+  final AuthRepo _authRepo;
 
   Future<void> login({
     required String email,
@@ -15,18 +23,18 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     try {
       emit(state.copyWith(loginStatus: AppStatus.loading));
-
-      // Simulate API call
-      await Future.delayed(const Duration(seconds: 2));
-
-      // Add your authentication logic here
-      if (email == 'test@example.com' && password == 'password') {
-        emit(state.copyWith(loginStatus: AppStatus.success));
-      } else {
-        emit(state.copyWith(
-          loginStatus: AppStatus.failure,
-          loginError: 'Invalid credentials',
-        ));
+      final result = await _authRepo.loginWithUsername(
+          userName: email, password: password);
+      switch (result) {
+        case (Success s):
+          emit(state.copyWith(loginStatus: AppStatus.success));
+          getIt<AuthBloc>().add(AuthEvent.userLoggedIn(user: s.value));
+          break;
+        case (Error e):
+          emit(state.copyWith(
+            loginStatus: AppStatus.failure,
+            loginError: e.exception,
+          ));
       }
     } catch (e) {
       emit(state.copyWith(

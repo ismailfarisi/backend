@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meal_app/injection/injection.dart';
 import 'package:meal_app/utils/enums.dart';
 import 'package:meal_app/views/login/cubit/login_cubit.dart';
+import 'package:meal_app/views/register_page/register_page.dart';
 
 import '../../global_widgets/custom_button.dart';
 import '../../global_widgets/custom_textfield.dart';
@@ -24,23 +27,24 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => getIt<LoginCubit>(),
       child: Scaffold(
         body: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
-            if (state == AppStatus.success) {
+            if (state.loginStatus == AppStatus.success) {
               // Navigate to home page
               Navigator.pushReplacementNamed(context, '/home');
-            } else if (state == AppStatus.failure) {
+            } else if (state.loginStatus == AppStatus.failure) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text(state.loginStatus.name)),
+                SnackBar(
+                    content: Text(state.loginError ?? "Something went wrong")),
               );
             }
           },
           builder: (context, state) {
             return SafeArea(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -54,20 +58,20 @@ class _LoginPageState extends State<LoginPage> {
                                   fontWeight: FontWeight.bold,
                                 ),
                       ),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 8),
+                      const Text(
                         'Login to your food mess account',
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(height: 32),
+                      const SizedBox(height: 32),
                       CustomTextField(
                         controller: _emailController,
                         hintText: 'Email',
                         keyboardType: TextInputType.emailAddress,
-                        prefixIcon: Icon(Icons.email_outlined),
+                        prefixIcon: const Icon(Icons.email_outlined),
                         validator: (value) {
                           if (value?.isEmpty ?? true) {
                             return 'Please enter your email';
@@ -78,12 +82,12 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       CustomTextField(
                         controller: _passwordController,
                         hintText: 'Password',
                         obscureText: true,
-                        prefixIcon: Icon(Icons.lock_outline),
+                        prefixIcon: const Icon(Icons.lock_outline),
                         validator: (value) {
                           if (value?.isEmpty ?? true) {
                             return 'Please enter your password';
@@ -94,17 +98,17 @@ class _LoginPageState extends State<LoginPage> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
                             // Navigate to forgot password page
                           },
-                          child: Text('Forgot Password?'),
+                          child: const Text('Forgot Password?'),
                         ),
                       ),
-                      SizedBox(height: 24),
+                      const SizedBox(height: 24),
                       CustomButton(
                         text: 'Login',
                         isLoading: state.loginStatus == AppStatus.loading,
@@ -117,16 +121,16 @@ class _LoginPageState extends State<LoginPage> {
                           }
                         },
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("Don't have an account?"),
+                          const Text("Don't have an account?"),
                           TextButton(
                             onPressed: () {
-                              // Navigate to registration page
+                              context.pushNamed(RegisterPage.routeName);
                             },
-                            child: Text('Sign Up'),
+                            child: const Text('Sign Up'),
                           ),
                         ],
                       ),

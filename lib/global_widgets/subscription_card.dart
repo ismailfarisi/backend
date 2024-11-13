@@ -65,7 +65,7 @@ class SubscriptionCard extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                     Text(
-                      '₹${subscription.price.toStringAsFixed(0)}',
+                      'AED${subscription.price.toStringAsFixed(0)}',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             color: Theme.of(context).colorScheme.primary,
                           ),

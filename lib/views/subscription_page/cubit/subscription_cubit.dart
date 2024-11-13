@@ -31,9 +31,6 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
     ));
 
     try {
-      await Future.delayed(
-          const Duration(milliseconds: 500)); // Simulate API call
-
       if (selectedMealTypes.isEmpty) {
         emit(state.copyWith(
           selectedMealTypes: [],

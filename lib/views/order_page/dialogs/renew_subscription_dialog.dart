@@ -103,7 +103,7 @@ class _RenewSubscriptionDialogState extends State<RenewSubscriptionDialog> {
                   ),
                   _PlanDetailTile(
                     title: 'Monthly Amount',
-                    value: '₹${subscription.monthlyAmount}',
+                    value: 'AED${subscription.monthlyAmount}',
                     icon: Icons.currency_rupee,
                   ),
                   const Divider(height: 32),
@@ -188,7 +188,7 @@ class _RenewSubscriptionDialogState extends State<RenewSubscriptionDialog> {
                               ],
                             ),
                             subtitle: Text(
-                              '₹${baseAmount * months} for $months months',
+                              'AED${baseAmount * months} for $months months',
                             ),
                           );
                         },
@@ -212,20 +212,20 @@ class _RenewSubscriptionDialogState extends State<RenewSubscriptionDialog> {
                         const SizedBox(height: 12),
                         _PriceSummaryRow(
                           label: 'Base Amount',
-                          value: '₹$totalAmount',
+                          value: 'AED$totalAmount',
                         ),
                         if (discount > 0) ...[
                           _PriceSummaryRow(
                             label: 'Discount ($discount%)',
                             value:
-                                '-₹${(totalAmount * discount / 100).round()}',
+                                '-AED${(totalAmount * discount / 100).round()}',
                             isDiscount: true,
                           ),
                         ],
                         const Divider(),
                         _PriceSummaryRow(
                           label: 'Total Amount',
-                          value: '₹$discountedAmount',
+                          value: 'AED$discountedAmount',
                           isTotal: true,
                         ),
                       ],

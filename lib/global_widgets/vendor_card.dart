@@ -100,7 +100,7 @@ class VendorCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                       Text(
-                        '₹${vendor.mealPrices[meal]}',
+                        'AED${vendor.mealPrices[meal]}',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],

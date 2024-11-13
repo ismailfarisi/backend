@@ -34,7 +34,7 @@ class SubscriptionSummaryCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Text(
                   'Subscription Summary',
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ],
             ),
@@ -63,7 +63,7 @@ class SubscriptionSummaryCard extends StatelessWidget {
                       child: _SummaryItem(
                         icon: Icons.currency_rupee,
                         title: 'Total Spent',
-                        value: '₹${summary.totalSpent}',
+                        value: 'AED${summary.totalSpent}',
                       ),
                     ),
                   ],

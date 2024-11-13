@@ -12,8 +12,10 @@ class Vendor with _$Vendor {
     required String name,
     required String description,
     required double rating,
+    @Default(0) int totalRatings,
     required String imageUrl,
     @Default([]) List<String> specialities,
+    @Default([]) List<MealType> availableMealTypes,
     required Map<MealType, double> mealPrices,
   }) = _Vendor;
 

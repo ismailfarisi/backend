@@ -50,13 +50,9 @@ class MealOptionCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 4),
-              Text(
-                menuItem.description,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
               const SizedBox(height: 8),
               Text(
-                '₹${menuItem.price}',
+                'AED${menuItem.price}',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       color: Theme.of(context).primaryColor,
                       fontWeight: FontWeight.bold,

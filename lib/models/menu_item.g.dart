@@ -10,9 +10,12 @@ _$MenuItemImpl _$$MenuItemImplFromJson(Map<String, dynamic> json) =>
     _$MenuItemImpl(
       id: json['id'] as String,
       name: json['name'] as String,
-      description: json['description'] as String,
       price: (json['price'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String?,
+      vendor: json['vendor'] == null
+          ? null
+          : Vendor.fromJson(json['vendor'] as Map<String, dynamic>),
+      type: $enumDecodeNullable(_$MealTypeEnumMap, json['type']),
       isVegetarian: json['isVegetarian'] as bool? ?? false,
       allergens: (json['allergens'] as List<dynamic>?)
               ?.map((e) => e as String)
@@ -24,12 +27,19 @@ Map<String, dynamic> _$$MenuItemImplToJson(_$MenuItemImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'description': instance.description,
       'price': instance.price,
       'imageUrl': instance.imageUrl,
+      'vendor': instance.vendor,
+      'type': _$MealTypeEnumMap[instance.type],
       'isVegetarian': instance.isVegetarian,
       'allergens': instance.allergens,
     };
+
+const _$MealTypeEnumMap = {
+  MealType.breakfast: 'breakfast',
+  MealType.lunch: 'lunch',
+  MealType.dinner: 'dinner',
+};
 
 _$DailyMenuImpl _$$DailyMenuImplFromJson(Map<String, dynamic> json) =>
     _$DailyMenuImpl(

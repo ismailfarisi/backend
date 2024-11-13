@@ -56,12 +56,10 @@ class BottomNavBar extends StatelessWidget {
 
   int _calculateSelectedIndex(String location) {
     Logger().d(location);
-    if (location.startsWith(HomePage.routeName.replaceFirst('/', ''))) return 0;
-    if (location.startsWith("")) return 1;
-    if (location.startsWith(OrdersPage.routeName.replaceFirst('/', '')))
-      return 2;
-    if (location.startsWith(ProfilePage.routeName.replaceFirst('/', '')))
-      return 3;
+    if (location.contains(HomePage.routeName)) return 0;
+    if (location.startsWith("ghtr")) return 1;
+    if (location.contains(OrdersPage.routeName)) return 2;
+    if (location.contains(ProfilePage.routeName)) return 3;
     return 0;
   }
 

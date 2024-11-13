@@ -61,7 +61,7 @@ class MealSummaryCard extends StatelessWidget {
                   ),
                   title: Text('Vendor $vendorId'),
                   subtitle: vendor != null
-                      ? Text('₹${vendor.price.toStringAsFixed(0)}/meal')
+                      ? Text('AED${vendor.price.toStringAsFixed(0)}/meal')
                       : null,
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
