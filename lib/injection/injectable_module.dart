@@ -12,7 +12,7 @@ abstract class RegisterModules {
   @Environment('Stage')
   @Named('BaseUrl')
   String get baseUrl => //'https://meal.habllen.com/api/';
-      'http://192.168.1.59:3000/api/';
+      'http://192.168.1.59:3000/';
   @Environment('Prod')
   @Named('AwsBucket')
   String get awsProdBucket =>

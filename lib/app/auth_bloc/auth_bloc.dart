@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:meal_app/data_repositories/auth_repo.dart';
 
 import '../../models/user.dart';
@@ -19,12 +20,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_UserLoggedIn>(_userLoggedIn);
     on<_UserLoggedOut>(_userLoggedOut);
     on<_Started>(_started);
+    add(const _Started());
   }
 
   final AuthRepo _authRepo;
 
   FutureOr<void> _userLoggedIn(
       _UserLoggedIn event, Emitter<AuthState> emit) async {
+    Logger().d(event.user);
     emit(
         state.copyWith(authStatus: AuthStatus.Authenticated, user: event.user));
   }

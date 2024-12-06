@@ -68,6 +68,7 @@ class BottomNavBar extends StatelessWidget {
 
   void _onItemTapped(int index, BuildContext context) {
     final user = getIt<AuthBloc>().state.user;
+    Logger().d(user);
     switch (index) {
       case 0:
         context.goNamed(HomePage.routeName);

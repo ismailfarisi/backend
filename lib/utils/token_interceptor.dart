@@ -34,8 +34,8 @@ class TokenInterceptor extends InterceptorsWrapper {
     String? accessToken;
     String? refreshToken;
     if (response.data.toString() != "") {
-      if (response.data is Map && response.data?['access_token'] != null) {
-        accessToken = response.data?['access_token'];
+      if (response.data is Map && response.data?['token'] != null) {
+        accessToken = response.data?['token'];
         refreshToken = response.headers['set-cookie']?.firstOrNull?.splitMapJoin(
             RegExp(r'refreshToken=(.*?);'),
             onMatch: (m) =>

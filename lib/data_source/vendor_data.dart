@@ -19,24 +19,28 @@ class VendorData implements VendorRepo {
   @override
   Future<Result<Subscription?>> getCurrentSubscription() async {
     try {
-      final response = await _dio.get('/v1/subscriptions/current');
+      final response = await _dio.get('/subscriptions/current');
       if (response.statusCode == 404) {
         // No active subscription
         return Success(null);
       }
-
-      final subscription = Subscription.fromJson(response.data);
-      return Success(subscription);
+      if ((response.data['data'] as List?)?.isNotEmpty ?? false) {
+        final subscription = Subscription.fromJson(response.data['data']);
+        return Success(subscription);
+      }
+      return Success(null);
     } catch (e, stack) {
       return onError(e, stack, log);
     }
   }
 
   @override
-  Future<Result<List<Vendor>>> getRecommendedVendors() async {
+  Future<Result<List<Vendor>>> getRecommendedVendors(
+      {required double lat, required double long}) async {
     try {
-      final response = await _dio.get('/v1/vendors/recommended');
-      final List<dynamic> data = response.data['vendors'];
+      final response = await _dio.get('/vendors/recommended',
+          queryParameters: {"latitude": lat, "longitude": long});
+      final List<dynamic> data = response.data['data'];
       final vendors = data.map((json) => Vendor.fromJson(json)).toList();
       return Success(vendors);
     } catch (e, stack) {

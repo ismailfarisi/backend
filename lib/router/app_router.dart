@@ -22,17 +22,17 @@ class AppRouter {
       refreshListenable: GoRouterRefreshStream(getIt<AuthBloc>().stream),
       // observers: [routerObserver],
       initialLocation: "/${OnboardingScreen.routeName}",
-      redirect: (context, state) {
-        final authState = getIt<AuthBloc>().state;
-        if (authState.authStatus == AuthStatus.Authenticated) {
-          return "/${HomePage.routeName}";
-        } else if (authState.authStatus == AuthStatus.UnAuthenticated) {
-          return "/${HomePage.routeName}";
-          // "/${LoginPage.routeName}";
-        } else {
-          return null;
-        }
-      },
+      // redirect: (context, state) {
+      //   final authState = getIt<AuthBloc>().state;
+      //   if (authState.authStatus == AuthStatus.Authenticated) {
+      //     return "/${HomePage.routeName}";
+      //   } else if (authState.authStatus == AuthStatus.UnAuthenticated) {
+      //     return "/${HomePage.routeName}";
+      //     // "/${LoginPage.routeName}";
+      //   } else {
+      //     return null;
+      //   }
+      // },
       routes: [
         ShellRoute(
             builder: (context, state, child) => HomeLayout(child: child),

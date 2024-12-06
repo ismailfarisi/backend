@@ -41,7 +41,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final registerModules = _$RegisterModules();
     gh.factory<_i943.OrderCubit>(() => _i943.OrderCubit());
-    gh.singleton<_i584.AuthBloc>(() => _i584.AuthBloc());
     gh.factory<_i237.VendorDetailCubit>(
         () => _i237.VendorDetailCubit(vendor: gh<_i569.Vendor>()));
     gh.factory<String>(
@@ -67,9 +66,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(
         () => registerModules.getDio(gh<String>(instanceName: 'BaseUrl')));
     gh.factory<_i3.AuthRepo>(() => _i223.AuthData(dio: gh<_i361.Dio>()));
-    gh.factory<_i621.LoginCubit>(() => _i621.LoginCubit(gh<_i3.AuthRepo>()));
+    gh.singleton<_i584.AuthBloc>(() => _i584.AuthBloc(gh<_i3.AuthRepo>()));
     gh.factory<_i986.RegisterCubit>(
         () => _i986.RegisterCubit(gh<_i3.AuthRepo>()));
+    gh.factory<_i621.LoginCubit>(() => _i621.LoginCubit(gh<_i3.AuthRepo>()));
     gh.factory<_i617.VendorRepo>(() => _i917.VendorData(dio: gh<_i361.Dio>()));
     gh.factory<_i607.HomeCubit>(() => _i607.HomeCubit(gh<_i617.VendorRepo>()));
     return this;

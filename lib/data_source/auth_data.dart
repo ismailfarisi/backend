@@ -19,16 +19,16 @@ class AuthData implements AuthRepo {
       {required String userName, required String password}) async {
     try {
       var loginResponse = await _dio.post(
-        '/login',
+        'auth/login',
         data: {
-          "username": userName,
+          "email": userName,
           "password": password,
-          "notification_token": await _notification.getToken()
+          // "notification_token": await _notification.getToken()
         },
       );
       Map<String, dynamic> data = loginResponse.data;
       log.d(data);
-      User user = User.fromJson(data);
+      User user = User.fromJson(data['user']);
       return Success(user);
     } catch (e, stack) {
       return onError(e, stack, log);
@@ -44,13 +44,13 @@ class AuthData implements AuthRepo {
   }) async {
     try {
       final response = await _dio.post(
-        '/register',
+        'auth/register',
         data: {
           "email": email,
           "password": password,
-          "fullName": fullName,
+          "name": fullName,
           "phone": phone,
-          "notification_token": await _notification.getToken()
+          // "notification_token": await _notification.getToken()
         },
       );
 
@@ -64,8 +64,17 @@ class AuthData implements AuthRepo {
   }
 
   @override
-  Future<Result<User>> getLoggedInUser() {
-    // TODO: implement getLoggedInUser
-    throw UnimplementedError();
+  Future<Result<User>> getLoggedInUser() async {
+    try {
+      var loginResponse = await _dio.get(
+        'auth/me',
+      );
+      Map<String, dynamic> data = loginResponse.data;
+      log.d(data);
+      User user = User.fromJson(data);
+      return Success(user);
+    } catch (e, stack) {
+      return onError(e, stack, log);
+    }
   }
 }

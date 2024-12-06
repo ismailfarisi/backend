@@ -9,42 +9,59 @@ part of 'vendor.dart';
 _$VendorImpl _$$VendorImplFromJson(Map<String, dynamic> json) => _$VendorImpl(
       id: json['id'] as String,
       name: json['name'] as String,
-      description: json['description'] as String,
+      businessName: json['businessName'] as String,
+      address: json['address'] as String,
+      phone: json['phone'] as String,
       rating: (json['rating'] as num).toDouble(),
-      totalRatings: (json['totalRatings'] as num?)?.toInt() ?? 0,
-      imageUrl: json['imageUrl'] as String,
-      specialities: (json['specialities'] as List<dynamic>?)
+      totalRatings: (json['totalRatings'] as num).toInt(),
+      profilePhotoUrl: json['profilePhotoUrl'] as String,
+      coverPhotoUrl: json['coverPhotoUrl'] as String,
+      cuisineTypes: (json['cuisineTypes'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      availableMealTypes: (json['availableMealTypes'] as List<dynamic>?)
-              ?.map((e) => $enumDecode(_$MealTypeEnumMap, e))
+      foodTypes: (json['foodTypes'] as List<dynamic>?)
+              ?.map((e) => e as String)
               .toList() ??
           const [],
-      mealPrices: (json['mealPrices'] as Map<String, dynamic>).map(
-        (k, e) =>
-            MapEntry($enumDecode(_$MealTypeEnumMap, k), (e as num).toDouble()),
-      ),
+      isOpen: json['isOpen'] as bool? ?? true,
+      closureMessage: json['closureMessage'] as String?,
+      distance: (json['distance'] as num?)?.toDouble(),
+      acceptedPaymentMethods: (json['acceptedPaymentMethods'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$VendorImplToJson(_$VendorImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'description': instance.description,
+      'businessName': instance.businessName,
+      'address': instance.address,
+      'phone': instance.phone,
       'rating': instance.rating,
       'totalRatings': instance.totalRatings,
-      'imageUrl': instance.imageUrl,
-      'specialities': instance.specialities,
-      'availableMealTypes': instance.availableMealTypes
-          .map((e) => _$MealTypeEnumMap[e]!)
-          .toList(),
-      'mealPrices':
-          instance.mealPrices.map((k, e) => MapEntry(_$MealTypeEnumMap[k]!, e)),
+      'profilePhotoUrl': instance.profilePhotoUrl,
+      'coverPhotoUrl': instance.coverPhotoUrl,
+      'cuisineTypes': instance.cuisineTypes,
+      'foodTypes': instance.foodTypes,
+      'isOpen': instance.isOpen,
+      'closureMessage': instance.closureMessage,
+      'distance': instance.distance,
+      'acceptedPaymentMethods': instance.acceptedPaymentMethods,
     };
 
-const _$MealTypeEnumMap = {
-  MealType.breakfast: 'breakfast',
-  MealType.lunch: 'lunch',
-  MealType.dinner: 'dinner',
-};
+_$GeoPointImpl _$$GeoPointImplFromJson(Map<String, dynamic> json) =>
+    _$GeoPointImpl(
+      type: json['type'] as String,
+      coordinates: (json['coordinates'] as List<dynamic>)
+          .map((e) => (e as num).toDouble())
+          .toList(),
+    );
+
+Map<String, dynamic> _$$GeoPointImplToJson(_$GeoPointImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'coordinates': instance.coordinates,
+    };

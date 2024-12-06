@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../models/subscription.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../models/vendor.dart';
 
 class VendorCard extends StatelessWidget {
@@ -9,106 +8,124 @@ class VendorCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const VendorCard({
-    Key? key,
+    super.key,
     required this.vendor,
     required this.isSelected,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return Card(
-      elevation: isSelected ? 8 : 2,
+      elevation: isSelected ? 4 : 1,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
         side: isSelected
-            ? BorderSide(color: Theme.of(context).primaryColor, width: 2)
+            ? BorderSide(color: theme.primaryColor, width: 2)
             : BorderSide.none,
       ),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+        borderRadius: BorderRadius.circular(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 120,
+              child: Stack(
                 children: [
-                  CircleAvatar(
-                    radius: 24,
-                    backgroundImage: AssetImage(vendor.imageUrl),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          vendor.name,
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 16,
-                              color: Colors.amber,
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              vendor.rating.toString(),
-                              style: Theme.of(context).textTheme.bodyMedium,
-                            ),
-                          ],
-                        ),
-                      ],
+                  ClipRRect(
+                    borderRadius:
+                        const BorderRadius.vertical(top: Radius.circular(12)),
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                      height: 100,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => Container(
+                        color: theme.colorScheme.surfaceVariant,
+                      ),
+                      errorWidget: (context, url, error) => Container(
+                        color: theme.colorScheme.surfaceVariant,
+                        child: const Icon(Icons.restaurant),
+                      ),
                     ),
                   ),
+                  if (!vendor.isOpen)
+                    Positioned(
+                      top: 8,
+                      right: 8,
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 4),
+                        decoration: BoxDecoration(
+                          color: theme.colorScheme.error,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          'CLOSED',
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: theme.colorScheme.onError,
+                          ),
+                        ),
+                      ),
+                    ),
                 ],
               ),
-              const SizedBox(height: 12),
-              Text(
-                vendor.description,
-                style: Theme.of(context).textTheme.bodyMedium,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 8,
-                children: vendor.specialities
-                    .map((spec) => Chip(
-                          label: Text(
-                            spec,
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          backgroundColor:
-                              Theme.of(context).primaryColor.withOpacity(0.1),
-                        ))
-                    .toList(),
-              ),
-              const SizedBox(height: 8),
-              ...MealType.values.map(
-                (meal) => Padding(
-                  padding: const EdgeInsets.only(bottom: 4),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    vendor.name,
+                    style: theme.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(height: 4),
+                  Row(
                     children: [
+                      Icon(Icons.star, size: 14, color: Colors.amber),
+                      const SizedBox(width: 2),
                       Text(
-                        meal.name,
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        vendor.rating.toString(),
+                        style: theme.textTheme.bodySmall,
                       ),
+                      const SizedBox(width: 8),
+                      Icon(
+                        Icons.access_time,
+                        size: 14,
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                      const SizedBox(width: 2),
                       Text(
-                        'AED${vendor.mealPrices[meal]}',
-                        style: Theme.of(context).textTheme.titleSmall,
+                        '${vendor.distance}m',
+                        style: theme.textTheme.bodySmall,
                       ),
                     ],
                   ),
-                ),
+                  if (vendor.cuisineTypes.isNotEmpty) ...[
+                    const SizedBox(height: 4),
+                    Text(
+                      vendor.cuisineTypes.first,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: theme.colorScheme.onSurfaceVariant,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
