@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:meal_app/models/vendor_menu.dart';
 
 part 'vendor.freezed.dart';
 part 'vendor.g.dart';
@@ -9,7 +10,7 @@ class Vendor with _$Vendor {
     required String id,
     required String name,
     required String businessName,
-    required String address,
+    String? address,
     required String phone,
     required double rating,
     required int totalRatings,
@@ -17,6 +18,7 @@ class Vendor with _$Vendor {
     required String coverPhotoUrl,
     @Default([]) List<String> cuisineTypes,
     @Default([]) List<String> foodTypes,
+    @Default([]) List<VendorMenu> menus,
     @Default(true) bool isOpen,
     String? closureMessage,
     double? distance,

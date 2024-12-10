@@ -10,7 +10,7 @@ _$VendorImpl _$$VendorImplFromJson(Map<String, dynamic> json) => _$VendorImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       businessName: json['businessName'] as String,
-      address: json['address'] as String,
+      address: json['address'] as String?,
       phone: json['phone'] as String,
       rating: (json['rating'] as num).toDouble(),
       totalRatings: (json['totalRatings'] as num).toInt(),
@@ -22,6 +22,10 @@ _$VendorImpl _$$VendorImplFromJson(Map<String, dynamic> json) => _$VendorImpl(
           const [],
       foodTypes: (json['foodTypes'] as List<dynamic>?)
               ?.map((e) => e as String)
+              .toList() ??
+          const [],
+      menus: (json['menus'] as List<dynamic>?)
+              ?.map((e) => VendorMenu.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
       isOpen: json['isOpen'] as bool? ?? true,
@@ -46,6 +50,7 @@ Map<String, dynamic> _$$VendorImplToJson(_$VendorImpl instance) =>
       'coverPhotoUrl': instance.coverPhotoUrl,
       'cuisineTypes': instance.cuisineTypes,
       'foodTypes': instance.foodTypes,
+      'menus': instance.menus,
       'isOpen': instance.isOpen,
       'closureMessage': instance.closureMessage,
       'distance': instance.distance,

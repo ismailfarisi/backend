@@ -1,130 +1,163 @@
+// subscription_cubit.dart
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:meal_app/models/vendor_menu.dart';
+import 'package:injectable/injectable.dart';
+import 'package:meal_app/data_repositories/vendor_repo.dart';
+import 'package:meal_app/models/subscription.dart';
+import 'package:meal_app/models/subscription_meal_selection.dart';
 import 'package:meal_app/models/vendor.dart';
-
-import '../../../models/subscription.dart';
-import '../../../models/subscription_order.dart';
-import '../../../utils/enums.dart';
-import 'mockdata.dart';
+import 'package:meal_app/models/vendor_menu.dart';
+import 'package:meal_app/utils/enums.dart';
+import 'package:meal_app/utils/result.dart';
 
 part 'subscription_state.dart';
 part 'subscription_cubit.freezed.dart';
 
+@injectable
 class SubscriptionCubit extends Cubit<SubscriptionState> {
-  SubscriptionCubit() : super(const SubscriptionState());
+  SubscriptionCubit(this._vendorRepo) : super(const SubscriptionState());
 
-  Future<void> initializeSubscription() async {
-    emit(state.copyWith(
-      status: AppStatus.init,
-      errorMessage: null,
-      selectedMealTypes: [],
-      selectedVendors: {},
-      availableVendors: {},
-    ));
-  }
+  final VendorRepo _vendorRepo;
 
   Future<void> updateMealTypes(List<MealType> selectedMealTypes) async {
-    emit(state.copyWith(
-      status: AppStatus.loading,
-      errorMessage: null,
-    ));
-
     try {
+      emit(state.copyWith(
+        status: AppStatus.loading,
+        getVendorsStatus: AppStatus.loading,
+        errorMessage: null,
+      ));
+
       if (selectedMealTypes.isEmpty) {
         emit(state.copyWith(
           selectedMealTypes: [],
           status: AppStatus.success,
+          getVendorsStatus: AppStatus.success,
         ));
         return;
       }
 
-      final vendorsMap = {
-        for (var type in selectedMealTypes)
-          type: MockSubscriptionData.vendorsByMealType[type] ?? [],
-      };
+      final vendorsMap = <MealType, List<Vendor>>{};
+      List<String>? errorMessage;
+
+      // Fetch vendors for each meal type in parallel
+      final results = await Future.wait(
+        selectedMealTypes.map((type) => _vendorRepo.getVendorsByMealType(
+              lat: 25.28, // Replace with actual user location
+              long: 55.25,
+              mealType: type.toString().split('.').last.toLowerCase(),
+            )),
+      );
+
+      // Process results
+      for (var i = 0; i < selectedMealTypes.length; i++) {
+        final mealType = selectedMealTypes[i];
+        final result = results[i];
+
+        switch (result) {
+          case Success(value: final vendors):
+            vendorsMap[mealType] = vendors;
+            break;
+          case Error(exception: final e):
+            errorMessage = [e];
+            emit(state.copyWith(
+              getVendorsStatus: AppStatus.failure,
+              errorMessage: e,
+            ));
+        }
+      }
 
       emit(state.copyWith(
+        status: errorMessage != null ? AppStatus.failure : AppStatus.success,
+        getVendorsStatus: AppStatus.success,
         selectedMealTypes: selectedMealTypes,
         selectedVendors: {
           for (var type in selectedMealTypes) type: <String>[],
         },
         availableVendors: vendorsMap,
-        status: AppStatus.success,
+        errorMessage: errorMessage?[0],
       ));
     } catch (e) {
       emit(state.copyWith(
         status: AppStatus.failure,
+        getVendorsStatus: AppStatus.failure,
         errorMessage: e.toString(),
       ));
     }
   }
 
   Future<void> toggleVendorSelection(MealType mealType, String vendorId) async {
-    final currentVendors =
-        List<String>.from(state.selectedVendors?[mealType] ?? []);
-
-    if (currentVendors.contains(vendorId)) {
-      currentVendors.remove(vendorId);
-    } else if (currentVendors.length < 4) {
-      currentVendors.add(vendorId);
-    }
-
-    final updatedVendors =
-        Map<MealType, List<String>>.from(state.selectedVendors ?? {})
-          ..[mealType] = currentVendors;
-
-    emit(state.copyWith(
-      selectedVendors: updatedVendors,
-      status: AppStatus.success,
-    ));
-  }
-
-  Future<void> createSubscriptionPlan() async {
-    emit(state.copyWith(
-      submitStatus: AppStatus.loading,
-      submitErrorMessage: null,
-    ));
-
     try {
-      await Future.delayed(const Duration(seconds: 1)); // Simulate API call
+      emit(state.copyWith(
+        updateVendorStatus: AppStatus.loading,
+        errorMessage: null,
+      ));
 
-      final mealSelections = state.selectedMealTypes.map((type) {
-        return MealVendorSelection(
-          mealType: type,
-          vendorIds: state.selectedVendors?[type] ?? [],
-        );
-      }).toList();
+      final currentVendors =
+          List<String>.from(state.selectedVendors?[mealType] ?? []);
 
-      // Calculate total amount based on selected vendors
-      double totalAmount = 0;
-      for (var type in state.selectedMealTypes) {
-        final selectedVendorIds = state.selectedVendors?[type] ?? [];
-        final vendors = state.availableVendors?[type] ?? [];
-        for (var vendorId in selectedVendorIds) {
-          final vendor = vendors.firstWhere((v) => v.vendorId == vendorId);
-          totalAmount += vendor.price * 30; // 30 days
-        }
+      if (currentVendors.contains(vendorId)) {
+        currentVendors.remove(vendorId);
+      } else if (currentVendors.length < 4) {
+        currentVendors.add(vendorId);
       }
 
-      final plan = Subscription(
-        id: 'sub_${DateTime.now().millisecondsSinceEpoch}',
-        userId: 'mock_user_id',
-        mealSelections: mealSelections,
-        price: 3000,
-        startDate: DateTime.now(),
-        endDate: DateTime.now().add(const Duration(days: 30)),
-        status: SubscriptionStatus.paused,
-      );
+      final updatedVendors =
+          Map<MealType, List<String>>.from(state.selectedVendors ?? {})
+            ..[mealType] = currentVendors;
 
       emit(state.copyWith(
-        subscriptionPlan: plan,
-        submitStatus: AppStatus.success,
+        selectedVendors: updatedVendors,
+        updateVendorStatus: AppStatus.success,
       ));
     } catch (e) {
       emit(state.copyWith(
+        updateVendorStatus: AppStatus.failure,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
+
+  Future<void> createSubscriptionPlan() async {
+    try {
+      emit(state.copyWith(
+        submitStatus: AppStatus.loading,
+        errorMessage: null,
+      ));
+
+      // Map selections to the format expected by the backend
+      final mealSelections = state.selectedMealTypes.map((type) {
+        final selectedVendorIds = state.selectedVendors?[type] ?? [];
+        return SubscriptionMealSelection(
+          mealType: type,
+          vendorIds: selectedVendorIds,
+        );
+      }).toList();
+
+      final orderDto = SubscriptionOrderDto(
+        mealSelections: mealSelections,
+        startDate: DateTime.now(),
+        endDate: DateTime.now().add(const Duration(days: 30)),
+      );
+
+      final result = await _vendorRepo.createSubscription(orderDto);
+
+      switch (result) {
+        case Success(value: final subscription):
+          emit(state.copyWith(
+            subscriptionPlan: subscription,
+            submitStatus: AppStatus.success,
+          ));
+          break;
+        case Error(exception: final e):
+          emit(state.copyWith(
+            submitStatus: AppStatus.failure,
+            errorMessage: e,
+          ));
+      }
+    } catch (e) {
+      emit(state.copyWith(
         submitStatus: AppStatus.failure,
-        submitErrorMessage: e.toString(),
+        errorMessage: e.toString(),
       ));
     }
   }
@@ -132,26 +165,39 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
   Future<void> confirmSubscription() async {
     if (state.subscriptionPlan == null) return;
 
-    emit(state.copyWith(
-      submitStatus: AppStatus.loading,
-      submitErrorMessage: null,
-    ));
-
     try {
-      await Future.delayed(const Duration(seconds: 1)); // Simulate API call
+      emit(state.copyWith(
+        submitStatus: AppStatus.loading,
+        errorMessage: null,
+      ));
 
-      final confirmedPlan = state.subscriptionPlan!.copyWith(
-        status: SubscriptionStatus.active,
+      final result = await _vendorRepo.confirmSubscription(
+        state.subscriptionPlan!.id!,
+        {
+          'paymentMethod': 'card',
+          'paymentDetails': {
+            'token': 'payment_token', // Add actual payment token
+          },
+        },
       );
 
-      emit(state.copyWith(
-        subscriptionPlan: confirmedPlan,
-        submitStatus: AppStatus.success,
-      ));
+      switch (result) {
+        case Success(value: final subscription):
+          emit(state.copyWith(
+            subscriptionPlan: subscription,
+            submitStatus: AppStatus.success,
+          ));
+          break;
+        case Error(exception: final e):
+          emit(state.copyWith(
+            submitStatus: AppStatus.failure,
+            errorMessage: e,
+          ));
+      }
     } catch (e) {
       emit(state.copyWith(
         submitStatus: AppStatus.failure,
-        submitErrorMessage: e.toString(),
+        errorMessage: e.toString(),
       ));
     }
   }

@@ -20,11 +20,13 @@ VendorMenu _$VendorMenuFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VendorMenu {
+  String get id => throw _privateConstructorUsedError;
   String get vendorId => throw _privateConstructorUsedError;
   MealType get mealType => throw _privateConstructorUsedError;
+  MenuStatus get status => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
-  List<String> get sampleMenuItems => throw _privateConstructorUsedError;
+  Map<String, DailyMenu> get weeklyMenu => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,11 +41,13 @@ abstract class $VendorMenuCopyWith<$Res> {
       _$VendorMenuCopyWithImpl<$Res, VendorMenu>;
   @useResult
   $Res call(
-      {String vendorId,
+      {String id,
+      String vendorId,
       MealType mealType,
+      MenuStatus status,
       String description,
       double price,
-      List<String> sampleMenuItems});
+      Map<String, DailyMenu> weeklyMenu});
 }
 
 /// @nodoc
@@ -59,13 +63,19 @@ class _$VendorMenuCopyWithImpl<$Res, $Val extends VendorMenu>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? vendorId = null,
     Object? mealType = null,
+    Object? status = null,
     Object? description = null,
     Object? price = null,
-    Object? sampleMenuItems = null,
+    Object? weeklyMenu = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       vendorId: null == vendorId
           ? _value.vendorId
           : vendorId // ignore: cast_nullable_to_non_nullable
@@ -74,6 +84,10 @@ class _$VendorMenuCopyWithImpl<$Res, $Val extends VendorMenu>
           ? _value.mealType
           : mealType // ignore: cast_nullable_to_non_nullable
               as MealType,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MenuStatus,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -82,10 +96,10 @@ class _$VendorMenuCopyWithImpl<$Res, $Val extends VendorMenu>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      sampleMenuItems: null == sampleMenuItems
-          ? _value.sampleMenuItems
-          : sampleMenuItems // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      weeklyMenu: null == weeklyMenu
+          ? _value.weeklyMenu
+          : weeklyMenu // ignore: cast_nullable_to_non_nullable
+              as Map<String, DailyMenu>,
     ) as $Val);
   }
 }
@@ -99,11 +113,13 @@ abstract class _$$VendorMenuImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String vendorId,
+      {String id,
+      String vendorId,
       MealType mealType,
+      MenuStatus status,
       String description,
       double price,
-      List<String> sampleMenuItems});
+      Map<String, DailyMenu> weeklyMenu});
 }
 
 /// @nodoc
@@ -117,13 +133,19 @@ class __$$VendorMenuImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? vendorId = null,
     Object? mealType = null,
+    Object? status = null,
     Object? description = null,
     Object? price = null,
-    Object? sampleMenuItems = null,
+    Object? weeklyMenu = null,
   }) {
     return _then(_$VendorMenuImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       vendorId: null == vendorId
           ? _value.vendorId
           : vendorId // ignore: cast_nullable_to_non_nullable
@@ -132,6 +154,10 @@ class __$$VendorMenuImplCopyWithImpl<$Res>
           ? _value.mealType
           : mealType // ignore: cast_nullable_to_non_nullable
               as MealType,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as MenuStatus,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -140,10 +166,10 @@ class __$$VendorMenuImplCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
-      sampleMenuItems: null == sampleMenuItems
-          ? _value._sampleMenuItems
-          : sampleMenuItems // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      weeklyMenu: null == weeklyMenu
+          ? _value._weeklyMenu
+          : weeklyMenu // ignore: cast_nullable_to_non_nullable
+              as Map<String, DailyMenu>,
     ));
   }
 }
@@ -152,35 +178,41 @@ class __$$VendorMenuImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$VendorMenuImpl implements _VendorMenu {
   const _$VendorMenuImpl(
-      {required this.vendorId,
+      {required this.id,
+      required this.vendorId,
       required this.mealType,
+      required this.status,
       required this.description,
       required this.price,
-      required final List<String> sampleMenuItems})
-      : _sampleMenuItems = sampleMenuItems;
+      required final Map<String, DailyMenu> weeklyMenu})
+      : _weeklyMenu = weeklyMenu;
 
   factory _$VendorMenuImpl.fromJson(Map<String, dynamic> json) =>
       _$$VendorMenuImplFromJson(json);
 
   @override
+  final String id;
+  @override
   final String vendorId;
   @override
   final MealType mealType;
   @override
+  final MenuStatus status;
+  @override
   final String description;
   @override
   final double price;
-  final List<String> _sampleMenuItems;
+  final Map<String, DailyMenu> _weeklyMenu;
   @override
-  List<String> get sampleMenuItems {
-    if (_sampleMenuItems is EqualUnmodifiableListView) return _sampleMenuItems;
+  Map<String, DailyMenu> get weeklyMenu {
+    if (_weeklyMenu is EqualUnmodifiableMapView) return _weeklyMenu;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sampleMenuItems);
+    return EqualUnmodifiableMapView(_weeklyMenu);
   }
 
   @override
   String toString() {
-    return 'VendorMenu(vendorId: $vendorId, mealType: $mealType, description: $description, price: $price, sampleMenuItems: $sampleMenuItems)';
+    return 'VendorMenu(id: $id, vendorId: $vendorId, mealType: $mealType, status: $status, description: $description, price: $price, weeklyMenu: $weeklyMenu)';
   }
 
   @override
@@ -188,21 +220,23 @@ class _$VendorMenuImpl implements _VendorMenu {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VendorMenuImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.vendorId, vendorId) ||
                 other.vendorId == vendorId) &&
             (identical(other.mealType, mealType) ||
                 other.mealType == mealType) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.price, price) || other.price == price) &&
             const DeepCollectionEquality()
-                .equals(other._sampleMenuItems, _sampleMenuItems));
+                .equals(other._weeklyMenu, _weeklyMenu));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, vendorId, mealType, description,
-      price, const DeepCollectionEquality().hash(_sampleMenuItems));
+  int get hashCode => Object.hash(runtimeType, id, vendorId, mealType, status,
+      description, price, const DeepCollectionEquality().hash(_weeklyMenu));
 
   @JsonKey(ignore: true)
   @override
@@ -220,27 +254,237 @@ class _$VendorMenuImpl implements _VendorMenu {
 
 abstract class _VendorMenu implements VendorMenu {
   const factory _VendorMenu(
-      {required final String vendorId,
+      {required final String id,
+      required final String vendorId,
       required final MealType mealType,
+      required final MenuStatus status,
       required final String description,
       required final double price,
-      required final List<String> sampleMenuItems}) = _$VendorMenuImpl;
+      required final Map<String, DailyMenu> weeklyMenu}) = _$VendorMenuImpl;
 
   factory _VendorMenu.fromJson(Map<String, dynamic> json) =
       _$VendorMenuImpl.fromJson;
 
   @override
+  String get id;
+  @override
   String get vendorId;
   @override
   MealType get mealType;
+  @override
+  MenuStatus get status;
   @override
   String get description;
   @override
   double get price;
   @override
-  List<String> get sampleMenuItems;
+  Map<String, DailyMenu> get weeklyMenu;
   @override
   @JsonKey(ignore: true)
   _$$VendorMenuImplCopyWith<_$VendorMenuImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+DailyMenu _$DailyMenuFromJson(Map<String, dynamic> json) {
+  return _DailyMenu.fromJson(json);
+}
+
+/// @nodoc
+mixin _$DailyMenu {
+  List<String> get items => throw _privateConstructorUsedError;
+  List<String>? get sideDishes => throw _privateConstructorUsedError;
+  List<String>? get extras => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $DailyMenuCopyWith<DailyMenu> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DailyMenuCopyWith<$Res> {
+  factory $DailyMenuCopyWith(DailyMenu value, $Res Function(DailyMenu) then) =
+      _$DailyMenuCopyWithImpl<$Res, DailyMenu>;
+  @useResult
+  $Res call(
+      {List<String> items, List<String>? sideDishes, List<String>? extras});
+}
+
+/// @nodoc
+class _$DailyMenuCopyWithImpl<$Res, $Val extends DailyMenu>
+    implements $DailyMenuCopyWith<$Res> {
+  _$DailyMenuCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? items = null,
+    Object? sideDishes = freezed,
+    Object? extras = freezed,
+  }) {
+    return _then(_value.copyWith(
+      items: null == items
+          ? _value.items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sideDishes: freezed == sideDishes
+          ? _value.sideDishes
+          : sideDishes // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      extras: freezed == extras
+          ? _value.extras
+          : extras // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$DailyMenuImplCopyWith<$Res>
+    implements $DailyMenuCopyWith<$Res> {
+  factory _$$DailyMenuImplCopyWith(
+          _$DailyMenuImpl value, $Res Function(_$DailyMenuImpl) then) =
+      __$$DailyMenuImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {List<String> items, List<String>? sideDishes, List<String>? extras});
+}
+
+/// @nodoc
+class __$$DailyMenuImplCopyWithImpl<$Res>
+    extends _$DailyMenuCopyWithImpl<$Res, _$DailyMenuImpl>
+    implements _$$DailyMenuImplCopyWith<$Res> {
+  __$$DailyMenuImplCopyWithImpl(
+      _$DailyMenuImpl _value, $Res Function(_$DailyMenuImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? items = null,
+    Object? sideDishes = freezed,
+    Object? extras = freezed,
+  }) {
+    return _then(_$DailyMenuImpl(
+      items: null == items
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      sideDishes: freezed == sideDishes
+          ? _value._sideDishes
+          : sideDishes // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      extras: freezed == extras
+          ? _value._extras
+          : extras // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$DailyMenuImpl implements _DailyMenu {
+  const _$DailyMenuImpl(
+      {required final List<String> items,
+      final List<String>? sideDishes,
+      final List<String>? extras})
+      : _items = items,
+        _sideDishes = sideDishes,
+        _extras = extras;
+
+  factory _$DailyMenuImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DailyMenuImplFromJson(json);
+
+  final List<String> _items;
+  @override
+  List<String> get items {
+    if (_items is EqualUnmodifiableListView) return _items;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_items);
+  }
+
+  final List<String>? _sideDishes;
+  @override
+  List<String>? get sideDishes {
+    final value = _sideDishes;
+    if (value == null) return null;
+    if (_sideDishes is EqualUnmodifiableListView) return _sideDishes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<String>? _extras;
+  @override
+  List<String>? get extras {
+    final value = _extras;
+    if (value == null) return null;
+    if (_extras is EqualUnmodifiableListView) return _extras;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  String toString() {
+    return 'DailyMenu(items: $items, sideDishes: $sideDishes, extras: $extras)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DailyMenuImpl &&
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality()
+                .equals(other._sideDishes, _sideDishes) &&
+            const DeepCollectionEquality().equals(other._extras, _extras));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(_sideDishes),
+      const DeepCollectionEquality().hash(_extras));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DailyMenuImplCopyWith<_$DailyMenuImpl> get copyWith =>
+      __$$DailyMenuImplCopyWithImpl<_$DailyMenuImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$DailyMenuImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _DailyMenu implements DailyMenu {
+  const factory _DailyMenu(
+      {required final List<String> items,
+      final List<String>? sideDishes,
+      final List<String>? extras}) = _$DailyMenuImpl;
+
+  factory _DailyMenu.fromJson(Map<String, dynamic> json) =
+      _$DailyMenuImpl.fromJson;
+
+  @override
+  List<String> get items;
+  @override
+  List<String>? get sideDishes;
+  @override
+  List<String>? get extras;
+  @override
+  @JsonKey(ignore: true)
+  _$$DailyMenuImplCopyWith<_$DailyMenuImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

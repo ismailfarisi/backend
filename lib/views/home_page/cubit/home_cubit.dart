@@ -29,7 +29,7 @@ class HomeCubit extends Cubit<HomeState> {
       // Load subscription and vendors in parallel
       final results = await Future.wait([
         _vendorRepo.getCurrentSubscription(),
-        _vendorRepo.getRecommendedVendors(lat: 55.25, long: 25.28),
+        _vendorRepo.getRecommendedVendors(lat: 25.28, long: 55.25),
       ]);
 
       final subscriptionResult = results[0] as Result<Subscription?>;

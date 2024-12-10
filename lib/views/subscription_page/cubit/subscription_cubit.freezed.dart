@@ -16,16 +16,17 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SubscriptionState {
+  AppStatus get status => throw _privateConstructorUsedError;
+  AppStatus get getVendorsStatus => throw _privateConstructorUsedError;
+  AppStatus get updateVendorStatus => throw _privateConstructorUsedError;
+  AppStatus get submitStatus => throw _privateConstructorUsedError;
+  String? get errorMessage => throw _privateConstructorUsedError;
   List<MealType> get selectedMealTypes => throw _privateConstructorUsedError;
   Map<MealType, List<String>>? get selectedVendors =>
       throw _privateConstructorUsedError;
-  Map<MealType, List<VendorMenu>>? get availableVendors =>
+  Map<MealType, List<Vendor>>? get availableVendors =>
       throw _privateConstructorUsedError;
   Subscription? get subscriptionPlan => throw _privateConstructorUsedError;
-  AppStatus get status => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
-  AppStatus get submitStatus => throw _privateConstructorUsedError;
-  String? get submitErrorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubscriptionStateCopyWith<SubscriptionState> get copyWith =>
@@ -39,14 +40,15 @@ abstract class $SubscriptionStateCopyWith<$Res> {
       _$SubscriptionStateCopyWithImpl<$Res, SubscriptionState>;
   @useResult
   $Res call(
-      {List<MealType> selectedMealTypes,
-      Map<MealType, List<String>>? selectedVendors,
-      Map<MealType, List<VendorMenu>>? availableVendors,
-      Subscription? subscriptionPlan,
-      AppStatus status,
-      String? errorMessage,
+      {AppStatus status,
+      AppStatus getVendorsStatus,
+      AppStatus updateVendorStatus,
       AppStatus submitStatus,
-      String? submitErrorMessage});
+      String? errorMessage,
+      List<MealType> selectedMealTypes,
+      Map<MealType, List<String>>? selectedVendors,
+      Map<MealType, List<Vendor>>? availableVendors,
+      Subscription? subscriptionPlan});
 
   $SubscriptionCopyWith<$Res>? get subscriptionPlan;
 }
@@ -64,16 +66,37 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
+    Object? getVendorsStatus = null,
+    Object? updateVendorStatus = null,
+    Object? submitStatus = null,
+    Object? errorMessage = freezed,
     Object? selectedMealTypes = null,
     Object? selectedVendors = freezed,
     Object? availableVendors = freezed,
     Object? subscriptionPlan = freezed,
-    Object? status = null,
-    Object? errorMessage = freezed,
-    Object? submitStatus = null,
-    Object? submitErrorMessage = freezed,
   }) {
     return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      getVendorsStatus: null == getVendorsStatus
+          ? _value.getVendorsStatus
+          : getVendorsStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      updateVendorStatus: null == updateVendorStatus
+          ? _value.updateVendorStatus
+          : updateVendorStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      submitStatus: null == submitStatus
+          ? _value.submitStatus
+          : submitStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       selectedMealTypes: null == selectedMealTypes
           ? _value.selectedMealTypes
           : selectedMealTypes // ignore: cast_nullable_to_non_nullable
@@ -85,27 +108,11 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
       availableVendors: freezed == availableVendors
           ? _value.availableVendors
           : availableVendors // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, List<VendorMenu>>?,
+              as Map<MealType, List<Vendor>>?,
       subscriptionPlan: freezed == subscriptionPlan
           ? _value.subscriptionPlan
           : subscriptionPlan // ignore: cast_nullable_to_non_nullable
               as Subscription?,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      submitStatus: null == submitStatus
-          ? _value.submitStatus
-          : submitStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      submitErrorMessage: freezed == submitErrorMessage
-          ? _value.submitErrorMessage
-          : submitErrorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -131,14 +138,15 @@ abstract class _$$SubscriptionStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<MealType> selectedMealTypes,
-      Map<MealType, List<String>>? selectedVendors,
-      Map<MealType, List<VendorMenu>>? availableVendors,
-      Subscription? subscriptionPlan,
-      AppStatus status,
-      String? errorMessage,
+      {AppStatus status,
+      AppStatus getVendorsStatus,
+      AppStatus updateVendorStatus,
       AppStatus submitStatus,
-      String? submitErrorMessage});
+      String? errorMessage,
+      List<MealType> selectedMealTypes,
+      Map<MealType, List<String>>? selectedVendors,
+      Map<MealType, List<Vendor>>? availableVendors,
+      Subscription? subscriptionPlan});
 
   @override
   $SubscriptionCopyWith<$Res>? get subscriptionPlan;
@@ -155,16 +163,37 @@ class __$$SubscriptionStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
+    Object? getVendorsStatus = null,
+    Object? updateVendorStatus = null,
+    Object? submitStatus = null,
+    Object? errorMessage = freezed,
     Object? selectedMealTypes = null,
     Object? selectedVendors = freezed,
     Object? availableVendors = freezed,
     Object? subscriptionPlan = freezed,
-    Object? status = null,
-    Object? errorMessage = freezed,
-    Object? submitStatus = null,
-    Object? submitErrorMessage = freezed,
   }) {
     return _then(_$SubscriptionStateImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      getVendorsStatus: null == getVendorsStatus
+          ? _value.getVendorsStatus
+          : getVendorsStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      updateVendorStatus: null == updateVendorStatus
+          ? _value.updateVendorStatus
+          : updateVendorStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      submitStatus: null == submitStatus
+          ? _value.submitStatus
+          : submitStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
       selectedMealTypes: null == selectedMealTypes
           ? _value._selectedMealTypes
           : selectedMealTypes // ignore: cast_nullable_to_non_nullable
@@ -176,27 +205,11 @@ class __$$SubscriptionStateImplCopyWithImpl<$Res>
       availableVendors: freezed == availableVendors
           ? _value._availableVendors
           : availableVendors // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, List<VendorMenu>>?,
+              as Map<MealType, List<Vendor>>?,
       subscriptionPlan: freezed == subscriptionPlan
           ? _value.subscriptionPlan
           : subscriptionPlan // ignore: cast_nullable_to_non_nullable
               as Subscription?,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      submitStatus: null == submitStatus
-          ? _value.submitStatus
-          : submitStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      submitErrorMessage: freezed == submitErrorMessage
-          ? _value.submitErrorMessage
-          : submitErrorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -205,18 +218,33 @@ class __$$SubscriptionStateImplCopyWithImpl<$Res>
 
 class _$SubscriptionStateImpl implements _SubscriptionState {
   const _$SubscriptionStateImpl(
-      {final List<MealType> selectedMealTypes = const [],
-      final Map<MealType, List<String>>? selectedVendors,
-      final Map<MealType, List<VendorMenu>>? availableVendors,
-      this.subscriptionPlan,
-      this.status = AppStatus.init,
-      this.errorMessage,
+      {this.status = AppStatus.init,
+      this.getVendorsStatus = AppStatus.init,
+      this.updateVendorStatus = AppStatus.init,
       this.submitStatus = AppStatus.init,
-      this.submitErrorMessage})
+      this.errorMessage,
+      final List<MealType> selectedMealTypes = const [],
+      final Map<MealType, List<String>>? selectedVendors,
+      final Map<MealType, List<Vendor>>? availableVendors,
+      this.subscriptionPlan})
       : _selectedMealTypes = selectedMealTypes,
         _selectedVendors = selectedVendors,
         _availableVendors = availableVendors;
 
+  @override
+  @JsonKey()
+  final AppStatus status;
+  @override
+  @JsonKey()
+  final AppStatus getVendorsStatus;
+  @override
+  @JsonKey()
+  final AppStatus updateVendorStatus;
+  @override
+  @JsonKey()
+  final AppStatus submitStatus;
+  @override
+  final String? errorMessage;
   final List<MealType> _selectedMealTypes;
   @override
   @JsonKey()
@@ -237,9 +265,9 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
     return EqualUnmodifiableMapView(value);
   }
 
-  final Map<MealType, List<VendorMenu>>? _availableVendors;
+  final Map<MealType, List<Vendor>>? _availableVendors;
   @override
-  Map<MealType, List<VendorMenu>>? get availableVendors {
+  Map<MealType, List<Vendor>>? get availableVendors {
     final value = _availableVendors;
     if (value == null) return null;
     if (_availableVendors is EqualUnmodifiableMapView) return _availableVendors;
@@ -249,20 +277,10 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
 
   @override
   final Subscription? subscriptionPlan;
-  @override
-  @JsonKey()
-  final AppStatus status;
-  @override
-  final String? errorMessage;
-  @override
-  @JsonKey()
-  final AppStatus submitStatus;
-  @override
-  final String? submitErrorMessage;
 
   @override
   String toString() {
-    return 'SubscriptionState(selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan, status: $status, errorMessage: $errorMessage, submitStatus: $submitStatus, submitErrorMessage: $submitErrorMessage)';
+    return 'SubscriptionState(status: $status, getVendorsStatus: $getVendorsStatus, updateVendorStatus: $updateVendorStatus, submitStatus: $submitStatus, errorMessage: $errorMessage, selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan)';
   }
 
   @override
@@ -270,6 +288,15 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubscriptionStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.getVendorsStatus, getVendorsStatus) ||
+                other.getVendorsStatus == getVendorsStatus) &&
+            (identical(other.updateVendorStatus, updateVendorStatus) ||
+                other.updateVendorStatus == updateVendorStatus) &&
+            (identical(other.submitStatus, submitStatus) ||
+                other.submitStatus == submitStatus) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
             const DeepCollectionEquality()
                 .equals(other._selectedMealTypes, _selectedMealTypes) &&
             const DeepCollectionEquality()
@@ -277,27 +304,21 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
             const DeepCollectionEquality()
                 .equals(other._availableVendors, _availableVendors) &&
             (identical(other.subscriptionPlan, subscriptionPlan) ||
-                other.subscriptionPlan == subscriptionPlan) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage) &&
-            (identical(other.submitStatus, submitStatus) ||
-                other.submitStatus == submitStatus) &&
-            (identical(other.submitErrorMessage, submitErrorMessage) ||
-                other.submitErrorMessage == submitErrorMessage));
+                other.subscriptionPlan == subscriptionPlan));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      status,
+      getVendorsStatus,
+      updateVendorStatus,
+      submitStatus,
+      errorMessage,
       const DeepCollectionEquality().hash(_selectedMealTypes),
       const DeepCollectionEquality().hash(_selectedVendors),
       const DeepCollectionEquality().hash(_availableVendors),
-      subscriptionPlan,
-      status,
-      errorMessage,
-      submitStatus,
-      submitErrorMessage);
+      subscriptionPlan);
 
   @JsonKey(ignore: true)
   @override
@@ -309,31 +330,34 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
 
 abstract class _SubscriptionState implements SubscriptionState {
   const factory _SubscriptionState(
-      {final List<MealType> selectedMealTypes,
-      final Map<MealType, List<String>>? selectedVendors,
-      final Map<MealType, List<VendorMenu>>? availableVendors,
-      final Subscription? subscriptionPlan,
-      final AppStatus status,
-      final String? errorMessage,
+      {final AppStatus status,
+      final AppStatus getVendorsStatus,
+      final AppStatus updateVendorStatus,
       final AppStatus submitStatus,
-      final String? submitErrorMessage}) = _$SubscriptionStateImpl;
+      final String? errorMessage,
+      final List<MealType> selectedMealTypes,
+      final Map<MealType, List<String>>? selectedVendors,
+      final Map<MealType, List<Vendor>>? availableVendors,
+      final Subscription? subscriptionPlan}) = _$SubscriptionStateImpl;
 
+  @override
+  AppStatus get status;
+  @override
+  AppStatus get getVendorsStatus;
+  @override
+  AppStatus get updateVendorStatus;
+  @override
+  AppStatus get submitStatus;
+  @override
+  String? get errorMessage;
   @override
   List<MealType> get selectedMealTypes;
   @override
   Map<MealType, List<String>>? get selectedVendors;
   @override
-  Map<MealType, List<VendorMenu>>? get availableVendors;
+  Map<MealType, List<Vendor>>? get availableVendors;
   @override
   Subscription? get subscriptionPlan;
-  @override
-  AppStatus get status;
-  @override
-  String? get errorMessage;
-  @override
-  AppStatus get submitStatus;
-  @override
-  String? get submitErrorMessage;
   @override
   @JsonKey(ignore: true)
   _$$SubscriptionStateImplCopyWith<_$SubscriptionStateImpl> get copyWith =>

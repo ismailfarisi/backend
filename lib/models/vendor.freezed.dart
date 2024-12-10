@@ -23,7 +23,7 @@ mixin _$Vendor {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get businessName => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
   int get totalRatings => throw _privateConstructorUsedError;
@@ -31,6 +31,7 @@ mixin _$Vendor {
   String get coverPhotoUrl => throw _privateConstructorUsedError;
   List<String> get cuisineTypes => throw _privateConstructorUsedError;
   List<String> get foodTypes => throw _privateConstructorUsedError;
+  List<VendorMenu> get menus => throw _privateConstructorUsedError;
   bool get isOpen => throw _privateConstructorUsedError;
   String? get closureMessage => throw _privateConstructorUsedError;
   double? get distance => throw _privateConstructorUsedError;
@@ -50,7 +51,7 @@ abstract class $VendorCopyWith<$Res> {
       {String id,
       String name,
       String businessName,
-      String address,
+      String? address,
       String phone,
       double rating,
       int totalRatings,
@@ -58,6 +59,7 @@ abstract class $VendorCopyWith<$Res> {
       String coverPhotoUrl,
       List<String> cuisineTypes,
       List<String> foodTypes,
+      List<VendorMenu> menus,
       bool isOpen,
       String? closureMessage,
       double? distance,
@@ -80,7 +82,7 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
     Object? id = null,
     Object? name = null,
     Object? businessName = null,
-    Object? address = null,
+    Object? address = freezed,
     Object? phone = null,
     Object? rating = null,
     Object? totalRatings = null,
@@ -88,6 +90,7 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
     Object? coverPhotoUrl = null,
     Object? cuisineTypes = null,
     Object? foodTypes = null,
+    Object? menus = null,
     Object? isOpen = null,
     Object? closureMessage = freezed,
     Object? distance = freezed,
@@ -106,10 +109,10 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
           ? _value.businessName
           : businessName // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -138,6 +141,10 @@ class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
           ? _value.foodTypes
           : foodTypes // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      menus: null == menus
+          ? _value.menus
+          : menus // ignore: cast_nullable_to_non_nullable
+              as List<VendorMenu>,
       isOpen: null == isOpen
           ? _value.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
@@ -169,7 +176,7 @@ abstract class _$$VendorImplCopyWith<$Res> implements $VendorCopyWith<$Res> {
       {String id,
       String name,
       String businessName,
-      String address,
+      String? address,
       String phone,
       double rating,
       int totalRatings,
@@ -177,6 +184,7 @@ abstract class _$$VendorImplCopyWith<$Res> implements $VendorCopyWith<$Res> {
       String coverPhotoUrl,
       List<String> cuisineTypes,
       List<String> foodTypes,
+      List<VendorMenu> menus,
       bool isOpen,
       String? closureMessage,
       double? distance,
@@ -197,7 +205,7 @@ class __$$VendorImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? businessName = null,
-    Object? address = null,
+    Object? address = freezed,
     Object? phone = null,
     Object? rating = null,
     Object? totalRatings = null,
@@ -205,6 +213,7 @@ class __$$VendorImplCopyWithImpl<$Res>
     Object? coverPhotoUrl = null,
     Object? cuisineTypes = null,
     Object? foodTypes = null,
+    Object? menus = null,
     Object? isOpen = null,
     Object? closureMessage = freezed,
     Object? distance = freezed,
@@ -223,10 +232,10 @@ class __$$VendorImplCopyWithImpl<$Res>
           ? _value.businessName
           : businessName // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       phone: null == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
@@ -255,6 +264,10 @@ class __$$VendorImplCopyWithImpl<$Res>
           ? _value._foodTypes
           : foodTypes // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      menus: null == menus
+          ? _value._menus
+          : menus // ignore: cast_nullable_to_non_nullable
+              as List<VendorMenu>,
       isOpen: null == isOpen
           ? _value.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
@@ -282,7 +295,7 @@ class _$VendorImpl implements _Vendor {
       {required this.id,
       required this.name,
       required this.businessName,
-      required this.address,
+      this.address,
       required this.phone,
       required this.rating,
       required this.totalRatings,
@@ -290,12 +303,14 @@ class _$VendorImpl implements _Vendor {
       required this.coverPhotoUrl,
       final List<String> cuisineTypes = const [],
       final List<String> foodTypes = const [],
+      final List<VendorMenu> menus = const [],
       this.isOpen = true,
       this.closureMessage,
       this.distance,
       final List<String> acceptedPaymentMethods = const []})
       : _cuisineTypes = cuisineTypes,
         _foodTypes = foodTypes,
+        _menus = menus,
         _acceptedPaymentMethods = acceptedPaymentMethods;
 
   factory _$VendorImpl.fromJson(Map<String, dynamic> json) =>
@@ -308,7 +323,7 @@ class _$VendorImpl implements _Vendor {
   @override
   final String businessName;
   @override
-  final String address;
+  final String? address;
   @override
   final String phone;
   @override
@@ -337,6 +352,15 @@ class _$VendorImpl implements _Vendor {
     return EqualUnmodifiableListView(_foodTypes);
   }
 
+  final List<VendorMenu> _menus;
+  @override
+  @JsonKey()
+  List<VendorMenu> get menus {
+    if (_menus is EqualUnmodifiableListView) return _menus;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_menus);
+  }
+
   @override
   @JsonKey()
   final bool isOpen;
@@ -356,7 +380,7 @@ class _$VendorImpl implements _Vendor {
 
   @override
   String toString() {
-    return 'Vendor(id: $id, name: $name, businessName: $businessName, address: $address, phone: $phone, rating: $rating, totalRatings: $totalRatings, profilePhotoUrl: $profilePhotoUrl, coverPhotoUrl: $coverPhotoUrl, cuisineTypes: $cuisineTypes, foodTypes: $foodTypes, isOpen: $isOpen, closureMessage: $closureMessage, distance: $distance, acceptedPaymentMethods: $acceptedPaymentMethods)';
+    return 'Vendor(id: $id, name: $name, businessName: $businessName, address: $address, phone: $phone, rating: $rating, totalRatings: $totalRatings, profilePhotoUrl: $profilePhotoUrl, coverPhotoUrl: $coverPhotoUrl, cuisineTypes: $cuisineTypes, foodTypes: $foodTypes, menus: $menus, isOpen: $isOpen, closureMessage: $closureMessage, distance: $distance, acceptedPaymentMethods: $acceptedPaymentMethods)';
   }
 
   @override
@@ -381,6 +405,7 @@ class _$VendorImpl implements _Vendor {
                 .equals(other._cuisineTypes, _cuisineTypes) &&
             const DeepCollectionEquality()
                 .equals(other._foodTypes, _foodTypes) &&
+            const DeepCollectionEquality().equals(other._menus, _menus) &&
             (identical(other.isOpen, isOpen) || other.isOpen == isOpen) &&
             (identical(other.closureMessage, closureMessage) ||
                 other.closureMessage == closureMessage) &&
@@ -405,6 +430,7 @@ class _$VendorImpl implements _Vendor {
       coverPhotoUrl,
       const DeepCollectionEquality().hash(_cuisineTypes),
       const DeepCollectionEquality().hash(_foodTypes),
+      const DeepCollectionEquality().hash(_menus),
       isOpen,
       closureMessage,
       distance,
@@ -429,7 +455,7 @@ abstract class _Vendor implements Vendor {
       {required final String id,
       required final String name,
       required final String businessName,
-      required final String address,
+      final String? address,
       required final String phone,
       required final double rating,
       required final int totalRatings,
@@ -437,6 +463,7 @@ abstract class _Vendor implements Vendor {
       required final String coverPhotoUrl,
       final List<String> cuisineTypes,
       final List<String> foodTypes,
+      final List<VendorMenu> menus,
       final bool isOpen,
       final String? closureMessage,
       final double? distance,
@@ -451,7 +478,7 @@ abstract class _Vendor implements Vendor {
   @override
   String get businessName;
   @override
-  String get address;
+  String? get address;
   @override
   String get phone;
   @override
@@ -466,6 +493,8 @@ abstract class _Vendor implements Vendor {
   List<String> get cuisineTypes;
   @override
   List<String> get foodTypes;
+  @override
+  List<VendorMenu> get menus;
   @override
   bool get isOpen;
   @override

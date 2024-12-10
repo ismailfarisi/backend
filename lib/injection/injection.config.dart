@@ -22,6 +22,7 @@ import '../views/home_page/cubit/home_cubit.dart' as _i607;
 import '../views/login/cubit/login_cubit.dart' as _i621;
 import '../views/order_page/cubit/order_cubit.dart' as _i943;
 import '../views/register_page/cubit/register_cubit.dart' as _i986;
+import '../views/subscription_page/cubit/subscription_cubit.dart' as _i926;
 import '../views/vendor_detail_page/cubit/vendor_detail_cubit.dart' as _i237;
 import 'injectable_module.dart' as _i109;
 
@@ -67,11 +68,13 @@ extension GetItInjectableX on _i174.GetIt {
         () => registerModules.getDio(gh<String>(instanceName: 'BaseUrl')));
     gh.factory<_i3.AuthRepo>(() => _i223.AuthData(dio: gh<_i361.Dio>()));
     gh.singleton<_i584.AuthBloc>(() => _i584.AuthBloc(gh<_i3.AuthRepo>()));
+    gh.factory<_i621.LoginCubit>(() => _i621.LoginCubit(gh<_i3.AuthRepo>()));
     gh.factory<_i986.RegisterCubit>(
         () => _i986.RegisterCubit(gh<_i3.AuthRepo>()));
-    gh.factory<_i621.LoginCubit>(() => _i621.LoginCubit(gh<_i3.AuthRepo>()));
     gh.factory<_i617.VendorRepo>(() => _i917.VendorData(dio: gh<_i361.Dio>()));
     gh.factory<_i607.HomeCubit>(() => _i607.HomeCubit(gh<_i617.VendorRepo>()));
+    gh.factory<_i926.SubscriptionCubit>(
+        () => _i926.SubscriptionCubit(gh<_i617.VendorRepo>()));
     return this;
   }
 }

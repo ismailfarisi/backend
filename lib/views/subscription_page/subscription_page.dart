@@ -1,10 +1,15 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meal_app/injection/injection.dart';
+import 'package:meal_app/models/vendor_menu.dart';
 import '../../global_widgets/subscription_card.dart';
 import '../../models/subscription.dart';
+import '../../models/vendor.dart';
 import '../../utils/enums.dart';
 import 'cubit/subscription_cubit.dart';
 import 'widgets/meal_type_card.dart';
+import 'widgets/vendor_menu_dialog.dart';
 import 'widgets/vendor_selection_tab.dart';
 
 class SubscriptionFlowScreen extends StatefulWidget {
@@ -47,7 +52,7 @@ class _SubscriptionFlowScreenState extends State<SubscriptionFlowScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SubscriptionCubit()..initializeSubscription(),
+      create: (context) => getIt<SubscriptionCubit>(),
       child: BlocBuilder<SubscriptionCubit, SubscriptionState>(
         builder: (context, state) {
           return Scaffold(
@@ -75,7 +80,7 @@ class _SubscriptionFlowScreenState extends State<SubscriptionFlowScreen> {
                     },
                     children: const [
                       _MealTypeSelectionPage(),
-                      _VendorSelectionPage(),
+                      _VendorListPage(),
                       _SubscriptionReviewPage(),
                     ],
                   ),
@@ -163,105 +168,238 @@ class _MealTypeSelectionPage extends StatelessWidget {
   }
 }
 
-class _VendorSelectionPage extends StatelessWidget {
-  const _VendorSelectionPage();
+class _VendorListPage extends StatelessWidget {
+  const _VendorListPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SubscriptionCubit, SubscriptionState>(
-      builder: (context, state) {
-        if (state.status == AppStatus.loading) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
-        if (state.selectedMealTypes.isEmpty) {
-          return const Center(
-            child: Text('Please select at least one meal type'),
-          );
-        }
-
+    return BlocSelector<SubscriptionCubit, SubscriptionState, List<MealType>>(
+      selector: (state) {
+        return state.selectedMealTypes;
+      },
+      builder: (context, selectedMealTypes) {
         return DefaultTabController(
-          length: state.selectedMealTypes.length,
-          child: Column(
-            children: [
-              TabBar(
-                tabs: state.selectedMealTypes.map((type) {
-                  return Tab(
-                    text: type.displayName,
-                    icon: Icon(_getMealIcon(type)),
-                  );
-                }).toList(),
-              ),
-              Expanded(
-                child: TabBarView(
-                  children: state.selectedMealTypes.map((type) {
-                    return VendorSelectionTab(
-                      mealType: type,
-                      selectedVendors: state.selectedVendors?[type] ?? [],
-                      availableVendors: state.availableVendors?[type] ?? [],
-                      onVendorToggle: (vendorId) {
-                        context
-                            .read<SubscriptionCubit>()
-                            .toggleVendorSelection(type, vendorId);
-                      },
-                    );
+          length: selectedMealTypes.length,
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                TabBar(
+                  tabs: selectedMealTypes.map((type) {
+                    return Tab(text: type.displayName);
                   }).toList(),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      width: double.infinity,
-                      child: FilledButton(
-                        onPressed: _canProceed(state)
-                            ? () {
-                                context
-                                    .read<SubscriptionCubit>()
-                                    .createSubscriptionPlan();
+                Expanded(
+                  child: TabBarView(
+                    children: selectedMealTypes.map((type) {
+                      return _VendorListView(mealType: type);
+                    }).toList(),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: BlocSelector<SubscriptionCubit, SubscriptionState,
+                      Map<MealType, List<String>>?>(
+                    selector: (state) {
+                      return state.selectedVendors;
+                    },
+                    builder: (context, selectedVendors) {
+                      return FilledButton(
+                        onPressed: selectedMealTypes.any((type) =>
+                                selectedVendors?[type]?.isEmpty ?? true)
+                            ? null
+                            : () {
                                 context
                                     .findAncestorStateOfType<
                                         _SubscriptionFlowScreenState>()
                                     ?._goToNextPage();
-                              }
-                            : null,
-                        child: const Text('Review Subscription'),
-                      ),
-                    ),
-                    if (!_canProceed(state)) ...[
-                      const SizedBox(height: 8),
-                      Text(
-                        'Please select at least one vendor for each meal type',
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                              color: Theme.of(context).colorScheme.error,
-                            ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ],
+                              },
+                        child: const Text('Continue to Vendor Selection'),
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },
     );
   }
+}
 
-  bool _canProceed(SubscriptionState state) {
-    return state.selectedMealTypes.every((type) {
-      final vendors = state.selectedVendors?[type] ?? [];
-      return vendors.isNotEmpty;
-    });
+class _VendorListView extends StatelessWidget {
+  final MealType mealType;
+
+  const _VendorListView({required this.mealType});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SubscriptionCubit, SubscriptionState>(
+      builder: (context, state) {
+        final vendors = state.availableVendors?[mealType] ?? [];
+
+        return ListView.builder(
+          itemCount: vendors.length,
+          itemBuilder: (context, index) {
+            final vendor = vendors[index];
+            return VendorCard(
+              vendor: vendor,
+              mealType: mealType,
+              onTap: () => _showVendorMenuDialog(context, vendor),
+              onSelect: () {
+                context.read<SubscriptionCubit>().toggleVendorSelection(
+                      mealType,
+                      vendor.id,
+                    );
+              },
+            );
+          },
+        );
+      },
+    );
   }
 
-  IconData _getMealIcon(MealType type) {
-    return switch (type) {
-      MealType.breakfast => Icons.breakfast_dining,
-      MealType.lunch => Icons.lunch_dining,
-      MealType.dinner => Icons.dinner_dining,
-    };
+  void _showVendorMenuDialog(BuildContext context, Vendor vendor) {
+    showDialog(
+      context: context,
+      builder: (_) => VendorMenuDialog(
+        vendor: vendor,
+        mealType: mealType,
+      ),
+    );
+  }
+}
+
+// vendor_card.dart
+class VendorCard extends StatelessWidget {
+  final Vendor vendor;
+  final MealType mealType;
+  final VoidCallback onTap;
+  final VoidCallback onSelect;
+
+  const VendorCard({
+    Key? key,
+    required this.vendor,
+    required this.mealType,
+    required this.onTap,
+    required this.onSelect,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final menu = vendor.menus.firstWhereOrNull((m) => m.mealType == mealType);
+    if (menu == null) {
+      return const SizedBox();
+    }
+    final todayMenu = _getTodayMenu(menu.weeklyMenu);
+
+    return Card(
+      margin: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        children: [
+          // Vendor Info
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: vendor.profilePhotoUrl != null
+                  ? NetworkImage(vendor.profilePhotoUrl!)
+                  : null,
+              child: vendor.profilePhotoUrl == null
+                  ? const Icon(Icons.restaurant)
+                  : null,
+            ),
+            title: Text(vendor.businessName),
+            subtitle: Text('${vendor.rating} ★ • ${vendor.distance}km away'),
+            trailing: Text(
+              'AED ${menu.price}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+
+          // Sample Menu
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.grey[50],
+              border: Border(
+                top: BorderSide(color: Colors.grey[200]!),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Today's Menu",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: onTap,
+                      child: const Text('View Full Menu'),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: (todayMenu.items)
+                      .take(3)
+                      .map((item) => Chip(label: Text(item)))
+                      .toList(),
+                ),
+              ],
+            ),
+          ),
+
+          // Action Buttons
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: onTap,
+                    child: const Text('View Menu'),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: onSelect,
+                    child: const Text('Select Vendor'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  DailyMenu _getTodayMenu(Map<String, dynamic> weeklyMenu) {
+    final today = DateTime.now().weekday;
+    final dayName = [
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
+      'sunday',
+    ][today - 1];
+    return weeklyMenu[dayName];
   }
 }
 

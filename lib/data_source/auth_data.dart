@@ -55,8 +55,7 @@ class AuthData implements AuthRepo {
       );
 
       Map<String, dynamic> data = response.data;
-      log.d(data);
-      User user = User.fromJson(data);
+      User user = User.fromJson(data['user']);
       return Success(user);
     } catch (e, stack) {
       return onError(e, stack, log);
