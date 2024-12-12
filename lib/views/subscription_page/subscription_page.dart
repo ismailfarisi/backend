@@ -94,8 +94,8 @@ class _SubscriptionFlowScreenState extends State<SubscriptionFlowScreen> {
   }
 }
 
-class _MealTypeSelectionPage extends StatelessWidget {
-  const _MealTypeSelectionPage();
+class MealTypeSelectionPage extends StatelessWidget {
+  const MealTypeSelectionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -116,10 +116,17 @@ class _MealTypeSelectionPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                'Choose the meals you want to subscribe to',
+                'Choose your preferences',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 24),
+              // Date Selection
+              _buildDateSelection(context, state),
+              const SizedBox(height: 16),
+              // Location Selection
+              _buildLocationSelection(context, state),
+              const SizedBox(height: 24),
+              // Meal Type Selection
               Expanded(
                 child: ListView.separated(
                   itemCount: MealType.values.length,
@@ -129,18 +136,7 @@ class _MealTypeSelectionPage extends StatelessWidget {
                     return MealTypeCard(
                       type: mealType,
                       isSelected: state.selectedMealTypes.contains(mealType),
-                      onTap: () {
-                        final cubit = context.read<SubscriptionCubit>();
-                        final updatedTypes = List<MealType>.from(
-                          state.selectedMealTypes,
-                        );
-                        if (updatedTypes.contains(mealType)) {
-                          updatedTypes.remove(mealType);
-                        } else {
-                          updatedTypes.add(mealType);
-                        }
-                        cubit.updateMealTypes(updatedTypes);
-                      },
+                      onTap: () => _toggleMealType(context, state, mealType),
                     );
                   },
                 ),
@@ -149,14 +145,9 @@ class _MealTypeSelectionPage extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: FilledButton(
-                  onPressed: state.selectedMealTypes.isEmpty
-                      ? null
-                      : () {
-                          context
-                              .findAncestorStateOfType<
-                                  _SubscriptionFlowScreenState>()
-                              ?._goToNextPage();
-                        },
+                  onPressed: _canProceed(state)
+                      ? () => _proceedToVendorSelection(context)
+                      : null,
                   child: const Text('Continue to Vendor Selection'),
                 ),
               ),
@@ -165,6 +156,119 @@ class _MealTypeSelectionPage extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget _buildDateSelection(BuildContext context, SubscriptionState state) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Start Date',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: 8),
+        InkWell(
+          onTap: () => _selectDate(context),
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              border: Border.all(color: Theme.of(context).dividerColor),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  state.startDate != null
+                      ? DateFormat('MMM dd, yyyy').format(state.startDate!)
+                      : 'Select start date',
+                ),
+                const Icon(Icons.calendar_today),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLocationSelection(
+      BuildContext context, SubscriptionState state) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Delivery Location',
+          style: Theme.of(context).textTheme.titleMedium,
+        ),
+        const SizedBox(height: 8),
+        InkWell(
+          onTap: () => _navigateToLocationSelection(context),
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              border: Border.all(color: Theme.of(context).dividerColor),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Row(
+              children: [
+                const Icon(Icons.location_on),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    state.deliveryLocation?.address ?? 'Add delivery location',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                const Icon(Icons.arrow_forward_ios, size: 16),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  void _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now().add(const Duration(days: 1)),
+      firstDate: DateTime.now().add(const Duration(days: 1)),
+      lastDate: DateTime.now().add(const Duration(days: 30)),
+    );
+
+    if (picked != null) {
+      context.read<SubscriptionCubit>().updateStartDate(picked);
+    }
+  }
+
+  void _navigateToLocationSelection(BuildContext context) {
+    context.go('/subscription/location');
+  }
+
+  void _toggleMealType(
+    BuildContext context,
+    SubscriptionState state,
+    MealType mealType,
+  ) {
+    final updatedTypes = List<MealType>.from(state.selectedMealTypes);
+    if (updatedTypes.contains(mealType)) {
+      updatedTypes.remove(mealType);
+    } else {
+      updatedTypes.add(mealType);
+    }
+    context.read<SubscriptionCubit>().updateMealTypes(updatedTypes);
+  }
+
+  bool _canProceed(SubscriptionState state) {
+    return state.selectedMealTypes.isNotEmpty &&
+        state.startDate != null &&
+        state.deliveryLocation != null;
+  }
+
+  void _proceedToVendorSelection(BuildContext context) {
+    context.go('/subscription/vendors');
   }
 }
 

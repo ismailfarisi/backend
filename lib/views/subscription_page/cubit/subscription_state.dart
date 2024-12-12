@@ -13,5 +13,6 @@ class SubscriptionState with _$SubscriptionState {
     Map<MealType, List<String>>? selectedVendors,
     Map<MealType, List<Vendor>>? availableVendors,
     Subscription? subscriptionPlan,
+    DeliveryAddress? deliveryLocation,
   }) = _SubscriptionState;
 }

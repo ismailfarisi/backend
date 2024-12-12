@@ -27,6 +27,7 @@ mixin _$SubscriptionState {
   Map<MealType, List<Vendor>>? get availableVendors =>
       throw _privateConstructorUsedError;
   Subscription? get subscriptionPlan => throw _privateConstructorUsedError;
+  DeliveryAddress? get deliveryLocation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SubscriptionStateCopyWith<SubscriptionState> get copyWith =>
@@ -48,9 +49,11 @@ abstract class $SubscriptionStateCopyWith<$Res> {
       List<MealType> selectedMealTypes,
       Map<MealType, List<String>>? selectedVendors,
       Map<MealType, List<Vendor>>? availableVendors,
-      Subscription? subscriptionPlan});
+      Subscription? subscriptionPlan,
+      DeliveryAddress? deliveryLocation});
 
   $SubscriptionCopyWith<$Res>? get subscriptionPlan;
+  $DeliveryAddressCopyWith<$Res>? get deliveryLocation;
 }
 
 /// @nodoc
@@ -75,6 +78,7 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
     Object? selectedVendors = freezed,
     Object? availableVendors = freezed,
     Object? subscriptionPlan = freezed,
+    Object? deliveryLocation = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -113,6 +117,10 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
           ? _value.subscriptionPlan
           : subscriptionPlan // ignore: cast_nullable_to_non_nullable
               as Subscription?,
+      deliveryLocation: freezed == deliveryLocation
+          ? _value.deliveryLocation
+          : deliveryLocation // ignore: cast_nullable_to_non_nullable
+              as DeliveryAddress?,
     ) as $Val);
   }
 
@@ -125,6 +133,18 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
 
     return $SubscriptionCopyWith<$Res>(_value.subscriptionPlan!, (value) {
       return _then(_value.copyWith(subscriptionPlan: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DeliveryAddressCopyWith<$Res>? get deliveryLocation {
+    if (_value.deliveryLocation == null) {
+      return null;
+    }
+
+    return $DeliveryAddressCopyWith<$Res>(_value.deliveryLocation!, (value) {
+      return _then(_value.copyWith(deliveryLocation: value) as $Val);
     });
   }
 }
@@ -146,10 +166,13 @@ abstract class _$$SubscriptionStateImplCopyWith<$Res>
       List<MealType> selectedMealTypes,
       Map<MealType, List<String>>? selectedVendors,
       Map<MealType, List<Vendor>>? availableVendors,
-      Subscription? subscriptionPlan});
+      Subscription? subscriptionPlan,
+      DeliveryAddress? deliveryLocation});
 
   @override
   $SubscriptionCopyWith<$Res>? get subscriptionPlan;
+  @override
+  $DeliveryAddressCopyWith<$Res>? get deliveryLocation;
 }
 
 /// @nodoc
@@ -172,6 +195,7 @@ class __$$SubscriptionStateImplCopyWithImpl<$Res>
     Object? selectedVendors = freezed,
     Object? availableVendors = freezed,
     Object? subscriptionPlan = freezed,
+    Object? deliveryLocation = freezed,
   }) {
     return _then(_$SubscriptionStateImpl(
       status: null == status
@@ -210,6 +234,10 @@ class __$$SubscriptionStateImplCopyWithImpl<$Res>
           ? _value.subscriptionPlan
           : subscriptionPlan // ignore: cast_nullable_to_non_nullable
               as Subscription?,
+      deliveryLocation: freezed == deliveryLocation
+          ? _value.deliveryLocation
+          : deliveryLocation // ignore: cast_nullable_to_non_nullable
+              as DeliveryAddress?,
     ));
   }
 }
@@ -226,7 +254,8 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
       final List<MealType> selectedMealTypes = const [],
       final Map<MealType, List<String>>? selectedVendors,
       final Map<MealType, List<Vendor>>? availableVendors,
-      this.subscriptionPlan})
+      this.subscriptionPlan,
+      this.deliveryLocation})
       : _selectedMealTypes = selectedMealTypes,
         _selectedVendors = selectedVendors,
         _availableVendors = availableVendors;
@@ -277,10 +306,12 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
 
   @override
   final Subscription? subscriptionPlan;
+  @override
+  final DeliveryAddress? deliveryLocation;
 
   @override
   String toString() {
-    return 'SubscriptionState(status: $status, getVendorsStatus: $getVendorsStatus, updateVendorStatus: $updateVendorStatus, submitStatus: $submitStatus, errorMessage: $errorMessage, selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan)';
+    return 'SubscriptionState(status: $status, getVendorsStatus: $getVendorsStatus, updateVendorStatus: $updateVendorStatus, submitStatus: $submitStatus, errorMessage: $errorMessage, selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan, deliveryLocation: $deliveryLocation)';
   }
 
   @override
@@ -304,7 +335,9 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
             const DeepCollectionEquality()
                 .equals(other._availableVendors, _availableVendors) &&
             (identical(other.subscriptionPlan, subscriptionPlan) ||
-                other.subscriptionPlan == subscriptionPlan));
+                other.subscriptionPlan == subscriptionPlan) &&
+            (identical(other.deliveryLocation, deliveryLocation) ||
+                other.deliveryLocation == deliveryLocation));
   }
 
   @override
@@ -318,7 +351,8 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
       const DeepCollectionEquality().hash(_selectedMealTypes),
       const DeepCollectionEquality().hash(_selectedVendors),
       const DeepCollectionEquality().hash(_availableVendors),
-      subscriptionPlan);
+      subscriptionPlan,
+      deliveryLocation);
 
   @JsonKey(ignore: true)
   @override
@@ -338,7 +372,8 @@ abstract class _SubscriptionState implements SubscriptionState {
       final List<MealType> selectedMealTypes,
       final Map<MealType, List<String>>? selectedVendors,
       final Map<MealType, List<Vendor>>? availableVendors,
-      final Subscription? subscriptionPlan}) = _$SubscriptionStateImpl;
+      final Subscription? subscriptionPlan,
+      final DeliveryAddress? deliveryLocation}) = _$SubscriptionStateImpl;
 
   @override
   AppStatus get status;
@@ -358,6 +393,8 @@ abstract class _SubscriptionState implements SubscriptionState {
   Map<MealType, List<Vendor>>? get availableVendors;
   @override
   Subscription? get subscriptionPlan;
+  @override
+  DeliveryAddress? get deliveryLocation;
   @override
   @JsonKey(ignore: true)
   _$$SubscriptionStateImplCopyWith<_$SubscriptionStateImpl> get copyWith =>

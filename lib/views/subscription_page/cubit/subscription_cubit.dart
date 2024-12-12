@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meal_app/data_repositories/vendor_repo.dart';
+import 'package:meal_app/models/address.dart';
 import 'package:meal_app/models/subscription.dart';
 import 'package:meal_app/models/subscription_meal_selection.dart';
 import 'package:meal_app/models/vendor.dart';
@@ -139,21 +140,27 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
         endDate: DateTime.now().add(const Duration(days: 30)),
       );
 
-      final result = await _vendorRepo.createSubscription(orderDto);
+      // final result = await _vendorRepo.createSubscription(orderDto);
 
-      switch (result) {
-        case Success(value: final subscription):
-          emit(state.copyWith(
-            subscriptionPlan: subscription,
-            submitStatus: AppStatus.success,
-          ));
-          break;
-        case Error(exception: final e):
-          emit(state.copyWith(
-            submitStatus: AppStatus.failure,
-            errorMessage: e,
-          ));
-      }
+      // switch (result) {
+      //   case Success(value: final subscription):
+      emit(state.copyWith(
+        subscriptionPlan: Subscription(
+            userId: userId,
+            price: price,
+            mealSelections: mealSelections,
+            startDate: startDate,
+            endDate: endDate,
+            status: status),
+        submitStatus: AppStatus.success,
+      ));
+      //   break;
+      // case Error(exception: final e):
+      //   emit(state.copyWith(
+      //     submitStatus: AppStatus.failure,
+      //     errorMessage: e,
+      //   ));
+      // }
     } catch (e) {
       emit(state.copyWith(
         submitStatus: AppStatus.failure,
