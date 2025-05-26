@@ -14,5 +14,6 @@ class SubscriptionState with _$SubscriptionState {
     Map<MealType, List<Vendor>>? availableVendors,
     Subscription? subscriptionPlan,
     DeliveryAddress? deliveryLocation,
+    DateTime? startDate, // Added for managing selected start date
   }) = _SubscriptionState;
 }
