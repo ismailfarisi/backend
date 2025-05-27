@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,37 +10,66 @@ part of 'address.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DeliveryAddress _$DeliveryAddressFromJson(Map<String, dynamic> json) {
-  return _DeliveryAddress.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DeliveryAddress {
-  String get id => throw _privateConstructorUsedError;
-  String get fullAddress => throw _privateConstructorUsedError;
-  String get street => throw _privateConstructorUsedError;
-  String? get apartment => throw _privateConstructorUsedError;
-  String get emirate => throw _privateConstructorUsedError;
-  LatLng get coordinates => throw _privateConstructorUsedError;
-  bool get isDefault => throw _privateConstructorUsedError;
-  AddressType get type => throw _privateConstructorUsedError;
+  String get id;
+  String get fullAddress;
+  String get street;
+  String? get apartment;
+  String get emirate;
+  LatLng get coordinates;
+  bool get isDefault;
+  AddressType get type;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+  /// Create a copy of DeliveryAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $DeliveryAddressCopyWith<DeliveryAddress> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$DeliveryAddressCopyWithImpl<DeliveryAddress>(
+          this as DeliveryAddress, _$identity);
+
+  /// Serializes this DeliveryAddress to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeliveryAddress &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.fullAddress, fullAddress) ||
+                other.fullAddress == fullAddress) &&
+            (identical(other.street, street) || other.street == street) &&
+            (identical(other.apartment, apartment) ||
+                other.apartment == apartment) &&
+            (identical(other.emirate, emirate) || other.emirate == emirate) &&
+            (identical(other.coordinates, coordinates) ||
+                other.coordinates == coordinates) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, fullAddress, street,
+      apartment, emirate, coordinates, isDefault, type);
+
+  @override
+  String toString() {
+    return 'DeliveryAddress(id: $id, fullAddress: $fullAddress, street: $street, apartment: $apartment, emirate: $emirate, coordinates: $coordinates, isDefault: $isDefault, type: $type)';
+  }
 }
 
 /// @nodoc
-abstract class $DeliveryAddressCopyWith<$Res> {
+abstract mixin class $DeliveryAddressCopyWith<$Res> {
   factory $DeliveryAddressCopyWith(
-          DeliveryAddress value, $Res Function(DeliveryAddress) then) =
-      _$DeliveryAddressCopyWithImpl<$Res, DeliveryAddress>;
+          DeliveryAddress value, $Res Function(DeliveryAddress) _then) =
+      _$DeliveryAddressCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -55,15 +85,15 @@ abstract class $DeliveryAddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DeliveryAddressCopyWithImpl<$Res, $Val extends DeliveryAddress>
+class _$DeliveryAddressCopyWithImpl<$Res>
     implements $DeliveryAddressCopyWith<$Res> {
-  _$DeliveryAddressCopyWithImpl(this._value, this._then);
+  _$DeliveryAddressCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final DeliveryAddress _self;
+  final $Res Function(DeliveryAddress) _then;
 
+  /// Create a copy of DeliveryAddress
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -76,134 +106,57 @@ class _$DeliveryAddressCopyWithImpl<$Res, $Val extends DeliveryAddress>
     Object? isDefault = null,
     Object? type = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       fullAddress: null == fullAddress
-          ? _value.fullAddress
+          ? _self.fullAddress
           : fullAddress // ignore: cast_nullable_to_non_nullable
               as String,
       street: null == street
-          ? _value.street
+          ? _self.street
           : street // ignore: cast_nullable_to_non_nullable
               as String,
       apartment: freezed == apartment
-          ? _value.apartment
+          ? _self.apartment
           : apartment // ignore: cast_nullable_to_non_nullable
               as String?,
       emirate: null == emirate
-          ? _value.emirate
+          ? _self.emirate
           : emirate // ignore: cast_nullable_to_non_nullable
               as String,
       coordinates: null == coordinates
-          ? _value.coordinates
+          ? _self.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as LatLng,
       isDefault: null == isDefault
-          ? _value.isDefault
+          ? _self.isDefault
           : isDefault // ignore: cast_nullable_to_non_nullable
               as bool,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as AddressType,
-    ) as $Val);
+    ));
   }
 
+  /// Create a copy of DeliveryAddress
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $LatLngCopyWith<$Res> get coordinates {
-    return $LatLngCopyWith<$Res>(_value.coordinates, (value) {
-      return _then(_value.copyWith(coordinates: value) as $Val);
+    return $LatLngCopyWith<$Res>(_self.coordinates, (value) {
+      return _then(_self.copyWith(coordinates: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$DeliveryAddressImplCopyWith<$Res>
-    implements $DeliveryAddressCopyWith<$Res> {
-  factory _$$DeliveryAddressImplCopyWith(_$DeliveryAddressImpl value,
-          $Res Function(_$DeliveryAddressImpl) then) =
-      __$$DeliveryAddressImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String fullAddress,
-      String street,
-      String? apartment,
-      String emirate,
-      LatLng coordinates,
-      bool isDefault,
-      AddressType type});
-
-  @override
-  $LatLngCopyWith<$Res> get coordinates;
-}
-
-/// @nodoc
-class __$$DeliveryAddressImplCopyWithImpl<$Res>
-    extends _$DeliveryAddressCopyWithImpl<$Res, _$DeliveryAddressImpl>
-    implements _$$DeliveryAddressImplCopyWith<$Res> {
-  __$$DeliveryAddressImplCopyWithImpl(
-      _$DeliveryAddressImpl _value, $Res Function(_$DeliveryAddressImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? fullAddress = null,
-    Object? street = null,
-    Object? apartment = freezed,
-    Object? emirate = null,
-    Object? coordinates = null,
-    Object? isDefault = null,
-    Object? type = null,
-  }) {
-    return _then(_$DeliveryAddressImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullAddress: null == fullAddress
-          ? _value.fullAddress
-          : fullAddress // ignore: cast_nullable_to_non_nullable
-              as String,
-      street: null == street
-          ? _value.street
-          : street // ignore: cast_nullable_to_non_nullable
-              as String,
-      apartment: freezed == apartment
-          ? _value.apartment
-          : apartment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      emirate: null == emirate
-          ? _value.emirate
-          : emirate // ignore: cast_nullable_to_non_nullable
-              as String,
-      coordinates: null == coordinates
-          ? _value.coordinates
-          : coordinates // ignore: cast_nullable_to_non_nullable
-              as LatLng,
-      isDefault: null == isDefault
-          ? _value.isDefault
-          : isDefault // ignore: cast_nullable_to_non_nullable
-              as bool,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as AddressType,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$DeliveryAddressImpl implements _DeliveryAddress {
-  const _$DeliveryAddressImpl(
+class _DeliveryAddress implements DeliveryAddress {
+  const _DeliveryAddress(
       {required this.id,
       required this.fullAddress,
       required this.street,
@@ -212,9 +165,8 @@ class _$DeliveryAddressImpl implements _DeliveryAddress {
       required this.coordinates,
       this.isDefault = false,
       this.type = AddressType.home});
-
-  factory _$DeliveryAddressImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DeliveryAddressImplFromJson(json);
+  factory _DeliveryAddress.fromJson(Map<String, dynamic> json) =>
+      _$DeliveryAddressFromJson(json);
 
   @override
   final String id;
@@ -235,16 +187,26 @@ class _$DeliveryAddressImpl implements _DeliveryAddress {
   @JsonKey()
   final AddressType type;
 
+  /// Create a copy of DeliveryAddress
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DeliveryAddress(id: $id, fullAddress: $fullAddress, street: $street, apartment: $apartment, emirate: $emirate, coordinates: $coordinates, isDefault: $isDefault, type: $type)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DeliveryAddressCopyWith<_DeliveryAddress> get copyWith =>
+      __$DeliveryAddressCopyWithImpl<_DeliveryAddress>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DeliveryAddressToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeliveryAddressImpl &&
+            other is _DeliveryAddress &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.fullAddress, fullAddress) ||
                 other.fullAddress == fullAddress) &&
@@ -259,144 +221,174 @@ class _$DeliveryAddressImpl implements _DeliveryAddress {
             (identical(other.type, type) || other.type == type));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, fullAddress, street,
       apartment, emirate, coordinates, isDefault, type);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DeliveryAddressImplCopyWith<_$DeliveryAddressImpl> get copyWith =>
-      __$$DeliveryAddressImplCopyWithImpl<_$DeliveryAddressImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DeliveryAddressImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DeliveryAddress(id: $id, fullAddress: $fullAddress, street: $street, apartment: $apartment, emirate: $emirate, coordinates: $coordinates, isDefault: $isDefault, type: $type)';
   }
 }
 
-abstract class _DeliveryAddress implements DeliveryAddress {
-  const factory _DeliveryAddress(
-      {required final String id,
-      required final String fullAddress,
-      required final String street,
-      final String? apartment,
-      required final String emirate,
-      required final LatLng coordinates,
-      final bool isDefault,
-      final AddressType type}) = _$DeliveryAddressImpl;
+/// @nodoc
+abstract mixin class _$DeliveryAddressCopyWith<$Res>
+    implements $DeliveryAddressCopyWith<$Res> {
+  factory _$DeliveryAddressCopyWith(
+          _DeliveryAddress value, $Res Function(_DeliveryAddress) _then) =
+      __$DeliveryAddressCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String fullAddress,
+      String street,
+      String? apartment,
+      String emirate,
+      LatLng coordinates,
+      bool isDefault,
+      AddressType type});
 
-  factory _DeliveryAddress.fromJson(Map<String, dynamic> json) =
-      _$DeliveryAddressImpl.fromJson;
-
   @override
-  String get id;
-  @override
-  String get fullAddress;
-  @override
-  String get street;
-  @override
-  String? get apartment;
-  @override
-  String get emirate;
-  @override
-  LatLng get coordinates;
-  @override
-  bool get isDefault;
-  @override
-  AddressType get type;
-  @override
-  @JsonKey(ignore: true)
-  _$$DeliveryAddressImplCopyWith<_$DeliveryAddressImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LatLngCopyWith<$Res> get coordinates;
 }
 
-LatLng _$LatLngFromJson(Map<String, dynamic> json) {
-  return _LatLng.fromJson(json);
+/// @nodoc
+class __$DeliveryAddressCopyWithImpl<$Res>
+    implements _$DeliveryAddressCopyWith<$Res> {
+  __$DeliveryAddressCopyWithImpl(this._self, this._then);
+
+  final _DeliveryAddress _self;
+  final $Res Function(_DeliveryAddress) _then;
+
+  /// Create a copy of DeliveryAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? fullAddress = null,
+    Object? street = null,
+    Object? apartment = freezed,
+    Object? emirate = null,
+    Object? coordinates = null,
+    Object? isDefault = null,
+    Object? type = null,
+  }) {
+    return _then(_DeliveryAddress(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      fullAddress: null == fullAddress
+          ? _self.fullAddress
+          : fullAddress // ignore: cast_nullable_to_non_nullable
+              as String,
+      street: null == street
+          ? _self.street
+          : street // ignore: cast_nullable_to_non_nullable
+              as String,
+      apartment: freezed == apartment
+          ? _self.apartment
+          : apartment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      emirate: null == emirate
+          ? _self.emirate
+          : emirate // ignore: cast_nullable_to_non_nullable
+              as String,
+      coordinates: null == coordinates
+          ? _self.coordinates
+          : coordinates // ignore: cast_nullable_to_non_nullable
+              as LatLng,
+      isDefault: null == isDefault
+          ? _self.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AddressType,
+    ));
+  }
+
+  /// Create a copy of DeliveryAddress
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LatLngCopyWith<$Res> get coordinates {
+    return $LatLngCopyWith<$Res>(_self.coordinates, (value) {
+      return _then(_self.copyWith(coordinates: value));
+    });
+  }
 }
 
 /// @nodoc
 mixin _$LatLng {
-  double get latitude => throw _privateConstructorUsedError;
-  double get longitude => throw _privateConstructorUsedError;
+  double get latitude;
+  double get longitude;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $LatLngCopyWith<LatLng> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $LatLngCopyWith<$Res> {
-  factory $LatLngCopyWith(LatLng value, $Res Function(LatLng) then) =
-      _$LatLngCopyWithImpl<$Res, LatLng>;
-  @useResult
-  $Res call({double latitude, double longitude});
-}
-
-/// @nodoc
-class _$LatLngCopyWithImpl<$Res, $Val extends LatLng>
-    implements $LatLngCopyWith<$Res> {
-  _$LatLngCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of LatLng
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $LatLngCopyWith<LatLng> get copyWith =>
+      _$LatLngCopyWithImpl<LatLng>(this as LatLng, _$identity);
+
+  /// Serializes this LatLng to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? latitude = null,
-    Object? longitude = null,
-  }) {
-    return _then(_value.copyWith(
-      latitude: null == latitude
-          ? _value.latitude
-          : latitude // ignore: cast_nullable_to_non_nullable
-              as double,
-      longitude: null == longitude
-          ? _value.longitude
-          : longitude // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LatLng &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, latitude, longitude);
+
+  @override
+  String toString() {
+    return 'LatLng(latitude: $latitude, longitude: $longitude)';
   }
 }
 
 /// @nodoc
-abstract class _$$LatLngImplCopyWith<$Res> implements $LatLngCopyWith<$Res> {
-  factory _$$LatLngImplCopyWith(
-          _$LatLngImpl value, $Res Function(_$LatLngImpl) then) =
-      __$$LatLngImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $LatLngCopyWith<$Res> {
+  factory $LatLngCopyWith(LatLng value, $Res Function(LatLng) _then) =
+      _$LatLngCopyWithImpl;
   @useResult
   $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
-class __$$LatLngImplCopyWithImpl<$Res>
-    extends _$LatLngCopyWithImpl<$Res, _$LatLngImpl>
-    implements _$$LatLngImplCopyWith<$Res> {
-  __$$LatLngImplCopyWithImpl(
-      _$LatLngImpl _value, $Res Function(_$LatLngImpl) _then)
-      : super(_value, _then);
+class _$LatLngCopyWithImpl<$Res> implements $LatLngCopyWith<$Res> {
+  _$LatLngCopyWithImpl(this._self, this._then);
 
+  final LatLng _self;
+  final $Res Function(LatLng) _then;
+
+  /// Create a copy of LatLng
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? latitude = null,
     Object? longitude = null,
   }) {
-    return _then(_$LatLngImpl(
+    return _then(_self.copyWith(
       latitude: null == latitude
-          ? _value.latitude
+          ? _self.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double,
       longitude: null == longitude
-          ? _value.longitude
+          ? _self.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
     ));
@@ -405,64 +397,86 @@ class __$$LatLngImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LatLngImpl implements _LatLng {
-  const _$LatLngImpl({required this.latitude, required this.longitude});
-
-  factory _$LatLngImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LatLngImplFromJson(json);
+class _LatLng implements LatLng {
+  const _LatLng({required this.latitude, required this.longitude});
+  factory _LatLng.fromJson(Map<String, dynamic> json) => _$LatLngFromJson(json);
 
   @override
   final double latitude;
   @override
   final double longitude;
 
+  /// Create a copy of LatLng
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'LatLng(latitude: $latitude, longitude: $longitude)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$LatLngCopyWith<_LatLng> get copyWith =>
+      __$LatLngCopyWithImpl<_LatLng>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$LatLngToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LatLngImpl &&
+            other is _LatLng &&
             (identical(other.latitude, latitude) ||
                 other.latitude == latitude) &&
             (identical(other.longitude, longitude) ||
                 other.longitude == longitude));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, latitude, longitude);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$LatLngImplCopyWith<_$LatLngImpl> get copyWith =>
-      __$$LatLngImplCopyWithImpl<_$LatLngImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LatLngImplToJson(
-      this,
-    );
+  String toString() {
+    return 'LatLng(latitude: $latitude, longitude: $longitude)';
   }
 }
 
-abstract class _LatLng implements LatLng {
-  const factory _LatLng(
-      {required final double latitude,
-      required final double longitude}) = _$LatLngImpl;
-
-  factory _LatLng.fromJson(Map<String, dynamic> json) = _$LatLngImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$LatLngCopyWith<$Res> implements $LatLngCopyWith<$Res> {
+  factory _$LatLngCopyWith(_LatLng value, $Res Function(_LatLng) _then) =
+      __$LatLngCopyWithImpl;
   @override
-  double get latitude;
-  @override
-  double get longitude;
-  @override
-  @JsonKey(ignore: true)
-  _$$LatLngImplCopyWith<_$LatLngImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({double latitude, double longitude});
 }
+
+/// @nodoc
+class __$LatLngCopyWithImpl<$Res> implements _$LatLngCopyWith<$Res> {
+  __$LatLngCopyWithImpl(this._self, this._then);
+
+  final _LatLng _self;
+  final $Res Function(_LatLng) _then;
+
+  /// Create a copy of LatLng
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? latitude = null,
+    Object? longitude = null,
+  }) {
+    return _then(_LatLng(
+      latitude: null == latitude
+          ? _self.latitude
+          : latitude // ignore: cast_nullable_to_non_nullable
+              as double,
+      longitude: null == longitude
+          ? _self.longitude
+          : longitude // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+// dart format on

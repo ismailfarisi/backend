@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_app/models/vendor.dart';
 import 'package:meal_app/views/home_layout/home_layout.dart';

@@ -6,7 +6,7 @@ part of 'vendor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VendorImpl _$$VendorImplFromJson(Map<String, dynamic> json) => _$VendorImpl(
+_Vendor _$VendorFromJson(Map<String, dynamic> json) => _Vendor(
       id: json['id'] as String,
       name: json['name'] as String,
       businessName: json['businessName'] as String,
@@ -37,8 +37,7 @@ _$VendorImpl _$$VendorImplFromJson(Map<String, dynamic> json) => _$VendorImpl(
           const [],
     );
 
-Map<String, dynamic> _$$VendorImplToJson(_$VendorImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$VendorToJson(_Vendor instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'businessName': instance.businessName,
@@ -57,16 +56,14 @@ Map<String, dynamic> _$$VendorImplToJson(_$VendorImpl instance) =>
       'acceptedPaymentMethods': instance.acceptedPaymentMethods,
     };
 
-_$GeoPointImpl _$$GeoPointImplFromJson(Map<String, dynamic> json) =>
-    _$GeoPointImpl(
+_GeoPoint _$GeoPointFromJson(Map<String, dynamic> json) => _GeoPoint(
       type: json['type'] as String,
       coordinates: (json['coordinates'] as List<dynamic>)
           .map((e) => (e as num).toDouble())
           .toList(),
     );
 
-Map<String, dynamic> _$$GeoPointImplToJson(_$GeoPointImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$GeoPointToJson(_GeoPoint instance) => <String, dynamic>{
       'type': instance.type,
       'coordinates': instance.coordinates,
     };

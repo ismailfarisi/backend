@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,103 +10,70 @@ part of 'delivery_timeslot.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-DeliveryTimeSlot _$DeliveryTimeSlotFromJson(Map<String, dynamic> json) {
-  return _DeliveryTimeSlot.fromJson(json);
-}
 
 /// @nodoc
 mixin _$DeliveryTimeSlot {
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @TimeOfDayConverter()
-  TimeOfDay get startTime => throw _privateConstructorUsedError;
+  TimeOfDay get startTime;
   @TimeOfDayConverter()
-  TimeOfDay get endTime => throw _privateConstructorUsedError;
-  List<String> get availableDays => throw _privateConstructorUsedError;
-  bool get isActive => throw _privateConstructorUsedError;
-  String? get specialInstructions => throw _privateConstructorUsedError;
+  TimeOfDay get endTime;
+  List<String> get availableDays;
+  bool get isActive;
+  String? get specialInstructions;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $DeliveryTimeSlotCopyWith<DeliveryTimeSlot> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $DeliveryTimeSlotCopyWith<$Res> {
-  factory $DeliveryTimeSlotCopyWith(
-          DeliveryTimeSlot value, $Res Function(DeliveryTimeSlot) then) =
-      _$DeliveryTimeSlotCopyWithImpl<$Res, DeliveryTimeSlot>;
-  @useResult
-  $Res call(
-      {String id,
-      @TimeOfDayConverter() TimeOfDay startTime,
-      @TimeOfDayConverter() TimeOfDay endTime,
-      List<String> availableDays,
-      bool isActive,
-      String? specialInstructions});
-}
-
-/// @nodoc
-class _$DeliveryTimeSlotCopyWithImpl<$Res, $Val extends DeliveryTimeSlot>
-    implements $DeliveryTimeSlotCopyWith<$Res> {
-  _$DeliveryTimeSlotCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of DeliveryTimeSlot
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $DeliveryTimeSlotCopyWith<DeliveryTimeSlot> get copyWith =>
+      _$DeliveryTimeSlotCopyWithImpl<DeliveryTimeSlot>(
+          this as DeliveryTimeSlot, _$identity);
+
+  /// Serializes this DeliveryTimeSlot to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? startTime = null,
-    Object? endTime = null,
-    Object? availableDays = null,
-    Object? isActive = null,
-    Object? specialInstructions = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      endTime: null == endTime
-          ? _value.endTime
-          : endTime // ignore: cast_nullable_to_non_nullable
-              as TimeOfDay,
-      availableDays: null == availableDays
-          ? _value.availableDays
-          : availableDays // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      isActive: null == isActive
-          ? _value.isActive
-          : isActive // ignore: cast_nullable_to_non_nullable
-              as bool,
-      specialInstructions: freezed == specialInstructions
-          ? _value.specialInstructions
-          : specialInstructions // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeliveryTimeSlot &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.startTime, startTime) ||
+                other.startTime == startTime) &&
+            (identical(other.endTime, endTime) || other.endTime == endTime) &&
+            const DeepCollectionEquality()
+                .equals(other.availableDays, availableDays) &&
+            (identical(other.isActive, isActive) ||
+                other.isActive == isActive) &&
+            (identical(other.specialInstructions, specialInstructions) ||
+                other.specialInstructions == specialInstructions));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      startTime,
+      endTime,
+      const DeepCollectionEquality().hash(availableDays),
+      isActive,
+      specialInstructions);
+
+  @override
+  String toString() {
+    return 'DeliveryTimeSlot(id: $id, startTime: $startTime, endTime: $endTime, availableDays: $availableDays, isActive: $isActive, specialInstructions: $specialInstructions)';
   }
 }
 
 /// @nodoc
-abstract class _$$DeliveryTimeSlotImplCopyWith<$Res>
-    implements $DeliveryTimeSlotCopyWith<$Res> {
-  factory _$$DeliveryTimeSlotImplCopyWith(_$DeliveryTimeSlotImpl value,
-          $Res Function(_$DeliveryTimeSlotImpl) then) =
-      __$$DeliveryTimeSlotImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $DeliveryTimeSlotCopyWith<$Res> {
+  factory $DeliveryTimeSlotCopyWith(
+          DeliveryTimeSlot value, $Res Function(DeliveryTimeSlot) _then) =
+      _$DeliveryTimeSlotCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -117,13 +85,15 @@ abstract class _$$DeliveryTimeSlotImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DeliveryTimeSlotImplCopyWithImpl<$Res>
-    extends _$DeliveryTimeSlotCopyWithImpl<$Res, _$DeliveryTimeSlotImpl>
-    implements _$$DeliveryTimeSlotImplCopyWith<$Res> {
-  __$$DeliveryTimeSlotImplCopyWithImpl(_$DeliveryTimeSlotImpl _value,
-      $Res Function(_$DeliveryTimeSlotImpl) _then)
-      : super(_value, _then);
+class _$DeliveryTimeSlotCopyWithImpl<$Res>
+    implements $DeliveryTimeSlotCopyWith<$Res> {
+  _$DeliveryTimeSlotCopyWithImpl(this._self, this._then);
 
+  final DeliveryTimeSlot _self;
+  final $Res Function(DeliveryTimeSlot) _then;
+
+  /// Create a copy of DeliveryTimeSlot
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,29 +104,29 @@ class __$$DeliveryTimeSlotImplCopyWithImpl<$Res>
     Object? isActive = null,
     Object? specialInstructions = freezed,
   }) {
-    return _then(_$DeliveryTimeSlotImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       startTime: null == startTime
-          ? _value.startTime
+          ? _self.startTime
           : startTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
       endTime: null == endTime
-          ? _value.endTime
+          ? _self.endTime
           : endTime // ignore: cast_nullable_to_non_nullable
               as TimeOfDay,
       availableDays: null == availableDays
-          ? _value._availableDays
+          ? _self.availableDays
           : availableDays // ignore: cast_nullable_to_non_nullable
               as List<String>,
       isActive: null == isActive
-          ? _value.isActive
+          ? _self.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
       specialInstructions: freezed == specialInstructions
-          ? _value.specialInstructions
+          ? _self.specialInstructions
           : specialInstructions // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -165,8 +135,8 @@ class __$$DeliveryTimeSlotImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
-  const _$DeliveryTimeSlotImpl(
+class _DeliveryTimeSlot implements DeliveryTimeSlot {
+  const _DeliveryTimeSlot(
       {required this.id,
       @TimeOfDayConverter() required this.startTime,
       @TimeOfDayConverter() required this.endTime,
@@ -174,9 +144,8 @@ class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
       this.isActive = true,
       this.specialInstructions})
       : _availableDays = availableDays;
-
-  factory _$DeliveryTimeSlotImpl.fromJson(Map<String, dynamic> json) =>
-      _$$DeliveryTimeSlotImplFromJson(json);
+  factory _DeliveryTimeSlot.fromJson(Map<String, dynamic> json) =>
+      _$DeliveryTimeSlotFromJson(json);
 
   @override
   final String id;
@@ -200,16 +169,26 @@ class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
   @override
   final String? specialInstructions;
 
+  /// Create a copy of DeliveryTimeSlot
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'DeliveryTimeSlot(id: $id, startTime: $startTime, endTime: $endTime, availableDays: $availableDays, isActive: $isActive, specialInstructions: $specialInstructions)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$DeliveryTimeSlotCopyWith<_DeliveryTimeSlot> get copyWith =>
+      __$DeliveryTimeSlotCopyWithImpl<_DeliveryTimeSlot>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$DeliveryTimeSlotToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DeliveryTimeSlotImpl &&
+            other is _DeliveryTimeSlot &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.startTime, startTime) ||
                 other.startTime == startTime) &&
@@ -222,7 +201,7 @@ class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
                 other.specialInstructions == specialInstructions));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -233,49 +212,76 @@ class _$DeliveryTimeSlotImpl implements _DeliveryTimeSlot {
       isActive,
       specialInstructions);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$DeliveryTimeSlotImplCopyWith<_$DeliveryTimeSlotImpl> get copyWith =>
-      __$$DeliveryTimeSlotImplCopyWithImpl<_$DeliveryTimeSlotImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DeliveryTimeSlotImplToJson(
-      this,
-    );
+  String toString() {
+    return 'DeliveryTimeSlot(id: $id, startTime: $startTime, endTime: $endTime, availableDays: $availableDays, isActive: $isActive, specialInstructions: $specialInstructions)';
   }
 }
 
-abstract class _DeliveryTimeSlot implements DeliveryTimeSlot {
-  const factory _DeliveryTimeSlot(
-      {required final String id,
-      @TimeOfDayConverter() required final TimeOfDay startTime,
-      @TimeOfDayConverter() required final TimeOfDay endTime,
-      required final List<String> availableDays,
-      final bool isActive,
-      final String? specialInstructions}) = _$DeliveryTimeSlotImpl;
-
-  factory _DeliveryTimeSlot.fromJson(Map<String, dynamic> json) =
-      _$DeliveryTimeSlotImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$DeliveryTimeSlotCopyWith<$Res>
+    implements $DeliveryTimeSlotCopyWith<$Res> {
+  factory _$DeliveryTimeSlotCopyWith(
+          _DeliveryTimeSlot value, $Res Function(_DeliveryTimeSlot) _then) =
+      __$DeliveryTimeSlotCopyWithImpl;
   @override
-  String get id;
-  @override
-  @TimeOfDayConverter()
-  TimeOfDay get startTime;
-  @override
-  @TimeOfDayConverter()
-  TimeOfDay get endTime;
-  @override
-  List<String> get availableDays;
-  @override
-  bool get isActive;
-  @override
-  String? get specialInstructions;
-  @override
-  @JsonKey(ignore: true)
-  _$$DeliveryTimeSlotImplCopyWith<_$DeliveryTimeSlotImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String id,
+      @TimeOfDayConverter() TimeOfDay startTime,
+      @TimeOfDayConverter() TimeOfDay endTime,
+      List<String> availableDays,
+      bool isActive,
+      String? specialInstructions});
 }
+
+/// @nodoc
+class __$DeliveryTimeSlotCopyWithImpl<$Res>
+    implements _$DeliveryTimeSlotCopyWith<$Res> {
+  __$DeliveryTimeSlotCopyWithImpl(this._self, this._then);
+
+  final _DeliveryTimeSlot _self;
+  final $Res Function(_DeliveryTimeSlot) _then;
+
+  /// Create a copy of DeliveryTimeSlot
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? startTime = null,
+    Object? endTime = null,
+    Object? availableDays = null,
+    Object? isActive = null,
+    Object? specialInstructions = freezed,
+  }) {
+    return _then(_DeliveryTimeSlot(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      startTime: null == startTime
+          ? _self.startTime
+          : startTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      endTime: null == endTime
+          ? _self.endTime
+          : endTime // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+      availableDays: null == availableDays
+          ? _self._availableDays
+          : availableDays // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      isActive: null == isActive
+          ? _self.isActive
+          : isActive // ignore: cast_nullable_to_non_nullable
+              as bool,
+      specialInstructions: freezed == specialInstructions
+          ? _self.specialInstructions
+          : specialInstructions // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+// dart format on

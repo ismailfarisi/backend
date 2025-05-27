@@ -3,7 +3,7 @@ part 'subscription_feedback.freezed.dart';
 part 'subscription_feedback.g.dart';
 
 @freezed
-class SubscriptionFeedback with _$SubscriptionFeedback {
+abstract class SubscriptionFeedback with _$SubscriptionFeedback {
   const factory SubscriptionFeedback({
     required String id,
     required String orderId,

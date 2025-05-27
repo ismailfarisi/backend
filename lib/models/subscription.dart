@@ -25,7 +25,7 @@ enum MealType {
 }
 
 @freezed
-class Subscription with _$Subscription {
+abstract class Subscription with _$Subscription {
   const factory Subscription({
     String? id,
     required String userId,
@@ -42,7 +42,7 @@ class Subscription with _$Subscription {
 }
 
 @freezed
-class MealVendorSelection with _$MealVendorSelection {
+abstract class MealVendorSelection with _$MealVendorSelection {
   const factory MealVendorSelection({
     required MealType mealType,
     @Default([]) List<String> vendorIds,

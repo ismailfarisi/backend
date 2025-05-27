@@ -1,7 +1,7 @@
 part of 'order_cubit.dart';
 
 @freezed
-class OrderState with _$OrderState {
+abstract class OrderState with _$OrderState {
   const factory OrderState({
     @Default([]) List<SubscriptionOrder> orders,
     SubscriptionOrder? activeSubscription,

@@ -6,8 +6,8 @@ part of 'meal_selection.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MealSelectionImpl _$$MealSelectionImplFromJson(Map<String, dynamic> json) =>
-    _$MealSelectionImpl(
+_MealSelection _$MealSelectionFromJson(Map<String, dynamic> json) =>
+    _MealSelection(
       date: DateTime.parse(json['date'] as String),
       selectedMeals: (json['selectedMeals'] as Map<String, dynamic>).map(
         (k, e) => MapEntry($enumDecode(_$MealTypeEnumMap, k),
@@ -23,7 +23,7 @@ _$MealSelectionImpl _$$MealSelectionImplFromJson(Map<String, dynamic> json) =>
       feedbackId: json['feedbackId'] as String?,
     );
 
-Map<String, dynamic> _$$MealSelectionImplToJson(_$MealSelectionImpl instance) =>
+Map<String, dynamic> _$MealSelectionToJson(_MealSelection instance) =>
     <String, dynamic>{
       'date': instance.date.toIso8601String(),
       'selectedMeals': instance.selectedMeals

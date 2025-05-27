@@ -8,7 +8,7 @@ part 'menu_item.freezed.dart';
 part 'menu_item.g.dart';
 
 @freezed
-class MenuItem with _$MenuItem {
+abstract class MenuItem with _$MenuItem {
   const factory MenuItem({
     required String id,
     required String name,
@@ -25,7 +25,7 @@ class MenuItem with _$MenuItem {
 }
 
 @freezed
-class DailyMenu with _$DailyMenu {
+abstract class DailyMenu with _$DailyMenu {
   const factory DailyMenu({
     required DateTime date,
     @Default([]) List<MenuItem> breakfastOptions,
@@ -38,7 +38,7 @@ class DailyMenu with _$DailyMenu {
 }
 
 @freezed
-class WeeklyMenu with _$WeeklyMenu {
+abstract class WeeklyMenu with _$WeeklyMenu {
   const factory WeeklyMenu({
     required String id,
     required DateTime startDate,
@@ -52,7 +52,7 @@ class WeeklyMenu with _$WeeklyMenu {
 
 // lib/features/vendor_detail/cubit/vendor_detail_state.freezed.dart
 @freezed
-class VendorDetailState with _$VendorDetailState {
+abstract class VendorDetailState with _$VendorDetailState {
   const factory VendorDetailState({
     required Vendor vendor,
     WeeklyMenu? weeklyMenu,

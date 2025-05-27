@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,36 +10,85 @@ part of 'subscription_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SubscriptionState {
-  AppStatus get status => throw _privateConstructorUsedError;
-  AppStatus get getVendorsStatus => throw _privateConstructorUsedError;
-  AppStatus get updateVendorStatus => throw _privateConstructorUsedError;
-  AppStatus get submitStatus => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
-  List<MealType> get selectedMealTypes => throw _privateConstructorUsedError;
-  Map<MealType, List<String>>? get selectedVendors =>
-      throw _privateConstructorUsedError;
-  Map<MealType, List<Vendor>>? get availableVendors =>
-      throw _privateConstructorUsedError;
-  Subscription? get subscriptionPlan => throw _privateConstructorUsedError;
-  DeliveryAddress? get deliveryLocation => throw _privateConstructorUsedError;
+  AppStatus get status;
+  AppStatus get getVendorsStatus;
+  AppStatus get updateVendorStatus;
+  AppStatus get submitStatus;
+  String? get errorMessage;
+  List<MealType> get selectedMealTypes;
+  Map<MealType, List<String>>? get selectedVendors;
+  Map<MealType, List<Vendor>>? get availableVendors;
+  Subscription? get subscriptionPlan;
+  DeliveryAddress? get deliveryLocation;
+  DateTime? get startDate;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $SubscriptionStateCopyWith<SubscriptionState> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$SubscriptionStateCopyWithImpl<SubscriptionState>(
+          this as SubscriptionState, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscriptionState &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.getVendorsStatus, getVendorsStatus) ||
+                other.getVendorsStatus == getVendorsStatus) &&
+            (identical(other.updateVendorStatus, updateVendorStatus) ||
+                other.updateVendorStatus == updateVendorStatus) &&
+            (identical(other.submitStatus, submitStatus) ||
+                other.submitStatus == submitStatus) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedMealTypes, selectedMealTypes) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedVendors, selectedVendors) &&
+            const DeepCollectionEquality()
+                .equals(other.availableVendors, availableVendors) &&
+            (identical(other.subscriptionPlan, subscriptionPlan) ||
+                other.subscriptionPlan == subscriptionPlan) &&
+            (identical(other.deliveryLocation, deliveryLocation) ||
+                other.deliveryLocation == deliveryLocation) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      getVendorsStatus,
+      updateVendorStatus,
+      submitStatus,
+      errorMessage,
+      const DeepCollectionEquality().hash(selectedMealTypes),
+      const DeepCollectionEquality().hash(selectedVendors),
+      const DeepCollectionEquality().hash(availableVendors),
+      subscriptionPlan,
+      deliveryLocation,
+      startDate);
+
+  @override
+  String toString() {
+    return 'SubscriptionState(status: $status, getVendorsStatus: $getVendorsStatus, updateVendorStatus: $updateVendorStatus, submitStatus: $submitStatus, errorMessage: $errorMessage, selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan, deliveryLocation: $deliveryLocation, startDate: $startDate)';
+  }
 }
 
 /// @nodoc
-abstract class $SubscriptionStateCopyWith<$Res> {
+abstract mixin class $SubscriptionStateCopyWith<$Res> {
   factory $SubscriptionStateCopyWith(
-          SubscriptionState value, $Res Function(SubscriptionState) then) =
-      _$SubscriptionStateCopyWithImpl<$Res, SubscriptionState>;
+          SubscriptionState value, $Res Function(SubscriptionState) _then) =
+      _$SubscriptionStateCopyWithImpl;
   @useResult
   $Res call(
       {AppStatus status,
@@ -50,22 +100,23 @@ abstract class $SubscriptionStateCopyWith<$Res> {
       Map<MealType, List<String>>? selectedVendors,
       Map<MealType, List<Vendor>>? availableVendors,
       Subscription? subscriptionPlan,
-      DeliveryAddress? deliveryLocation});
+      DeliveryAddress? deliveryLocation,
+      DateTime? startDate});
 
   $SubscriptionCopyWith<$Res>? get subscriptionPlan;
   $DeliveryAddressCopyWith<$Res>? get deliveryLocation;
 }
 
 /// @nodoc
-class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
+class _$SubscriptionStateCopyWithImpl<$Res>
     implements $SubscriptionStateCopyWith<$Res> {
-  _$SubscriptionStateCopyWithImpl(this._value, this._then);
+  _$SubscriptionStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SubscriptionState _self;
+  final $Res Function(SubscriptionState) _then;
 
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,173 +130,89 @@ class _$SubscriptionStateCopyWithImpl<$Res, $Val extends SubscriptionState>
     Object? availableVendors = freezed,
     Object? subscriptionPlan = freezed,
     Object? deliveryLocation = freezed,
+    Object? startDate = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       getVendorsStatus: null == getVendorsStatus
-          ? _value.getVendorsStatus
+          ? _self.getVendorsStatus
           : getVendorsStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       updateVendorStatus: null == updateVendorStatus
-          ? _value.updateVendorStatus
+          ? _self.updateVendorStatus
           : updateVendorStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       submitStatus: null == submitStatus
-          ? _value.submitStatus
+          ? _self.submitStatus
           : submitStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       errorMessage: freezed == errorMessage
-          ? _value.errorMessage
+          ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       selectedMealTypes: null == selectedMealTypes
-          ? _value.selectedMealTypes
+          ? _self.selectedMealTypes
           : selectedMealTypes // ignore: cast_nullable_to_non_nullable
               as List<MealType>,
       selectedVendors: freezed == selectedVendors
-          ? _value.selectedVendors
+          ? _self.selectedVendors
           : selectedVendors // ignore: cast_nullable_to_non_nullable
               as Map<MealType, List<String>>?,
       availableVendors: freezed == availableVendors
-          ? _value.availableVendors
+          ? _self.availableVendors
           : availableVendors // ignore: cast_nullable_to_non_nullable
               as Map<MealType, List<Vendor>>?,
       subscriptionPlan: freezed == subscriptionPlan
-          ? _value.subscriptionPlan
+          ? _self.subscriptionPlan
           : subscriptionPlan // ignore: cast_nullable_to_non_nullable
               as Subscription?,
       deliveryLocation: freezed == deliveryLocation
-          ? _value.deliveryLocation
+          ? _self.deliveryLocation
           : deliveryLocation // ignore: cast_nullable_to_non_nullable
               as DeliveryAddress?,
-    ) as $Val);
+      startDate: freezed == startDate
+          ? _self.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
   }
 
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SubscriptionCopyWith<$Res>? get subscriptionPlan {
-    if (_value.subscriptionPlan == null) {
+    if (_self.subscriptionPlan == null) {
       return null;
     }
 
-    return $SubscriptionCopyWith<$Res>(_value.subscriptionPlan!, (value) {
-      return _then(_value.copyWith(subscriptionPlan: value) as $Val);
+    return $SubscriptionCopyWith<$Res>(_self.subscriptionPlan!, (value) {
+      return _then(_self.copyWith(subscriptionPlan: value));
     });
   }
 
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $DeliveryAddressCopyWith<$Res>? get deliveryLocation {
-    if (_value.deliveryLocation == null) {
+    if (_self.deliveryLocation == null) {
       return null;
     }
 
-    return $DeliveryAddressCopyWith<$Res>(_value.deliveryLocation!, (value) {
-      return _then(_value.copyWith(deliveryLocation: value) as $Val);
+    return $DeliveryAddressCopyWith<$Res>(_self.deliveryLocation!, (value) {
+      return _then(_self.copyWith(deliveryLocation: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionStateImplCopyWith<$Res>
-    implements $SubscriptionStateCopyWith<$Res> {
-  factory _$$SubscriptionStateImplCopyWith(_$SubscriptionStateImpl value,
-          $Res Function(_$SubscriptionStateImpl) then) =
-      __$$SubscriptionStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {AppStatus status,
-      AppStatus getVendorsStatus,
-      AppStatus updateVendorStatus,
-      AppStatus submitStatus,
-      String? errorMessage,
-      List<MealType> selectedMealTypes,
-      Map<MealType, List<String>>? selectedVendors,
-      Map<MealType, List<Vendor>>? availableVendors,
-      Subscription? subscriptionPlan,
-      DeliveryAddress? deliveryLocation});
 
-  @override
-  $SubscriptionCopyWith<$Res>? get subscriptionPlan;
-  @override
-  $DeliveryAddressCopyWith<$Res>? get deliveryLocation;
-}
-
-/// @nodoc
-class __$$SubscriptionStateImplCopyWithImpl<$Res>
-    extends _$SubscriptionStateCopyWithImpl<$Res, _$SubscriptionStateImpl>
-    implements _$$SubscriptionStateImplCopyWith<$Res> {
-  __$$SubscriptionStateImplCopyWithImpl(_$SubscriptionStateImpl _value,
-      $Res Function(_$SubscriptionStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? status = null,
-    Object? getVendorsStatus = null,
-    Object? updateVendorStatus = null,
-    Object? submitStatus = null,
-    Object? errorMessage = freezed,
-    Object? selectedMealTypes = null,
-    Object? selectedVendors = freezed,
-    Object? availableVendors = freezed,
-    Object? subscriptionPlan = freezed,
-    Object? deliveryLocation = freezed,
-  }) {
-    return _then(_$SubscriptionStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      getVendorsStatus: null == getVendorsStatus
-          ? _value.getVendorsStatus
-          : getVendorsStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      updateVendorStatus: null == updateVendorStatus
-          ? _value.updateVendorStatus
-          : updateVendorStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      submitStatus: null == submitStatus
-          ? _value.submitStatus
-          : submitStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      selectedMealTypes: null == selectedMealTypes
-          ? _value._selectedMealTypes
-          : selectedMealTypes // ignore: cast_nullable_to_non_nullable
-              as List<MealType>,
-      selectedVendors: freezed == selectedVendors
-          ? _value._selectedVendors
-          : selectedVendors // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, List<String>>?,
-      availableVendors: freezed == availableVendors
-          ? _value._availableVendors
-          : availableVendors // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, List<Vendor>>?,
-      subscriptionPlan: freezed == subscriptionPlan
-          ? _value.subscriptionPlan
-          : subscriptionPlan // ignore: cast_nullable_to_non_nullable
-              as Subscription?,
-      deliveryLocation: freezed == deliveryLocation
-          ? _value.deliveryLocation
-          : deliveryLocation // ignore: cast_nullable_to_non_nullable
-              as DeliveryAddress?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$SubscriptionStateImpl implements _SubscriptionState {
-  const _$SubscriptionStateImpl(
+class _SubscriptionState implements SubscriptionState {
+  const _SubscriptionState(
       {this.status = AppStatus.init,
       this.getVendorsStatus = AppStatus.init,
       this.updateVendorStatus = AppStatus.init,
@@ -255,7 +222,8 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
       final Map<MealType, List<String>>? selectedVendors,
       final Map<MealType, List<Vendor>>? availableVendors,
       this.subscriptionPlan,
-      this.deliveryLocation})
+      this.deliveryLocation,
+      this.startDate})
       : _selectedMealTypes = selectedMealTypes,
         _selectedVendors = selectedVendors,
         _availableVendors = availableVendors;
@@ -308,17 +276,22 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
   final Subscription? subscriptionPlan;
   @override
   final DeliveryAddress? deliveryLocation;
-
   @override
-  String toString() {
-    return 'SubscriptionState(status: $status, getVendorsStatus: $getVendorsStatus, updateVendorStatus: $updateVendorStatus, submitStatus: $submitStatus, errorMessage: $errorMessage, selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan, deliveryLocation: $deliveryLocation)';
-  }
+  final DateTime? startDate;
+
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionStateCopyWith<_SubscriptionState> get copyWith =>
+      __$SubscriptionStateCopyWithImpl<_SubscriptionState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionStateImpl &&
+            other is _SubscriptionState &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.getVendorsStatus, getVendorsStatus) ||
                 other.getVendorsStatus == getVendorsStatus) &&
@@ -337,7 +310,9 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
             (identical(other.subscriptionPlan, subscriptionPlan) ||
                 other.subscriptionPlan == subscriptionPlan) &&
             (identical(other.deliveryLocation, deliveryLocation) ||
-                other.deliveryLocation == deliveryLocation));
+                other.deliveryLocation == deliveryLocation) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate));
   }
 
   @override
@@ -352,51 +327,142 @@ class _$SubscriptionStateImpl implements _SubscriptionState {
       const DeepCollectionEquality().hash(_selectedVendors),
       const DeepCollectionEquality().hash(_availableVendors),
       subscriptionPlan,
-      deliveryLocation);
+      deliveryLocation,
+      startDate);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'SubscriptionState(status: $status, getVendorsStatus: $getVendorsStatus, updateVendorStatus: $updateVendorStatus, submitStatus: $submitStatus, errorMessage: $errorMessage, selectedMealTypes: $selectedMealTypes, selectedVendors: $selectedVendors, availableVendors: $availableVendors, subscriptionPlan: $subscriptionPlan, deliveryLocation: $deliveryLocation, startDate: $startDate)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$SubscriptionStateCopyWith<$Res>
+    implements $SubscriptionStateCopyWith<$Res> {
+  factory _$SubscriptionStateCopyWith(
+          _SubscriptionState value, $Res Function(_SubscriptionState) _then) =
+      __$SubscriptionStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {AppStatus status,
+      AppStatus getVendorsStatus,
+      AppStatus updateVendorStatus,
+      AppStatus submitStatus,
+      String? errorMessage,
+      List<MealType> selectedMealTypes,
+      Map<MealType, List<String>>? selectedVendors,
+      Map<MealType, List<Vendor>>? availableVendors,
+      Subscription? subscriptionPlan,
+      DeliveryAddress? deliveryLocation,
+      DateTime? startDate});
+
+  @override
+  $SubscriptionCopyWith<$Res>? get subscriptionPlan;
+  @override
+  $DeliveryAddressCopyWith<$Res>? get deliveryLocation;
+}
+
+/// @nodoc
+class __$SubscriptionStateCopyWithImpl<$Res>
+    implements _$SubscriptionStateCopyWith<$Res> {
+  __$SubscriptionStateCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionState _self;
+  final $Res Function(_SubscriptionState) _then;
+
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$SubscriptionStateImplCopyWith<_$SubscriptionStateImpl> get copyWith =>
-      __$$SubscriptionStateImplCopyWithImpl<_$SubscriptionStateImpl>(
-          this, _$identity);
+  $Res call({
+    Object? status = null,
+    Object? getVendorsStatus = null,
+    Object? updateVendorStatus = null,
+    Object? submitStatus = null,
+    Object? errorMessage = freezed,
+    Object? selectedMealTypes = null,
+    Object? selectedVendors = freezed,
+    Object? availableVendors = freezed,
+    Object? subscriptionPlan = freezed,
+    Object? deliveryLocation = freezed,
+    Object? startDate = freezed,
+  }) {
+    return _then(_SubscriptionState(
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      getVendorsStatus: null == getVendorsStatus
+          ? _self.getVendorsStatus
+          : getVendorsStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      updateVendorStatus: null == updateVendorStatus
+          ? _self.updateVendorStatus
+          : updateVendorStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      submitStatus: null == submitStatus
+          ? _self.submitStatus
+          : submitStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      errorMessage: freezed == errorMessage
+          ? _self.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedMealTypes: null == selectedMealTypes
+          ? _self._selectedMealTypes
+          : selectedMealTypes // ignore: cast_nullable_to_non_nullable
+              as List<MealType>,
+      selectedVendors: freezed == selectedVendors
+          ? _self._selectedVendors
+          : selectedVendors // ignore: cast_nullable_to_non_nullable
+              as Map<MealType, List<String>>?,
+      availableVendors: freezed == availableVendors
+          ? _self._availableVendors
+          : availableVendors // ignore: cast_nullable_to_non_nullable
+              as Map<MealType, List<Vendor>>?,
+      subscriptionPlan: freezed == subscriptionPlan
+          ? _self.subscriptionPlan
+          : subscriptionPlan // ignore: cast_nullable_to_non_nullable
+              as Subscription?,
+      deliveryLocation: freezed == deliveryLocation
+          ? _self.deliveryLocation
+          : deliveryLocation // ignore: cast_nullable_to_non_nullable
+              as DeliveryAddress?,
+      startDate: freezed == startDate
+          ? _self.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubscriptionCopyWith<$Res>? get subscriptionPlan {
+    if (_self.subscriptionPlan == null) {
+      return null;
+    }
+
+    return $SubscriptionCopyWith<$Res>(_self.subscriptionPlan!, (value) {
+      return _then(_self.copyWith(subscriptionPlan: value));
+    });
+  }
+
+  /// Create a copy of SubscriptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $DeliveryAddressCopyWith<$Res>? get deliveryLocation {
+    if (_self.deliveryLocation == null) {
+      return null;
+    }
+
+    return $DeliveryAddressCopyWith<$Res>(_self.deliveryLocation!, (value) {
+      return _then(_self.copyWith(deliveryLocation: value));
+    });
+  }
 }
 
-abstract class _SubscriptionState implements SubscriptionState {
-  const factory _SubscriptionState(
-      {final AppStatus status,
-      final AppStatus getVendorsStatus,
-      final AppStatus updateVendorStatus,
-      final AppStatus submitStatus,
-      final String? errorMessage,
-      final List<MealType> selectedMealTypes,
-      final Map<MealType, List<String>>? selectedVendors,
-      final Map<MealType, List<Vendor>>? availableVendors,
-      final Subscription? subscriptionPlan,
-      final DeliveryAddress? deliveryLocation}) = _$SubscriptionStateImpl;
-
-  @override
-  AppStatus get status;
-  @override
-  AppStatus get getVendorsStatus;
-  @override
-  AppStatus get updateVendorStatus;
-  @override
-  AppStatus get submitStatus;
-  @override
-  String? get errorMessage;
-  @override
-  List<MealType> get selectedMealTypes;
-  @override
-  Map<MealType, List<String>>? get selectedVendors;
-  @override
-  Map<MealType, List<Vendor>>? get availableVendors;
-  @override
-  Subscription? get subscriptionPlan;
-  @override
-  DeliveryAddress? get deliveryLocation;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionStateImplCopyWith<_$SubscriptionStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

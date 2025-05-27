@@ -4,7 +4,7 @@ part 'subscription_change.freezed.dart';
 part 'subscription_change.g.dart';
 
 @freezed
-class SubscriptionChange with _$SubscriptionChange {
+abstract class SubscriptionChange with _$SubscriptionChange {
   const factory SubscriptionChange({
     required String id,
     required DateTime changeDate,

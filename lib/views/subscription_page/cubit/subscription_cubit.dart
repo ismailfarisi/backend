@@ -6,8 +6,9 @@ import 'package:meal_app/data_repositories/vendor_repo.dart';
 import 'package:meal_app/models/address.dart';
 import 'package:meal_app/models/subscription.dart';
 import 'package:meal_app/models/subscription_meal_selection.dart';
+import 'package:meal_app/models/subscription_order.dart';
 import 'package:meal_app/models/vendor.dart';
-import 'package:meal_app/models/vendor_menu.dart';
+
 import 'package:meal_app/utils/enums.dart';
 import 'package:meal_app/utils/result.dart';
 
@@ -126,7 +127,7 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
       ));
 
       // Map selections to the format expected by the backend
-      final mealSelections = state.selectedMealTypes.map((type) {
+      final subscriptionMealSelections = state.selectedMealTypes.map((type) {
         final selectedVendorIds = state.selectedVendors?[type] ?? [];
         return SubscriptionMealSelection(
           mealType: type,
@@ -134,24 +135,38 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
         );
       }).toList();
 
-      final orderDto = SubscriptionOrderDto(
-        mealSelections: mealSelections,
-        startDate: DateTime.now(),
-        endDate: DateTime.now().add(const Duration(days: 30)),
-      );
+      // Convert to MealVendorSelection for the Subscription model
+      final mealVendorSelections = subscriptionMealSelections.map((selection) {
+        return MealVendorSelection(
+          mealType: selection.mealType,
+          vendorIds: selection.vendorIds,
+        );
+      }).toList();
+
+      // TODO: Uncomment when backend is ready
+      // final orderDto = SubscriptionOrderDto(
+      //   mealSelections: subscriptionMealSelections,
+      //   startDate: DateTime.now(),
+      //   endDate: DateTime.now().add(const Duration(days: 30)),
+      // );
 
       // final result = await _vendorRepo.createSubscription(orderDto);
 
       // switch (result) {
       //   case Success(value: final subscription):
+
+      // For now, create a mock subscription with default values
+      final startDate = DateTime.now();
+      final endDate = DateTime.now().add(const Duration(days: 30));
+
       emit(state.copyWith(
         subscriptionPlan: Subscription(
-            userId: userId,
-            price: price,
-            mealSelections: mealSelections,
+            userId: 'user_123', // TODO: Get from auth state
+            price: 299.99, // TODO: Calculate based on selections
+            mealSelections: mealVendorSelections,
             startDate: startDate,
             endDate: endDate,
-            status: status),
+            status: SubscriptionStatus.active),
         submitStatus: AppStatus.success,
       ));
       //   break;
@@ -167,6 +182,10 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
         errorMessage: e.toString(),
       ));
     }
+  }
+
+  void updateStartDate(DateTime startDate) {
+    emit(state.copyWith(startDate: startDate));
   }
 
   Future<void> confirmSubscription() async {

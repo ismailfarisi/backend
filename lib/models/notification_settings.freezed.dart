@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,58 @@ part of 'notification_settings.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-NotificationSettings _$NotificationSettingsFromJson(Map<String, dynamic> json) {
-  return _NotificationSettings.fromJson(json);
-}
 
 /// @nodoc
 mixin _$NotificationSettings {
-  bool get orderUpdates => throw _privateConstructorUsedError;
-  bool get specialOffers => throw _privateConstructorUsedError;
-  bool get menuUpdates => throw _privateConstructorUsedError;
-  bool get deliveryReminders => throw _privateConstructorUsedError;
+  bool get orderUpdates;
+  bool get specialOffers;
+  bool get menuUpdates;
+  bool get deliveryReminders;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $NotificationSettingsCopyWith<NotificationSettings> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $NotificationSettingsCopyWith<$Res> {
-  factory $NotificationSettingsCopyWith(NotificationSettings value,
-          $Res Function(NotificationSettings) then) =
-      _$NotificationSettingsCopyWithImpl<$Res, NotificationSettings>;
-  @useResult
-  $Res call(
-      {bool orderUpdates,
-      bool specialOffers,
-      bool menuUpdates,
-      bool deliveryReminders});
-}
-
-/// @nodoc
-class _$NotificationSettingsCopyWithImpl<$Res,
-        $Val extends NotificationSettings>
-    implements $NotificationSettingsCopyWith<$Res> {
-  _$NotificationSettingsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of NotificationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $NotificationSettingsCopyWith<NotificationSettings> get copyWith =>
+      _$NotificationSettingsCopyWithImpl<NotificationSettings>(
+          this as NotificationSettings, _$identity);
+
+  /// Serializes this NotificationSettings to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? orderUpdates = null,
-    Object? specialOffers = null,
-    Object? menuUpdates = null,
-    Object? deliveryReminders = null,
-  }) {
-    return _then(_value.copyWith(
-      orderUpdates: null == orderUpdates
-          ? _value.orderUpdates
-          : orderUpdates // ignore: cast_nullable_to_non_nullable
-              as bool,
-      specialOffers: null == specialOffers
-          ? _value.specialOffers
-          : specialOffers // ignore: cast_nullable_to_non_nullable
-              as bool,
-      menuUpdates: null == menuUpdates
-          ? _value.menuUpdates
-          : menuUpdates // ignore: cast_nullable_to_non_nullable
-              as bool,
-      deliveryReminders: null == deliveryReminders
-          ? _value.deliveryReminders
-          : deliveryReminders // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is NotificationSettings &&
+            (identical(other.orderUpdates, orderUpdates) ||
+                other.orderUpdates == orderUpdates) &&
+            (identical(other.specialOffers, specialOffers) ||
+                other.specialOffers == specialOffers) &&
+            (identical(other.menuUpdates, menuUpdates) ||
+                other.menuUpdates == menuUpdates) &&
+            (identical(other.deliveryReminders, deliveryReminders) ||
+                other.deliveryReminders == deliveryReminders));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, orderUpdates, specialOffers, menuUpdates, deliveryReminders);
+
+  @override
+  String toString() {
+    return 'NotificationSettings(orderUpdates: $orderUpdates, specialOffers: $specialOffers, menuUpdates: $menuUpdates, deliveryReminders: $deliveryReminders)';
   }
 }
 
 /// @nodoc
-abstract class _$$NotificationSettingsImplCopyWith<$Res>
-    implements $NotificationSettingsCopyWith<$Res> {
-  factory _$$NotificationSettingsImplCopyWith(_$NotificationSettingsImpl value,
-          $Res Function(_$NotificationSettingsImpl) then) =
-      __$$NotificationSettingsImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $NotificationSettingsCopyWith<$Res> {
+  factory $NotificationSettingsCopyWith(NotificationSettings value,
+          $Res Function(NotificationSettings) _then) =
+      _$NotificationSettingsCopyWithImpl;
   @useResult
   $Res call(
       {bool orderUpdates,
@@ -100,13 +71,15 @@ abstract class _$$NotificationSettingsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$NotificationSettingsImplCopyWithImpl<$Res>
-    extends _$NotificationSettingsCopyWithImpl<$Res, _$NotificationSettingsImpl>
-    implements _$$NotificationSettingsImplCopyWith<$Res> {
-  __$$NotificationSettingsImplCopyWithImpl(_$NotificationSettingsImpl _value,
-      $Res Function(_$NotificationSettingsImpl) _then)
-      : super(_value, _then);
+class _$NotificationSettingsCopyWithImpl<$Res>
+    implements $NotificationSettingsCopyWith<$Res> {
+  _$NotificationSettingsCopyWithImpl(this._self, this._then);
 
+  final NotificationSettings _self;
+  final $Res Function(NotificationSettings) _then;
+
+  /// Create a copy of NotificationSettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,21 +88,21 @@ class __$$NotificationSettingsImplCopyWithImpl<$Res>
     Object? menuUpdates = null,
     Object? deliveryReminders = null,
   }) {
-    return _then(_$NotificationSettingsImpl(
+    return _then(_self.copyWith(
       orderUpdates: null == orderUpdates
-          ? _value.orderUpdates
+          ? _self.orderUpdates
           : orderUpdates // ignore: cast_nullable_to_non_nullable
               as bool,
       specialOffers: null == specialOffers
-          ? _value.specialOffers
+          ? _self.specialOffers
           : specialOffers // ignore: cast_nullable_to_non_nullable
               as bool,
       menuUpdates: null == menuUpdates
-          ? _value.menuUpdates
+          ? _self.menuUpdates
           : menuUpdates // ignore: cast_nullable_to_non_nullable
               as bool,
       deliveryReminders: null == deliveryReminders
-          ? _value.deliveryReminders
+          ? _self.deliveryReminders
           : deliveryReminders // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -138,15 +111,14 @@ class __$$NotificationSettingsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotificationSettingsImpl implements _NotificationSettings {
-  const _$NotificationSettingsImpl(
+class _NotificationSettings implements NotificationSettings {
+  const _NotificationSettings(
       {this.orderUpdates = true,
       this.specialOffers = true,
       this.menuUpdates = true,
       this.deliveryReminders = true});
-
-  factory _$NotificationSettingsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotificationSettingsImplFromJson(json);
+  factory _NotificationSettings.fromJson(Map<String, dynamic> json) =>
+      _$NotificationSettingsFromJson(json);
 
   @override
   @JsonKey()
@@ -161,16 +133,27 @@ class _$NotificationSettingsImpl implements _NotificationSettings {
   @JsonKey()
   final bool deliveryReminders;
 
+  /// Create a copy of NotificationSettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'NotificationSettings(orderUpdates: $orderUpdates, specialOffers: $specialOffers, menuUpdates: $menuUpdates, deliveryReminders: $deliveryReminders)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$NotificationSettingsCopyWith<_NotificationSettings> get copyWith =>
+      __$NotificationSettingsCopyWithImpl<_NotificationSettings>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$NotificationSettingsToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationSettingsImpl &&
+            other is _NotificationSettings &&
             (identical(other.orderUpdates, orderUpdates) ||
                 other.orderUpdates == orderUpdates) &&
             (identical(other.specialOffers, specialOffers) ||
@@ -181,47 +164,69 @@ class _$NotificationSettingsImpl implements _NotificationSettings {
                 other.deliveryReminders == deliveryReminders));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, orderUpdates, specialOffers, menuUpdates, deliveryReminders);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$NotificationSettingsImplCopyWith<_$NotificationSettingsImpl>
-      get copyWith =>
-          __$$NotificationSettingsImplCopyWithImpl<_$NotificationSettingsImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NotificationSettingsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'NotificationSettings(orderUpdates: $orderUpdates, specialOffers: $specialOffers, menuUpdates: $menuUpdates, deliveryReminders: $deliveryReminders)';
   }
 }
 
-abstract class _NotificationSettings implements NotificationSettings {
-  const factory _NotificationSettings(
-      {final bool orderUpdates,
-      final bool specialOffers,
-      final bool menuUpdates,
-      final bool deliveryReminders}) = _$NotificationSettingsImpl;
-
-  factory _NotificationSettings.fromJson(Map<String, dynamic> json) =
-      _$NotificationSettingsImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$NotificationSettingsCopyWith<$Res>
+    implements $NotificationSettingsCopyWith<$Res> {
+  factory _$NotificationSettingsCopyWith(_NotificationSettings value,
+          $Res Function(_NotificationSettings) _then) =
+      __$NotificationSettingsCopyWithImpl;
   @override
-  bool get orderUpdates;
-  @override
-  bool get specialOffers;
-  @override
-  bool get menuUpdates;
-  @override
-  bool get deliveryReminders;
-  @override
-  @JsonKey(ignore: true)
-  _$$NotificationSettingsImplCopyWith<_$NotificationSettingsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {bool orderUpdates,
+      bool specialOffers,
+      bool menuUpdates,
+      bool deliveryReminders});
 }
+
+/// @nodoc
+class __$NotificationSettingsCopyWithImpl<$Res>
+    implements _$NotificationSettingsCopyWith<$Res> {
+  __$NotificationSettingsCopyWithImpl(this._self, this._then);
+
+  final _NotificationSettings _self;
+  final $Res Function(_NotificationSettings) _then;
+
+  /// Create a copy of NotificationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? orderUpdates = null,
+    Object? specialOffers = null,
+    Object? menuUpdates = null,
+    Object? deliveryReminders = null,
+  }) {
+    return _then(_NotificationSettings(
+      orderUpdates: null == orderUpdates
+          ? _self.orderUpdates
+          : orderUpdates // ignore: cast_nullable_to_non_nullable
+              as bool,
+      specialOffers: null == specialOffers
+          ? _self.specialOffers
+          : specialOffers // ignore: cast_nullable_to_non_nullable
+              as bool,
+      menuUpdates: null == menuUpdates
+          ? _self.menuUpdates
+          : menuUpdates // ignore: cast_nullable_to_non_nullable
+              as bool,
+      deliveryReminders: null == deliveryReminders
+          ? _self.deliveryReminders
+          : deliveryReminders // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+// dart format on

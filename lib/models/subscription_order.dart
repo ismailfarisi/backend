@@ -10,7 +10,7 @@ part 'subscription_order.freezed.dart';
 part 'subscription_order.g.dart';
 
 @freezed
-class SubscriptionOrder with _$SubscriptionOrder {
+abstract class SubscriptionOrder with _$SubscriptionOrder {
   const factory SubscriptionOrder({
     required String id,
     required String userId,

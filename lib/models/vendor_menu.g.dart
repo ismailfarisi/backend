@@ -6,8 +6,7 @@ part of 'vendor_menu.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VendorMenuImpl _$$VendorMenuImplFromJson(Map<String, dynamic> json) =>
-    _$VendorMenuImpl(
+_VendorMenu _$VendorMenuFromJson(Map<String, dynamic> json) => _VendorMenu(
       id: json['id'] as String,
       vendorId: json['vendorId'] as String,
       mealType: $enumDecode(_$MealTypeEnumMap, json['mealType']),
@@ -19,7 +18,7 @@ _$VendorMenuImpl _$$VendorMenuImplFromJson(Map<String, dynamic> json) =>
       ),
     );
 
-Map<String, dynamic> _$$VendorMenuImplToJson(_$VendorMenuImpl instance) =>
+Map<String, dynamic> _$VendorMenuToJson(_VendorMenu instance) =>
     <String, dynamic>{
       'id': instance.id,
       'vendorId': instance.vendorId,
@@ -42,8 +41,7 @@ const _$MenuStatusEnumMap = {
   MenuStatus.deleted: 'deleted',
 };
 
-_$DailyMenuImpl _$$DailyMenuImplFromJson(Map<String, dynamic> json) =>
-    _$DailyMenuImpl(
+_DailyMenu _$DailyMenuFromJson(Map<String, dynamic> json) => _DailyMenu(
       items: (json['items'] as List<dynamic>).map((e) => e as String).toList(),
       sideDishes: (json['sideDishes'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -52,7 +50,7 @@ _$DailyMenuImpl _$$DailyMenuImplFromJson(Map<String, dynamic> json) =>
           (json['extras'] as List<dynamic>?)?.map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$DailyMenuImplToJson(_$DailyMenuImpl instance) =>
+Map<String, dynamic> _$DailyMenuToJson(_DailyMenu instance) =>
     <String, dynamic>{
       'items': instance.items,
       'sideDishes': instance.sideDishes,

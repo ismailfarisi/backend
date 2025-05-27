@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,130 +10,78 @@ part of 'subscription_feedback.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubscriptionFeedback _$SubscriptionFeedbackFromJson(Map<String, dynamic> json) {
-  return _SubscriptionFeedback.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubscriptionFeedback {
-  String get id => throw _privateConstructorUsedError;
-  String get orderId => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
-  int get rating => throw _privateConstructorUsedError;
-  String? get comment => throw _privateConstructorUsedError;
-  List<String> get tags => throw _privateConstructorUsedError;
-  List<String>? get images => throw _privateConstructorUsedError;
-  FeedbackType get type => throw _privateConstructorUsedError;
-  String? get vendorResponse => throw _privateConstructorUsedError;
-  DateTime? get vendorResponseDate => throw _privateConstructorUsedError;
+  String get id;
+  String get orderId;
+  DateTime get date;
+  int get rating;
+  String? get comment;
+  List<String> get tags;
+  List<String>? get images;
+  FeedbackType get type;
+  String? get vendorResponse;
+  DateTime? get vendorResponseDate;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SubscriptionFeedbackCopyWith<SubscriptionFeedback> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscriptionFeedbackCopyWith<$Res> {
-  factory $SubscriptionFeedbackCopyWith(SubscriptionFeedback value,
-          $Res Function(SubscriptionFeedback) then) =
-      _$SubscriptionFeedbackCopyWithImpl<$Res, SubscriptionFeedback>;
-  @useResult
-  $Res call(
-      {String id,
-      String orderId,
-      DateTime date,
-      int rating,
-      String? comment,
-      List<String> tags,
-      List<String>? images,
-      FeedbackType type,
-      String? vendorResponse,
-      DateTime? vendorResponseDate});
-}
-
-/// @nodoc
-class _$SubscriptionFeedbackCopyWithImpl<$Res,
-        $Val extends SubscriptionFeedback>
-    implements $SubscriptionFeedbackCopyWith<$Res> {
-  _$SubscriptionFeedbackCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of SubscriptionFeedback
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $SubscriptionFeedbackCopyWith<SubscriptionFeedback> get copyWith =>
+      _$SubscriptionFeedbackCopyWithImpl<SubscriptionFeedback>(
+          this as SubscriptionFeedback, _$identity);
+
+  /// Serializes this SubscriptionFeedback to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? orderId = null,
-    Object? date = null,
-    Object? rating = null,
-    Object? comment = freezed,
-    Object? tags = null,
-    Object? images = freezed,
-    Object? type = null,
-    Object? vendorResponse = freezed,
-    Object? vendorResponseDate = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      orderId: null == orderId
-          ? _value.orderId
-          : orderId // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as int,
-      comment: freezed == comment
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
-              as String?,
-      tags: null == tags
-          ? _value.tags
-          : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      images: freezed == images
-          ? _value.images
-          : images // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as FeedbackType,
-      vendorResponse: freezed == vendorResponse
-          ? _value.vendorResponse
-          : vendorResponse // ignore: cast_nullable_to_non_nullable
-              as String?,
-      vendorResponseDate: freezed == vendorResponseDate
-          ? _value.vendorResponseDate
-          : vendorResponseDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscriptionFeedback &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.orderId, orderId) || other.orderId == orderId) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.comment, comment) || other.comment == comment) &&
+            const DeepCollectionEquality().equals(other.tags, tags) &&
+            const DeepCollectionEquality().equals(other.images, images) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.vendorResponse, vendorResponse) ||
+                other.vendorResponse == vendorResponse) &&
+            (identical(other.vendorResponseDate, vendorResponseDate) ||
+                other.vendorResponseDate == vendorResponseDate));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      orderId,
+      date,
+      rating,
+      comment,
+      const DeepCollectionEquality().hash(tags),
+      const DeepCollectionEquality().hash(images),
+      type,
+      vendorResponse,
+      vendorResponseDate);
+
+  @override
+  String toString() {
+    return 'SubscriptionFeedback(id: $id, orderId: $orderId, date: $date, rating: $rating, comment: $comment, tags: $tags, images: $images, type: $type, vendorResponse: $vendorResponse, vendorResponseDate: $vendorResponseDate)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionFeedbackImplCopyWith<$Res>
-    implements $SubscriptionFeedbackCopyWith<$Res> {
-  factory _$$SubscriptionFeedbackImplCopyWith(_$SubscriptionFeedbackImpl value,
-          $Res Function(_$SubscriptionFeedbackImpl) then) =
-      __$$SubscriptionFeedbackImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscriptionFeedbackCopyWith<$Res> {
+  factory $SubscriptionFeedbackCopyWith(SubscriptionFeedback value,
+          $Res Function(SubscriptionFeedback) _then) =
+      _$SubscriptionFeedbackCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -148,13 +97,15 @@ abstract class _$$SubscriptionFeedbackImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SubscriptionFeedbackImplCopyWithImpl<$Res>
-    extends _$SubscriptionFeedbackCopyWithImpl<$Res, _$SubscriptionFeedbackImpl>
-    implements _$$SubscriptionFeedbackImplCopyWith<$Res> {
-  __$$SubscriptionFeedbackImplCopyWithImpl(_$SubscriptionFeedbackImpl _value,
-      $Res Function(_$SubscriptionFeedbackImpl) _then)
-      : super(_value, _then);
+class _$SubscriptionFeedbackCopyWithImpl<$Res>
+    implements $SubscriptionFeedbackCopyWith<$Res> {
+  _$SubscriptionFeedbackCopyWithImpl(this._self, this._then);
 
+  final SubscriptionFeedback _self;
+  final $Res Function(SubscriptionFeedback) _then;
+
+  /// Create a copy of SubscriptionFeedback
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -169,45 +120,45 @@ class __$$SubscriptionFeedbackImplCopyWithImpl<$Res>
     Object? vendorResponse = freezed,
     Object? vendorResponseDate = freezed,
   }) {
-    return _then(_$SubscriptionFeedbackImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       orderId: null == orderId
-          ? _value.orderId
+          ? _self.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
               as String,
       date: null == date
-          ? _value.date
+          ? _self.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
       rating: null == rating
-          ? _value.rating
+          ? _self.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as int,
       comment: freezed == comment
-          ? _value.comment
+          ? _self.comment
           : comment // ignore: cast_nullable_to_non_nullable
               as String?,
       tags: null == tags
-          ? _value._tags
+          ? _self.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
       images: freezed == images
-          ? _value._images
+          ? _self.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as FeedbackType,
       vendorResponse: freezed == vendorResponse
-          ? _value.vendorResponse
+          ? _self.vendorResponse
           : vendorResponse // ignore: cast_nullable_to_non_nullable
               as String?,
       vendorResponseDate: freezed == vendorResponseDate
-          ? _value.vendorResponseDate
+          ? _self.vendorResponseDate
           : vendorResponseDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ));
@@ -216,8 +167,8 @@ class __$$SubscriptionFeedbackImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubscriptionFeedbackImpl implements _SubscriptionFeedback {
-  const _$SubscriptionFeedbackImpl(
+class _SubscriptionFeedback implements SubscriptionFeedback {
+  const _SubscriptionFeedback(
       {required this.id,
       required this.orderId,
       required this.date,
@@ -230,9 +181,8 @@ class _$SubscriptionFeedbackImpl implements _SubscriptionFeedback {
       this.vendorResponseDate})
       : _tags = tags,
         _images = images;
-
-  factory _$SubscriptionFeedbackImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscriptionFeedbackImplFromJson(json);
+  factory _SubscriptionFeedback.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionFeedbackFromJson(json);
 
   @override
   final String id;
@@ -270,16 +220,27 @@ class _$SubscriptionFeedbackImpl implements _SubscriptionFeedback {
   @override
   final DateTime? vendorResponseDate;
 
+  /// Create a copy of SubscriptionFeedback
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SubscriptionFeedback(id: $id, orderId: $orderId, date: $date, rating: $rating, comment: $comment, tags: $tags, images: $images, type: $type, vendorResponse: $vendorResponse, vendorResponseDate: $vendorResponseDate)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionFeedbackCopyWith<_SubscriptionFeedback> get copyWith =>
+      __$SubscriptionFeedbackCopyWithImpl<_SubscriptionFeedback>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionFeedbackToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionFeedbackImpl &&
+            other is _SubscriptionFeedback &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.orderId, orderId) || other.orderId == orderId) &&
             (identical(other.date, date) || other.date == date) &&
@@ -294,7 +255,7 @@ class _$SubscriptionFeedbackImpl implements _SubscriptionFeedback {
                 other.vendorResponseDate == vendorResponseDate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -309,60 +270,100 @@ class _$SubscriptionFeedbackImpl implements _SubscriptionFeedback {
       vendorResponse,
       vendorResponseDate);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionFeedbackImplCopyWith<_$SubscriptionFeedbackImpl>
-      get copyWith =>
-          __$$SubscriptionFeedbackImplCopyWithImpl<_$SubscriptionFeedbackImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionFeedbackImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscriptionFeedback(id: $id, orderId: $orderId, date: $date, rating: $rating, comment: $comment, tags: $tags, images: $images, type: $type, vendorResponse: $vendorResponse, vendorResponseDate: $vendorResponseDate)';
   }
 }
 
-abstract class _SubscriptionFeedback implements SubscriptionFeedback {
-  const factory _SubscriptionFeedback(
-      {required final String id,
-      required final String orderId,
-      required final DateTime date,
-      required final int rating,
-      final String? comment,
-      final List<String> tags,
-      final List<String>? images,
-      required final FeedbackType type,
-      final String? vendorResponse,
-      final DateTime? vendorResponseDate}) = _$SubscriptionFeedbackImpl;
-
-  factory _SubscriptionFeedback.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionFeedbackImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscriptionFeedbackCopyWith<$Res>
+    implements $SubscriptionFeedbackCopyWith<$Res> {
+  factory _$SubscriptionFeedbackCopyWith(_SubscriptionFeedback value,
+          $Res Function(_SubscriptionFeedback) _then) =
+      __$SubscriptionFeedbackCopyWithImpl;
   @override
-  String get id;
-  @override
-  String get orderId;
-  @override
-  DateTime get date;
-  @override
-  int get rating;
-  @override
-  String? get comment;
-  @override
-  List<String> get tags;
-  @override
-  List<String>? get images;
-  @override
-  FeedbackType get type;
-  @override
-  String? get vendorResponse;
-  @override
-  DateTime? get vendorResponseDate;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionFeedbackImplCopyWith<_$SubscriptionFeedbackImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String id,
+      String orderId,
+      DateTime date,
+      int rating,
+      String? comment,
+      List<String> tags,
+      List<String>? images,
+      FeedbackType type,
+      String? vendorResponse,
+      DateTime? vendorResponseDate});
 }
+
+/// @nodoc
+class __$SubscriptionFeedbackCopyWithImpl<$Res>
+    implements _$SubscriptionFeedbackCopyWith<$Res> {
+  __$SubscriptionFeedbackCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionFeedback _self;
+  final $Res Function(_SubscriptionFeedback) _then;
+
+  /// Create a copy of SubscriptionFeedback
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? orderId = null,
+    Object? date = null,
+    Object? rating = null,
+    Object? comment = freezed,
+    Object? tags = null,
+    Object? images = freezed,
+    Object? type = null,
+    Object? vendorResponse = freezed,
+    Object? vendorResponseDate = freezed,
+  }) {
+    return _then(_SubscriptionFeedback(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderId: null == orderId
+          ? _self.orderId
+          : orderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      date: null == date
+          ? _self.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      rating: null == rating
+          ? _self.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as int,
+      comment: freezed == comment
+          ? _self.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tags: null == tags
+          ? _self._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      images: freezed == images
+          ? _self._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as FeedbackType,
+      vendorResponse: freezed == vendorResponse
+          ? _self.vendorResponse
+          : vendorResponse // ignore: cast_nullable_to_non_nullable
+              as String?,
+      vendorResponseDate: freezed == vendorResponseDate
+          ? _self.vendorResponseDate
+          : vendorResponseDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+    ));
+  }
+}
+
+// dart format on

@@ -5,7 +5,7 @@ part 'vendor_menu.freezed.dart';
 part 'vendor_menu.g.dart';
 
 @freezed
-class VendorMenu with _$VendorMenu {
+abstract class VendorMenu with _$VendorMenu {
   const factory VendorMenu({
     required String id,
     required String vendorId,
@@ -21,7 +21,7 @@ class VendorMenu with _$VendorMenu {
 }
 
 @freezed
-class DailyMenu with _$DailyMenu {
+abstract class DailyMenu with _$DailyMenu {
   const factory DailyMenu({
     required List<String> items,
     List<String>? sideDishes,

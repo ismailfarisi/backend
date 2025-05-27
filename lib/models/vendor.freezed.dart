@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,168 +10,100 @@ part of 'vendor.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Vendor _$VendorFromJson(Map<String, dynamic> json) {
-  return _Vendor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Vendor {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get businessName => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  double get rating => throw _privateConstructorUsedError;
-  int get totalRatings => throw _privateConstructorUsedError;
-  String get profilePhotoUrl => throw _privateConstructorUsedError;
-  String get coverPhotoUrl => throw _privateConstructorUsedError;
-  List<String> get cuisineTypes => throw _privateConstructorUsedError;
-  List<String> get foodTypes => throw _privateConstructorUsedError;
-  List<VendorMenu> get menus => throw _privateConstructorUsedError;
-  bool get isOpen => throw _privateConstructorUsedError;
-  String? get closureMessage => throw _privateConstructorUsedError;
-  double? get distance => throw _privateConstructorUsedError;
-  List<String> get acceptedPaymentMethods => throw _privateConstructorUsedError;
+  String get id;
+  String get name;
+  String get businessName;
+  String? get address;
+  String get phone;
+  double get rating;
+  int get totalRatings;
+  String get profilePhotoUrl;
+  String get coverPhotoUrl;
+  List<String> get cuisineTypes;
+  List<String> get foodTypes;
+  List<VendorMenu> get menus;
+  bool get isOpen;
+  String? get closureMessage;
+  double? get distance;
+  List<String> get acceptedPaymentMethods;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $VendorCopyWith<Vendor> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $VendorCopyWith<$Res> {
-  factory $VendorCopyWith(Vendor value, $Res Function(Vendor) then) =
-      _$VendorCopyWithImpl<$Res, Vendor>;
-  @useResult
-  $Res call(
-      {String id,
-      String name,
-      String businessName,
-      String? address,
-      String phone,
-      double rating,
-      int totalRatings,
-      String profilePhotoUrl,
-      String coverPhotoUrl,
-      List<String> cuisineTypes,
-      List<String> foodTypes,
-      List<VendorMenu> menus,
-      bool isOpen,
-      String? closureMessage,
-      double? distance,
-      List<String> acceptedPaymentMethods});
-}
-
-/// @nodoc
-class _$VendorCopyWithImpl<$Res, $Val extends Vendor>
-    implements $VendorCopyWith<$Res> {
-  _$VendorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of Vendor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $VendorCopyWith<Vendor> get copyWith =>
+      _$VendorCopyWithImpl<Vendor>(this as Vendor, _$identity);
+
+  /// Serializes this Vendor to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? businessName = null,
-    Object? address = freezed,
-    Object? phone = null,
-    Object? rating = null,
-    Object? totalRatings = null,
-    Object? profilePhotoUrl = null,
-    Object? coverPhotoUrl = null,
-    Object? cuisineTypes = null,
-    Object? foodTypes = null,
-    Object? menus = null,
-    Object? isOpen = null,
-    Object? closureMessage = freezed,
-    Object? distance = freezed,
-    Object? acceptedPaymentMethods = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      businessName: null == businessName
-          ? _value.businessName
-          : businessName // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: freezed == address
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      phone: null == phone
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      rating: null == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as double,
-      totalRatings: null == totalRatings
-          ? _value.totalRatings
-          : totalRatings // ignore: cast_nullable_to_non_nullable
-              as int,
-      profilePhotoUrl: null == profilePhotoUrl
-          ? _value.profilePhotoUrl
-          : profilePhotoUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      coverPhotoUrl: null == coverPhotoUrl
-          ? _value.coverPhotoUrl
-          : coverPhotoUrl // ignore: cast_nullable_to_non_nullable
-              as String,
-      cuisineTypes: null == cuisineTypes
-          ? _value.cuisineTypes
-          : cuisineTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      foodTypes: null == foodTypes
-          ? _value.foodTypes
-          : foodTypes // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      menus: null == menus
-          ? _value.menus
-          : menus // ignore: cast_nullable_to_non_nullable
-              as List<VendorMenu>,
-      isOpen: null == isOpen
-          ? _value.isOpen
-          : isOpen // ignore: cast_nullable_to_non_nullable
-              as bool,
-      closureMessage: freezed == closureMessage
-          ? _value.closureMessage
-          : closureMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      distance: freezed == distance
-          ? _value.distance
-          : distance // ignore: cast_nullable_to_non_nullable
-              as double?,
-      acceptedPaymentMethods: null == acceptedPaymentMethods
-          ? _value.acceptedPaymentMethods
-          : acceptedPaymentMethods // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Vendor &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.businessName, businessName) ||
+                other.businessName == businessName) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.totalRatings, totalRatings) ||
+                other.totalRatings == totalRatings) &&
+            (identical(other.profilePhotoUrl, profilePhotoUrl) ||
+                other.profilePhotoUrl == profilePhotoUrl) &&
+            (identical(other.coverPhotoUrl, coverPhotoUrl) ||
+                other.coverPhotoUrl == coverPhotoUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.cuisineTypes, cuisineTypes) &&
+            const DeepCollectionEquality().equals(other.foodTypes, foodTypes) &&
+            const DeepCollectionEquality().equals(other.menus, menus) &&
+            (identical(other.isOpen, isOpen) || other.isOpen == isOpen) &&
+            (identical(other.closureMessage, closureMessage) ||
+                other.closureMessage == closureMessage) &&
+            (identical(other.distance, distance) ||
+                other.distance == distance) &&
+            const DeepCollectionEquality()
+                .equals(other.acceptedPaymentMethods, acceptedPaymentMethods));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      businessName,
+      address,
+      phone,
+      rating,
+      totalRatings,
+      profilePhotoUrl,
+      coverPhotoUrl,
+      const DeepCollectionEquality().hash(cuisineTypes),
+      const DeepCollectionEquality().hash(foodTypes),
+      const DeepCollectionEquality().hash(menus),
+      isOpen,
+      closureMessage,
+      distance,
+      const DeepCollectionEquality().hash(acceptedPaymentMethods));
+
+  @override
+  String toString() {
+    return 'Vendor(id: $id, name: $name, businessName: $businessName, address: $address, phone: $phone, rating: $rating, totalRatings: $totalRatings, profilePhotoUrl: $profilePhotoUrl, coverPhotoUrl: $coverPhotoUrl, cuisineTypes: $cuisineTypes, foodTypes: $foodTypes, menus: $menus, isOpen: $isOpen, closureMessage: $closureMessage, distance: $distance, acceptedPaymentMethods: $acceptedPaymentMethods)';
   }
 }
 
 /// @nodoc
-abstract class _$$VendorImplCopyWith<$Res> implements $VendorCopyWith<$Res> {
-  factory _$$VendorImplCopyWith(
-          _$VendorImpl value, $Res Function(_$VendorImpl) then) =
-      __$$VendorImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $VendorCopyWith<$Res> {
+  factory $VendorCopyWith(Vendor value, $Res Function(Vendor) _then) =
+      _$VendorCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -192,13 +125,14 @@ abstract class _$$VendorImplCopyWith<$Res> implements $VendorCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$VendorImplCopyWithImpl<$Res>
-    extends _$VendorCopyWithImpl<$Res, _$VendorImpl>
-    implements _$$VendorImplCopyWith<$Res> {
-  __$$VendorImplCopyWithImpl(
-      _$VendorImpl _value, $Res Function(_$VendorImpl) _then)
-      : super(_value, _then);
+class _$VendorCopyWithImpl<$Res> implements $VendorCopyWith<$Res> {
+  _$VendorCopyWithImpl(this._self, this._then);
 
+  final Vendor _self;
+  final $Res Function(Vendor) _then;
+
+  /// Create a copy of Vendor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -219,69 +153,69 @@ class __$$VendorImplCopyWithImpl<$Res>
     Object? distance = freezed,
     Object? acceptedPaymentMethods = null,
   }) {
-    return _then(_$VendorImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       name: null == name
-          ? _value.name
+          ? _self.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
       businessName: null == businessName
-          ? _value.businessName
+          ? _self.businessName
           : businessName // ignore: cast_nullable_to_non_nullable
               as String,
       address: freezed == address
-          ? _value.address
+          ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
       phone: null == phone
-          ? _value.phone
+          ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
       rating: null == rating
-          ? _value.rating
+          ? _self.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
       totalRatings: null == totalRatings
-          ? _value.totalRatings
+          ? _self.totalRatings
           : totalRatings // ignore: cast_nullable_to_non_nullable
               as int,
       profilePhotoUrl: null == profilePhotoUrl
-          ? _value.profilePhotoUrl
+          ? _self.profilePhotoUrl
           : profilePhotoUrl // ignore: cast_nullable_to_non_nullable
               as String,
       coverPhotoUrl: null == coverPhotoUrl
-          ? _value.coverPhotoUrl
+          ? _self.coverPhotoUrl
           : coverPhotoUrl // ignore: cast_nullable_to_non_nullable
               as String,
       cuisineTypes: null == cuisineTypes
-          ? _value._cuisineTypes
+          ? _self.cuisineTypes
           : cuisineTypes // ignore: cast_nullable_to_non_nullable
               as List<String>,
       foodTypes: null == foodTypes
-          ? _value._foodTypes
+          ? _self.foodTypes
           : foodTypes // ignore: cast_nullable_to_non_nullable
               as List<String>,
       menus: null == menus
-          ? _value._menus
+          ? _self.menus
           : menus // ignore: cast_nullable_to_non_nullable
               as List<VendorMenu>,
       isOpen: null == isOpen
-          ? _value.isOpen
+          ? _self.isOpen
           : isOpen // ignore: cast_nullable_to_non_nullable
               as bool,
       closureMessage: freezed == closureMessage
-          ? _value.closureMessage
+          ? _self.closureMessage
           : closureMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       distance: freezed == distance
-          ? _value.distance
+          ? _self.distance
           : distance // ignore: cast_nullable_to_non_nullable
               as double?,
       acceptedPaymentMethods: null == acceptedPaymentMethods
-          ? _value._acceptedPaymentMethods
+          ? _self.acceptedPaymentMethods
           : acceptedPaymentMethods // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -290,8 +224,8 @@ class __$$VendorImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$VendorImpl implements _Vendor {
-  const _$VendorImpl(
+class _Vendor implements Vendor {
+  const _Vendor(
       {required this.id,
       required this.name,
       required this.businessName,
@@ -312,9 +246,7 @@ class _$VendorImpl implements _Vendor {
         _foodTypes = foodTypes,
         _menus = menus,
         _acceptedPaymentMethods = acceptedPaymentMethods;
-
-  factory _$VendorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$VendorImplFromJson(json);
+  factory _Vendor.fromJson(Map<String, dynamic> json) => _$VendorFromJson(json);
 
   @override
   final String id;
@@ -378,16 +310,26 @@ class _$VendorImpl implements _Vendor {
     return EqualUnmodifiableListView(_acceptedPaymentMethods);
   }
 
+  /// Create a copy of Vendor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Vendor(id: $id, name: $name, businessName: $businessName, address: $address, phone: $phone, rating: $rating, totalRatings: $totalRatings, profilePhotoUrl: $profilePhotoUrl, coverPhotoUrl: $coverPhotoUrl, cuisineTypes: $cuisineTypes, foodTypes: $foodTypes, menus: $menus, isOpen: $isOpen, closureMessage: $closureMessage, distance: $distance, acceptedPaymentMethods: $acceptedPaymentMethods)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$VendorCopyWith<_Vendor> get copyWith =>
+      __$VendorCopyWithImpl<_Vendor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$VendorToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$VendorImpl &&
+            other is _Vendor &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.businessName, businessName) ||
@@ -415,7 +357,7 @@ class _$VendorImpl implements _Vendor {
                 other._acceptedPaymentMethods, _acceptedPaymentMethods));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -436,163 +378,201 @@ class _$VendorImpl implements _Vendor {
       distance,
       const DeepCollectionEquality().hash(_acceptedPaymentMethods));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$VendorImplCopyWith<_$VendorImpl> get copyWith =>
-      __$$VendorImplCopyWithImpl<_$VendorImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$VendorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Vendor(id: $id, name: $name, businessName: $businessName, address: $address, phone: $phone, rating: $rating, totalRatings: $totalRatings, profilePhotoUrl: $profilePhotoUrl, coverPhotoUrl: $coverPhotoUrl, cuisineTypes: $cuisineTypes, foodTypes: $foodTypes, menus: $menus, isOpen: $isOpen, closureMessage: $closureMessage, distance: $distance, acceptedPaymentMethods: $acceptedPaymentMethods)';
   }
 }
 
-abstract class _Vendor implements Vendor {
-  const factory _Vendor(
-      {required final String id,
-      required final String name,
-      required final String businessName,
-      final String? address,
-      required final String phone,
-      required final double rating,
-      required final int totalRatings,
-      required final String profilePhotoUrl,
-      required final String coverPhotoUrl,
-      final List<String> cuisineTypes,
-      final List<String> foodTypes,
-      final List<VendorMenu> menus,
-      final bool isOpen,
-      final String? closureMessage,
-      final double? distance,
-      final List<String> acceptedPaymentMethods}) = _$VendorImpl;
-
-  factory _Vendor.fromJson(Map<String, dynamic> json) = _$VendorImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$VendorCopyWith<$Res> implements $VendorCopyWith<$Res> {
+  factory _$VendorCopyWith(_Vendor value, $Res Function(_Vendor) _then) =
+      __$VendorCopyWithImpl;
   @override
-  String get id;
-  @override
-  String get name;
-  @override
-  String get businessName;
-  @override
-  String? get address;
-  @override
-  String get phone;
-  @override
-  double get rating;
-  @override
-  int get totalRatings;
-  @override
-  String get profilePhotoUrl;
-  @override
-  String get coverPhotoUrl;
-  @override
-  List<String> get cuisineTypes;
-  @override
-  List<String> get foodTypes;
-  @override
-  List<VendorMenu> get menus;
-  @override
-  bool get isOpen;
-  @override
-  String? get closureMessage;
-  @override
-  double? get distance;
-  @override
-  List<String> get acceptedPaymentMethods;
-  @override
-  @JsonKey(ignore: true)
-  _$$VendorImplCopyWith<_$VendorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String id,
+      String name,
+      String businessName,
+      String? address,
+      String phone,
+      double rating,
+      int totalRatings,
+      String profilePhotoUrl,
+      String coverPhotoUrl,
+      List<String> cuisineTypes,
+      List<String> foodTypes,
+      List<VendorMenu> menus,
+      bool isOpen,
+      String? closureMessage,
+      double? distance,
+      List<String> acceptedPaymentMethods});
 }
 
-GeoPoint _$GeoPointFromJson(Map<String, dynamic> json) {
-  return _GeoPoint.fromJson(json);
+/// @nodoc
+class __$VendorCopyWithImpl<$Res> implements _$VendorCopyWith<$Res> {
+  __$VendorCopyWithImpl(this._self, this._then);
+
+  final _Vendor _self;
+  final $Res Function(_Vendor) _then;
+
+  /// Create a copy of Vendor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? businessName = null,
+    Object? address = freezed,
+    Object? phone = null,
+    Object? rating = null,
+    Object? totalRatings = null,
+    Object? profilePhotoUrl = null,
+    Object? coverPhotoUrl = null,
+    Object? cuisineTypes = null,
+    Object? foodTypes = null,
+    Object? menus = null,
+    Object? isOpen = null,
+    Object? closureMessage = freezed,
+    Object? distance = freezed,
+    Object? acceptedPaymentMethods = null,
+  }) {
+    return _then(_Vendor(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _self.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      businessName: null == businessName
+          ? _self.businessName
+          : businessName // ignore: cast_nullable_to_non_nullable
+              as String,
+      address: freezed == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as String?,
+      phone: null == phone
+          ? _self.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      rating: null == rating
+          ? _self.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double,
+      totalRatings: null == totalRatings
+          ? _self.totalRatings
+          : totalRatings // ignore: cast_nullable_to_non_nullable
+              as int,
+      profilePhotoUrl: null == profilePhotoUrl
+          ? _self.profilePhotoUrl
+          : profilePhotoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      coverPhotoUrl: null == coverPhotoUrl
+          ? _self.coverPhotoUrl
+          : coverPhotoUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      cuisineTypes: null == cuisineTypes
+          ? _self._cuisineTypes
+          : cuisineTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      foodTypes: null == foodTypes
+          ? _self._foodTypes
+          : foodTypes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      menus: null == menus
+          ? _self._menus
+          : menus // ignore: cast_nullable_to_non_nullable
+              as List<VendorMenu>,
+      isOpen: null == isOpen
+          ? _self.isOpen
+          : isOpen // ignore: cast_nullable_to_non_nullable
+              as bool,
+      closureMessage: freezed == closureMessage
+          ? _self.closureMessage
+          : closureMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      distance: freezed == distance
+          ? _self.distance
+          : distance // ignore: cast_nullable_to_non_nullable
+              as double?,
+      acceptedPaymentMethods: null == acceptedPaymentMethods
+          ? _self._acceptedPaymentMethods
+          : acceptedPaymentMethods // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$GeoPoint {
-  String get type => throw _privateConstructorUsedError;
-  List<double> get coordinates => throw _privateConstructorUsedError;
+  String get type;
+  List<double> get coordinates;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $GeoPointCopyWith<GeoPoint> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $GeoPointCopyWith<$Res> {
-  factory $GeoPointCopyWith(GeoPoint value, $Res Function(GeoPoint) then) =
-      _$GeoPointCopyWithImpl<$Res, GeoPoint>;
-  @useResult
-  $Res call({String type, List<double> coordinates});
-}
-
-/// @nodoc
-class _$GeoPointCopyWithImpl<$Res, $Val extends GeoPoint>
-    implements $GeoPointCopyWith<$Res> {
-  _$GeoPointCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of GeoPoint
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $GeoPointCopyWith<GeoPoint> get copyWith =>
+      _$GeoPointCopyWithImpl<GeoPoint>(this as GeoPoint, _$identity);
+
+  /// Serializes this GeoPoint to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? coordinates = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      coordinates: null == coordinates
-          ? _value.coordinates
-          : coordinates // ignore: cast_nullable_to_non_nullable
-              as List<double>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GeoPoint &&
+            (identical(other.type, type) || other.type == type) &&
+            const DeepCollectionEquality()
+                .equals(other.coordinates, coordinates));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(coordinates));
+
+  @override
+  String toString() {
+    return 'GeoPoint(type: $type, coordinates: $coordinates)';
   }
 }
 
 /// @nodoc
-abstract class _$$GeoPointImplCopyWith<$Res>
-    implements $GeoPointCopyWith<$Res> {
-  factory _$$GeoPointImplCopyWith(
-          _$GeoPointImpl value, $Res Function(_$GeoPointImpl) then) =
-      __$$GeoPointImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $GeoPointCopyWith<$Res> {
+  factory $GeoPointCopyWith(GeoPoint value, $Res Function(GeoPoint) _then) =
+      _$GeoPointCopyWithImpl;
   @useResult
   $Res call({String type, List<double> coordinates});
 }
 
 /// @nodoc
-class __$$GeoPointImplCopyWithImpl<$Res>
-    extends _$GeoPointCopyWithImpl<$Res, _$GeoPointImpl>
-    implements _$$GeoPointImplCopyWith<$Res> {
-  __$$GeoPointImplCopyWithImpl(
-      _$GeoPointImpl _value, $Res Function(_$GeoPointImpl) _then)
-      : super(_value, _then);
+class _$GeoPointCopyWithImpl<$Res> implements $GeoPointCopyWith<$Res> {
+  _$GeoPointCopyWithImpl(this._self, this._then);
 
+  final GeoPoint _self;
+  final $Res Function(GeoPoint) _then;
+
+  /// Create a copy of GeoPoint
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = null,
     Object? coordinates = null,
   }) {
-    return _then(_$GeoPointImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       coordinates: null == coordinates
-          ? _value._coordinates
+          ? _self.coordinates
           : coordinates // ignore: cast_nullable_to_non_nullable
               as List<double>,
     ));
@@ -601,13 +581,11 @@ class __$$GeoPointImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GeoPointImpl implements _GeoPoint {
-  const _$GeoPointImpl(
-      {required this.type, required final List<double> coordinates})
+class _GeoPoint implements GeoPoint {
+  const _GeoPoint({required this.type, required final List<double> coordinates})
       : _coordinates = coordinates;
-
-  factory _$GeoPointImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GeoPointImplFromJson(json);
+  factory _GeoPoint.fromJson(Map<String, dynamic> json) =>
+      _$GeoPointFromJson(json);
 
   @override
   final String type;
@@ -619,54 +597,78 @@ class _$GeoPointImpl implements _GeoPoint {
     return EqualUnmodifiableListView(_coordinates);
   }
 
+  /// Create a copy of GeoPoint
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'GeoPoint(type: $type, coordinates: $coordinates)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$GeoPointCopyWith<_GeoPoint> get copyWith =>
+      __$GeoPointCopyWithImpl<_GeoPoint>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$GeoPointToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GeoPointImpl &&
+            other is _GeoPoint &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._coordinates, _coordinates));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, type, const DeepCollectionEquality().hash(_coordinates));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$GeoPointImplCopyWith<_$GeoPointImpl> get copyWith =>
-      __$$GeoPointImplCopyWithImpl<_$GeoPointImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GeoPointImplToJson(
-      this,
-    );
+  String toString() {
+    return 'GeoPoint(type: $type, coordinates: $coordinates)';
   }
 }
 
-abstract class _GeoPoint implements GeoPoint {
-  const factory _GeoPoint(
-      {required final String type,
-      required final List<double> coordinates}) = _$GeoPointImpl;
-
-  factory _GeoPoint.fromJson(Map<String, dynamic> json) =
-      _$GeoPointImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$GeoPointCopyWith<$Res>
+    implements $GeoPointCopyWith<$Res> {
+  factory _$GeoPointCopyWith(_GeoPoint value, $Res Function(_GeoPoint) _then) =
+      __$GeoPointCopyWithImpl;
   @override
-  String get type;
-  @override
-  List<double> get coordinates;
-  @override
-  @JsonKey(ignore: true)
-  _$$GeoPointImplCopyWith<_$GeoPointImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String type, List<double> coordinates});
 }
+
+/// @nodoc
+class __$GeoPointCopyWithImpl<$Res> implements _$GeoPointCopyWith<$Res> {
+  __$GeoPointCopyWithImpl(this._self, this._then);
+
+  final _GeoPoint _self;
+  final $Res Function(_GeoPoint) _then;
+
+  /// Create a copy of GeoPoint
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? coordinates = null,
+  }) {
+    return _then(_GeoPoint(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      coordinates: null == coordinates
+          ? _self._coordinates
+          : coordinates // ignore: cast_nullable_to_non_nullable
+              as List<double>,
+    ));
+  }
+}
+
+// dart format on

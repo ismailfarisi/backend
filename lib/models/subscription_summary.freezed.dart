@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,123 +10,82 @@ part of 'subscription_summary.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubscriptionSummary _$SubscriptionSummaryFromJson(Map<String, dynamic> json) {
-  return _SubscriptionSummary.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubscriptionSummary {
-  int get totalOrders => throw _privateConstructorUsedError;
-  int get activeSubscriptions => throw _privateConstructorUsedError;
-  int get completedSubscriptions => throw _privateConstructorUsedError;
-  double get totalSpent => throw _privateConstructorUsedError;
-  int get missedDeliveries => throw _privateConstructorUsedError;
-  Map<MealType, int> get mealTypeDistribution =>
-      throw _privateConstructorUsedError;
-  double get averageRating => throw _privateConstructorUsedError;
-  List<String> get frequentMeals => throw _privateConstructorUsedError;
-  Map<String, int> get vendorDistribution => throw _privateConstructorUsedError;
+  int get totalOrders;
+  int get activeSubscriptions;
+  int get completedSubscriptions;
+  double get totalSpent;
+  int get missedDeliveries;
+  Map<MealType, int> get mealTypeDistribution;
+  double get averageRating;
+  List<String> get frequentMeals;
+  Map<String, int> get vendorDistribution;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SubscriptionSummaryCopyWith<SubscriptionSummary> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscriptionSummaryCopyWith<$Res> {
-  factory $SubscriptionSummaryCopyWith(
-          SubscriptionSummary value, $Res Function(SubscriptionSummary) then) =
-      _$SubscriptionSummaryCopyWithImpl<$Res, SubscriptionSummary>;
-  @useResult
-  $Res call(
-      {int totalOrders,
-      int activeSubscriptions,
-      int completedSubscriptions,
-      double totalSpent,
-      int missedDeliveries,
-      Map<MealType, int> mealTypeDistribution,
-      double averageRating,
-      List<String> frequentMeals,
-      Map<String, int> vendorDistribution});
-}
-
-/// @nodoc
-class _$SubscriptionSummaryCopyWithImpl<$Res, $Val extends SubscriptionSummary>
-    implements $SubscriptionSummaryCopyWith<$Res> {
-  _$SubscriptionSummaryCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of SubscriptionSummary
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $SubscriptionSummaryCopyWith<SubscriptionSummary> get copyWith =>
+      _$SubscriptionSummaryCopyWithImpl<SubscriptionSummary>(
+          this as SubscriptionSummary, _$identity);
+
+  /// Serializes this SubscriptionSummary to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? totalOrders = null,
-    Object? activeSubscriptions = null,
-    Object? completedSubscriptions = null,
-    Object? totalSpent = null,
-    Object? missedDeliveries = null,
-    Object? mealTypeDistribution = null,
-    Object? averageRating = null,
-    Object? frequentMeals = null,
-    Object? vendorDistribution = null,
-  }) {
-    return _then(_value.copyWith(
-      totalOrders: null == totalOrders
-          ? _value.totalOrders
-          : totalOrders // ignore: cast_nullable_to_non_nullable
-              as int,
-      activeSubscriptions: null == activeSubscriptions
-          ? _value.activeSubscriptions
-          : activeSubscriptions // ignore: cast_nullable_to_non_nullable
-              as int,
-      completedSubscriptions: null == completedSubscriptions
-          ? _value.completedSubscriptions
-          : completedSubscriptions // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalSpent: null == totalSpent
-          ? _value.totalSpent
-          : totalSpent // ignore: cast_nullable_to_non_nullable
-              as double,
-      missedDeliveries: null == missedDeliveries
-          ? _value.missedDeliveries
-          : missedDeliveries // ignore: cast_nullable_to_non_nullable
-              as int,
-      mealTypeDistribution: null == mealTypeDistribution
-          ? _value.mealTypeDistribution
-          : mealTypeDistribution // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, int>,
-      averageRating: null == averageRating
-          ? _value.averageRating
-          : averageRating // ignore: cast_nullable_to_non_nullable
-              as double,
-      frequentMeals: null == frequentMeals
-          ? _value.frequentMeals
-          : frequentMeals // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      vendorDistribution: null == vendorDistribution
-          ? _value.vendorDistribution
-          : vendorDistribution // ignore: cast_nullable_to_non_nullable
-              as Map<String, int>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscriptionSummary &&
+            (identical(other.totalOrders, totalOrders) ||
+                other.totalOrders == totalOrders) &&
+            (identical(other.activeSubscriptions, activeSubscriptions) ||
+                other.activeSubscriptions == activeSubscriptions) &&
+            (identical(other.completedSubscriptions, completedSubscriptions) ||
+                other.completedSubscriptions == completedSubscriptions) &&
+            (identical(other.totalSpent, totalSpent) ||
+                other.totalSpent == totalSpent) &&
+            (identical(other.missedDeliveries, missedDeliveries) ||
+                other.missedDeliveries == missedDeliveries) &&
+            const DeepCollectionEquality()
+                .equals(other.mealTypeDistribution, mealTypeDistribution) &&
+            (identical(other.averageRating, averageRating) ||
+                other.averageRating == averageRating) &&
+            const DeepCollectionEquality()
+                .equals(other.frequentMeals, frequentMeals) &&
+            const DeepCollectionEquality()
+                .equals(other.vendorDistribution, vendorDistribution));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      totalOrders,
+      activeSubscriptions,
+      completedSubscriptions,
+      totalSpent,
+      missedDeliveries,
+      const DeepCollectionEquality().hash(mealTypeDistribution),
+      averageRating,
+      const DeepCollectionEquality().hash(frequentMeals),
+      const DeepCollectionEquality().hash(vendorDistribution));
+
+  @override
+  String toString() {
+    return 'SubscriptionSummary(totalOrders: $totalOrders, activeSubscriptions: $activeSubscriptions, completedSubscriptions: $completedSubscriptions, totalSpent: $totalSpent, missedDeliveries: $missedDeliveries, mealTypeDistribution: $mealTypeDistribution, averageRating: $averageRating, frequentMeals: $frequentMeals, vendorDistribution: $vendorDistribution)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionSummaryImplCopyWith<$Res>
-    implements $SubscriptionSummaryCopyWith<$Res> {
-  factory _$$SubscriptionSummaryImplCopyWith(_$SubscriptionSummaryImpl value,
-          $Res Function(_$SubscriptionSummaryImpl) then) =
-      __$$SubscriptionSummaryImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscriptionSummaryCopyWith<$Res> {
+  factory $SubscriptionSummaryCopyWith(
+          SubscriptionSummary value, $Res Function(SubscriptionSummary) _then) =
+      _$SubscriptionSummaryCopyWithImpl;
   @useResult
   $Res call(
       {int totalOrders,
@@ -140,13 +100,15 @@ abstract class _$$SubscriptionSummaryImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SubscriptionSummaryImplCopyWithImpl<$Res>
-    extends _$SubscriptionSummaryCopyWithImpl<$Res, _$SubscriptionSummaryImpl>
-    implements _$$SubscriptionSummaryImplCopyWith<$Res> {
-  __$$SubscriptionSummaryImplCopyWithImpl(_$SubscriptionSummaryImpl _value,
-      $Res Function(_$SubscriptionSummaryImpl) _then)
-      : super(_value, _then);
+class _$SubscriptionSummaryCopyWithImpl<$Res>
+    implements $SubscriptionSummaryCopyWith<$Res> {
+  _$SubscriptionSummaryCopyWithImpl(this._self, this._then);
 
+  final SubscriptionSummary _self;
+  final $Res Function(SubscriptionSummary) _then;
+
+  /// Create a copy of SubscriptionSummary
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,41 +122,41 @@ class __$$SubscriptionSummaryImplCopyWithImpl<$Res>
     Object? frequentMeals = null,
     Object? vendorDistribution = null,
   }) {
-    return _then(_$SubscriptionSummaryImpl(
+    return _then(_self.copyWith(
       totalOrders: null == totalOrders
-          ? _value.totalOrders
+          ? _self.totalOrders
           : totalOrders // ignore: cast_nullable_to_non_nullable
               as int,
       activeSubscriptions: null == activeSubscriptions
-          ? _value.activeSubscriptions
+          ? _self.activeSubscriptions
           : activeSubscriptions // ignore: cast_nullable_to_non_nullable
               as int,
       completedSubscriptions: null == completedSubscriptions
-          ? _value.completedSubscriptions
+          ? _self.completedSubscriptions
           : completedSubscriptions // ignore: cast_nullable_to_non_nullable
               as int,
       totalSpent: null == totalSpent
-          ? _value.totalSpent
+          ? _self.totalSpent
           : totalSpent // ignore: cast_nullable_to_non_nullable
               as double,
       missedDeliveries: null == missedDeliveries
-          ? _value.missedDeliveries
+          ? _self.missedDeliveries
           : missedDeliveries // ignore: cast_nullable_to_non_nullable
               as int,
       mealTypeDistribution: null == mealTypeDistribution
-          ? _value._mealTypeDistribution
+          ? _self.mealTypeDistribution
           : mealTypeDistribution // ignore: cast_nullable_to_non_nullable
               as Map<MealType, int>,
       averageRating: null == averageRating
-          ? _value.averageRating
+          ? _self.averageRating
           : averageRating // ignore: cast_nullable_to_non_nullable
               as double,
       frequentMeals: null == frequentMeals
-          ? _value._frequentMeals
+          ? _self.frequentMeals
           : frequentMeals // ignore: cast_nullable_to_non_nullable
               as List<String>,
       vendorDistribution: null == vendorDistribution
-          ? _value._vendorDistribution
+          ? _self.vendorDistribution
           : vendorDistribution // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
     ));
@@ -203,8 +165,8 @@ class __$$SubscriptionSummaryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubscriptionSummaryImpl implements _SubscriptionSummary {
-  const _$SubscriptionSummaryImpl(
+class _SubscriptionSummary implements SubscriptionSummary {
+  const _SubscriptionSummary(
       {required this.totalOrders,
       required this.activeSubscriptions,
       required this.completedSubscriptions,
@@ -217,9 +179,8 @@ class _$SubscriptionSummaryImpl implements _SubscriptionSummary {
       : _mealTypeDistribution = mealTypeDistribution,
         _frequentMeals = frequentMeals,
         _vendorDistribution = vendorDistribution;
-
-  factory _$SubscriptionSummaryImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscriptionSummaryImplFromJson(json);
+  factory _SubscriptionSummary.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionSummaryFromJson(json);
 
   @override
   final int totalOrders;
@@ -259,16 +220,27 @@ class _$SubscriptionSummaryImpl implements _SubscriptionSummary {
     return EqualUnmodifiableMapView(_vendorDistribution);
   }
 
+  /// Create a copy of SubscriptionSummary
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SubscriptionSummary(totalOrders: $totalOrders, activeSubscriptions: $activeSubscriptions, completedSubscriptions: $completedSubscriptions, totalSpent: $totalSpent, missedDeliveries: $missedDeliveries, mealTypeDistribution: $mealTypeDistribution, averageRating: $averageRating, frequentMeals: $frequentMeals, vendorDistribution: $vendorDistribution)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionSummaryCopyWith<_SubscriptionSummary> get copyWith =>
+      __$SubscriptionSummaryCopyWithImpl<_SubscriptionSummary>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionSummaryToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionSummaryImpl &&
+            other is _SubscriptionSummary &&
             (identical(other.totalOrders, totalOrders) ||
                 other.totalOrders == totalOrders) &&
             (identical(other.activeSubscriptions, activeSubscriptions) ||
@@ -289,7 +261,7 @@ class _$SubscriptionSummaryImpl implements _SubscriptionSummary {
                 .equals(other._vendorDistribution, _vendorDistribution));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -303,57 +275,94 @@ class _$SubscriptionSummaryImpl implements _SubscriptionSummary {
       const DeepCollectionEquality().hash(_frequentMeals),
       const DeepCollectionEquality().hash(_vendorDistribution));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionSummaryImplCopyWith<_$SubscriptionSummaryImpl> get copyWith =>
-      __$$SubscriptionSummaryImplCopyWithImpl<_$SubscriptionSummaryImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionSummaryImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscriptionSummary(totalOrders: $totalOrders, activeSubscriptions: $activeSubscriptions, completedSubscriptions: $completedSubscriptions, totalSpent: $totalSpent, missedDeliveries: $missedDeliveries, mealTypeDistribution: $mealTypeDistribution, averageRating: $averageRating, frequentMeals: $frequentMeals, vendorDistribution: $vendorDistribution)';
   }
 }
 
-abstract class _SubscriptionSummary implements SubscriptionSummary {
-  const factory _SubscriptionSummary(
-          {required final int totalOrders,
-          required final int activeSubscriptions,
-          required final int completedSubscriptions,
-          required final double totalSpent,
-          required final int missedDeliveries,
-          required final Map<MealType, int> mealTypeDistribution,
-          required final double averageRating,
-          required final List<String> frequentMeals,
-          required final Map<String, int> vendorDistribution}) =
-      _$SubscriptionSummaryImpl;
-
-  factory _SubscriptionSummary.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionSummaryImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscriptionSummaryCopyWith<$Res>
+    implements $SubscriptionSummaryCopyWith<$Res> {
+  factory _$SubscriptionSummaryCopyWith(_SubscriptionSummary value,
+          $Res Function(_SubscriptionSummary) _then) =
+      __$SubscriptionSummaryCopyWithImpl;
   @override
-  int get totalOrders;
-  @override
-  int get activeSubscriptions;
-  @override
-  int get completedSubscriptions;
-  @override
-  double get totalSpent;
-  @override
-  int get missedDeliveries;
-  @override
-  Map<MealType, int> get mealTypeDistribution;
-  @override
-  double get averageRating;
-  @override
-  List<String> get frequentMeals;
-  @override
-  Map<String, int> get vendorDistribution;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionSummaryImplCopyWith<_$SubscriptionSummaryImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {int totalOrders,
+      int activeSubscriptions,
+      int completedSubscriptions,
+      double totalSpent,
+      int missedDeliveries,
+      Map<MealType, int> mealTypeDistribution,
+      double averageRating,
+      List<String> frequentMeals,
+      Map<String, int> vendorDistribution});
 }
+
+/// @nodoc
+class __$SubscriptionSummaryCopyWithImpl<$Res>
+    implements _$SubscriptionSummaryCopyWith<$Res> {
+  __$SubscriptionSummaryCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionSummary _self;
+  final $Res Function(_SubscriptionSummary) _then;
+
+  /// Create a copy of SubscriptionSummary
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? totalOrders = null,
+    Object? activeSubscriptions = null,
+    Object? completedSubscriptions = null,
+    Object? totalSpent = null,
+    Object? missedDeliveries = null,
+    Object? mealTypeDistribution = null,
+    Object? averageRating = null,
+    Object? frequentMeals = null,
+    Object? vendorDistribution = null,
+  }) {
+    return _then(_SubscriptionSummary(
+      totalOrders: null == totalOrders
+          ? _self.totalOrders
+          : totalOrders // ignore: cast_nullable_to_non_nullable
+              as int,
+      activeSubscriptions: null == activeSubscriptions
+          ? _self.activeSubscriptions
+          : activeSubscriptions // ignore: cast_nullable_to_non_nullable
+              as int,
+      completedSubscriptions: null == completedSubscriptions
+          ? _self.completedSubscriptions
+          : completedSubscriptions // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalSpent: null == totalSpent
+          ? _self.totalSpent
+          : totalSpent // ignore: cast_nullable_to_non_nullable
+              as double,
+      missedDeliveries: null == missedDeliveries
+          ? _self.missedDeliveries
+          : missedDeliveries // ignore: cast_nullable_to_non_nullable
+              as int,
+      mealTypeDistribution: null == mealTypeDistribution
+          ? _self._mealTypeDistribution
+          : mealTypeDistribution // ignore: cast_nullable_to_non_nullable
+              as Map<MealType, int>,
+      averageRating: null == averageRating
+          ? _self.averageRating
+          : averageRating // ignore: cast_nullable_to_non_nullable
+              as double,
+      frequentMeals: null == frequentMeals
+          ? _self._frequentMeals
+          : frequentMeals // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      vendorDistribution: null == vendorDistribution
+          ? _self._vendorDistribution
+          : vendorDistribution // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
+    ));
+  }
+}
+
+// dart format on

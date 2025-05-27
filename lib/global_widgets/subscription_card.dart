@@ -134,7 +134,7 @@ class SubscriptionCard extends StatelessWidget {
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       backgroundColor:
-                          Theme.of(context).colorScheme.surfaceVariant,
+                          Theme.of(context).colorScheme.surfaceContainerHighest,
                     );
                   }).toList(),
                 ),

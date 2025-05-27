@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,31 +10,61 @@ part of 'vendor_detail_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$VendorDetailState {
-  Vendor get vendor => throw _privateConstructorUsedError;
-  WeeklyMenu? get weeklyMenu => throw _privateConstructorUsedError;
-  AppStatus get status => throw _privateConstructorUsedError;
-  AppStatus get menuStatus => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
-  int get selectedDayIndex => throw _privateConstructorUsedError;
-  MenuItem? get selectedMenuItem => throw _privateConstructorUsedError;
+  Vendor get vendor;
+  WeeklyMenu? get weeklyMenu;
+  AppStatus get status;
+  AppStatus get menuStatus;
+  String? get errorMessage;
+  int get selectedDayIndex;
+  MenuItem? get selectedMenuItem;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $VendorDetailStateCopyWith<VendorDetailState> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$VendorDetailStateCopyWithImpl<VendorDetailState>(
+          this as VendorDetailState, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is VendorDetailState &&
+            (identical(other.vendor, vendor) || other.vendor == vendor) &&
+            (identical(other.weeklyMenu, weeklyMenu) ||
+                other.weeklyMenu == weeklyMenu) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.menuStatus, menuStatus) ||
+                other.menuStatus == menuStatus) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.selectedDayIndex, selectedDayIndex) ||
+                other.selectedDayIndex == selectedDayIndex) &&
+            (identical(other.selectedMenuItem, selectedMenuItem) ||
+                other.selectedMenuItem == selectedMenuItem));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, vendor, weeklyMenu, status,
+      menuStatus, errorMessage, selectedDayIndex, selectedMenuItem);
+
+  @override
+  String toString() {
+    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem)';
+  }
 }
 
 /// @nodoc
-abstract class $VendorDetailStateCopyWith<$Res> {
+abstract mixin class $VendorDetailStateCopyWith<$Res> {
   factory $VendorDetailStateCopyWith(
-          VendorDetailState value, $Res Function(VendorDetailState) then) =
-      _$VendorDetailStateCopyWithImpl<$Res, VendorDetailState>;
+          VendorDetailState value, $Res Function(VendorDetailState) _then) =
+      _$VendorDetailStateCopyWithImpl;
   @useResult
   $Res call(
       {Vendor vendor,
@@ -50,15 +81,15 @@ abstract class $VendorDetailStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$VendorDetailStateCopyWithImpl<$Res, $Val extends VendorDetailState>
+class _$VendorDetailStateCopyWithImpl<$Res>
     implements $VendorDetailStateCopyWith<$Res> {
-  _$VendorDetailStateCopyWithImpl(this._value, this._then);
+  _$VendorDetailStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final VendorDetailState _self;
+  final $Res Function(VendorDetailState) _then;
 
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,152 +101,81 @@ class _$VendorDetailStateCopyWithImpl<$Res, $Val extends VendorDetailState>
     Object? selectedDayIndex = null,
     Object? selectedMenuItem = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       vendor: null == vendor
-          ? _value.vendor
+          ? _self.vendor
           : vendor // ignore: cast_nullable_to_non_nullable
               as Vendor,
       weeklyMenu: freezed == weeklyMenu
-          ? _value.weeklyMenu
+          ? _self.weeklyMenu
           : weeklyMenu // ignore: cast_nullable_to_non_nullable
               as WeeklyMenu?,
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       menuStatus: null == menuStatus
-          ? _value.menuStatus
+          ? _self.menuStatus
           : menuStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       errorMessage: freezed == errorMessage
-          ? _value.errorMessage
+          ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       selectedDayIndex: null == selectedDayIndex
-          ? _value.selectedDayIndex
+          ? _self.selectedDayIndex
           : selectedDayIndex // ignore: cast_nullable_to_non_nullable
               as int,
       selectedMenuItem: freezed == selectedMenuItem
-          ? _value.selectedMenuItem
-          : selectedMenuItem // ignore: cast_nullable_to_non_nullable
-              as MenuItem?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $VendorCopyWith<$Res> get vendor {
-    return $VendorCopyWith<$Res>(_value.vendor, (value) {
-      return _then(_value.copyWith(vendor: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $WeeklyMenuCopyWith<$Res>? get weeklyMenu {
-    if (_value.weeklyMenu == null) {
-      return null;
-    }
-
-    return $WeeklyMenuCopyWith<$Res>(_value.weeklyMenu!, (value) {
-      return _then(_value.copyWith(weeklyMenu: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MenuItemCopyWith<$Res>? get selectedMenuItem {
-    if (_value.selectedMenuItem == null) {
-      return null;
-    }
-
-    return $MenuItemCopyWith<$Res>(_value.selectedMenuItem!, (value) {
-      return _then(_value.copyWith(selectedMenuItem: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$VendorDetailStateImplCopyWith<$Res>
-    implements $VendorDetailStateCopyWith<$Res> {
-  factory _$$VendorDetailStateImplCopyWith(_$VendorDetailStateImpl value,
-          $Res Function(_$VendorDetailStateImpl) then) =
-      __$$VendorDetailStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Vendor vendor,
-      WeeklyMenu? weeklyMenu,
-      AppStatus status,
-      AppStatus menuStatus,
-      String? errorMessage,
-      int selectedDayIndex,
-      MenuItem? selectedMenuItem});
-
-  @override
-  $VendorCopyWith<$Res> get vendor;
-  @override
-  $WeeklyMenuCopyWith<$Res>? get weeklyMenu;
-  @override
-  $MenuItemCopyWith<$Res>? get selectedMenuItem;
-}
-
-/// @nodoc
-class __$$VendorDetailStateImplCopyWithImpl<$Res>
-    extends _$VendorDetailStateCopyWithImpl<$Res, _$VendorDetailStateImpl>
-    implements _$$VendorDetailStateImplCopyWith<$Res> {
-  __$$VendorDetailStateImplCopyWithImpl(_$VendorDetailStateImpl _value,
-      $Res Function(_$VendorDetailStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? vendor = null,
-    Object? weeklyMenu = freezed,
-    Object? status = null,
-    Object? menuStatus = null,
-    Object? errorMessage = freezed,
-    Object? selectedDayIndex = null,
-    Object? selectedMenuItem = freezed,
-  }) {
-    return _then(_$VendorDetailStateImpl(
-      vendor: null == vendor
-          ? _value.vendor
-          : vendor // ignore: cast_nullable_to_non_nullable
-              as Vendor,
-      weeklyMenu: freezed == weeklyMenu
-          ? _value.weeklyMenu
-          : weeklyMenu // ignore: cast_nullable_to_non_nullable
-              as WeeklyMenu?,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      menuStatus: null == menuStatus
-          ? _value.menuStatus
-          : menuStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      selectedDayIndex: null == selectedDayIndex
-          ? _value.selectedDayIndex
-          : selectedDayIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      selectedMenuItem: freezed == selectedMenuItem
-          ? _value.selectedMenuItem
+          ? _self.selectedMenuItem
           : selectedMenuItem // ignore: cast_nullable_to_non_nullable
               as MenuItem?,
     ));
   }
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VendorCopyWith<$Res> get vendor {
+    return $VendorCopyWith<$Res>(_self.vendor, (value) {
+      return _then(_self.copyWith(vendor: value));
+    });
+  }
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WeeklyMenuCopyWith<$Res>? get weeklyMenu {
+    if (_self.weeklyMenu == null) {
+      return null;
+    }
+
+    return $WeeklyMenuCopyWith<$Res>(_self.weeklyMenu!, (value) {
+      return _then(_self.copyWith(weeklyMenu: value));
+    });
+  }
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuItemCopyWith<$Res>? get selectedMenuItem {
+    if (_self.selectedMenuItem == null) {
+      return null;
+    }
+
+    return $MenuItemCopyWith<$Res>(_self.selectedMenuItem!, (value) {
+      return _then(_self.copyWith(selectedMenuItem: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$VendorDetailStateImpl implements _VendorDetailState {
-  const _$VendorDetailStateImpl(
+class _VendorDetailState implements VendorDetailState {
+  const _VendorDetailState(
       {required this.vendor,
       this.weeklyMenu,
       this.status = AppStatus.init,
@@ -242,16 +202,19 @@ class _$VendorDetailStateImpl implements _VendorDetailState {
   @override
   final MenuItem? selectedMenuItem;
 
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$VendorDetailStateCopyWith<_VendorDetailState> get copyWith =>
+      __$VendorDetailStateCopyWithImpl<_VendorDetailState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$VendorDetailStateImpl &&
+            other is _VendorDetailState &&
             (identical(other.vendor, vendor) || other.vendor == vendor) &&
             (identical(other.weeklyMenu, weeklyMenu) ||
                 other.weeklyMenu == weeklyMenu) &&
@@ -270,40 +233,127 @@ class _$VendorDetailStateImpl implements _VendorDetailState {
   int get hashCode => Object.hash(runtimeType, vendor, weeklyMenu, status,
       menuStatus, errorMessage, selectedDayIndex, selectedMenuItem);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$VendorDetailStateCopyWith<$Res>
+    implements $VendorDetailStateCopyWith<$Res> {
+  factory _$VendorDetailStateCopyWith(
+          _VendorDetailState value, $Res Function(_VendorDetailState) _then) =
+      __$VendorDetailStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Vendor vendor,
+      WeeklyMenu? weeklyMenu,
+      AppStatus status,
+      AppStatus menuStatus,
+      String? errorMessage,
+      int selectedDayIndex,
+      MenuItem? selectedMenuItem});
+
+  @override
+  $VendorCopyWith<$Res> get vendor;
+  @override
+  $WeeklyMenuCopyWith<$Res>? get weeklyMenu;
+  @override
+  $MenuItemCopyWith<$Res>? get selectedMenuItem;
+}
+
+/// @nodoc
+class __$VendorDetailStateCopyWithImpl<$Res>
+    implements _$VendorDetailStateCopyWith<$Res> {
+  __$VendorDetailStateCopyWithImpl(this._self, this._then);
+
+  final _VendorDetailState _self;
+  final $Res Function(_VendorDetailState) _then;
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$VendorDetailStateImplCopyWith<_$VendorDetailStateImpl> get copyWith =>
-      __$$VendorDetailStateImplCopyWithImpl<_$VendorDetailStateImpl>(
-          this, _$identity);
+  $Res call({
+    Object? vendor = null,
+    Object? weeklyMenu = freezed,
+    Object? status = null,
+    Object? menuStatus = null,
+    Object? errorMessage = freezed,
+    Object? selectedDayIndex = null,
+    Object? selectedMenuItem = freezed,
+  }) {
+    return _then(_VendorDetailState(
+      vendor: null == vendor
+          ? _self.vendor
+          : vendor // ignore: cast_nullable_to_non_nullable
+              as Vendor,
+      weeklyMenu: freezed == weeklyMenu
+          ? _self.weeklyMenu
+          : weeklyMenu // ignore: cast_nullable_to_non_nullable
+              as WeeklyMenu?,
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      menuStatus: null == menuStatus
+          ? _self.menuStatus
+          : menuStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      errorMessage: freezed == errorMessage
+          ? _self.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedDayIndex: null == selectedDayIndex
+          ? _self.selectedDayIndex
+          : selectedDayIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      selectedMenuItem: freezed == selectedMenuItem
+          ? _self.selectedMenuItem
+          : selectedMenuItem // ignore: cast_nullable_to_non_nullable
+              as MenuItem?,
+    ));
+  }
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VendorCopyWith<$Res> get vendor {
+    return $VendorCopyWith<$Res>(_self.vendor, (value) {
+      return _then(_self.copyWith(vendor: value));
+    });
+  }
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WeeklyMenuCopyWith<$Res>? get weeklyMenu {
+    if (_self.weeklyMenu == null) {
+      return null;
+    }
+
+    return $WeeklyMenuCopyWith<$Res>(_self.weeklyMenu!, (value) {
+      return _then(_self.copyWith(weeklyMenu: value));
+    });
+  }
+
+  /// Create a copy of VendorDetailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MenuItemCopyWith<$Res>? get selectedMenuItem {
+    if (_self.selectedMenuItem == null) {
+      return null;
+    }
+
+    return $MenuItemCopyWith<$Res>(_self.selectedMenuItem!, (value) {
+      return _then(_self.copyWith(selectedMenuItem: value));
+    });
+  }
 }
 
-abstract class _VendorDetailState implements VendorDetailState {
-  const factory _VendorDetailState(
-      {required final Vendor vendor,
-      final WeeklyMenu? weeklyMenu,
-      final AppStatus status,
-      final AppStatus menuStatus,
-      final String? errorMessage,
-      final int selectedDayIndex,
-      final MenuItem? selectedMenuItem}) = _$VendorDetailStateImpl;
-
-  @override
-  Vendor get vendor;
-  @override
-  WeeklyMenu? get weeklyMenu;
-  @override
-  AppStatus get status;
-  @override
-  AppStatus get menuStatus;
-  @override
-  String? get errorMessage;
-  @override
-  int get selectedDayIndex;
-  @override
-  MenuItem? get selectedMenuItem;
-  @override
-  @JsonKey(ignore: true)
-  _$$VendorDetailStateImplCopyWith<_$VendorDetailStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

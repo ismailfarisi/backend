@@ -6,9 +6,8 @@ part of 'subscription_order.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscriptionOrderImpl _$$SubscriptionOrderImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SubscriptionOrderImpl(
+_SubscriptionOrder _$SubscriptionOrderFromJson(Map<String, dynamic> json) =>
+    _SubscriptionOrder(
       id: json['id'] as String,
       userId: json['userId'] as String,
       vendorId: json['vendorId'] as String,
@@ -45,8 +44,7 @@ _$SubscriptionOrderImpl _$$SubscriptionOrderImplFromJson(
           const [],
     );
 
-Map<String, dynamic> _$$SubscriptionOrderImplToJson(
-        _$SubscriptionOrderImpl instance) =>
+Map<String, dynamic> _$SubscriptionOrderToJson(_SubscriptionOrder instance) =>
     <String, dynamic>{
       'id': instance.id,
       'userId': instance.userId,

@@ -6,9 +6,9 @@ part of 'subscription_feedback.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscriptionFeedbackImpl _$$SubscriptionFeedbackImplFromJson(
+_SubscriptionFeedback _$SubscriptionFeedbackFromJson(
         Map<String, dynamic> json) =>
-    _$SubscriptionFeedbackImpl(
+    _SubscriptionFeedback(
       id: json['id'] as String,
       orderId: json['orderId'] as String,
       date: DateTime.parse(json['date'] as String),
@@ -26,8 +26,8 @@ _$SubscriptionFeedbackImpl _$$SubscriptionFeedbackImplFromJson(
           : DateTime.parse(json['vendorResponseDate'] as String),
     );
 
-Map<String, dynamic> _$$SubscriptionFeedbackImplToJson(
-        _$SubscriptionFeedbackImpl instance) =>
+Map<String, dynamic> _$SubscriptionFeedbackToJson(
+        _SubscriptionFeedback instance) =>
     <String, dynamic>{
       'id': instance.id,
       'orderId': instance.orderId,

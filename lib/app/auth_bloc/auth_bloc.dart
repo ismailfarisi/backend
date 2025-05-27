@@ -29,14 +29,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       _UserLoggedIn event, Emitter<AuthState> emit) async {
     Logger().d(event.user);
     emit(
-        state.copyWith(authStatus: AuthStatus.Authenticated, user: event.user));
+        state.copyWith(authStatus: AuthStatus.authenticated, user: event.user));
   }
 
   FutureOr<void> _userLoggedOut(_UserLoggedOut event, Emitter<AuthState> emit) {
     FlutterSecureStorage storage = const FlutterSecureStorage();
     storage.delete(key: 'accessToken');
     storage.delete(key: 'refreshToken');
-    emit(state.copyWith(authStatus: AuthStatus.UnAuthenticated, user: null));
+    emit(state.copyWith(authStatus: AuthStatus.unAuthenticated, user: null));
   }
 
   FutureOr<void> _started(_Started event, Emitter<AuthState> emit) async {
@@ -44,11 +44,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     switch (result) {
       case (Success s):
         emit(state.copyWith(
-            authStatus: AuthStatus.Authenticated, user: s.value));
+            authStatus: AuthStatus.authenticated, user: s.value));
         break;
       case (Error _):
         emit(state.copyWith(
-          authStatus: AuthStatus.UnAuthenticated,
+          authStatus: AuthStatus.unAuthenticated,
         ));
         break;
     }

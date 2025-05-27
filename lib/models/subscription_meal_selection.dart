@@ -6,7 +6,7 @@ part 'subscription_meal_selection.freezed.dart';
 part 'subscription_meal_selection.g.dart';
 
 @freezed
-class SubscriptionMealSelection with _$SubscriptionMealSelection {
+abstract class SubscriptionMealSelection with _$SubscriptionMealSelection {
   const factory SubscriptionMealSelection({
     required MealType mealType,
     required List<String> vendorIds,
@@ -18,7 +18,7 @@ class SubscriptionMealSelection with _$SubscriptionMealSelection {
 
 // subscription_order_dto.dart
 @freezed
-class SubscriptionOrderDto with _$SubscriptionOrderDto {
+abstract class SubscriptionOrderDto with _$SubscriptionOrderDto {
   const factory SubscriptionOrderDto({
     required List<SubscriptionMealSelection> mealSelections,
     required DateTime startDate,

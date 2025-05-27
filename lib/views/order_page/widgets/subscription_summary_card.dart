@@ -21,7 +21,7 @@ class SubscriptionSummaryCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor.withOpacity(0.1),
+              color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(12)),
             ),
@@ -210,7 +210,7 @@ class _FrequentMeals extends StatelessWidget {
                 (meal) => Chip(
                   label: Text(meal),
                   backgroundColor:
-                      Theme.of(context).primaryColor.withOpacity(0.1),
+                      Theme.of(context).primaryColor.withValues(alpha: 0.1),
                   side: BorderSide.none,
                 ),
               )
@@ -244,7 +244,7 @@ class _VendorDistribution extends StatelessWidget {
               (entry) => ListTile(
                 leading: CircleAvatar(
                   backgroundColor:
-                      Theme.of(context).primaryColor.withOpacity(0.1),
+                      Theme.of(context).primaryColor.withValues(alpha: 0.1),
                   child: Text(
                     entry.key[0],
                     style: TextStyle(

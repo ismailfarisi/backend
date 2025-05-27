@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,108 +10,69 @@ part of 'subscription_change.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubscriptionChange _$SubscriptionChangeFromJson(Map<String, dynamic> json) {
-  return _SubscriptionChange.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubscriptionChange {
-  String get id => throw _privateConstructorUsedError;
-  DateTime get changeDate => throw _privateConstructorUsedError;
-  ChangeType get type => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get oldValue => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get newValue => throw _privateConstructorUsedError;
-  String? get reason => throw _privateConstructorUsedError;
+  String get id;
+  DateTime get changeDate;
+  ChangeType get type;
+  String get description;
+  Map<String, dynamic>? get oldValue;
+  Map<String, dynamic>? get newValue;
+  String? get reason;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SubscriptionChangeCopyWith<SubscriptionChange> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscriptionChangeCopyWith<$Res> {
-  factory $SubscriptionChangeCopyWith(
-          SubscriptionChange value, $Res Function(SubscriptionChange) then) =
-      _$SubscriptionChangeCopyWithImpl<$Res, SubscriptionChange>;
-  @useResult
-  $Res call(
-      {String id,
-      DateTime changeDate,
-      ChangeType type,
-      String description,
-      Map<String, dynamic>? oldValue,
-      Map<String, dynamic>? newValue,
-      String? reason});
-}
-
-/// @nodoc
-class _$SubscriptionChangeCopyWithImpl<$Res, $Val extends SubscriptionChange>
-    implements $SubscriptionChangeCopyWith<$Res> {
-  _$SubscriptionChangeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of SubscriptionChange
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $SubscriptionChangeCopyWith<SubscriptionChange> get copyWith =>
+      _$SubscriptionChangeCopyWithImpl<SubscriptionChange>(
+          this as SubscriptionChange, _$identity);
+
+  /// Serializes this SubscriptionChange to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? changeDate = null,
-    Object? type = null,
-    Object? description = null,
-    Object? oldValue = freezed,
-    Object? newValue = freezed,
-    Object? reason = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      changeDate: null == changeDate
-          ? _value.changeDate
-          : changeDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as ChangeType,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      oldValue: freezed == oldValue
-          ? _value.oldValue
-          : oldValue // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      newValue: freezed == newValue
-          ? _value.newValue
-          : newValue // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      reason: freezed == reason
-          ? _value.reason
-          : reason // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscriptionChange &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.changeDate, changeDate) ||
+                other.changeDate == changeDate) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality().equals(other.oldValue, oldValue) &&
+            const DeepCollectionEquality().equals(other.newValue, newValue) &&
+            (identical(other.reason, reason) || other.reason == reason));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      changeDate,
+      type,
+      description,
+      const DeepCollectionEquality().hash(oldValue),
+      const DeepCollectionEquality().hash(newValue),
+      reason);
+
+  @override
+  String toString() {
+    return 'SubscriptionChange(id: $id, changeDate: $changeDate, type: $type, description: $description, oldValue: $oldValue, newValue: $newValue, reason: $reason)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionChangeImplCopyWith<$Res>
-    implements $SubscriptionChangeCopyWith<$Res> {
-  factory _$$SubscriptionChangeImplCopyWith(_$SubscriptionChangeImpl value,
-          $Res Function(_$SubscriptionChangeImpl) then) =
-      __$$SubscriptionChangeImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscriptionChangeCopyWith<$Res> {
+  factory $SubscriptionChangeCopyWith(
+          SubscriptionChange value, $Res Function(SubscriptionChange) _then) =
+      _$SubscriptionChangeCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -123,13 +85,15 @@ abstract class _$$SubscriptionChangeImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SubscriptionChangeImplCopyWithImpl<$Res>
-    extends _$SubscriptionChangeCopyWithImpl<$Res, _$SubscriptionChangeImpl>
-    implements _$$SubscriptionChangeImplCopyWith<$Res> {
-  __$$SubscriptionChangeImplCopyWithImpl(_$SubscriptionChangeImpl _value,
-      $Res Function(_$SubscriptionChangeImpl) _then)
-      : super(_value, _then);
+class _$SubscriptionChangeCopyWithImpl<$Res>
+    implements $SubscriptionChangeCopyWith<$Res> {
+  _$SubscriptionChangeCopyWithImpl(this._self, this._then);
 
+  final SubscriptionChange _self;
+  final $Res Function(SubscriptionChange) _then;
+
+  /// Create a copy of SubscriptionChange
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,33 +105,33 @@ class __$$SubscriptionChangeImplCopyWithImpl<$Res>
     Object? newValue = freezed,
     Object? reason = freezed,
   }) {
-    return _then(_$SubscriptionChangeImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       changeDate: null == changeDate
-          ? _value.changeDate
+          ? _self.changeDate
           : changeDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as ChangeType,
       description: null == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       oldValue: freezed == oldValue
-          ? _value._oldValue
+          ? _self.oldValue
           : oldValue // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       newValue: freezed == newValue
-          ? _value._newValue
+          ? _self.newValue
           : newValue // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       reason: freezed == reason
-          ? _value.reason
+          ? _self.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -176,8 +140,8 @@ class __$$SubscriptionChangeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubscriptionChangeImpl implements _SubscriptionChange {
-  const _$SubscriptionChangeImpl(
+class _SubscriptionChange implements SubscriptionChange {
+  const _SubscriptionChange(
       {required this.id,
       required this.changeDate,
       required this.type,
@@ -187,9 +151,8 @@ class _$SubscriptionChangeImpl implements _SubscriptionChange {
       this.reason})
       : _oldValue = oldValue,
         _newValue = newValue;
-
-  factory _$SubscriptionChangeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscriptionChangeImplFromJson(json);
+  factory _SubscriptionChange.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionChangeFromJson(json);
 
   @override
   final String id;
@@ -222,16 +185,26 @@ class _$SubscriptionChangeImpl implements _SubscriptionChange {
   @override
   final String? reason;
 
+  /// Create a copy of SubscriptionChange
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SubscriptionChange(id: $id, changeDate: $changeDate, type: $type, description: $description, oldValue: $oldValue, newValue: $newValue, reason: $reason)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionChangeCopyWith<_SubscriptionChange> get copyWith =>
+      __$SubscriptionChangeCopyWithImpl<_SubscriptionChange>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionChangeToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionChangeImpl &&
+            other is _SubscriptionChange &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.changeDate, changeDate) ||
                 other.changeDate == changeDate) &&
@@ -243,7 +216,7 @@ class _$SubscriptionChangeImpl implements _SubscriptionChange {
             (identical(other.reason, reason) || other.reason == reason));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -255,50 +228,82 @@ class _$SubscriptionChangeImpl implements _SubscriptionChange {
       const DeepCollectionEquality().hash(_newValue),
       reason);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionChangeImplCopyWith<_$SubscriptionChangeImpl> get copyWith =>
-      __$$SubscriptionChangeImplCopyWithImpl<_$SubscriptionChangeImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionChangeImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscriptionChange(id: $id, changeDate: $changeDate, type: $type, description: $description, oldValue: $oldValue, newValue: $newValue, reason: $reason)';
   }
 }
 
-abstract class _SubscriptionChange implements SubscriptionChange {
-  const factory _SubscriptionChange(
-      {required final String id,
-      required final DateTime changeDate,
-      required final ChangeType type,
-      required final String description,
-      final Map<String, dynamic>? oldValue,
-      final Map<String, dynamic>? newValue,
-      final String? reason}) = _$SubscriptionChangeImpl;
-
-  factory _SubscriptionChange.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionChangeImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscriptionChangeCopyWith<$Res>
+    implements $SubscriptionChangeCopyWith<$Res> {
+  factory _$SubscriptionChangeCopyWith(
+          _SubscriptionChange value, $Res Function(_SubscriptionChange) _then) =
+      __$SubscriptionChangeCopyWithImpl;
   @override
-  String get id;
-  @override
-  DateTime get changeDate;
-  @override
-  ChangeType get type;
-  @override
-  String get description;
-  @override
-  Map<String, dynamic>? get oldValue;
-  @override
-  Map<String, dynamic>? get newValue;
-  @override
-  String? get reason;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionChangeImplCopyWith<_$SubscriptionChangeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String id,
+      DateTime changeDate,
+      ChangeType type,
+      String description,
+      Map<String, dynamic>? oldValue,
+      Map<String, dynamic>? newValue,
+      String? reason});
 }
+
+/// @nodoc
+class __$SubscriptionChangeCopyWithImpl<$Res>
+    implements _$SubscriptionChangeCopyWith<$Res> {
+  __$SubscriptionChangeCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionChange _self;
+  final $Res Function(_SubscriptionChange) _then;
+
+  /// Create a copy of SubscriptionChange
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? changeDate = null,
+    Object? type = null,
+    Object? description = null,
+    Object? oldValue = freezed,
+    Object? newValue = freezed,
+    Object? reason = freezed,
+  }) {
+    return _then(_SubscriptionChange(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      changeDate: null == changeDate
+          ? _self.changeDate
+          : changeDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ChangeType,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      oldValue: freezed == oldValue
+          ? _self._oldValue
+          : oldValue // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      newValue: freezed == newValue
+          ? _self._newValue
+          : newValue // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      reason: freezed == reason
+          ? _self.reason
+          : reason // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+// dart format on

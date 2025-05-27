@@ -1,6 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:meal_app/injection/injection.dart';
 import 'package:meal_app/models/vendor_menu.dart';
 import '../../global_widgets/subscription_card.dart';
@@ -10,7 +12,6 @@ import '../../utils/enums.dart';
 import 'cubit/subscription_cubit.dart';
 import 'widgets/meal_type_card.dart';
 import 'widgets/vendor_menu_dialog.dart';
-import 'widgets/vendor_selection_tab.dart';
 
 class SubscriptionFlowScreen extends StatefulWidget {
   const SubscriptionFlowScreen({super.key});
@@ -78,8 +79,8 @@ class _SubscriptionFlowScreenState extends State<SubscriptionFlowScreen> {
                     onPageChanged: (page) {
                       setState(() => _currentPage = page);
                     },
-                    children: const [
-                      _MealTypeSelectionPage(),
+                    children: [
+                      MealTypeSelectionPage(),
                       _VendorListPage(),
                       _SubscriptionReviewPage(),
                     ],
@@ -216,7 +217,8 @@ class MealTypeSelectionPage extends StatelessWidget {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    state.deliveryLocation?.address ?? 'Add delivery location',
+                    state.deliveryLocation?.fullAddress ??
+                        'Add delivery location',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

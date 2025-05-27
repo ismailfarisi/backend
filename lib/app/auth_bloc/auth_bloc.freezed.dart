@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,81 +10,68 @@ part of 'auth_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthEvent {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(User user) userLoggedIn,
-    required TResult Function() userLoggedOut,
-    required TResult Function() started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(User user)? userLoggedIn,
-    TResult? Function()? userLoggedOut,
-    TResult? Function()? started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(User user)? userLoggedIn,
-    TResult Function()? userLoggedOut,
-    TResult Function()? started,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_UserLoggedIn value) userLoggedIn,
-    required TResult Function(_UserLoggedOut value) userLoggedOut,
-    required TResult Function(_Started value) started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserLoggedIn value)? userLoggedIn,
-    TResult? Function(_UserLoggedOut value)? userLoggedOut,
-    TResult? Function(_Started value)? started,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserLoggedIn value)? userLoggedIn,
-    TResult Function(_UserLoggedOut value)? userLoggedOut,
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AuthEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'AuthEvent()';
+  }
 }
 
 /// @nodoc
-abstract class $AuthEventCopyWith<$Res> {
-  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
-      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
+class $AuthEventCopyWith<$Res> {
+  $AuthEventCopyWith(AuthEvent _, $Res Function(AuthEvent) __);
 }
 
 /// @nodoc
-class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
+
+class _UserLoggedIn implements AuthEvent {
+  const _UserLoggedIn({required this.user});
+
+  final User user;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$UserLoggedInCopyWith<_UserLoggedIn> get copyWith =>
+      __$UserLoggedInCopyWithImpl<_UserLoggedIn>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _UserLoggedIn &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @override
+  String toString() {
+    return 'AuthEvent.userLoggedIn(user: $user)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$UserLoggedInCopyWith<$Res>
     implements $AuthEventCopyWith<$Res> {
-  _$AuthEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$UserLoggedInImplCopyWith<$Res> {
-  factory _$$UserLoggedInImplCopyWith(
-          _$UserLoggedInImpl value, $Res Function(_$UserLoggedInImpl) then) =
-      __$$UserLoggedInImplCopyWithImpl<$Res>;
+  factory _$UserLoggedInCopyWith(
+          _UserLoggedIn value, $Res Function(_UserLoggedIn) _then) =
+      __$UserLoggedInCopyWithImpl;
   @useResult
   $Res call({User user});
 
@@ -91,482 +79,95 @@ abstract class _$$UserLoggedInImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UserLoggedInImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$UserLoggedInImpl>
-    implements _$$UserLoggedInImplCopyWith<$Res> {
-  __$$UserLoggedInImplCopyWithImpl(
-      _$UserLoggedInImpl _value, $Res Function(_$UserLoggedInImpl) _then)
-      : super(_value, _then);
+class __$UserLoggedInCopyWithImpl<$Res>
+    implements _$UserLoggedInCopyWith<$Res> {
+  __$UserLoggedInCopyWithImpl(this._self, this._then);
 
+  final _UserLoggedIn _self;
+  final $Res Function(_UserLoggedIn) _then;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
-  @override
   $Res call({
     Object? user = null,
   }) {
-    return _then(_$UserLoggedInImpl(
+    return _then(_UserLoggedIn(
       user: null == user
-          ? _value.user
+          ? _self.user
           : user // ignore: cast_nullable_to_non_nullable
               as User,
     ));
   }
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $UserCopyWith<$Res> get user {
-    return $UserCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
+    return $UserCopyWith<$Res>(_self.user, (value) {
+      return _then(_self.copyWith(user: value));
     });
   }
 }
 
 /// @nodoc
 
-class _$UserLoggedInImpl implements _UserLoggedIn {
-  const _$UserLoggedInImpl({required this.user});
-
-  @override
-  final User user;
-
-  @override
-  String toString() {
-    return 'AuthEvent.userLoggedIn(user: $user)';
-  }
+class _UserLoggedOut implements AuthEvent {
+  const _UserLoggedOut();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UserLoggedInImpl &&
-            (identical(other.user, user) || other.user == user));
+        (other.runtimeType == runtimeType && other is _UserLoggedOut);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UserLoggedInImplCopyWith<_$UserLoggedInImpl> get copyWith =>
-      __$$UserLoggedInImplCopyWithImpl<_$UserLoggedInImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(User user) userLoggedIn,
-    required TResult Function() userLoggedOut,
-    required TResult Function() started,
-  }) {
-    return userLoggedIn(user);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(User user)? userLoggedIn,
-    TResult? Function()? userLoggedOut,
-    TResult? Function()? started,
-  }) {
-    return userLoggedIn?.call(user);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(User user)? userLoggedIn,
-    TResult Function()? userLoggedOut,
-    TResult Function()? started,
-    required TResult orElse(),
-  }) {
-    if (userLoggedIn != null) {
-      return userLoggedIn(user);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_UserLoggedIn value) userLoggedIn,
-    required TResult Function(_UserLoggedOut value) userLoggedOut,
-    required TResult Function(_Started value) started,
-  }) {
-    return userLoggedIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserLoggedIn value)? userLoggedIn,
-    TResult? Function(_UserLoggedOut value)? userLoggedOut,
-    TResult? Function(_Started value)? started,
-  }) {
-    return userLoggedIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserLoggedIn value)? userLoggedIn,
-    TResult Function(_UserLoggedOut value)? userLoggedOut,
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) {
-    if (userLoggedIn != null) {
-      return userLoggedIn(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UserLoggedIn implements AuthEvent {
-  const factory _UserLoggedIn({required final User user}) = _$UserLoggedInImpl;
-
-  User get user;
-  @JsonKey(ignore: true)
-  _$$UserLoggedInImplCopyWith<_$UserLoggedInImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UserLoggedOutImplCopyWith<$Res> {
-  factory _$$UserLoggedOutImplCopyWith(
-          _$UserLoggedOutImpl value, $Res Function(_$UserLoggedOutImpl) then) =
-      __$$UserLoggedOutImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$UserLoggedOutImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$UserLoggedOutImpl>
-    implements _$$UserLoggedOutImplCopyWith<$Res> {
-  __$$UserLoggedOutImplCopyWithImpl(
-      _$UserLoggedOutImpl _value, $Res Function(_$UserLoggedOutImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$UserLoggedOutImpl implements _UserLoggedOut {
-  const _$UserLoggedOutImpl();
+  int get hashCode => runtimeType.hashCode;
 
   @override
   String toString() {
     return 'AuthEvent.userLoggedOut()';
   }
+}
+
+/// @nodoc
+
+class _Started implements AuthEvent {
+  const _Started();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserLoggedOutImpl);
+        (other.runtimeType == runtimeType && other is _Started);
   }
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(User user) userLoggedIn,
-    required TResult Function() userLoggedOut,
-    required TResult Function() started,
-  }) {
-    return userLoggedOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(User user)? userLoggedIn,
-    TResult? Function()? userLoggedOut,
-    TResult? Function()? started,
-  }) {
-    return userLoggedOut?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(User user)? userLoggedIn,
-    TResult Function()? userLoggedOut,
-    TResult Function()? started,
-    required TResult orElse(),
-  }) {
-    if (userLoggedOut != null) {
-      return userLoggedOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_UserLoggedIn value) userLoggedIn,
-    required TResult Function(_UserLoggedOut value) userLoggedOut,
-    required TResult Function(_Started value) started,
-  }) {
-    return userLoggedOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserLoggedIn value)? userLoggedIn,
-    TResult? Function(_UserLoggedOut value)? userLoggedOut,
-    TResult? Function(_Started value)? started,
-  }) {
-    return userLoggedOut?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserLoggedIn value)? userLoggedIn,
-    TResult Function(_UserLoggedOut value)? userLoggedOut,
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) {
-    if (userLoggedOut != null) {
-      return userLoggedOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UserLoggedOut implements AuthEvent {
-  const factory _UserLoggedOut() = _$UserLoggedOutImpl;
-}
-
-/// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$StartedImpl implements _Started {
-  const _$StartedImpl();
 
   @override
   String toString() {
     return 'AuthEvent.started()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(User user) userLoggedIn,
-    required TResult Function() userLoggedOut,
-    required TResult Function() started,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(User user)? userLoggedIn,
-    TResult? Function()? userLoggedOut,
-    TResult? Function()? started,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(User user)? userLoggedIn,
-    TResult Function()? userLoggedOut,
-    TResult Function()? started,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_UserLoggedIn value) userLoggedIn,
-    required TResult Function(_UserLoggedOut value) userLoggedOut,
-    required TResult Function(_Started value) started,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserLoggedIn value)? userLoggedIn,
-    TResult? Function(_UserLoggedOut value)? userLoggedOut,
-    TResult? Function(_Started value)? started,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserLoggedIn value)? userLoggedIn,
-    TResult Function(_UserLoggedOut value)? userLoggedOut,
-    TResult Function(_Started value)? started,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements AuthEvent {
-  const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
 mixin _$AuthState {
-  AuthStatus get authStatus => throw _privateConstructorUsedError;
-  User? get user => throw _privateConstructorUsedError;
+  AuthStatus get authStatus;
+  User? get user;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $AuthStateCopyWith<AuthState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res, AuthState>;
-  @useResult
-  $Res call({AuthStatus authStatus, User? user});
-
-  $UserCopyWith<$Res>? get user;
-}
-
-/// @nodoc
-class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
-    implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? authStatus = null,
-    Object? user = freezed,
-  }) {
-    return _then(_value.copyWith(
-      authStatus: null == authStatus
-          ? _value.authStatus
-          : authStatus // ignore: cast_nullable_to_non_nullable
-              as AuthStatus,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserCopyWith<$Res>? get user {
-    if (_value.user == null) {
-      return null;
-    }
-
-    return $UserCopyWith<$Res>(_value.user!, (value) {
-      return _then(_value.copyWith(user: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$AuthStateImplCopyWith<$Res>
-    implements $AuthStateCopyWith<$Res> {
-  factory _$$AuthStateImplCopyWith(
-          _$AuthStateImpl value, $Res Function(_$AuthStateImpl) then) =
-      __$$AuthStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({AuthStatus authStatus, User? user});
-
-  @override
-  $UserCopyWith<$Res>? get user;
-}
-
-/// @nodoc
-class __$$AuthStateImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateImpl>
-    implements _$$AuthStateImplCopyWith<$Res> {
-  __$$AuthStateImplCopyWithImpl(
-      _$AuthStateImpl _value, $Res Function(_$AuthStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? authStatus = null,
-    Object? user = freezed,
-  }) {
-    return _then(_$AuthStateImpl(
-      authStatus: null == authStatus
-          ? _value.authStatus
-          : authStatus // ignore: cast_nullable_to_non_nullable
-              as AuthStatus,
-      user: freezed == user
-          ? _value.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AuthStateImpl implements _AuthState {
-  const _$AuthStateImpl({this.authStatus = AuthStatus.initial, this.user});
-
-  @override
-  @JsonKey()
-  final AuthStatus authStatus;
-  @override
-  final User? user;
-
-  @override
-  String toString() {
-    return 'AuthState(authStatus: $authStatus, user: $user)';
-  }
+      _$AuthStateCopyWithImpl<AuthState>(this as AuthState, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthStateImpl &&
+            other is AuthState &&
             (identical(other.authStatus, authStatus) ||
                 other.authStatus == authStatus) &&
             (identical(other.user, user) || other.user == user));
@@ -575,23 +176,156 @@ class _$AuthStateImpl implements _AuthState {
   @override
   int get hashCode => Object.hash(runtimeType, authStatus, user);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'AuthState(authStatus: $authStatus, user: $user)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $AuthStateCopyWith<$Res> {
+  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) _then) =
+      _$AuthStateCopyWithImpl;
+  @useResult
+  $Res call({AuthStatus authStatus, User? user});
+
+  $UserCopyWith<$Res>? get user;
+}
+
+/// @nodoc
+class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
+  _$AuthStateCopyWithImpl(this._self, this._then);
+
+  final AuthState _self;
+  final $Res Function(AuthState) _then;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? authStatus = null,
+    Object? user = freezed,
+  }) {
+    return _then(_self.copyWith(
+      authStatus: null == authStatus
+          ? _self.authStatus
+          : authStatus // ignore: cast_nullable_to_non_nullable
+              as AuthStatus,
+      user: freezed == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+    ));
+  }
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
-      __$$AuthStateImplCopyWithImpl<_$AuthStateImpl>(this, _$identity);
+  $UserCopyWith<$Res>? get user {
+    if (_self.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_self.user!, (value) {
+      return _then(_self.copyWith(user: value));
+    });
+  }
 }
 
-abstract class _AuthState implements AuthState {
-  const factory _AuthState({final AuthStatus authStatus, final User? user}) =
-      _$AuthStateImpl;
+/// @nodoc
+
+class _AuthState implements AuthState {
+  const _AuthState({this.authStatus = AuthStatus.initial, this.user});
 
   @override
-  AuthStatus get authStatus;
+  @JsonKey()
+  final AuthStatus authStatus;
   @override
-  User? get user;
+  final User? user;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
-  _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AuthStateCopyWith<_AuthState> get copyWith =>
+      __$AuthStateCopyWithImpl<_AuthState>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AuthState &&
+            (identical(other.authStatus, authStatus) ||
+                other.authStatus == authStatus) &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, authStatus, user);
+
+  @override
+  String toString() {
+    return 'AuthState(authStatus: $authStatus, user: $user)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$AuthStateCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
+  factory _$AuthStateCopyWith(
+          _AuthState value, $Res Function(_AuthState) _then) =
+      __$AuthStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call({AuthStatus authStatus, User? user});
+
+  @override
+  $UserCopyWith<$Res>? get user;
+}
+
+/// @nodoc
+class __$AuthStateCopyWithImpl<$Res> implements _$AuthStateCopyWith<$Res> {
+  __$AuthStateCopyWithImpl(this._self, this._then);
+
+  final _AuthState _self;
+  final $Res Function(_AuthState) _then;
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? authStatus = null,
+    Object? user = freezed,
+  }) {
+    return _then(_AuthState(
+      authStatus: null == authStatus
+          ? _self.authStatus
+          : authStatus // ignore: cast_nullable_to_non_nullable
+              as AuthStatus,
+      user: freezed == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
+    ));
+  }
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get user {
+    if (_self.user == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_self.user!, (value) {
+      return _then(_self.copyWith(user: value));
+    });
+  }
+}
+
+// dart format on

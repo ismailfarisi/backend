@@ -5,7 +5,7 @@ part 'vendor.freezed.dart';
 part 'vendor.g.dart';
 
 @freezed
-class Vendor with _$Vendor {
+abstract class Vendor with _$Vendor {
   const factory Vendor({
     required String id,
     required String name,
@@ -30,7 +30,7 @@ class Vendor with _$Vendor {
 }
 
 @freezed
-class GeoPoint with _$GeoPoint {
+abstract class GeoPoint with _$GeoPoint {
   const factory GeoPoint({
     required String type,
     required List<double> coordinates,

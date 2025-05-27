@@ -7,7 +7,7 @@ part 'meal_selection.freezed.dart';
 part 'meal_selection.g.dart';
 
 @freezed
-class MealSelection with _$MealSelection {
+abstract class MealSelection with _$MealSelection {
   const factory MealSelection({
     required DateTime date,
     required Map<MealType, MenuItem> selectedMeals,

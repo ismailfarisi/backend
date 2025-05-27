@@ -6,9 +6,8 @@ part of 'address.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DeliveryAddressImpl _$$DeliveryAddressImplFromJson(
-        Map<String, dynamic> json) =>
-    _$DeliveryAddressImpl(
+_DeliveryAddress _$DeliveryAddressFromJson(Map<String, dynamic> json) =>
+    _DeliveryAddress(
       id: json['id'] as String,
       fullAddress: json['fullAddress'] as String,
       street: json['street'] as String,
@@ -20,8 +19,7 @@ _$DeliveryAddressImpl _$$DeliveryAddressImplFromJson(
           AddressType.home,
     );
 
-Map<String, dynamic> _$$DeliveryAddressImplToJson(
-        _$DeliveryAddressImpl instance) =>
+Map<String, dynamic> _$DeliveryAddressToJson(_DeliveryAddress instance) =>
     <String, dynamic>{
       'id': instance.id,
       'fullAddress': instance.fullAddress,
@@ -39,13 +37,12 @@ const _$AddressTypeEnumMap = {
   AddressType.other: 'other',
 };
 
-_$LatLngImpl _$$LatLngImplFromJson(Map<String, dynamic> json) => _$LatLngImpl(
+_LatLng _$LatLngFromJson(Map<String, dynamic> json) => _LatLng(
       latitude: (json['latitude'] as num).toDouble(),
       longitude: (json['longitude'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$LatLngImplToJson(_$LatLngImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LatLngToJson(_LatLng instance) => <String, dynamic>{
       'latitude': instance.latitude,
       'longitude': instance.longitude,
     };

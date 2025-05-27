@@ -6,7 +6,7 @@ part 'delivery_timeslot.freezed.dart';
 part 'delivery_timeslot.g.dart';
 
 @freezed
-class DeliveryTimeSlot with _$DeliveryTimeSlot {
+abstract class DeliveryTimeSlot with _$DeliveryTimeSlot {
   const factory DeliveryTimeSlot({
     required String id,
     @TimeOfDayConverter() required TimeOfDay startTime,

@@ -5,7 +5,7 @@ part 'subscription_summary.freezed.dart';
 part 'subscription_summary.g.dart';
 
 @freezed
-class SubscriptionSummary with _$SubscriptionSummary {
+abstract class SubscriptionSummary with _$SubscriptionSummary {
   const factory SubscriptionSummary({
     required int totalOrders,
     required int activeSubscriptions,

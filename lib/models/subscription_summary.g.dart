@@ -6,9 +6,8 @@ part of 'subscription_summary.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscriptionSummaryImpl _$$SubscriptionSummaryImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SubscriptionSummaryImpl(
+_SubscriptionSummary _$SubscriptionSummaryFromJson(Map<String, dynamic> json) =>
+    _SubscriptionSummary(
       totalOrders: (json['totalOrders'] as num).toInt(),
       activeSubscriptions: (json['activeSubscriptions'] as num).toInt(),
       completedSubscriptions: (json['completedSubscriptions'] as num).toInt(),
@@ -27,8 +26,8 @@ _$SubscriptionSummaryImpl _$$SubscriptionSummaryImplFromJson(
           Map<String, int>.from(json['vendorDistribution'] as Map),
     );
 
-Map<String, dynamic> _$$SubscriptionSummaryImplToJson(
-        _$SubscriptionSummaryImpl instance) =>
+Map<String, dynamic> _$SubscriptionSummaryToJson(
+        _SubscriptionSummary instance) =>
     <String, dynamic>{
       'totalOrders': instance.totalOrders,
       'activeSubscriptions': instance.activeSubscriptions,

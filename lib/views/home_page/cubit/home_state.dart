@@ -1,7 +1,7 @@
 part of 'home_cubit.dart';
 
 @freezed
-class HomeState with _$HomeState {
+abstract class HomeState with _$HomeState {
   const factory HomeState({
     Subscription? subscription,
     @Default(AppStatus.init) AppStatus status,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,91 +10,72 @@ part of 'register_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$RegisterState {
-  AppStatus get status => throw _privateConstructorUsedError;
-  String? get error => throw _privateConstructorUsedError;
+  AppStatus get status;
+  String? get error;
 
-  @JsonKey(ignore: true)
-  $RegisterStateCopyWith<RegisterState> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $RegisterStateCopyWith<$Res> {
-  factory $RegisterStateCopyWith(
-          RegisterState value, $Res Function(RegisterState) then) =
-      _$RegisterStateCopyWithImpl<$Res, RegisterState>;
-  @useResult
-  $Res call({AppStatus status, String? error});
-}
-
-/// @nodoc
-class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
-    implements $RegisterStateCopyWith<$Res> {
-  _$RegisterStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $RegisterStateCopyWith<RegisterState> get copyWith =>
+      _$RegisterStateCopyWithImpl<RegisterState>(
+          this as RegisterState, _$identity);
+
   @override
-  $Res call({
-    Object? status = null,
-    Object? error = freezed,
-  }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      error: freezed == error
-          ? _value.error
-          : error // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RegisterState &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, status, error);
+
+  @override
+  String toString() {
+    return 'RegisterState(status: $status, error: $error)';
   }
 }
 
 /// @nodoc
-abstract class _$$RegisterStateImplCopyWith<$Res>
-    implements $RegisterStateCopyWith<$Res> {
-  factory _$$RegisterStateImplCopyWith(
-          _$RegisterStateImpl value, $Res Function(_$RegisterStateImpl) then) =
-      __$$RegisterStateImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $RegisterStateCopyWith<$Res> {
+  factory $RegisterStateCopyWith(
+          RegisterState value, $Res Function(RegisterState) _then) =
+      _$RegisterStateCopyWithImpl;
   @useResult
   $Res call({AppStatus status, String? error});
 }
 
 /// @nodoc
-class __$$RegisterStateImplCopyWithImpl<$Res>
-    extends _$RegisterStateCopyWithImpl<$Res, _$RegisterStateImpl>
-    implements _$$RegisterStateImplCopyWith<$Res> {
-  __$$RegisterStateImplCopyWithImpl(
-      _$RegisterStateImpl _value, $Res Function(_$RegisterStateImpl) _then)
-      : super(_value, _then);
+class _$RegisterStateCopyWithImpl<$Res>
+    implements $RegisterStateCopyWith<$Res> {
+  _$RegisterStateCopyWithImpl(this._self, this._then);
 
+  final RegisterState _self;
+  final $Res Function(RegisterState) _then;
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
     Object? error = freezed,
   }) {
-    return _then(_$RegisterStateImpl(
+    return _then(_self.copyWith(
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       error: freezed == error
-          ? _value.error
+          ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -102,8 +84,8 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RegisterStateImpl implements _RegisterState {
-  const _$RegisterStateImpl({this.status = AppStatus.init, this.error});
+class _RegisterState implements RegisterState {
+  const _RegisterState({this.status = AppStatus.init, this.error});
 
   @override
   @JsonKey()
@@ -111,16 +93,19 @@ class _$RegisterStateImpl implements _RegisterState {
   @override
   final String? error;
 
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'RegisterState(status: $status, error: $error)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$RegisterStateCopyWith<_RegisterState> get copyWith =>
+      __$RegisterStateCopyWithImpl<_RegisterState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegisterStateImpl &&
+            other is _RegisterState &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.error, error) || other.error == error));
   }
@@ -128,23 +113,50 @@ class _$RegisterStateImpl implements _RegisterState {
   @override
   int get hashCode => Object.hash(runtimeType, status, error);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'RegisterState(status: $status, error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$RegisterStateCopyWith<$Res>
+    implements $RegisterStateCopyWith<$Res> {
+  factory _$RegisterStateCopyWith(
+          _RegisterState value, $Res Function(_RegisterState) _then) =
+      __$RegisterStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call({AppStatus status, String? error});
+}
+
+/// @nodoc
+class __$RegisterStateCopyWithImpl<$Res>
+    implements _$RegisterStateCopyWith<$Res> {
+  __$RegisterStateCopyWithImpl(this._self, this._then);
+
+  final _RegisterState _self;
+  final $Res Function(_RegisterState) _then;
+
+  /// Create a copy of RegisterState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$RegisterStateImplCopyWith<_$RegisterStateImpl> get copyWith =>
-      __$$RegisterStateImplCopyWithImpl<_$RegisterStateImpl>(this, _$identity);
+  $Res call({
+    Object? status = null,
+    Object? error = freezed,
+  }) {
+    return _then(_RegisterState(
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      error: freezed == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
-abstract class _RegisterState implements RegisterState {
-  const factory _RegisterState({final AppStatus status, final String? error}) =
-      _$RegisterStateImpl;
-
-  @override
-  AppStatus get status;
-  @override
-  String? get error;
-  @override
-  @JsonKey(ignore: true)
-  _$$RegisterStateImplCopyWith<_$RegisterStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

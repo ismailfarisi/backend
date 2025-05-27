@@ -2,7 +2,7 @@
 part of 'subscription_cubit.dart';
 
 @freezed
-class SubscriptionState with _$SubscriptionState {
+abstract class SubscriptionState with _$SubscriptionState {
   const factory SubscriptionState({
     @Default(AppStatus.init) AppStatus status,
     @Default(AppStatus.init) AppStatus getVendorsStatus,
@@ -14,5 +14,6 @@ class SubscriptionState with _$SubscriptionState {
     Map<MealType, List<Vendor>>? availableVendors,
     Subscription? subscriptionPlan,
     DeliveryAddress? deliveryLocation,
+    DateTime? startDate,
   }) = _SubscriptionState;
 }

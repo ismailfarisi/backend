@@ -6,12 +6,12 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
+_User _$UserFromJson(Map<String, dynamic> json) => _User(
       id: json['id'] as String,
       email: json['email'] as String?,
       phone: json['phone'] as String? ?? '',
       whatsapp: json['whatsapp'] as String?,
-      fullName: json['full_name'] as String? ?? '',
+      fullName: json['fullName'] as String? ?? '',
       city: json['city'] as String?,
       photo: json['photo'] as String?,
       dietaryPreferences: (json['dietaryPreferences'] as List<dynamic>?)
@@ -33,13 +33,12 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
               json['notificationSettings'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
       'phone': instance.phone,
       'whatsapp': instance.whatsapp,
-      'full_name': instance.fullName,
+      'fullName': instance.fullName,
       'city': instance.city,
       'photo': instance.photo,
       'dietaryPreferences': instance.dietaryPreferences,

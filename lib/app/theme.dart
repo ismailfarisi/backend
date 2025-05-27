@@ -28,12 +28,10 @@ class AppColors {
     errorContainer: Color(0xFFFFCDD2),
     onErrorContainer: Color(0xFF621B16),
 
-    background: Colors.white,
-    onBackground: Colors.black,
     surface: Colors.white,
     onSurface: Colors.black,
 
-    surfaceVariant: Color(0xFFF5F5F5),
+    surfaceContainerHighest: Color(0xFFF5F5F5),
     onSurfaceVariant: Color(0xFF616161),
     outline: Color(0xFFBDBDBD),
   );
@@ -58,7 +56,7 @@ class AppTheme {
     textTheme: AppTypography.textTheme,
 
     chipTheme: ChipThemeData(
-      backgroundColor: AppColors.lightColorScheme.surfaceVariant,
+      backgroundColor: AppColors.lightColorScheme.surfaceContainerHighest,
       labelStyle: AppTypography.chipLabel.copyWith(
         color: AppColors.lightColorScheme.onSurfaceVariant,
       ),

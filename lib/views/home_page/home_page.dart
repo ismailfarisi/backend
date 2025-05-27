@@ -224,8 +224,6 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildMealTypeChips(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -264,7 +262,7 @@ class HomePage extends StatelessWidget {
       decoration: BoxDecoration(
         color: isActive
             ? theme.colorScheme.primaryContainer
-            : theme.colorScheme.surfaceVariant,
+            : theme.colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(20.r),
       ),
       child: Row(

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,32 +10,66 @@ part of 'order_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OrderState {
-  List<SubscriptionOrder> get orders => throw _privateConstructorUsedError;
-  SubscriptionOrder? get activeSubscription =>
-      throw _privateConstructorUsedError;
-  SubscriptionSummary? get summary => throw _privateConstructorUsedError;
-  AppStatus get status => throw _privateConstructorUsedError;
-  String? get errorMessage => throw _privateConstructorUsedError;
-  AppStatus get actionStatus => throw _privateConstructorUsedError;
-  String? get actionError => throw _privateConstructorUsedError;
+  List<SubscriptionOrder> get orders;
+  SubscriptionOrder? get activeSubscription;
+  SubscriptionSummary? get summary;
+  AppStatus get status;
+  String? get errorMessage;
+  AppStatus get actionStatus;
+  String? get actionError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $OrderStateCopyWith<OrderState> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$OrderStateCopyWithImpl<OrderState>(this as OrderState, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is OrderState &&
+            const DeepCollectionEquality().equals(other.orders, orders) &&
+            (identical(other.activeSubscription, activeSubscription) ||
+                other.activeSubscription == activeSubscription) &&
+            (identical(other.summary, summary) || other.summary == summary) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage) &&
+            (identical(other.actionStatus, actionStatus) ||
+                other.actionStatus == actionStatus) &&
+            (identical(other.actionError, actionError) ||
+                other.actionError == actionError));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(orders),
+      activeSubscription,
+      summary,
+      status,
+      errorMessage,
+      actionStatus,
+      actionError);
+
+  @override
+  String toString() {
+    return 'OrderState(orders: $orders, activeSubscription: $activeSubscription, summary: $summary, status: $status, errorMessage: $errorMessage, actionStatus: $actionStatus, actionError: $actionError)';
+  }
 }
 
 /// @nodoc
-abstract class $OrderStateCopyWith<$Res> {
+abstract mixin class $OrderStateCopyWith<$Res> {
   factory $OrderStateCopyWith(
-          OrderState value, $Res Function(OrderState) then) =
-      _$OrderStateCopyWithImpl<$Res, OrderState>;
+          OrderState value, $Res Function(OrderState) _then) =
+      _$OrderStateCopyWithImpl;
   @useResult
   $Res call(
       {List<SubscriptionOrder> orders,
@@ -50,15 +85,14 @@ abstract class $OrderStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
-    implements $OrderStateCopyWith<$Res> {
-  _$OrderStateCopyWithImpl(this._value, this._then);
+class _$OrderStateCopyWithImpl<$Res> implements $OrderStateCopyWith<$Res> {
+  _$OrderStateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final OrderState _self;
+  final $Res Function(OrderState) _then;
 
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -70,143 +104,71 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
     Object? actionStatus = null,
     Object? actionError = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       orders: null == orders
-          ? _value.orders
+          ? _self.orders
           : orders // ignore: cast_nullable_to_non_nullable
               as List<SubscriptionOrder>,
       activeSubscription: freezed == activeSubscription
-          ? _value.activeSubscription
+          ? _self.activeSubscription
           : activeSubscription // ignore: cast_nullable_to_non_nullable
               as SubscriptionOrder?,
       summary: freezed == summary
-          ? _value.summary
+          ? _self.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as SubscriptionSummary?,
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       errorMessage: freezed == errorMessage
-          ? _value.errorMessage
+          ? _self.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
       actionStatus: null == actionStatus
-          ? _value.actionStatus
+          ? _self.actionStatus
           : actionStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
       actionError: freezed == actionError
-          ? _value.actionError
-          : actionError // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SubscriptionOrderCopyWith<$Res>? get activeSubscription {
-    if (_value.activeSubscription == null) {
-      return null;
-    }
-
-    return $SubscriptionOrderCopyWith<$Res>(_value.activeSubscription!,
-        (value) {
-      return _then(_value.copyWith(activeSubscription: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SubscriptionSummaryCopyWith<$Res>? get summary {
-    if (_value.summary == null) {
-      return null;
-    }
-
-    return $SubscriptionSummaryCopyWith<$Res>(_value.summary!, (value) {
-      return _then(_value.copyWith(summary: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$OrderStateImplCopyWith<$Res>
-    implements $OrderStateCopyWith<$Res> {
-  factory _$$OrderStateImplCopyWith(
-          _$OrderStateImpl value, $Res Function(_$OrderStateImpl) then) =
-      __$$OrderStateImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {List<SubscriptionOrder> orders,
-      SubscriptionOrder? activeSubscription,
-      SubscriptionSummary? summary,
-      AppStatus status,
-      String? errorMessage,
-      AppStatus actionStatus,
-      String? actionError});
-
-  @override
-  $SubscriptionOrderCopyWith<$Res>? get activeSubscription;
-  @override
-  $SubscriptionSummaryCopyWith<$Res>? get summary;
-}
-
-/// @nodoc
-class __$$OrderStateImplCopyWithImpl<$Res>
-    extends _$OrderStateCopyWithImpl<$Res, _$OrderStateImpl>
-    implements _$$OrderStateImplCopyWith<$Res> {
-  __$$OrderStateImplCopyWithImpl(
-      _$OrderStateImpl _value, $Res Function(_$OrderStateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? orders = null,
-    Object? activeSubscription = freezed,
-    Object? summary = freezed,
-    Object? status = null,
-    Object? errorMessage = freezed,
-    Object? actionStatus = null,
-    Object? actionError = freezed,
-  }) {
-    return _then(_$OrderStateImpl(
-      orders: null == orders
-          ? _value._orders
-          : orders // ignore: cast_nullable_to_non_nullable
-              as List<SubscriptionOrder>,
-      activeSubscription: freezed == activeSubscription
-          ? _value.activeSubscription
-          : activeSubscription // ignore: cast_nullable_to_non_nullable
-              as SubscriptionOrder?,
-      summary: freezed == summary
-          ? _value.summary
-          : summary // ignore: cast_nullable_to_non_nullable
-              as SubscriptionSummary?,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      errorMessage: freezed == errorMessage
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      actionStatus: null == actionStatus
-          ? _value.actionStatus
-          : actionStatus // ignore: cast_nullable_to_non_nullable
-              as AppStatus,
-      actionError: freezed == actionError
-          ? _value.actionError
+          ? _self.actionError
           : actionError // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubscriptionOrderCopyWith<$Res>? get activeSubscription {
+    if (_self.activeSubscription == null) {
+      return null;
+    }
+
+    return $SubscriptionOrderCopyWith<$Res>(_self.activeSubscription!, (value) {
+      return _then(_self.copyWith(activeSubscription: value));
+    });
+  }
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubscriptionSummaryCopyWith<$Res>? get summary {
+    if (_self.summary == null) {
+      return null;
+    }
+
+    return $SubscriptionSummaryCopyWith<$Res>(_self.summary!, (value) {
+      return _then(_self.copyWith(summary: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$OrderStateImpl implements _OrderState {
-  const _$OrderStateImpl(
+class _OrderState implements OrderState {
+  const _OrderState(
       {final List<SubscriptionOrder> orders = const [],
       this.activeSubscription,
       this.summary,
@@ -240,16 +202,19 @@ class _$OrderStateImpl implements _OrderState {
   @override
   final String? actionError;
 
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'OrderState(orders: $orders, activeSubscription: $activeSubscription, summary: $summary, status: $status, errorMessage: $errorMessage, actionStatus: $actionStatus, actionError: $actionError)';
-  }
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$OrderStateCopyWith<_OrderState> get copyWith =>
+      __$OrderStateCopyWithImpl<_OrderState>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OrderStateImpl &&
+            other is _OrderState &&
             const DeepCollectionEquality().equals(other._orders, _orders) &&
             (identical(other.activeSubscription, activeSubscription) ||
                 other.activeSubscription == activeSubscription) &&
@@ -274,39 +239,114 @@ class _$OrderStateImpl implements _OrderState {
       actionStatus,
       actionError);
 
-  @JsonKey(ignore: true)
+  @override
+  String toString() {
+    return 'OrderState(orders: $orders, activeSubscription: $activeSubscription, summary: $summary, status: $status, errorMessage: $errorMessage, actionStatus: $actionStatus, actionError: $actionError)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$OrderStateCopyWith<$Res>
+    implements $OrderStateCopyWith<$Res> {
+  factory _$OrderStateCopyWith(
+          _OrderState value, $Res Function(_OrderState) _then) =
+      __$OrderStateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {List<SubscriptionOrder> orders,
+      SubscriptionOrder? activeSubscription,
+      SubscriptionSummary? summary,
+      AppStatus status,
+      String? errorMessage,
+      AppStatus actionStatus,
+      String? actionError});
+
+  @override
+  $SubscriptionOrderCopyWith<$Res>? get activeSubscription;
+  @override
+  $SubscriptionSummaryCopyWith<$Res>? get summary;
+}
+
+/// @nodoc
+class __$OrderStateCopyWithImpl<$Res> implements _$OrderStateCopyWith<$Res> {
+  __$OrderStateCopyWithImpl(this._self, this._then);
+
+  final _OrderState _self;
+  final $Res Function(_OrderState) _then;
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  _$$OrderStateImplCopyWith<_$OrderStateImpl> get copyWith =>
-      __$$OrderStateImplCopyWithImpl<_$OrderStateImpl>(this, _$identity);
+  $Res call({
+    Object? orders = null,
+    Object? activeSubscription = freezed,
+    Object? summary = freezed,
+    Object? status = null,
+    Object? errorMessage = freezed,
+    Object? actionStatus = null,
+    Object? actionError = freezed,
+  }) {
+    return _then(_OrderState(
+      orders: null == orders
+          ? _self._orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<SubscriptionOrder>,
+      activeSubscription: freezed == activeSubscription
+          ? _self.activeSubscription
+          : activeSubscription // ignore: cast_nullable_to_non_nullable
+              as SubscriptionOrder?,
+      summary: freezed == summary
+          ? _self.summary
+          : summary // ignore: cast_nullable_to_non_nullable
+              as SubscriptionSummary?,
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      errorMessage: freezed == errorMessage
+          ? _self.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      actionStatus: null == actionStatus
+          ? _self.actionStatus
+          : actionStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      actionError: freezed == actionError
+          ? _self.actionError
+          : actionError // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubscriptionOrderCopyWith<$Res>? get activeSubscription {
+    if (_self.activeSubscription == null) {
+      return null;
+    }
+
+    return $SubscriptionOrderCopyWith<$Res>(_self.activeSubscription!, (value) {
+      return _then(_self.copyWith(activeSubscription: value));
+    });
+  }
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SubscriptionSummaryCopyWith<$Res>? get summary {
+    if (_self.summary == null) {
+      return null;
+    }
+
+    return $SubscriptionSummaryCopyWith<$Res>(_self.summary!, (value) {
+      return _then(_self.copyWith(summary: value));
+    });
+  }
 }
 
-abstract class _OrderState implements OrderState {
-  const factory _OrderState(
-      {final List<SubscriptionOrder> orders,
-      final SubscriptionOrder? activeSubscription,
-      final SubscriptionSummary? summary,
-      final AppStatus status,
-      final String? errorMessage,
-      final AppStatus actionStatus,
-      final String? actionError}) = _$OrderStateImpl;
-
-  @override
-  List<SubscriptionOrder> get orders;
-  @override
-  SubscriptionOrder? get activeSubscription;
-  @override
-  SubscriptionSummary? get summary;
-  @override
-  AppStatus get status;
-  @override
-  String? get errorMessage;
-  @override
-  AppStatus get actionStatus;
-  @override
-  String? get actionError;
-  @override
-  @JsonKey(ignore: true)
-  _$$OrderStateImplCopyWith<_$OrderStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+// dart format on

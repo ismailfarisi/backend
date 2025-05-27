@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,116 +10,73 @@ part of 'subscription.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-Subscription _$SubscriptionFromJson(Map<String, dynamic> json) {
-  return _Subscription.fromJson(json);
-}
 
 /// @nodoc
 mixin _$Subscription {
-  String? get id => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
-  double get price => throw _privateConstructorUsedError;
-  List<MealVendorSelection> get mealSelections =>
-      throw _privateConstructorUsedError;
-  DateTime get startDate => throw _privateConstructorUsedError;
-  DateTime get endDate => throw _privateConstructorUsedError;
-  SubscriptionStatus get status => throw _privateConstructorUsedError;
-  bool get isAutoRenewal => throw _privateConstructorUsedError;
+  String? get id;
+  String get userId;
+  double get price;
+  List<MealVendorSelection> get mealSelections;
+  DateTime get startDate;
+  DateTime get endDate;
+  SubscriptionStatus get status;
+  bool get isAutoRenewal;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SubscriptionCopyWith<Subscription> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscriptionCopyWith<$Res> {
-  factory $SubscriptionCopyWith(
-          Subscription value, $Res Function(Subscription) then) =
-      _$SubscriptionCopyWithImpl<$Res, Subscription>;
-  @useResult
-  $Res call(
-      {String? id,
-      String userId,
-      double price,
-      List<MealVendorSelection> mealSelections,
-      DateTime startDate,
-      DateTime endDate,
-      SubscriptionStatus status,
-      bool isAutoRenewal});
-}
-
-/// @nodoc
-class _$SubscriptionCopyWithImpl<$Res, $Val extends Subscription>
-    implements $SubscriptionCopyWith<$Res> {
-  _$SubscriptionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of Subscription
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $SubscriptionCopyWith<Subscription> get copyWith =>
+      _$SubscriptionCopyWithImpl<Subscription>(
+          this as Subscription, _$identity);
+
+  /// Serializes this Subscription to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = freezed,
-    Object? userId = null,
-    Object? price = null,
-    Object? mealSelections = null,
-    Object? startDate = null,
-    Object? endDate = null,
-    Object? status = null,
-    Object? isAutoRenewal = null,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      mealSelections: null == mealSelections
-          ? _value.mealSelections
-          : mealSelections // ignore: cast_nullable_to_non_nullable
-              as List<MealVendorSelection>,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as SubscriptionStatus,
-      isAutoRenewal: null == isAutoRenewal
-          ? _value.isAutoRenewal
-          : isAutoRenewal // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is Subscription &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.price, price) || other.price == price) &&
+            const DeepCollectionEquality()
+                .equals(other.mealSelections, mealSelections) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.isAutoRenewal, isAutoRenewal) ||
+                other.isAutoRenewal == isAutoRenewal));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      userId,
+      price,
+      const DeepCollectionEquality().hash(mealSelections),
+      startDate,
+      endDate,
+      status,
+      isAutoRenewal);
+
+  @override
+  String toString() {
+    return 'Subscription(id: $id, userId: $userId, price: $price, mealSelections: $mealSelections, startDate: $startDate, endDate: $endDate, status: $status, isAutoRenewal: $isAutoRenewal)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionImplCopyWith<$Res>
-    implements $SubscriptionCopyWith<$Res> {
-  factory _$$SubscriptionImplCopyWith(
-          _$SubscriptionImpl value, $Res Function(_$SubscriptionImpl) then) =
-      __$$SubscriptionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscriptionCopyWith<$Res> {
+  factory $SubscriptionCopyWith(
+          Subscription value, $Res Function(Subscription) _then) =
+      _$SubscriptionCopyWithImpl;
   @useResult
   $Res call(
       {String? id,
@@ -132,13 +90,14 @@ abstract class _$$SubscriptionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SubscriptionImplCopyWithImpl<$Res>
-    extends _$SubscriptionCopyWithImpl<$Res, _$SubscriptionImpl>
-    implements _$$SubscriptionImplCopyWith<$Res> {
-  __$$SubscriptionImplCopyWithImpl(
-      _$SubscriptionImpl _value, $Res Function(_$SubscriptionImpl) _then)
-      : super(_value, _then);
+class _$SubscriptionCopyWithImpl<$Res> implements $SubscriptionCopyWith<$Res> {
+  _$SubscriptionCopyWithImpl(this._self, this._then);
 
+  final Subscription _self;
+  final $Res Function(Subscription) _then;
+
+  /// Create a copy of Subscription
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,37 +110,37 @@ class __$$SubscriptionImplCopyWithImpl<$Res>
     Object? status = null,
     Object? isAutoRenewal = null,
   }) {
-    return _then(_$SubscriptionImpl(
+    return _then(_self.copyWith(
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
       userId: null == userId
-          ? _value.userId
+          ? _self.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
       price: null == price
-          ? _value.price
+          ? _self.price
           : price // ignore: cast_nullable_to_non_nullable
               as double,
       mealSelections: null == mealSelections
-          ? _value._mealSelections
+          ? _self.mealSelections
           : mealSelections // ignore: cast_nullable_to_non_nullable
               as List<MealVendorSelection>,
       startDate: null == startDate
-          ? _value.startDate
+          ? _self.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       endDate: null == endDate
-          ? _value.endDate
+          ? _self.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       status: null == status
-          ? _value.status
+          ? _self.status
           : status // ignore: cast_nullable_to_non_nullable
               as SubscriptionStatus,
       isAutoRenewal: null == isAutoRenewal
-          ? _value.isAutoRenewal
+          ? _self.isAutoRenewal
           : isAutoRenewal // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -190,8 +149,8 @@ class __$$SubscriptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubscriptionImpl implements _Subscription {
-  const _$SubscriptionImpl(
+class _Subscription implements Subscription {
+  const _Subscription(
       {this.id,
       required this.userId,
       required this.price,
@@ -201,9 +160,8 @@ class _$SubscriptionImpl implements _Subscription {
       required this.status,
       this.isAutoRenewal = false})
       : _mealSelections = mealSelections;
-
-  factory _$SubscriptionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscriptionImplFromJson(json);
+  factory _Subscription.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionFromJson(json);
 
   @override
   final String? id;
@@ -229,16 +187,26 @@ class _$SubscriptionImpl implements _Subscription {
   @JsonKey()
   final bool isAutoRenewal;
 
+  /// Create a copy of Subscription
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'Subscription(id: $id, userId: $userId, price: $price, mealSelections: $mealSelections, startDate: $startDate, endDate: $endDate, status: $status, isAutoRenewal: $isAutoRenewal)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionCopyWith<_Subscription> get copyWith =>
+      __$SubscriptionCopyWithImpl<_Subscription>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionImpl &&
+            other is _Subscription &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.price, price) || other.price == price) &&
@@ -252,7 +220,7 @@ class _$SubscriptionImpl implements _Subscription {
                 other.isAutoRenewal == isAutoRenewal));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -265,141 +233,159 @@ class _$SubscriptionImpl implements _Subscription {
       status,
       isAutoRenewal);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionImplCopyWith<_$SubscriptionImpl> get copyWith =>
-      __$$SubscriptionImplCopyWithImpl<_$SubscriptionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'Subscription(id: $id, userId: $userId, price: $price, mealSelections: $mealSelections, startDate: $startDate, endDate: $endDate, status: $status, isAutoRenewal: $isAutoRenewal)';
   }
 }
 
-abstract class _Subscription implements Subscription {
-  const factory _Subscription(
-      {final String? id,
-      required final String userId,
-      required final double price,
-      required final List<MealVendorSelection> mealSelections,
-      required final DateTime startDate,
-      required final DateTime endDate,
-      required final SubscriptionStatus status,
-      final bool isAutoRenewal}) = _$SubscriptionImpl;
-
-  factory _Subscription.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscriptionCopyWith<$Res>
+    implements $SubscriptionCopyWith<$Res> {
+  factory _$SubscriptionCopyWith(
+          _Subscription value, $Res Function(_Subscription) _then) =
+      __$SubscriptionCopyWithImpl;
   @override
-  String? get id;
-  @override
-  String get userId;
-  @override
-  double get price;
-  @override
-  List<MealVendorSelection> get mealSelections;
-  @override
-  DateTime get startDate;
-  @override
-  DateTime get endDate;
-  @override
-  SubscriptionStatus get status;
-  @override
-  bool get isAutoRenewal;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionImplCopyWith<_$SubscriptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String? id,
+      String userId,
+      double price,
+      List<MealVendorSelection> mealSelections,
+      DateTime startDate,
+      DateTime endDate,
+      SubscriptionStatus status,
+      bool isAutoRenewal});
 }
 
-MealVendorSelection _$MealVendorSelectionFromJson(Map<String, dynamic> json) {
-  return _MealVendorSelection.fromJson(json);
+/// @nodoc
+class __$SubscriptionCopyWithImpl<$Res>
+    implements _$SubscriptionCopyWith<$Res> {
+  __$SubscriptionCopyWithImpl(this._self, this._then);
+
+  final _Subscription _self;
+  final $Res Function(_Subscription) _then;
+
+  /// Create a copy of Subscription
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = freezed,
+    Object? userId = null,
+    Object? price = null,
+    Object? mealSelections = null,
+    Object? startDate = null,
+    Object? endDate = null,
+    Object? status = null,
+    Object? isAutoRenewal = null,
+  }) {
+    return _then(_Subscription(
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: null == userId
+          ? _self.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      price: null == price
+          ? _self.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as double,
+      mealSelections: null == mealSelections
+          ? _self._mealSelections
+          : mealSelections // ignore: cast_nullable_to_non_nullable
+              as List<MealVendorSelection>,
+      startDate: null == startDate
+          ? _self.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: null == endDate
+          ? _self.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      status: null == status
+          ? _self.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as SubscriptionStatus,
+      isAutoRenewal: null == isAutoRenewal
+          ? _self.isAutoRenewal
+          : isAutoRenewal // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$MealVendorSelection {
-  MealType get mealType => throw _privateConstructorUsedError;
-  List<String> get vendorIds => throw _privateConstructorUsedError;
+  MealType get mealType;
+  List<String> get vendorIds;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MealVendorSelectionCopyWith<MealVendorSelection> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MealVendorSelectionCopyWith<$Res> {
-  factory $MealVendorSelectionCopyWith(
-          MealVendorSelection value, $Res Function(MealVendorSelection) then) =
-      _$MealVendorSelectionCopyWithImpl<$Res, MealVendorSelection>;
-  @useResult
-  $Res call({MealType mealType, List<String> vendorIds});
-}
-
-/// @nodoc
-class _$MealVendorSelectionCopyWithImpl<$Res, $Val extends MealVendorSelection>
-    implements $MealVendorSelectionCopyWith<$Res> {
-  _$MealVendorSelectionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of MealVendorSelection
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $MealVendorSelectionCopyWith<MealVendorSelection> get copyWith =>
+      _$MealVendorSelectionCopyWithImpl<MealVendorSelection>(
+          this as MealVendorSelection, _$identity);
+
+  /// Serializes this MealVendorSelection to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? mealType = null,
-    Object? vendorIds = null,
-  }) {
-    return _then(_value.copyWith(
-      mealType: null == mealType
-          ? _value.mealType
-          : mealType // ignore: cast_nullable_to_non_nullable
-              as MealType,
-      vendorIds: null == vendorIds
-          ? _value.vendorIds
-          : vendorIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MealVendorSelection &&
+            (identical(other.mealType, mealType) ||
+                other.mealType == mealType) &&
+            const DeepCollectionEquality().equals(other.vendorIds, vendorIds));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, mealType, const DeepCollectionEquality().hash(vendorIds));
+
+  @override
+  String toString() {
+    return 'MealVendorSelection(mealType: $mealType, vendorIds: $vendorIds)';
   }
 }
 
 /// @nodoc
-abstract class _$$MealVendorSelectionImplCopyWith<$Res>
-    implements $MealVendorSelectionCopyWith<$Res> {
-  factory _$$MealVendorSelectionImplCopyWith(_$MealVendorSelectionImpl value,
-          $Res Function(_$MealVendorSelectionImpl) then) =
-      __$$MealVendorSelectionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MealVendorSelectionCopyWith<$Res> {
+  factory $MealVendorSelectionCopyWith(
+          MealVendorSelection value, $Res Function(MealVendorSelection) _then) =
+      _$MealVendorSelectionCopyWithImpl;
   @useResult
   $Res call({MealType mealType, List<String> vendorIds});
 }
 
 /// @nodoc
-class __$$MealVendorSelectionImplCopyWithImpl<$Res>
-    extends _$MealVendorSelectionCopyWithImpl<$Res, _$MealVendorSelectionImpl>
-    implements _$$MealVendorSelectionImplCopyWith<$Res> {
-  __$$MealVendorSelectionImplCopyWithImpl(_$MealVendorSelectionImpl _value,
-      $Res Function(_$MealVendorSelectionImpl) _then)
-      : super(_value, _then);
+class _$MealVendorSelectionCopyWithImpl<$Res>
+    implements $MealVendorSelectionCopyWith<$Res> {
+  _$MealVendorSelectionCopyWithImpl(this._self, this._then);
 
+  final MealVendorSelection _self;
+  final $Res Function(MealVendorSelection) _then;
+
+  /// Create a copy of MealVendorSelection
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? mealType = null,
     Object? vendorIds = null,
   }) {
-    return _then(_$MealVendorSelectionImpl(
+    return _then(_self.copyWith(
       mealType: null == mealType
-          ? _value.mealType
+          ? _self.mealType
           : mealType // ignore: cast_nullable_to_non_nullable
               as MealType,
       vendorIds: null == vendorIds
-          ? _value._vendorIds
+          ? _self.vendorIds
           : vendorIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -408,13 +394,12 @@ class __$$MealVendorSelectionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MealVendorSelectionImpl implements _MealVendorSelection {
-  const _$MealVendorSelectionImpl(
+class _MealVendorSelection implements MealVendorSelection {
+  const _MealVendorSelection(
       {required this.mealType, final List<String> vendorIds = const []})
       : _vendorIds = vendorIds;
-
-  factory _$MealVendorSelectionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MealVendorSelectionImplFromJson(json);
+  factory _MealVendorSelection.fromJson(Map<String, dynamic> json) =>
+      _$MealVendorSelectionFromJson(json);
 
   @override
   final MealType mealType;
@@ -427,56 +412,82 @@ class _$MealVendorSelectionImpl implements _MealVendorSelection {
     return EqualUnmodifiableListView(_vendorIds);
   }
 
+  /// Create a copy of MealVendorSelection
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MealVendorSelection(mealType: $mealType, vendorIds: $vendorIds)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MealVendorSelectionCopyWith<_MealVendorSelection> get copyWith =>
+      __$MealVendorSelectionCopyWithImpl<_MealVendorSelection>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MealVendorSelectionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MealVendorSelectionImpl &&
+            other is _MealVendorSelection &&
             (identical(other.mealType, mealType) ||
                 other.mealType == mealType) &&
             const DeepCollectionEquality()
                 .equals(other._vendorIds, _vendorIds));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, mealType, const DeepCollectionEquality().hash(_vendorIds));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MealVendorSelectionImplCopyWith<_$MealVendorSelectionImpl> get copyWith =>
-      __$$MealVendorSelectionImplCopyWithImpl<_$MealVendorSelectionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MealVendorSelectionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MealVendorSelection(mealType: $mealType, vendorIds: $vendorIds)';
   }
 }
 
-abstract class _MealVendorSelection implements MealVendorSelection {
-  const factory _MealVendorSelection(
-      {required final MealType mealType,
-      final List<String> vendorIds}) = _$MealVendorSelectionImpl;
-
-  factory _MealVendorSelection.fromJson(Map<String, dynamic> json) =
-      _$MealVendorSelectionImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$MealVendorSelectionCopyWith<$Res>
+    implements $MealVendorSelectionCopyWith<$Res> {
+  factory _$MealVendorSelectionCopyWith(_MealVendorSelection value,
+          $Res Function(_MealVendorSelection) _then) =
+      __$MealVendorSelectionCopyWithImpl;
   @override
-  MealType get mealType;
-  @override
-  List<String> get vendorIds;
-  @override
-  @JsonKey(ignore: true)
-  _$$MealVendorSelectionImplCopyWith<_$MealVendorSelectionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({MealType mealType, List<String> vendorIds});
 }
+
+/// @nodoc
+class __$MealVendorSelectionCopyWithImpl<$Res>
+    implements _$MealVendorSelectionCopyWith<$Res> {
+  __$MealVendorSelectionCopyWithImpl(this._self, this._then);
+
+  final _MealVendorSelection _self;
+  final $Res Function(_MealVendorSelection) _then;
+
+  /// Create a copy of MealVendorSelection
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? mealType = null,
+    Object? vendorIds = null,
+  }) {
+    return _then(_MealVendorSelection(
+      mealType: null == mealType
+          ? _self.mealType
+          : mealType // ignore: cast_nullable_to_non_nullable
+              as MealType,
+      vendorIds: null == vendorIds
+          ? _self._vendorIds
+          : vendorIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+// dart format on

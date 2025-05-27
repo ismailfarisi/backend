@@ -1,7 +1,7 @@
 part of 'vendor_detail_cubit.dart';
 
 @freezed
-class VendorDetailState with _$VendorDetailState {
+abstract class VendorDetailState with _$VendorDetailState {
   const factory VendorDetailState({
     required Vendor vendor,
     WeeklyMenu? weeklyMenu,

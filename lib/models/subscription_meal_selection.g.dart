@@ -12,16 +12,16 @@ DateTimeConverter _$DateTimeConverterFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DateTimeConverterToJson(DateTimeConverter instance) =>
     <String, dynamic>{};
 
-_$SubscriptionMealSelectionImpl _$$SubscriptionMealSelectionImplFromJson(
+_SubscriptionMealSelection _$SubscriptionMealSelectionFromJson(
         Map<String, dynamic> json) =>
-    _$SubscriptionMealSelectionImpl(
+    _SubscriptionMealSelection(
       mealType: $enumDecode(_$MealTypeEnumMap, json['mealType']),
       vendorIds:
           (json['vendorIds'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$SubscriptionMealSelectionImplToJson(
-        _$SubscriptionMealSelectionImpl instance) =>
+Map<String, dynamic> _$SubscriptionMealSelectionToJson(
+        _SubscriptionMealSelection instance) =>
     <String, dynamic>{
       'mealType': _$MealTypeEnumMap[instance.mealType]!,
       'vendorIds': instance.vendorIds,
@@ -33,9 +33,9 @@ const _$MealTypeEnumMap = {
   MealType.dinner: 'dinner',
 };
 
-_$SubscriptionOrderDtoImpl _$$SubscriptionOrderDtoImplFromJson(
+_SubscriptionOrderDto _$SubscriptionOrderDtoFromJson(
         Map<String, dynamic> json) =>
-    _$SubscriptionOrderDtoImpl(
+    _SubscriptionOrderDto(
       mealSelections: (json['mealSelections'] as List<dynamic>)
           .map((e) =>
               SubscriptionMealSelection.fromJson(e as Map<String, dynamic>))
@@ -44,8 +44,8 @@ _$SubscriptionOrderDtoImpl _$$SubscriptionOrderDtoImplFromJson(
       endDate: DateTime.parse(json['endDate'] as String),
     );
 
-Map<String, dynamic> _$$SubscriptionOrderDtoImplToJson(
-        _$SubscriptionOrderDtoImpl instance) =>
+Map<String, dynamic> _$SubscriptionOrderDtoToJson(
+        _SubscriptionOrderDto instance) =>
     <String, dynamic>{
       'mealSelections': instance.mealSelections,
       'startDate': instance.startDate.toIso8601String(),

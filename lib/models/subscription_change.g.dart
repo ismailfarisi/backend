@@ -6,9 +6,8 @@ part of 'subscription_change.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscriptionChangeImpl _$$SubscriptionChangeImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SubscriptionChangeImpl(
+_SubscriptionChange _$SubscriptionChangeFromJson(Map<String, dynamic> json) =>
+    _SubscriptionChange(
       id: json['id'] as String,
       changeDate: DateTime.parse(json['changeDate'] as String),
       type: $enumDecode(_$ChangeTypeEnumMap, json['type']),
@@ -18,8 +17,7 @@ _$SubscriptionChangeImpl _$$SubscriptionChangeImplFromJson(
       reason: json['reason'] as String?,
     );
 
-Map<String, dynamic> _$$SubscriptionChangeImplToJson(
-        _$SubscriptionChangeImpl instance) =>
+Map<String, dynamic> _$SubscriptionChangeToJson(_SubscriptionChange instance) =>
     <String, dynamic>{
       'id': instance.id,
       'changeDate': instance.changeDate.toIso8601String(),

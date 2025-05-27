@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,102 +10,69 @@ part of 'meal_selection.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-MealSelection _$MealSelectionFromJson(Map<String, dynamic> json) {
-  return _MealSelection.fromJson(json);
-}
 
 /// @nodoc
 mixin _$MealSelection {
-  DateTime get date => throw _privateConstructorUsedError;
-  Map<MealType, MenuItem> get selectedMeals =>
-      throw _privateConstructorUsedError;
-  DeliveryStatus get deliveryStatus => throw _privateConstructorUsedError;
-  DateTime? get deliveredAt => throw _privateConstructorUsedError;
-  String? get deliveryNote => throw _privateConstructorUsedError;
-  String? get feedbackId => throw _privateConstructorUsedError;
+  DateTime get date;
+  Map<MealType, MenuItem> get selectedMeals;
+  DeliveryStatus get deliveryStatus;
+  DateTime? get deliveredAt;
+  String? get deliveryNote;
+  String? get feedbackId;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MealSelectionCopyWith<MealSelection> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $MealSelectionCopyWith<$Res> {
-  factory $MealSelectionCopyWith(
-          MealSelection value, $Res Function(MealSelection) then) =
-      _$MealSelectionCopyWithImpl<$Res, MealSelection>;
-  @useResult
-  $Res call(
-      {DateTime date,
-      Map<MealType, MenuItem> selectedMeals,
-      DeliveryStatus deliveryStatus,
-      DateTime? deliveredAt,
-      String? deliveryNote,
-      String? feedbackId});
-}
-
-/// @nodoc
-class _$MealSelectionCopyWithImpl<$Res, $Val extends MealSelection>
-    implements $MealSelectionCopyWith<$Res> {
-  _$MealSelectionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of MealSelection
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $MealSelectionCopyWith<MealSelection> get copyWith =>
+      _$MealSelectionCopyWithImpl<MealSelection>(
+          this as MealSelection, _$identity);
+
+  /// Serializes this MealSelection to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? date = null,
-    Object? selectedMeals = null,
-    Object? deliveryStatus = null,
-    Object? deliveredAt = freezed,
-    Object? deliveryNote = freezed,
-    Object? feedbackId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      date: null == date
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      selectedMeals: null == selectedMeals
-          ? _value.selectedMeals
-          : selectedMeals // ignore: cast_nullable_to_non_nullable
-              as Map<MealType, MenuItem>,
-      deliveryStatus: null == deliveryStatus
-          ? _value.deliveryStatus
-          : deliveryStatus // ignore: cast_nullable_to_non_nullable
-              as DeliveryStatus,
-      deliveredAt: freezed == deliveredAt
-          ? _value.deliveredAt
-          : deliveredAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      deliveryNote: freezed == deliveryNote
-          ? _value.deliveryNote
-          : deliveryNote // ignore: cast_nullable_to_non_nullable
-              as String?,
-      feedbackId: freezed == feedbackId
-          ? _value.feedbackId
-          : feedbackId // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is MealSelection &&
+            (identical(other.date, date) || other.date == date) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedMeals, selectedMeals) &&
+            (identical(other.deliveryStatus, deliveryStatus) ||
+                other.deliveryStatus == deliveryStatus) &&
+            (identical(other.deliveredAt, deliveredAt) ||
+                other.deliveredAt == deliveredAt) &&
+            (identical(other.deliveryNote, deliveryNote) ||
+                other.deliveryNote == deliveryNote) &&
+            (identical(other.feedbackId, feedbackId) ||
+                other.feedbackId == feedbackId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      date,
+      const DeepCollectionEquality().hash(selectedMeals),
+      deliveryStatus,
+      deliveredAt,
+      deliveryNote,
+      feedbackId);
+
+  @override
+  String toString() {
+    return 'MealSelection(date: $date, selectedMeals: $selectedMeals, deliveryStatus: $deliveryStatus, deliveredAt: $deliveredAt, deliveryNote: $deliveryNote, feedbackId: $feedbackId)';
   }
 }
 
 /// @nodoc
-abstract class _$$MealSelectionImplCopyWith<$Res>
-    implements $MealSelectionCopyWith<$Res> {
-  factory _$$MealSelectionImplCopyWith(
-          _$MealSelectionImpl value, $Res Function(_$MealSelectionImpl) then) =
-      __$$MealSelectionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $MealSelectionCopyWith<$Res> {
+  factory $MealSelectionCopyWith(
+          MealSelection value, $Res Function(MealSelection) _then) =
+      _$MealSelectionCopyWithImpl;
   @useResult
   $Res call(
       {DateTime date,
@@ -116,13 +84,15 @@ abstract class _$$MealSelectionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MealSelectionImplCopyWithImpl<$Res>
-    extends _$MealSelectionCopyWithImpl<$Res, _$MealSelectionImpl>
-    implements _$$MealSelectionImplCopyWith<$Res> {
-  __$$MealSelectionImplCopyWithImpl(
-      _$MealSelectionImpl _value, $Res Function(_$MealSelectionImpl) _then)
-      : super(_value, _then);
+class _$MealSelectionCopyWithImpl<$Res>
+    implements $MealSelectionCopyWith<$Res> {
+  _$MealSelectionCopyWithImpl(this._self, this._then);
 
+  final MealSelection _self;
+  final $Res Function(MealSelection) _then;
+
+  /// Create a copy of MealSelection
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,29 +103,29 @@ class __$$MealSelectionImplCopyWithImpl<$Res>
     Object? deliveryNote = freezed,
     Object? feedbackId = freezed,
   }) {
-    return _then(_$MealSelectionImpl(
+    return _then(_self.copyWith(
       date: null == date
-          ? _value.date
+          ? _self.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
       selectedMeals: null == selectedMeals
-          ? _value._selectedMeals
+          ? _self.selectedMeals
           : selectedMeals // ignore: cast_nullable_to_non_nullable
               as Map<MealType, MenuItem>,
       deliveryStatus: null == deliveryStatus
-          ? _value.deliveryStatus
+          ? _self.deliveryStatus
           : deliveryStatus // ignore: cast_nullable_to_non_nullable
               as DeliveryStatus,
       deliveredAt: freezed == deliveredAt
-          ? _value.deliveredAt
+          ? _self.deliveredAt
           : deliveredAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
       deliveryNote: freezed == deliveryNote
-          ? _value.deliveryNote
+          ? _self.deliveryNote
           : deliveryNote // ignore: cast_nullable_to_non_nullable
               as String?,
       feedbackId: freezed == feedbackId
-          ? _value.feedbackId
+          ? _self.feedbackId
           : feedbackId // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -164,8 +134,8 @@ class __$$MealSelectionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MealSelectionImpl implements _MealSelection {
-  const _$MealSelectionImpl(
+class _MealSelection implements MealSelection {
+  const _MealSelection(
       {required this.date,
       required final Map<MealType, MenuItem> selectedMeals,
       this.deliveryStatus = DeliveryStatus.scheduled,
@@ -173,9 +143,8 @@ class _$MealSelectionImpl implements _MealSelection {
       this.deliveryNote,
       this.feedbackId})
       : _selectedMeals = selectedMeals;
-
-  factory _$MealSelectionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MealSelectionImplFromJson(json);
+  factory _MealSelection.fromJson(Map<String, dynamic> json) =>
+      _$MealSelectionFromJson(json);
 
   @override
   final DateTime date;
@@ -197,16 +166,26 @@ class _$MealSelectionImpl implements _MealSelection {
   @override
   final String? feedbackId;
 
+  /// Create a copy of MealSelection
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'MealSelection(date: $date, selectedMeals: $selectedMeals, deliveryStatus: $deliveryStatus, deliveredAt: $deliveredAt, deliveryNote: $deliveryNote, feedbackId: $feedbackId)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$MealSelectionCopyWith<_MealSelection> get copyWith =>
+      __$MealSelectionCopyWithImpl<_MealSelection>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$MealSelectionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MealSelectionImpl &&
+            other is _MealSelection &&
             (identical(other.date, date) || other.date == date) &&
             const DeepCollectionEquality()
                 .equals(other._selectedMeals, _selectedMeals) &&
@@ -220,7 +199,7 @@ class _$MealSelectionImpl implements _MealSelection {
                 other.feedbackId == feedbackId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -231,46 +210,76 @@ class _$MealSelectionImpl implements _MealSelection {
       deliveryNote,
       feedbackId);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$MealSelectionImplCopyWith<_$MealSelectionImpl> get copyWith =>
-      __$$MealSelectionImplCopyWithImpl<_$MealSelectionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$MealSelectionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'MealSelection(date: $date, selectedMeals: $selectedMeals, deliveryStatus: $deliveryStatus, deliveredAt: $deliveredAt, deliveryNote: $deliveryNote, feedbackId: $feedbackId)';
   }
 }
 
-abstract class _MealSelection implements MealSelection {
-  const factory _MealSelection(
-      {required final DateTime date,
-      required final Map<MealType, MenuItem> selectedMeals,
-      final DeliveryStatus deliveryStatus,
-      final DateTime? deliveredAt,
-      final String? deliveryNote,
-      final String? feedbackId}) = _$MealSelectionImpl;
-
-  factory _MealSelection.fromJson(Map<String, dynamic> json) =
-      _$MealSelectionImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$MealSelectionCopyWith<$Res>
+    implements $MealSelectionCopyWith<$Res> {
+  factory _$MealSelectionCopyWith(
+          _MealSelection value, $Res Function(_MealSelection) _then) =
+      __$MealSelectionCopyWithImpl;
   @override
-  DateTime get date;
-  @override
-  Map<MealType, MenuItem> get selectedMeals;
-  @override
-  DeliveryStatus get deliveryStatus;
-  @override
-  DateTime? get deliveredAt;
-  @override
-  String? get deliveryNote;
-  @override
-  String? get feedbackId;
-  @override
-  @JsonKey(ignore: true)
-  _$$MealSelectionImplCopyWith<_$MealSelectionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {DateTime date,
+      Map<MealType, MenuItem> selectedMeals,
+      DeliveryStatus deliveryStatus,
+      DateTime? deliveredAt,
+      String? deliveryNote,
+      String? feedbackId});
 }
+
+/// @nodoc
+class __$MealSelectionCopyWithImpl<$Res>
+    implements _$MealSelectionCopyWith<$Res> {
+  __$MealSelectionCopyWithImpl(this._self, this._then);
+
+  final _MealSelection _self;
+  final $Res Function(_MealSelection) _then;
+
+  /// Create a copy of MealSelection
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? date = null,
+    Object? selectedMeals = null,
+    Object? deliveryStatus = null,
+    Object? deliveredAt = freezed,
+    Object? deliveryNote = freezed,
+    Object? feedbackId = freezed,
+  }) {
+    return _then(_MealSelection(
+      date: null == date
+          ? _self.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      selectedMeals: null == selectedMeals
+          ? _self._selectedMeals
+          : selectedMeals // ignore: cast_nullable_to_non_nullable
+              as Map<MealType, MenuItem>,
+      deliveryStatus: null == deliveryStatus
+          ? _self.deliveryStatus
+          : deliveryStatus // ignore: cast_nullable_to_non_nullable
+              as DeliveryStatus,
+      deliveredAt: freezed == deliveredAt
+          ? _self.deliveredAt
+          : deliveredAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      deliveryNote: freezed == deliveryNote
+          ? _self.deliveryNote
+          : deliveryNote // ignore: cast_nullable_to_non_nullable
+              as String?,
+      feedbackId: freezed == feedbackId
+          ? _self.feedbackId
+          : feedbackId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+// dart format on

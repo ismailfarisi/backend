@@ -4,7 +4,7 @@ part 'address.freezed.dart';
 part 'address.g.dart';
 
 @freezed
-class DeliveryAddress with _$DeliveryAddress {
+abstract class DeliveryAddress with _$DeliveryAddress {
   const factory DeliveryAddress({
     required String id,
     required String fullAddress,
@@ -21,7 +21,7 @@ class DeliveryAddress with _$DeliveryAddress {
 }
 
 @freezed
-class LatLng with _$LatLng {
+abstract class LatLng with _$LatLng {
   const factory LatLng({
     required double latitude,
     required double longitude,

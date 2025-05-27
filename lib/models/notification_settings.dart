@@ -4,7 +4,7 @@ part 'notification_settings.freezed.dart';
 part 'notification_settings.g.dart';
 
 @freezed
-class NotificationSettings with _$NotificationSettings {
+abstract class NotificationSettings with _$NotificationSettings {
   const factory NotificationSettings({
     @Default(true) bool orderUpdates,
     @Default(true) bool specialOffers,

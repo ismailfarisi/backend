@@ -51,7 +51,7 @@ class MealSummaryCard extends StatelessWidget {
                   contentPadding: EdgeInsets.zero,
                   leading: CircleAvatar(
                     backgroundColor:
-                        Theme.of(context).colorScheme.surfaceVariant,
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
                     child: Text(
                       'Vendor name',
                       style: TextStyle(

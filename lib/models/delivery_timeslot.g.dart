@@ -6,9 +6,8 @@ part of 'delivery_timeslot.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$DeliveryTimeSlotImpl _$$DeliveryTimeSlotImplFromJson(
-        Map<String, dynamic> json) =>
-    _$DeliveryTimeSlotImpl(
+_DeliveryTimeSlot _$DeliveryTimeSlotFromJson(Map<String, dynamic> json) =>
+    _DeliveryTimeSlot(
       id: json['id'] as String,
       startTime:
           const TimeOfDayConverter().fromJson(json['startTime'] as String),
@@ -20,8 +19,7 @@ _$DeliveryTimeSlotImpl _$$DeliveryTimeSlotImplFromJson(
       specialInstructions: json['specialInstructions'] as String?,
     );
 
-Map<String, dynamic> _$$DeliveryTimeSlotImplToJson(
-        _$DeliveryTimeSlotImpl instance) =>
+Map<String, dynamic> _$DeliveryTimeSlotToJson(_DeliveryTimeSlot instance) =>
     <String, dynamic>{
       'id': instance.id,
       'startTime': const TimeOfDayConverter().toJson(instance.startTime),

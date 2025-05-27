@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meal_app/data_repositories/vendor_repo.dart';
-import 'package:meal_app/models/subscription_order.dart';
+
 import 'package:meal_app/utils/enums.dart';
 
 import '../../../models/subscription.dart';

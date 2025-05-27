@@ -6,8 +6,7 @@ part of 'menu_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MenuItemImpl _$$MenuItemImplFromJson(Map<String, dynamic> json) =>
-    _$MenuItemImpl(
+_MenuItem _$MenuItemFromJson(Map<String, dynamic> json) => _MenuItem(
       id: json['id'] as String,
       name: json['name'] as String,
       price: (json['price'] as num).toDouble(),
@@ -23,8 +22,7 @@ _$MenuItemImpl _$$MenuItemImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$MenuItemImplToJson(_$MenuItemImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$MenuItemToJson(_MenuItem instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'price': instance.price,
@@ -41,8 +39,7 @@ const _$MealTypeEnumMap = {
   MealType.dinner: 'dinner',
 };
 
-_$DailyMenuImpl _$$DailyMenuImplFromJson(Map<String, dynamic> json) =>
-    _$DailyMenuImpl(
+_DailyMenu _$DailyMenuFromJson(Map<String, dynamic> json) => _DailyMenu(
       date: DateTime.parse(json['date'] as String),
       breakfastOptions: (json['breakfastOptions'] as List<dynamic>?)
               ?.map((e) => MenuItem.fromJson(e as Map<String, dynamic>))
@@ -58,7 +55,7 @@ _$DailyMenuImpl _$$DailyMenuImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$DailyMenuImplToJson(_$DailyMenuImpl instance) =>
+Map<String, dynamic> _$DailyMenuToJson(_DailyMenu instance) =>
     <String, dynamic>{
       'date': instance.date.toIso8601String(),
       'breakfastOptions': instance.breakfastOptions,
@@ -66,8 +63,7 @@ Map<String, dynamic> _$$DailyMenuImplToJson(_$DailyMenuImpl instance) =>
       'dinnerOptions': instance.dinnerOptions,
     };
 
-_$WeeklyMenuImpl _$$WeeklyMenuImplFromJson(Map<String, dynamic> json) =>
-    _$WeeklyMenuImpl(
+_WeeklyMenu _$WeeklyMenuFromJson(Map<String, dynamic> json) => _WeeklyMenu(
       id: json['id'] as String,
       startDate: DateTime.parse(json['startDate'] as String),
       endDate: DateTime.parse(json['endDate'] as String),
@@ -77,7 +73,7 @@ _$WeeklyMenuImpl _$$WeeklyMenuImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$WeeklyMenuImplToJson(_$WeeklyMenuImpl instance) =>
+Map<String, dynamic> _$WeeklyMenuToJson(_WeeklyMenu instance) =>
     <String, dynamic>{
       'id': instance.id,
       'startDate': instance.startDate.toIso8601String(),

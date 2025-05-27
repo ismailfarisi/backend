@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,101 +10,78 @@ part of 'subscription_meal_selection.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubscriptionMealSelection _$SubscriptionMealSelectionFromJson(
-    Map<String, dynamic> json) {
-  return _SubscriptionMealSelection.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubscriptionMealSelection {
-  MealType get mealType => throw _privateConstructorUsedError;
-  List<String> get vendorIds => throw _privateConstructorUsedError;
+  MealType get mealType;
+  List<String> get vendorIds;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SubscriptionMealSelectionCopyWith<SubscriptionMealSelection> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscriptionMealSelectionCopyWith<$Res> {
-  factory $SubscriptionMealSelectionCopyWith(SubscriptionMealSelection value,
-          $Res Function(SubscriptionMealSelection) then) =
-      _$SubscriptionMealSelectionCopyWithImpl<$Res, SubscriptionMealSelection>;
-  @useResult
-  $Res call({MealType mealType, List<String> vendorIds});
-}
-
-/// @nodoc
-class _$SubscriptionMealSelectionCopyWithImpl<$Res,
-        $Val extends SubscriptionMealSelection>
-    implements $SubscriptionMealSelectionCopyWith<$Res> {
-  _$SubscriptionMealSelectionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of SubscriptionMealSelection
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $SubscriptionMealSelectionCopyWith<SubscriptionMealSelection> get copyWith =>
+      _$SubscriptionMealSelectionCopyWithImpl<SubscriptionMealSelection>(
+          this as SubscriptionMealSelection, _$identity);
+
+  /// Serializes this SubscriptionMealSelection to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? mealType = null,
-    Object? vendorIds = null,
-  }) {
-    return _then(_value.copyWith(
-      mealType: null == mealType
-          ? _value.mealType
-          : mealType // ignore: cast_nullable_to_non_nullable
-              as MealType,
-      vendorIds: null == vendorIds
-          ? _value.vendorIds
-          : vendorIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscriptionMealSelection &&
+            (identical(other.mealType, mealType) ||
+                other.mealType == mealType) &&
+            const DeepCollectionEquality().equals(other.vendorIds, vendorIds));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, mealType, const DeepCollectionEquality().hash(vendorIds));
+
+  @override
+  String toString() {
+    return 'SubscriptionMealSelection(mealType: $mealType, vendorIds: $vendorIds)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionMealSelectionImplCopyWith<$Res>
-    implements $SubscriptionMealSelectionCopyWith<$Res> {
-  factory _$$SubscriptionMealSelectionImplCopyWith(
-          _$SubscriptionMealSelectionImpl value,
-          $Res Function(_$SubscriptionMealSelectionImpl) then) =
-      __$$SubscriptionMealSelectionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscriptionMealSelectionCopyWith<$Res> {
+  factory $SubscriptionMealSelectionCopyWith(SubscriptionMealSelection value,
+          $Res Function(SubscriptionMealSelection) _then) =
+      _$SubscriptionMealSelectionCopyWithImpl;
   @useResult
   $Res call({MealType mealType, List<String> vendorIds});
 }
 
 /// @nodoc
-class __$$SubscriptionMealSelectionImplCopyWithImpl<$Res>
-    extends _$SubscriptionMealSelectionCopyWithImpl<$Res,
-        _$SubscriptionMealSelectionImpl>
-    implements _$$SubscriptionMealSelectionImplCopyWith<$Res> {
-  __$$SubscriptionMealSelectionImplCopyWithImpl(
-      _$SubscriptionMealSelectionImpl _value,
-      $Res Function(_$SubscriptionMealSelectionImpl) _then)
-      : super(_value, _then);
+class _$SubscriptionMealSelectionCopyWithImpl<$Res>
+    implements $SubscriptionMealSelectionCopyWith<$Res> {
+  _$SubscriptionMealSelectionCopyWithImpl(this._self, this._then);
 
+  final SubscriptionMealSelection _self;
+  final $Res Function(SubscriptionMealSelection) _then;
+
+  /// Create a copy of SubscriptionMealSelection
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? mealType = null,
     Object? vendorIds = null,
   }) {
-    return _then(_$SubscriptionMealSelectionImpl(
+    return _then(_self.copyWith(
       mealType: null == mealType
-          ? _value.mealType
+          ? _self.mealType
           : mealType // ignore: cast_nullable_to_non_nullable
               as MealType,
       vendorIds: null == vendorIds
-          ? _value._vendorIds
+          ? _self.vendorIds
           : vendorIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -112,13 +90,12 @@ class __$$SubscriptionMealSelectionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubscriptionMealSelectionImpl implements _SubscriptionMealSelection {
-  const _$SubscriptionMealSelectionImpl(
+class _SubscriptionMealSelection implements SubscriptionMealSelection {
+  const _SubscriptionMealSelection(
       {required this.mealType, required final List<String> vendorIds})
       : _vendorIds = vendorIds;
-
-  factory _$SubscriptionMealSelectionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscriptionMealSelectionImplFromJson(json);
+  factory _SubscriptionMealSelection.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionMealSelectionFromJson(json);
 
   @override
   final MealType mealType;
@@ -130,131 +107,130 @@ class _$SubscriptionMealSelectionImpl implements _SubscriptionMealSelection {
     return EqualUnmodifiableListView(_vendorIds);
   }
 
+  /// Create a copy of SubscriptionMealSelection
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SubscriptionMealSelection(mealType: $mealType, vendorIds: $vendorIds)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionMealSelectionCopyWith<_SubscriptionMealSelection>
+      get copyWith =>
+          __$SubscriptionMealSelectionCopyWithImpl<_SubscriptionMealSelection>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionMealSelectionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionMealSelectionImpl &&
+            other is _SubscriptionMealSelection &&
             (identical(other.mealType, mealType) ||
                 other.mealType == mealType) &&
             const DeepCollectionEquality()
                 .equals(other._vendorIds, _vendorIds));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, mealType, const DeepCollectionEquality().hash(_vendorIds));
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionMealSelectionImplCopyWith<_$SubscriptionMealSelectionImpl>
-      get copyWith => __$$SubscriptionMealSelectionImplCopyWithImpl<
-          _$SubscriptionMealSelectionImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionMealSelectionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscriptionMealSelection(mealType: $mealType, vendorIds: $vendorIds)';
   }
 }
 
-abstract class _SubscriptionMealSelection implements SubscriptionMealSelection {
-  const factory _SubscriptionMealSelection(
-      {required final MealType mealType,
-      required final List<String> vendorIds}) = _$SubscriptionMealSelectionImpl;
-
-  factory _SubscriptionMealSelection.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionMealSelectionImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscriptionMealSelectionCopyWith<$Res>
+    implements $SubscriptionMealSelectionCopyWith<$Res> {
+  factory _$SubscriptionMealSelectionCopyWith(_SubscriptionMealSelection value,
+          $Res Function(_SubscriptionMealSelection) _then) =
+      __$SubscriptionMealSelectionCopyWithImpl;
   @override
-  MealType get mealType;
-  @override
-  List<String> get vendorIds;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionMealSelectionImplCopyWith<_$SubscriptionMealSelectionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({MealType mealType, List<String> vendorIds});
 }
 
-SubscriptionOrderDto _$SubscriptionOrderDtoFromJson(Map<String, dynamic> json) {
-  return _SubscriptionOrderDto.fromJson(json);
+/// @nodoc
+class __$SubscriptionMealSelectionCopyWithImpl<$Res>
+    implements _$SubscriptionMealSelectionCopyWith<$Res> {
+  __$SubscriptionMealSelectionCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionMealSelection _self;
+  final $Res Function(_SubscriptionMealSelection) _then;
+
+  /// Create a copy of SubscriptionMealSelection
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? mealType = null,
+    Object? vendorIds = null,
+  }) {
+    return _then(_SubscriptionMealSelection(
+      mealType: null == mealType
+          ? _self.mealType
+          : mealType // ignore: cast_nullable_to_non_nullable
+              as MealType,
+      vendorIds: null == vendorIds
+          ? _self._vendorIds
+          : vendorIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
 }
 
 /// @nodoc
 mixin _$SubscriptionOrderDto {
-  List<SubscriptionMealSelection> get mealSelections =>
-      throw _privateConstructorUsedError;
-  DateTime get startDate => throw _privateConstructorUsedError;
-  DateTime get endDate => throw _privateConstructorUsedError;
+  List<SubscriptionMealSelection> get mealSelections;
+  DateTime get startDate;
+  DateTime get endDate;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SubscriptionOrderDtoCopyWith<SubscriptionOrderDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SubscriptionOrderDtoCopyWith<$Res> {
-  factory $SubscriptionOrderDtoCopyWith(SubscriptionOrderDto value,
-          $Res Function(SubscriptionOrderDto) then) =
-      _$SubscriptionOrderDtoCopyWithImpl<$Res, SubscriptionOrderDto>;
-  @useResult
-  $Res call(
-      {List<SubscriptionMealSelection> mealSelections,
-      DateTime startDate,
-      DateTime endDate});
-}
-
-/// @nodoc
-class _$SubscriptionOrderDtoCopyWithImpl<$Res,
-        $Val extends SubscriptionOrderDto>
-    implements $SubscriptionOrderDtoCopyWith<$Res> {
-  _$SubscriptionOrderDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of SubscriptionOrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $SubscriptionOrderDtoCopyWith<SubscriptionOrderDto> get copyWith =>
+      _$SubscriptionOrderDtoCopyWithImpl<SubscriptionOrderDto>(
+          this as SubscriptionOrderDto, _$identity);
+
+  /// Serializes this SubscriptionOrderDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? mealSelections = null,
-    Object? startDate = null,
-    Object? endDate = null,
-  }) {
-    return _then(_value.copyWith(
-      mealSelections: null == mealSelections
-          ? _value.mealSelections
-          : mealSelections // ignore: cast_nullable_to_non_nullable
-              as List<SubscriptionMealSelection>,
-      startDate: null == startDate
-          ? _value.startDate
-          : startDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      endDate: null == endDate
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SubscriptionOrderDto &&
+            const DeepCollectionEquality()
+                .equals(other.mealSelections, mealSelections) &&
+            (identical(other.startDate, startDate) ||
+                other.startDate == startDate) &&
+            (identical(other.endDate, endDate) || other.endDate == endDate));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(mealSelections), startDate, endDate);
+
+  @override
+  String toString() {
+    return 'SubscriptionOrderDto(mealSelections: $mealSelections, startDate: $startDate, endDate: $endDate)';
   }
 }
 
 /// @nodoc
-abstract class _$$SubscriptionOrderDtoImplCopyWith<$Res>
-    implements $SubscriptionOrderDtoCopyWith<$Res> {
-  factory _$$SubscriptionOrderDtoImplCopyWith(_$SubscriptionOrderDtoImpl value,
-          $Res Function(_$SubscriptionOrderDtoImpl) then) =
-      __$$SubscriptionOrderDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $SubscriptionOrderDtoCopyWith<$Res> {
+  factory $SubscriptionOrderDtoCopyWith(SubscriptionOrderDto value,
+          $Res Function(SubscriptionOrderDto) _then) =
+      _$SubscriptionOrderDtoCopyWithImpl;
   @useResult
   $Res call(
       {List<SubscriptionMealSelection> mealSelections,
@@ -263,13 +239,15 @@ abstract class _$$SubscriptionOrderDtoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SubscriptionOrderDtoImplCopyWithImpl<$Res>
-    extends _$SubscriptionOrderDtoCopyWithImpl<$Res, _$SubscriptionOrderDtoImpl>
-    implements _$$SubscriptionOrderDtoImplCopyWith<$Res> {
-  __$$SubscriptionOrderDtoImplCopyWithImpl(_$SubscriptionOrderDtoImpl _value,
-      $Res Function(_$SubscriptionOrderDtoImpl) _then)
-      : super(_value, _then);
+class _$SubscriptionOrderDtoCopyWithImpl<$Res>
+    implements $SubscriptionOrderDtoCopyWith<$Res> {
+  _$SubscriptionOrderDtoCopyWithImpl(this._self, this._then);
 
+  final SubscriptionOrderDto _self;
+  final $Res Function(SubscriptionOrderDto) _then;
+
+  /// Create a copy of SubscriptionOrderDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -277,17 +255,17 @@ class __$$SubscriptionOrderDtoImplCopyWithImpl<$Res>
     Object? startDate = null,
     Object? endDate = null,
   }) {
-    return _then(_$SubscriptionOrderDtoImpl(
+    return _then(_self.copyWith(
       mealSelections: null == mealSelections
-          ? _value._mealSelections
+          ? _self.mealSelections
           : mealSelections // ignore: cast_nullable_to_non_nullable
               as List<SubscriptionMealSelection>,
       startDate: null == startDate
-          ? _value.startDate
+          ? _self.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
       endDate: null == endDate
-          ? _value.endDate
+          ? _self.endDate
           : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
@@ -296,15 +274,14 @@ class __$$SubscriptionOrderDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SubscriptionOrderDtoImpl implements _SubscriptionOrderDto {
-  const _$SubscriptionOrderDtoImpl(
+class _SubscriptionOrderDto implements SubscriptionOrderDto {
+  const _SubscriptionOrderDto(
       {required final List<SubscriptionMealSelection> mealSelections,
       required this.startDate,
       required this.endDate})
       : _mealSelections = mealSelections;
-
-  factory _$SubscriptionOrderDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscriptionOrderDtoImplFromJson(json);
+  factory _SubscriptionOrderDto.fromJson(Map<String, dynamic> json) =>
+      _$SubscriptionOrderDtoFromJson(json);
 
   final List<SubscriptionMealSelection> _mealSelections;
   @override
@@ -319,16 +296,27 @@ class _$SubscriptionOrderDtoImpl implements _SubscriptionOrderDto {
   @override
   final DateTime endDate;
 
+  /// Create a copy of SubscriptionOrderDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'SubscriptionOrderDto(mealSelections: $mealSelections, startDate: $startDate, endDate: $endDate)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SubscriptionOrderDtoCopyWith<_SubscriptionOrderDto> get copyWith =>
+      __$SubscriptionOrderDtoCopyWithImpl<_SubscriptionOrderDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$SubscriptionOrderDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscriptionOrderDtoImpl &&
+            other is _SubscriptionOrderDto &&
             const DeepCollectionEquality()
                 .equals(other._mealSelections, _mealSelections) &&
             (identical(other.startDate, startDate) ||
@@ -336,44 +324,63 @@ class _$SubscriptionOrderDtoImpl implements _SubscriptionOrderDto {
             (identical(other.endDate, endDate) || other.endDate == endDate));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType,
       const DeepCollectionEquality().hash(_mealSelections), startDate, endDate);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$SubscriptionOrderDtoImplCopyWith<_$SubscriptionOrderDtoImpl>
-      get copyWith =>
-          __$$SubscriptionOrderDtoImplCopyWithImpl<_$SubscriptionOrderDtoImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubscriptionOrderDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'SubscriptionOrderDto(mealSelections: $mealSelections, startDate: $startDate, endDate: $endDate)';
   }
 }
 
-abstract class _SubscriptionOrderDto implements SubscriptionOrderDto {
-  const factory _SubscriptionOrderDto(
-      {required final List<SubscriptionMealSelection> mealSelections,
-      required final DateTime startDate,
-      required final DateTime endDate}) = _$SubscriptionOrderDtoImpl;
-
-  factory _SubscriptionOrderDto.fromJson(Map<String, dynamic> json) =
-      _$SubscriptionOrderDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$SubscriptionOrderDtoCopyWith<$Res>
+    implements $SubscriptionOrderDtoCopyWith<$Res> {
+  factory _$SubscriptionOrderDtoCopyWith(_SubscriptionOrderDto value,
+          $Res Function(_SubscriptionOrderDto) _then) =
+      __$SubscriptionOrderDtoCopyWithImpl;
   @override
-  List<SubscriptionMealSelection> get mealSelections;
-  @override
-  DateTime get startDate;
-  @override
-  DateTime get endDate;
-  @override
-  @JsonKey(ignore: true)
-  _$$SubscriptionOrderDtoImplCopyWith<_$SubscriptionOrderDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {List<SubscriptionMealSelection> mealSelections,
+      DateTime startDate,
+      DateTime endDate});
 }
+
+/// @nodoc
+class __$SubscriptionOrderDtoCopyWithImpl<$Res>
+    implements _$SubscriptionOrderDtoCopyWith<$Res> {
+  __$SubscriptionOrderDtoCopyWithImpl(this._self, this._then);
+
+  final _SubscriptionOrderDto _self;
+  final $Res Function(_SubscriptionOrderDto) _then;
+
+  /// Create a copy of SubscriptionOrderDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? mealSelections = null,
+    Object? startDate = null,
+    Object? endDate = null,
+  }) {
+    return _then(_SubscriptionOrderDto(
+      mealSelections: null == mealSelections
+          ? _self._mealSelections
+          : mealSelections // ignore: cast_nullable_to_non_nullable
+              as List<SubscriptionMealSelection>,
+      startDate: null == startDate
+          ? _self.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: null == endDate
+          ? _self.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+// dart format on
