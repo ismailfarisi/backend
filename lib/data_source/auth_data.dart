@@ -52,8 +52,8 @@ class AuthData implements AuthRepo {
   Future<Result<User>> getMe() async {
     try {
       final response = await _dio.get('auth/me');
-      User user = User.fromJson(
-          response.data['data']); // Assuming data is nested under 'data'
+      User user =
+          User.fromJson(response.data); // Assuming data is nested under 'data'
       return Success(user);
     } catch (e, stack) {
       return onError(e, stack, log);
