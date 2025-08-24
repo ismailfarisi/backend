@@ -40,7 +40,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   FutureOr<void> _started(_Started event, Emitter<AuthState> emit) async {
-    final result = await _authRepo.getLoggedInUser();
+    final result = await _authRepo.getMe();
     switch (result) {
       case (Success s):
         emit(state.copyWith(

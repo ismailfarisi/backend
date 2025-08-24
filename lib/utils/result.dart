@@ -4,7 +4,7 @@ sealed class Result<T> {}
 
 class Success<T> extends Result<T> {
   final T value;
-  final Paginator? paginator;
+  final PaginatedData? paginator;
   final dynamic payload;
 
   Success(

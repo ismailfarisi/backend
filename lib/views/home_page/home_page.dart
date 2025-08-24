@@ -4,7 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meal_app/app/auth_bloc/auth_bloc.dart';
 import 'package:meal_app/injection/injection.dart';
+import 'package:meal_app/models/user.dart';
+import 'package:meal_app/models/menu_item.dart'; // Added import
 
 import '../../global_widgets/vendor_card.dart';
 import '../../utils/enums.dart';
@@ -28,103 +31,135 @@ class HomePage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => getIt<HomeCubit>(),
-        child: BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) {
-            if (state.status == AppStatus.loading) {
-              return const Center(child: CircularProgressIndicator());
-            }
+        child: BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
+          final User? user = authState.user;
+          return BlocBuilder<HomeCubit, HomeState>(
+            builder: (context, state) {
+              if (state.status == AppStatus.loading) {
+                return const Center(child: CircularProgressIndicator());
+              }
 
-            if (state.status == AppStatus.failure) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Something went wrong',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      state.errorMessage ?? 'Failed to load data',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Theme.of(context).colorScheme.error,
-                          ),
-                    ),
-                    const SizedBox(height: 16),
-                    ElevatedButton(
-                      onPressed: () {
-                        context.read<HomeCubit>().refreshData();
+              if (state.status == AppStatus.failure) {
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Something went wrong',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        state.errorMessage ?? 'Failed to load data',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: Theme.of(context).colorScheme.error,
+                            ),
+                      ),
+                      const SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () {
+                          context.read<HomeCubit>().refreshData();
+                        },
+                        child: const Text('Try Again'),
+                      ),
+                    ],
+                  ),
+                );
+              }
+
+              return RefreshIndicator(
+                onRefresh: () => context.read<HomeCubit>().refreshData(),
+                child: CustomScrollView(
+                  slivers: [
+                    _buildAppBar(context, user?.fullName),
+                    if (state.subscription != null)
+                      SliverToBoxAdapter(
+                        child: _buildSubscriptionCard(context, state),
+                      )
+                    else
+                      SliverToBoxAdapter(
+                        child: _buildSubscriptionPromotionCard(context),
+                      ),
+                    _buildSectionTitle(
+                      context,
+                      'Today\'s Menu',
+                      onViewAllPressed: () {
+                        // TODO: Implement navigation to full menu page
+                        // For now, let's print to console or show a snackbar
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text('View All Today\'s Menu clicked!')),
+                        );
+                        // Example navigation: context.push('/todays-menu');
                       },
-                      child: const Text('Try Again'),
                     ),
+                    _buildTodayMenu(context, state),
+                    _buildSectionTitle(context, 'Featured Vendors'),
+                    _buildVendorGrid(context, state),
+                    const SliverPadding(padding: EdgeInsets.only(bottom: 24)),
                   ],
                 ),
               );
-            }
-
-            return RefreshIndicator(
-              onRefresh: () => context.read<HomeCubit>().refreshData(),
-              child: CustomScrollView(
-                slivers: [
-                  _buildAppBar(context),
-                  if (state.subscription != null)
-                    SliverToBoxAdapter(
-                      child: _buildSubscriptionCard(context, state),
-                    )
-                  else
-                    SliverToBoxAdapter(
-                      child: _buildSubscriptionPromotionCard(context),
-                    ),
-                  _buildSectionTitle(context, 'Today\'s Menu'),
-                  _buildTodayMenu(context, state),
-                  _buildSectionTitle(context, 'Featured Vendors'),
-                  _buildVendorGrid(context, state),
-                  const SliverPadding(padding: EdgeInsets.only(bottom: 24)),
-                ],
-              ),
-            );
-          },
-        ),
+            },
+          );
+        }),
       ),
     );
   }
 
-  Widget _buildAppBar(BuildContext context) {
+  Widget _buildAppBar(BuildContext context, String? userName) {
     final theme = Theme.of(context);
 
     return SliverAppBar(
-      expandedHeight: 120.h,
+      expandedHeight: 180.h, // Increased height to accommodate search bar
       floating: true,
       pinned: true,
       backgroundColor: theme.colorScheme.surface,
       elevation: 0,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-        title: Row(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Hello, John',
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    color: theme.colorScheme.onSurface,
-                  ),
+        titlePadding: EdgeInsets.zero, // Remove default padding
+        title: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Hello, ${userName ?? 'Guest'}',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  color: theme.colorScheme.onSurface,
                 ),
-                Flexible(
-                  child: FittedBox(
-                    child: Text(
-                      'What would you like to eat?',
-                      style: theme.textTheme.bodySmall?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
-                    ),
-                  ),
+              ),
+              SizedBox(height: 4.h),
+              Text(
+                'What would you like to eat?',
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: theme.colorScheme.onSurfaceVariant,
                 ),
-              ],
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottom: PreferredSize(
+        preferredSize: Size.fromHeight(60.h),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'Search for meals or vendors...',
+              prefixIcon:
+                  Icon(Icons.search, color: theme.colorScheme.onSurfaceVariant),
+              filled: true,
+              fillColor: theme.colorScheme.surfaceContainerHighest,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(24.r),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 0, horizontal: 20.w),
             ),
-          ],
+          ),
         ),
       ),
       actions: [
@@ -289,63 +324,124 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionTitle(BuildContext context, String title) {
+  Widget _buildSectionTitle(
+    BuildContext context,
+    String title, {
+    VoidCallback? onViewAllPressed,
+  }) {
     return SliverPadding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+      padding: EdgeInsets.fromLTRB(16.w, 16.h, 16.w, 8.h), // Added top padding
       sliver: SliverToBoxAdapter(
-        child: Text(
-          title,
-          style: Theme.of(context).textTheme.titleLarge,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            if (onViewAllPressed != null)
+              TextButton(
+                onPressed: onViewAllPressed,
+                child: const Text('View All'),
+              ),
+          ],
         ),
       ),
     );
   }
 
   Widget _buildTodayMenu(BuildContext context, HomeState state) {
+    if (state.getTodayMenuStatus == AppStatus.loading) {
+      return const SliverToBoxAdapter(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: CircularProgressIndicator(),
+          ),
+        ),
+      );
+    }
+
+    if (state.getTodayMenuStatus == AppStatus.failure) {
+      return SliverToBoxAdapter(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              state.errorMessage ?? 'Failed to load today\'s menu.',
+              style: TextStyle(color: Theme.of(context).colorScheme.error),
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (state.todayMenuItems.isEmpty) {
+      return const SliverToBoxAdapter(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Text('No menu items available for today.'),
+          ),
+        ),
+      );
+    }
+
     return SliverToBoxAdapter(
       child: SizedBox(
-        height: 180.h,
+        height: 190.h, // Adjusted height to accommodate slightly larger cards
         child: ListView.builder(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           scrollDirection: Axis.horizontal,
-          itemCount: 5,
+          itemCount: state.todayMenuItems.length,
           itemBuilder: (context, index) {
-            return _buildMenuCard(context);
+            return _buildMenuCard(context, state.todayMenuItems[index]);
           },
         ),
       ),
     );
   }
 
-  Widget _buildMenuCard(BuildContext context) {
+  Widget _buildMenuCard(BuildContext context, MenuItem menuItem) {
     final theme = Theme.of(context);
 
     return Container(
-      width: 200.w,
+      width: 220.w, // Slightly wider card
       margin: EdgeInsets.only(right: 16.w),
       child: Card(
         elevation: 2,
+        clipBehavior: Clip.antiAlias, // To ensure image corners are rounded
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.r),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
+            SizedBox(
               height: 100.h,
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer,
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(12.r),
-                ),
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.restaurant_menu,
-                  size: 40.w,
-                  color: theme.colorScheme.primary,
-                ),
-              ),
+              width: double.infinity, // Ensure image takes full width
+              child: menuItem.imageUrl != null && menuItem.imageUrl!.isNotEmpty
+                  ? Image.network(
+                      menuItem.imageUrl!,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Center(
+                        child: Icon(
+                          Icons.restaurant_menu,
+                          size: 40.w,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    )
+                  : Container(
+                      color: theme.colorScheme.primaryContainer,
+                      child: Center(
+                        child: Icon(
+                          Icons.restaurant_menu,
+                          size: 40.w,
+                          color: theme.colorScheme.primary,
+                        ),
+                      ),
+                    ),
             ),
             Padding(
               padding: EdgeInsets.all(12.w),
@@ -353,17 +449,20 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'South Indian Thali',
+                    menuItem.name,
                     style: theme.textTheme.titleMedium,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
                   SizedBox(height: 4.h),
                   Text(
-                    'By Morning Glory',
+                    // Assuming MenuItem has a vendor field with a name, or use a default
+                    'By ${menuItem.vendor?.name ?? 'Unknown Vendor'}',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),

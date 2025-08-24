@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_app/injection/injection.dart';
 import 'package:meal_app/utils/enums.dart';
+import 'package:meal_app/views/home_page/home_page.dart';
 import 'package:meal_app/views/login/cubit/login_cubit.dart';
 import 'package:meal_app/views/register_page/register_page.dart';
 
@@ -32,8 +33,11 @@ class _LoginPageState extends State<LoginPage> {
         body: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
             if (state.loginStatus == AppStatus.success) {
-              // Navigate to home page
-              context.pop();
+              if (context.canPop()) {
+                context.pop();
+              } else {
+                context.pushReplacementNamed(HomePage.routeName);
+              }
             } else if (state.loginStatus == AppStatus.failure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(

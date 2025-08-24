@@ -15,8 +15,10 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../app/auth_bloc/auth_bloc.dart' as _i584;
 import '../data_repositories/auth_repo.dart' as _i3;
+import '../data_repositories/user_repo.dart' as _i1047;
 import '../data_repositories/vendor_repo.dart' as _i617;
 import '../data_source/auth_data.dart' as _i223;
+import '../data_source/user_data.dart' as _i997;
 import '../data_source/vendor_data.dart' as _i917;
 import '../models/vendor.dart' as _i569;
 import '../views/home_page/cubit/home_cubit.dart' as _i607;
@@ -43,8 +45,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final registerModules = _$RegisterModules();
     gh.factory<_i943.OrderCubit>(() => _i943.OrderCubit());
-    gh.factory<_i237.VendorDetailCubit>(
-        () => _i237.VendorDetailCubit(vendor: gh<_i569.Vendor>()));
+    gh.factoryParam<_i237.VendorDetailCubit, _i569.Vendor, dynamic>((
+      vendor,
+      _,
+    ) =>
+        _i237.VendorDetailCubit(vendor: vendor));
     gh.factory<String>(
       () => registerModules.baseUrl,
       instanceName: 'BaseUrl',
@@ -73,6 +78,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i986.RegisterCubit>(
         () => _i986.RegisterCubit(gh<_i3.AuthRepo>()));
     gh.factory<_i617.VendorRepo>(() => _i917.VendorData(dio: gh<_i361.Dio>()));
+    gh.factory<_i1047.UserRepo>(() => _i997.UserData(dio: gh<_i361.Dio>()));
     gh.factory<_i607.HomeCubit>(() => _i607.HomeCubit(gh<_i617.VendorRepo>()));
     gh.factory<_i926.SubscriptionCubit>(
         () => _i926.SubscriptionCubit(gh<_i617.VendorRepo>()));

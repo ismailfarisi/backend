@@ -69,6 +69,7 @@ class AppRouter {
         ),
         GoRoute(
           path: '/subscription',
+          name: 'subscription',
           builder: (context, state) => const SubscriptionFlowScreen(),
         ),
         GoRoute(

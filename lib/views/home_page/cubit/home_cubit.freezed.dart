@@ -23,6 +23,8 @@ mixin _$HomeState {
   AppStatus get getVendorsStatus;
   AppStatus get getSubscriptionStatus;
   AppStatus get updateVendorStatus;
+  List<MenuItem> get todayMenuItems;
+  AppStatus get getTodayMenuStatus;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -49,7 +51,11 @@ mixin _$HomeState {
             (identical(other.getSubscriptionStatus, getSubscriptionStatus) ||
                 other.getSubscriptionStatus == getSubscriptionStatus) &&
             (identical(other.updateVendorStatus, updateVendorStatus) ||
-                other.updateVendorStatus == updateVendorStatus));
+                other.updateVendorStatus == updateVendorStatus) &&
+            const DeepCollectionEquality()
+                .equals(other.todayMenuItems, todayMenuItems) &&
+            (identical(other.getTodayMenuStatus, getTodayMenuStatus) ||
+                other.getTodayMenuStatus == getTodayMenuStatus));
   }
 
   @override
@@ -62,11 +68,13 @@ mixin _$HomeState {
       selectedVendor,
       getVendorsStatus,
       getSubscriptionStatus,
-      updateVendorStatus);
+      updateVendorStatus,
+      const DeepCollectionEquality().hash(todayMenuItems),
+      getTodayMenuStatus);
 
   @override
   String toString() {
-    return 'HomeState(subscription: $subscription, status: $status, errorMessage: $errorMessage, vendors: $vendors, selectedVendor: $selectedVendor, getVendorsStatus: $getVendorsStatus, getSubscriptionStatus: $getSubscriptionStatus, updateVendorStatus: $updateVendorStatus)';
+    return 'HomeState(subscription: $subscription, status: $status, errorMessage: $errorMessage, vendors: $vendors, selectedVendor: $selectedVendor, getVendorsStatus: $getVendorsStatus, getSubscriptionStatus: $getSubscriptionStatus, updateVendorStatus: $updateVendorStatus, todayMenuItems: $todayMenuItems, getTodayMenuStatus: $getTodayMenuStatus)';
   }
 }
 
@@ -83,7 +91,9 @@ abstract mixin class $HomeStateCopyWith<$Res> {
       Vendor? selectedVendor,
       AppStatus getVendorsStatus,
       AppStatus getSubscriptionStatus,
-      AppStatus updateVendorStatus});
+      AppStatus updateVendorStatus,
+      List<MenuItem> todayMenuItems,
+      AppStatus getTodayMenuStatus});
 
   $SubscriptionCopyWith<$Res>? get subscription;
   $VendorCopyWith<$Res>? get selectedVendor;
@@ -109,6 +119,8 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object? getVendorsStatus = null,
     Object? getSubscriptionStatus = null,
     Object? updateVendorStatus = null,
+    Object? todayMenuItems = null,
+    Object? getTodayMenuStatus = null,
   }) {
     return _then(_self.copyWith(
       subscription: freezed == subscription
@@ -142,6 +154,14 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
       updateVendorStatus: null == updateVendorStatus
           ? _self.updateVendorStatus
           : updateVendorStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      todayMenuItems: null == todayMenuItems
+          ? _self.todayMenuItems
+          : todayMenuItems // ignore: cast_nullable_to_non_nullable
+              as List<MenuItem>,
+      getTodayMenuStatus: null == getTodayMenuStatus
+          ? _self.getTodayMenuStatus
+          : getTodayMenuStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
     ));
   }
@@ -186,8 +206,11 @@ class _HomeState implements HomeState {
       this.selectedVendor,
       this.getVendorsStatus = AppStatus.init,
       this.getSubscriptionStatus = AppStatus.init,
-      this.updateVendorStatus = AppStatus.init})
-      : _vendors = vendors;
+      this.updateVendorStatus = AppStatus.init,
+      final List<MenuItem> todayMenuItems = const [],
+      this.getTodayMenuStatus = AppStatus.init})
+      : _vendors = vendors,
+        _todayMenuItems = todayMenuItems;
 
   @override
   final Subscription? subscription;
@@ -216,6 +239,18 @@ class _HomeState implements HomeState {
   @override
   @JsonKey()
   final AppStatus updateVendorStatus;
+  final List<MenuItem> _todayMenuItems;
+  @override
+  @JsonKey()
+  List<MenuItem> get todayMenuItems {
+    if (_todayMenuItems is EqualUnmodifiableListView) return _todayMenuItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_todayMenuItems);
+  }
+
+  @override
+  @JsonKey()
+  final AppStatus getTodayMenuStatus;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -243,7 +278,11 @@ class _HomeState implements HomeState {
             (identical(other.getSubscriptionStatus, getSubscriptionStatus) ||
                 other.getSubscriptionStatus == getSubscriptionStatus) &&
             (identical(other.updateVendorStatus, updateVendorStatus) ||
-                other.updateVendorStatus == updateVendorStatus));
+                other.updateVendorStatus == updateVendorStatus) &&
+            const DeepCollectionEquality()
+                .equals(other._todayMenuItems, _todayMenuItems) &&
+            (identical(other.getTodayMenuStatus, getTodayMenuStatus) ||
+                other.getTodayMenuStatus == getTodayMenuStatus));
   }
 
   @override
@@ -256,11 +295,13 @@ class _HomeState implements HomeState {
       selectedVendor,
       getVendorsStatus,
       getSubscriptionStatus,
-      updateVendorStatus);
+      updateVendorStatus,
+      const DeepCollectionEquality().hash(_todayMenuItems),
+      getTodayMenuStatus);
 
   @override
   String toString() {
-    return 'HomeState(subscription: $subscription, status: $status, errorMessage: $errorMessage, vendors: $vendors, selectedVendor: $selectedVendor, getVendorsStatus: $getVendorsStatus, getSubscriptionStatus: $getSubscriptionStatus, updateVendorStatus: $updateVendorStatus)';
+    return 'HomeState(subscription: $subscription, status: $status, errorMessage: $errorMessage, vendors: $vendors, selectedVendor: $selectedVendor, getVendorsStatus: $getVendorsStatus, getSubscriptionStatus: $getSubscriptionStatus, updateVendorStatus: $updateVendorStatus, todayMenuItems: $todayMenuItems, getTodayMenuStatus: $getTodayMenuStatus)';
   }
 }
 
@@ -280,7 +321,9 @@ abstract mixin class _$HomeStateCopyWith<$Res>
       Vendor? selectedVendor,
       AppStatus getVendorsStatus,
       AppStatus getSubscriptionStatus,
-      AppStatus updateVendorStatus});
+      AppStatus updateVendorStatus,
+      List<MenuItem> todayMenuItems,
+      AppStatus getTodayMenuStatus});
 
   @override
   $SubscriptionCopyWith<$Res>? get subscription;
@@ -308,6 +351,8 @@ class __$HomeStateCopyWithImpl<$Res> implements _$HomeStateCopyWith<$Res> {
     Object? getVendorsStatus = null,
     Object? getSubscriptionStatus = null,
     Object? updateVendorStatus = null,
+    Object? todayMenuItems = null,
+    Object? getTodayMenuStatus = null,
   }) {
     return _then(_HomeState(
       subscription: freezed == subscription
@@ -341,6 +386,14 @@ class __$HomeStateCopyWithImpl<$Res> implements _$HomeStateCopyWith<$Res> {
       updateVendorStatus: null == updateVendorStatus
           ? _self.updateVendorStatus
           : updateVendorStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      todayMenuItems: null == todayMenuItems
+          ? _self._todayMenuItems
+          : todayMenuItems // ignore: cast_nullable_to_non_nullable
+              as List<MenuItem>,
+      getTodayMenuStatus: null == getTodayMenuStatus
+          ? _self.getTodayMenuStatus
+          : getTodayMenuStatus // ignore: cast_nullable_to_non_nullable
               as AppStatus,
     ));
   }

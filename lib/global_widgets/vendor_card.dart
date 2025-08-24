@@ -40,8 +40,7 @@ class VendorCard extends StatelessWidget {
                     borderRadius:
                         const BorderRadius.vertical(top: Radius.circular(12)),
                     child: CachedNetworkImage(
-                      imageUrl:
-                          "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=3348&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                      imageUrl: vendor.profilePhotoUrl,
                       height: 100,
                       width: double.infinity,
                       fit: BoxFit.cover,

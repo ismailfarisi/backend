@@ -23,8 +23,8 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     try {
       emit(state.copyWith(loginStatus: AppStatus.loading));
-      final result = await _authRepo.loginWithUsername(
-          userName: email, password: password);
+      final result =
+          await _authRepo.login({'email': email, 'password': password});
       switch (result) {
         case (Success s):
           emit(state.copyWith(loginStatus: AppStatus.success));

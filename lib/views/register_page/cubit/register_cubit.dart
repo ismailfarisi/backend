@@ -26,12 +26,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     try {
       emit(state.copyWith(status: AppStatus.loading));
 
-      final result = await _authRepo.register(
-        email: email,
-        password: password,
-        fullName: fullName,
-        phone: phone,
-      );
+      final result = await _authRepo.register({
+        'email': email,
+        'password': password,
+        'name': fullName, // Assuming the API expects 'name' for full name
+        'phone': phone,
+      });
 
       switch (result) {
         case (Success s):

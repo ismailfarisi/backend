@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:meal_app/views/home_page/home_page.dart';
 
 import '../../global_widgets/custom_button.dart';
 import '../../global_widgets/custom_textfield.dart';
@@ -46,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
           listener: (context, state) {
             if (state.status == AppStatus.success) {
               // Navigate to home page
-              Navigator.pushReplacementNamed(context, '/home');
+              context.pushReplacementNamed(HomePage.routeName);
             } else if (state.status == AppStatus.failure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.error ?? 'Registration failed')),

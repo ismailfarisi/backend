@@ -11,7 +11,7 @@ part 'vendor_detail_cubit.freezed.dart';
 
 @injectable
 class VendorDetailCubit extends Cubit<VendorDetailState> {
-  VendorDetailCubit({required Vendor vendor})
+  VendorDetailCubit({@factoryParam required Vendor vendor})
       : super(VendorDetailState(vendor: vendor)) {
     loadWeeklyMenu();
   }

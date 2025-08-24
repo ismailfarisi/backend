@@ -58,9 +58,15 @@ class BottomNavBar extends StatelessWidget {
   }
 
   int _calculateSelectedIndex(String location) {
-    Logger().d(location);
+    // DIAGNOSTIC: Replace Logger with print to avoid potential Logger issues
+    print('🐛 BottomNavBar location: $location');
+    print('🐛 HomePage.routeName: ${HomePage.routeName}');
+    print('🐛 OrdersPage.routeName: ${OrdersPage.routeName}');
+    print('🐛 ProfilePage.routeName: ${ProfilePage.routeName}');
+
     if (location.contains(HomePage.routeName)) return 0;
-    if (location.startsWith("ghtr")) return 1;
+    if (location.startsWith("/search") || location.startsWith("ghtr"))
+      return 1; // DIAGNOSTIC: Added proper search route
     if (location.contains(OrdersPage.routeName)) return 2;
     if (location.contains(ProfilePage.routeName)) return 3;
     return 0;

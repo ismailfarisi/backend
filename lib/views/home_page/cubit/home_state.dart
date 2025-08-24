@@ -11,5 +11,7 @@ abstract class HomeState with _$HomeState {
     @Default(AppStatus.init) AppStatus getVendorsStatus,
     @Default(AppStatus.init) AppStatus getSubscriptionStatus,
     @Default(AppStatus.init) AppStatus updateVendorStatus,
+    @Default([]) List<MenuItem> todayMenuItems,
+    @Default(AppStatus.init) AppStatus getTodayMenuStatus,
   }) = _HomeState;
 }

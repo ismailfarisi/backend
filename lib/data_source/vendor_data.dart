@@ -7,6 +7,7 @@ import 'package:meal_app/models/subscription_meal_selection.dart';
 import '../models/menu_item.dart';
 import '../models/subscription.dart';
 import '../models/vendor.dart';
+import '../models/vendor_menu.dart';
 import '../utils/api_error.dart';
 import '../utils/result.dart';
 
@@ -50,10 +51,28 @@ class VendorData implements VendorRepo {
   }
 
   @override
-  Future<Result<WeeklyMenu>> getWeeklyMenu(String vendorId) async {
+  Future<Result<VendorMenu>> getWeeklyMenu(String vendorId) async {
     try {
-      final response = await _dio.get('/v1/vendors/$vendorId/weekly-menu');
-      final menu = WeeklyMenu.fromJson(response.data);
+      final response = await _dio.get('/vendor-menu/by-vendor/$vendorId');
+      Logger().d("Raw API Response: ${response.data}");
+      Logger().d("Response type: ${response.data.runtimeType}");
+
+      // Check if response is an array and extract the first item
+      dynamic menuData;
+      if (response.data is List) {
+        Logger().d(
+            "Response is a List with ${(response.data as List).length} items");
+        if ((response.data as List).isNotEmpty) {
+          menuData = (response.data as List).first;
+          Logger().d("Extracted menu data: $menuData");
+        } else {
+          throw Exception("Empty array returned from API");
+        }
+      } else {
+        menuData = response.data;
+      }
+
+      final menu = VendorMenu.fromJson(menuData);
       return Success(menu);
     } catch (e, stack) {
       return onError(e, stack, log);

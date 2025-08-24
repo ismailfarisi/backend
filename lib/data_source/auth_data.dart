@@ -14,21 +14,18 @@ class AuthData implements AuthRepo {
   final _notification = FirebaseMessaging.instance;
 
   AuthData({required Dio dio}) : _dio = dio;
+
   @override
-  Future<Result<User>> loginWithUsername(
-      {required String userName, required String password}) async {
+  Future<Result<User>> login(Map<String, dynamic> credentials) async {
     try {
-      var loginResponse = await _dio.post(
-        'auth/login',
-        data: {
-          "email": userName,
-          "password": password,
-          // "notification_token": await _notification.getToken()
-        },
-      );
-      Map<String, dynamic> data = loginResponse.data;
-      log.d(data);
-      User user = User.fromJson(data['user']);
+      // Assuming credentials map contains 'email' and 'password'
+      // Add notification_token if needed
+      // final String? notificationToken = await _notification.getToken();
+      // if (notificationToken != null) {
+      //   credentials['notification_token'] = notificationToken;
+      // }
+      final response = await _dio.post('auth/login', data: credentials);
+      User user = User.fromJson(response.data['user']);
       return Success(user);
     } catch (e, stack) {
       return onError(e, stack, log);
@@ -36,26 +33,15 @@ class AuthData implements AuthRepo {
   }
 
   @override
-  Future<Result<User>> register({
-    required String email,
-    required String password,
-    required String fullName,
-    required String phone,
-  }) async {
+  Future<Result<User>> register(Map<String, dynamic> userData) async {
     try {
-      final response = await _dio.post(
-        'auth/register',
-        data: {
-          "email": email,
-          "password": password,
-          "name": fullName,
-          "phone": phone,
-          // "notification_token": await _notification.getToken()
-        },
-      );
-
-      Map<String, dynamic> data = response.data;
-      User user = User.fromJson(data['user']);
+      // Add notification_token if needed
+      // final String? notificationToken = await _notification.getToken();
+      // if (notificationToken != null) {
+      //   userData['notification_token'] = notificationToken;
+      // }
+      final response = await _dio.post('auth/register', data: userData);
+      User user = User.fromJson(response.data['user']);
       return Success(user);
     } catch (e, stack) {
       return onError(e, stack, log);
@@ -63,17 +49,56 @@ class AuthData implements AuthRepo {
   }
 
   @override
-  Future<Result<User>> getLoggedInUser() async {
+  Future<Result<User>> getMe() async {
     try {
-      var loginResponse = await _dio.get(
-        'auth/me',
-      );
-      Map<String, dynamic> data = loginResponse.data;
-      log.d(data);
-      User user = User.fromJson(data);
+      final response = await _dio.get('auth/me');
+      User user = User.fromJson(
+          response.data['data']); // Assuming data is nested under 'data'
       return Success(user);
     } catch (e, stack) {
       return onError(e, stack, log);
+    }
+  }
+
+  @override
+  Future<Result<User>> getProfile() async {
+    try {
+      final response = await _dio.get('auth/profile');
+      User user = User.fromJson(
+          response.data['data']); // Assuming data is nested under 'data'
+      return Success(user);
+    } catch (e, stack) {
+      return onError(e, stack, log);
+    }
+  }
+
+  @override
+  Future<Result<void>> logout() async {
+    try {
+      await _dio.post('auth/logout');
+      return Success(null);
+    } catch (e, stack) {
+      return onError(e, stack, log);
+    }
+  }
+
+  @override
+  Future<Result<bool>> validateToken() async {
+    try {
+      final response = await _dio.get('auth/validate');
+      // Assuming the response for a successful validation is a 2xx status
+      // and might contain a boolean or just rely on status code.
+      // For this example, let's assume a 200 OK means valid.
+      if (response.statusCode == 200 || response.statusCode == 204) {
+        return Success(true);
+      } else {
+        // Or handle specific error codes that mean invalid token
+        return Success(false);
+      }
+    } catch (e, stack) {
+      // If any error (like 401 Unauthorized), token is likely invalid
+      log.e('Token validation error', error: e, stackTrace: stack);
+      return Success(false); // Or return an Error result
     }
   }
 }

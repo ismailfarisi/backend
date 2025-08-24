@@ -4,13 +4,14 @@ import 'package:meal_app/models/subscription_meal_selection.dart';
 import '../models/menu_item.dart';
 import '../models/subscription.dart';
 import '../models/vendor.dart';
+import '../models/vendor_menu.dart';
 import '../utils/result.dart';
 
 abstract class VendorRepo {
   Future<Result<Subscription?>> getCurrentSubscription();
   Future<Result<List<Vendor>>> getRecommendedVendors(
       {required double lat, required double long});
-  Future<Result<WeeklyMenu>> getWeeklyMenu(String vendorId);
+  Future<Result<VendorMenu>> getWeeklyMenu(String vendorId);
   Future<Result<List<Vendor>>> getVendorsByMealType({
     required double lat,
     required double long,
