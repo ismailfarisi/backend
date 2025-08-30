@@ -21,7 +21,6 @@ class TokenInterceptor extends InterceptorsWrapper {
     if (_token != null && options.headers["Authorization"] == null) {
       options.headers['Authorization'] = 'Bearer $_token';
     }
-    options.headers['origin'] = 'https://agent.alba.homes';
     if (options.path == '/device/auth/logout') {
       deleteToken();
     }

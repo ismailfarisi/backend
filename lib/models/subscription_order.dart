@@ -39,7 +39,9 @@ enum SubscriptionStatus {
   active,
   paused,
   cancelled,
-  expired;
+  expired,
+  pending,
+  completed;
 
   String get displayName {
     switch (this) {
@@ -51,6 +53,10 @@ enum SubscriptionStatus {
         return 'Cancelled';
       case SubscriptionStatus.expired:
         return 'Expired';
+      case SubscriptionStatus.pending:
+        return 'Pending';
+      case SubscriptionStatus.completed:
+        return 'Completed';
     }
   }
 
@@ -64,6 +70,10 @@ enum SubscriptionStatus {
         return Colors.red;
       case SubscriptionStatus.expired:
         return Colors.grey;
+      case SubscriptionStatus.pending:
+        return Colors.blue;
+      case SubscriptionStatus.completed:
+        return Colors.teal;
     }
   }
 }

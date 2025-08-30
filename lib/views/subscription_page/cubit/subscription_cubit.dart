@@ -130,16 +130,17 @@ class SubscriptionCubit extends Cubit<SubscriptionState> {
       final subscriptionMealSelections = state.selectedMealTypes.map((type) {
         final selectedVendorIds = state.selectedVendors?[type] ?? [];
         return SubscriptionMealSelection(
-          mealType: type,
-          vendorIds: selectedVendorIds,
+          dayOfWeek: 'Monday', // Default to Monday
+          menuItemId: 'default_item', // Default menu item
         );
       }).toList();
 
       // Convert to MealVendorSelection for the Subscription model
       final mealVendorSelections = subscriptionMealSelections.map((selection) {
         return MealVendorSelection(
-          mealType: selection.mealType,
-          vendorIds: selection.vendorIds,
+          mealType:
+              state.selectedMealTypes.first, // Use first meal type as default
+          vendorIds: const ['default_vendor'], // Default vendor list
         );
       }).toList();
 

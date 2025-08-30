@@ -19,9 +19,9 @@ mixin _$Vendor {
   String get name;
   String get businessName;
   String? get address;
-  String get phone;
+  String? get phone;
   double get rating;
-  int get totalRatings;
+  dynamic get totalRatings;
   String get profilePhotoUrl;
   String get coverPhotoUrl;
   List<String> get cuisineTypes;
@@ -54,8 +54,8 @@ mixin _$Vendor {
             (identical(other.address, address) || other.address == address) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.totalRatings, totalRatings) ||
-                other.totalRatings == totalRatings) &&
+            const DeepCollectionEquality()
+                .equals(other.totalRatings, totalRatings) &&
             (identical(other.profilePhotoUrl, profilePhotoUrl) ||
                 other.profilePhotoUrl == profilePhotoUrl) &&
             (identical(other.coverPhotoUrl, coverPhotoUrl) ||
@@ -83,7 +83,7 @@ mixin _$Vendor {
       address,
       phone,
       rating,
-      totalRatings,
+      const DeepCollectionEquality().hash(totalRatings),
       profilePhotoUrl,
       coverPhotoUrl,
       const DeepCollectionEquality().hash(cuisineTypes),
@@ -110,9 +110,9 @@ abstract mixin class $VendorCopyWith<$Res> {
       String name,
       String businessName,
       String? address,
-      String phone,
+      String? phone,
       double rating,
-      int totalRatings,
+      dynamic totalRatings,
       String profilePhotoUrl,
       String coverPhotoUrl,
       List<String> cuisineTypes,
@@ -140,9 +140,9 @@ class _$VendorCopyWithImpl<$Res> implements $VendorCopyWith<$Res> {
     Object? name = null,
     Object? businessName = null,
     Object? address = freezed,
-    Object? phone = null,
+    Object? phone = freezed,
     Object? rating = null,
-    Object? totalRatings = null,
+    Object? totalRatings = freezed,
     Object? profilePhotoUrl = null,
     Object? coverPhotoUrl = null,
     Object? cuisineTypes = null,
@@ -170,18 +170,18 @@ class _$VendorCopyWithImpl<$Res> implements $VendorCopyWith<$Res> {
           ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: null == phone
+      phone: freezed == phone
           ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       rating: null == rating
           ? _self.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      totalRatings: null == totalRatings
+      totalRatings: freezed == totalRatings
           ? _self.totalRatings
           : totalRatings // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       profilePhotoUrl: null == profilePhotoUrl
           ? _self.profilePhotoUrl
           : profilePhotoUrl // ignore: cast_nullable_to_non_nullable
@@ -230,9 +230,9 @@ class _Vendor implements Vendor {
       required this.name,
       required this.businessName,
       this.address,
-      required this.phone,
-      required this.rating,
-      required this.totalRatings,
+      this.phone,
+      this.rating = 0,
+      this.totalRatings = 0,
       required this.profilePhotoUrl,
       required this.coverPhotoUrl,
       final List<String> cuisineTypes = const [],
@@ -257,11 +257,13 @@ class _Vendor implements Vendor {
   @override
   final String? address;
   @override
-  final String phone;
+  final String? phone;
   @override
+  @JsonKey()
   final double rating;
   @override
-  final int totalRatings;
+  @JsonKey()
+  final dynamic totalRatings;
   @override
   final String profilePhotoUrl;
   @override
@@ -337,8 +339,8 @@ class _Vendor implements Vendor {
             (identical(other.address, address) || other.address == address) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.totalRatings, totalRatings) ||
-                other.totalRatings == totalRatings) &&
+            const DeepCollectionEquality()
+                .equals(other.totalRatings, totalRatings) &&
             (identical(other.profilePhotoUrl, profilePhotoUrl) ||
                 other.profilePhotoUrl == profilePhotoUrl) &&
             (identical(other.coverPhotoUrl, coverPhotoUrl) ||
@@ -367,7 +369,7 @@ class _Vendor implements Vendor {
       address,
       phone,
       rating,
-      totalRatings,
+      const DeepCollectionEquality().hash(totalRatings),
       profilePhotoUrl,
       coverPhotoUrl,
       const DeepCollectionEquality().hash(_cuisineTypes),
@@ -395,9 +397,9 @@ abstract mixin class _$VendorCopyWith<$Res> implements $VendorCopyWith<$Res> {
       String name,
       String businessName,
       String? address,
-      String phone,
+      String? phone,
       double rating,
-      int totalRatings,
+      dynamic totalRatings,
       String profilePhotoUrl,
       String coverPhotoUrl,
       List<String> cuisineTypes,
@@ -425,9 +427,9 @@ class __$VendorCopyWithImpl<$Res> implements _$VendorCopyWith<$Res> {
     Object? name = null,
     Object? businessName = null,
     Object? address = freezed,
-    Object? phone = null,
+    Object? phone = freezed,
     Object? rating = null,
-    Object? totalRatings = null,
+    Object? totalRatings = freezed,
     Object? profilePhotoUrl = null,
     Object? coverPhotoUrl = null,
     Object? cuisineTypes = null,
@@ -455,18 +457,18 @@ class __$VendorCopyWithImpl<$Res> implements _$VendorCopyWith<$Res> {
           ? _self.address
           : address // ignore: cast_nullable_to_non_nullable
               as String?,
-      phone: null == phone
+      phone: freezed == phone
           ? _self.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       rating: null == rating
           ? _self.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      totalRatings: null == totalRatings
+      totalRatings: freezed == totalRatings
           ? _self.totalRatings
           : totalRatings // ignore: cast_nullable_to_non_nullable
-              as int,
+              as dynamic,
       profilePhotoUrl: null == profilePhotoUrl
           ? _self.profilePhotoUrl
           : profilePhotoUrl // ignore: cast_nullable_to_non_nullable

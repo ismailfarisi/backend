@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:logger/logger.dart';
 import 'package:meal_app/injection/injection.dart';
 import 'package:meal_app/utils/enums.dart';
 import 'package:meal_app/views/home_page/home_page.dart';
@@ -34,6 +35,7 @@ class _LoginPageState extends State<LoginPage> {
           listener: (context, state) {
             if (state.loginStatus == AppStatus.success) {
               if (context.canPop()) {
+                Logger().d("ddddddddd");
                 context.pop();
               } else {
                 context.pushReplacementNamed(HomePage.routeName);

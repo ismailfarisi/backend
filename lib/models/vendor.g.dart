@@ -11,9 +11,9 @@ _Vendor _$VendorFromJson(Map<String, dynamic> json) => _Vendor(
       name: json['name'] as String,
       businessName: json['businessName'] as String,
       address: json['address'] as String?,
-      phone: json['phone'] as String,
-      rating: (json['rating'] as num).toDouble(),
-      totalRatings: (json['totalRatings'] as num).toInt(),
+      phone: json['phone'] as String?,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0,
+      totalRatings: json['totalRatings'] ?? 0,
       profilePhotoUrl: json['profilePhotoUrl'] as String,
       coverPhotoUrl: json['coverPhotoUrl'] as String,
       cuisineTypes: (json['cuisineTypes'] as List<dynamic>?)

@@ -21,7 +21,26 @@ mixin _$VendorDetailState {
   AppStatus get menuStatus;
   String? get errorMessage;
   int get selectedDayIndex;
-  MenuItem? get selectedMenuItem;
+  MenuItem? get selectedMenuItem; // Subscription-related fields
+  DateTime? get selectedSubscriptionStartDate;
+  List<SubscriptionMealSelection> get selectedMeals;
+  double get subscriptionCost;
+  bool get isCreatingSubscription;
+  String? get subscriptionError;
+  bool
+      get subscriptionCreatedSuccessfully; // Enhanced validation and pricing fields
+  List<String> get validationWarnings;
+  SubscriptionPricingResult?
+      get pricingDetails; // Multi-vendor subscription fields
+  List<Vendor> get availableVendors;
+  Map<int, Vendor> get selectedVendorsByWeek;
+  List<WeeklyVendorAssignment> get weeklyAssignments;
+  double get multiVendorCost;
+  Map<int, double> get weeklyVendorCosts;
+  MonthlySubscriptionType get currentSubscriptionType;
+  AppStatus get vendorLoadingStatus; // Enhanced state management fields
+  AppStatus get validationStatus;
+  AppStatus get pricingStatus;
 
   /// Create a copy of VendorDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -47,16 +66,80 @@ mixin _$VendorDetailState {
             (identical(other.selectedDayIndex, selectedDayIndex) ||
                 other.selectedDayIndex == selectedDayIndex) &&
             (identical(other.selectedMenuItem, selectedMenuItem) ||
-                other.selectedMenuItem == selectedMenuItem));
+                other.selectedMenuItem == selectedMenuItem) &&
+            (identical(other.selectedSubscriptionStartDate,
+                    selectedSubscriptionStartDate) ||
+                other.selectedSubscriptionStartDate ==
+                    selectedSubscriptionStartDate) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedMeals, selectedMeals) &&
+            (identical(other.subscriptionCost, subscriptionCost) ||
+                other.subscriptionCost == subscriptionCost) &&
+            (identical(other.isCreatingSubscription, isCreatingSubscription) ||
+                other.isCreatingSubscription == isCreatingSubscription) &&
+            (identical(other.subscriptionError, subscriptionError) ||
+                other.subscriptionError == subscriptionError) &&
+            (identical(other.subscriptionCreatedSuccessfully,
+                    subscriptionCreatedSuccessfully) ||
+                other.subscriptionCreatedSuccessfully ==
+                    subscriptionCreatedSuccessfully) &&
+            const DeepCollectionEquality()
+                .equals(other.validationWarnings, validationWarnings) &&
+            (identical(other.pricingDetails, pricingDetails) ||
+                other.pricingDetails == pricingDetails) &&
+            const DeepCollectionEquality()
+                .equals(other.availableVendors, availableVendors) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedVendorsByWeek, selectedVendorsByWeek) &&
+            const DeepCollectionEquality()
+                .equals(other.weeklyAssignments, weeklyAssignments) &&
+            (identical(other.multiVendorCost, multiVendorCost) ||
+                other.multiVendorCost == multiVendorCost) &&
+            const DeepCollectionEquality()
+                .equals(other.weeklyVendorCosts, weeklyVendorCosts) &&
+            (identical(
+                    other.currentSubscriptionType, currentSubscriptionType) ||
+                other.currentSubscriptionType == currentSubscriptionType) &&
+            (identical(other.vendorLoadingStatus, vendorLoadingStatus) ||
+                other.vendorLoadingStatus == vendorLoadingStatus) &&
+            (identical(other.validationStatus, validationStatus) ||
+                other.validationStatus == validationStatus) &&
+            (identical(other.pricingStatus, pricingStatus) ||
+                other.pricingStatus == pricingStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, vendor, weeklyMenu, status,
-      menuStatus, errorMessage, selectedDayIndex, selectedMenuItem);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        vendor,
+        weeklyMenu,
+        status,
+        menuStatus,
+        errorMessage,
+        selectedDayIndex,
+        selectedMenuItem,
+        selectedSubscriptionStartDate,
+        const DeepCollectionEquality().hash(selectedMeals),
+        subscriptionCost,
+        isCreatingSubscription,
+        subscriptionError,
+        subscriptionCreatedSuccessfully,
+        const DeepCollectionEquality().hash(validationWarnings),
+        pricingDetails,
+        const DeepCollectionEquality().hash(availableVendors),
+        const DeepCollectionEquality().hash(selectedVendorsByWeek),
+        const DeepCollectionEquality().hash(weeklyAssignments),
+        multiVendorCost,
+        const DeepCollectionEquality().hash(weeklyVendorCosts),
+        currentSubscriptionType,
+        vendorLoadingStatus,
+        validationStatus,
+        pricingStatus
+      ]);
 
   @override
   String toString() {
-    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem)';
+    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem, selectedSubscriptionStartDate: $selectedSubscriptionStartDate, selectedMeals: $selectedMeals, subscriptionCost: $subscriptionCost, isCreatingSubscription: $isCreatingSubscription, subscriptionError: $subscriptionError, subscriptionCreatedSuccessfully: $subscriptionCreatedSuccessfully, validationWarnings: $validationWarnings, pricingDetails: $pricingDetails, availableVendors: $availableVendors, selectedVendorsByWeek: $selectedVendorsByWeek, weeklyAssignments: $weeklyAssignments, multiVendorCost: $multiVendorCost, weeklyVendorCosts: $weeklyVendorCosts, currentSubscriptionType: $currentSubscriptionType, vendorLoadingStatus: $vendorLoadingStatus, validationStatus: $validationStatus, pricingStatus: $pricingStatus)';
   }
 }
 
@@ -73,7 +156,24 @@ abstract mixin class $VendorDetailStateCopyWith<$Res> {
       AppStatus menuStatus,
       String? errorMessage,
       int selectedDayIndex,
-      MenuItem? selectedMenuItem});
+      MenuItem? selectedMenuItem,
+      DateTime? selectedSubscriptionStartDate,
+      List<SubscriptionMealSelection> selectedMeals,
+      double subscriptionCost,
+      bool isCreatingSubscription,
+      String? subscriptionError,
+      bool subscriptionCreatedSuccessfully,
+      List<String> validationWarnings,
+      SubscriptionPricingResult? pricingDetails,
+      List<Vendor> availableVendors,
+      Map<int, Vendor> selectedVendorsByWeek,
+      List<WeeklyVendorAssignment> weeklyAssignments,
+      double multiVendorCost,
+      Map<int, double> weeklyVendorCosts,
+      MonthlySubscriptionType currentSubscriptionType,
+      AppStatus vendorLoadingStatus,
+      AppStatus validationStatus,
+      AppStatus pricingStatus});
 
   $VendorCopyWith<$Res> get vendor;
   $WeeklyMenuCopyWith<$Res>? get weeklyMenu;
@@ -100,6 +200,23 @@ class _$VendorDetailStateCopyWithImpl<$Res>
     Object? errorMessage = freezed,
     Object? selectedDayIndex = null,
     Object? selectedMenuItem = freezed,
+    Object? selectedSubscriptionStartDate = freezed,
+    Object? selectedMeals = null,
+    Object? subscriptionCost = null,
+    Object? isCreatingSubscription = null,
+    Object? subscriptionError = freezed,
+    Object? subscriptionCreatedSuccessfully = null,
+    Object? validationWarnings = null,
+    Object? pricingDetails = freezed,
+    Object? availableVendors = null,
+    Object? selectedVendorsByWeek = null,
+    Object? weeklyAssignments = null,
+    Object? multiVendorCost = null,
+    Object? weeklyVendorCosts = null,
+    Object? currentSubscriptionType = null,
+    Object? vendorLoadingStatus = null,
+    Object? validationStatus = null,
+    Object? pricingStatus = null,
   }) {
     return _then(_self.copyWith(
       vendor: null == vendor
@@ -130,6 +247,74 @@ class _$VendorDetailStateCopyWithImpl<$Res>
           ? _self.selectedMenuItem
           : selectedMenuItem // ignore: cast_nullable_to_non_nullable
               as MenuItem?,
+      selectedSubscriptionStartDate: freezed == selectedSubscriptionStartDate
+          ? _self.selectedSubscriptionStartDate
+          : selectedSubscriptionStartDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      selectedMeals: null == selectedMeals
+          ? _self.selectedMeals
+          : selectedMeals // ignore: cast_nullable_to_non_nullable
+              as List<SubscriptionMealSelection>,
+      subscriptionCost: null == subscriptionCost
+          ? _self.subscriptionCost
+          : subscriptionCost // ignore: cast_nullable_to_non_nullable
+              as double,
+      isCreatingSubscription: null == isCreatingSubscription
+          ? _self.isCreatingSubscription
+          : isCreatingSubscription // ignore: cast_nullable_to_non_nullable
+              as bool,
+      subscriptionError: freezed == subscriptionError
+          ? _self.subscriptionError
+          : subscriptionError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subscriptionCreatedSuccessfully: null == subscriptionCreatedSuccessfully
+          ? _self.subscriptionCreatedSuccessfully
+          : subscriptionCreatedSuccessfully // ignore: cast_nullable_to_non_nullable
+              as bool,
+      validationWarnings: null == validationWarnings
+          ? _self.validationWarnings
+          : validationWarnings // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pricingDetails: freezed == pricingDetails
+          ? _self.pricingDetails
+          : pricingDetails // ignore: cast_nullable_to_non_nullable
+              as SubscriptionPricingResult?,
+      availableVendors: null == availableVendors
+          ? _self.availableVendors
+          : availableVendors // ignore: cast_nullable_to_non_nullable
+              as List<Vendor>,
+      selectedVendorsByWeek: null == selectedVendorsByWeek
+          ? _self.selectedVendorsByWeek
+          : selectedVendorsByWeek // ignore: cast_nullable_to_non_nullable
+              as Map<int, Vendor>,
+      weeklyAssignments: null == weeklyAssignments
+          ? _self.weeklyAssignments
+          : weeklyAssignments // ignore: cast_nullable_to_non_nullable
+              as List<WeeklyVendorAssignment>,
+      multiVendorCost: null == multiVendorCost
+          ? _self.multiVendorCost
+          : multiVendorCost // ignore: cast_nullable_to_non_nullable
+              as double,
+      weeklyVendorCosts: null == weeklyVendorCosts
+          ? _self.weeklyVendorCosts
+          : weeklyVendorCosts // ignore: cast_nullable_to_non_nullable
+              as Map<int, double>,
+      currentSubscriptionType: null == currentSubscriptionType
+          ? _self.currentSubscriptionType
+          : currentSubscriptionType // ignore: cast_nullable_to_non_nullable
+              as MonthlySubscriptionType,
+      vendorLoadingStatus: null == vendorLoadingStatus
+          ? _self.vendorLoadingStatus
+          : vendorLoadingStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      validationStatus: null == validationStatus
+          ? _self.validationStatus
+          : validationStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      pricingStatus: null == pricingStatus
+          ? _self.pricingStatus
+          : pricingStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
     ));
   }
 
@@ -182,7 +367,30 @@ class _VendorDetailState implements VendorDetailState {
       this.menuStatus = AppStatus.init,
       this.errorMessage,
       this.selectedDayIndex = 0,
-      this.selectedMenuItem});
+      this.selectedMenuItem,
+      this.selectedSubscriptionStartDate,
+      final List<SubscriptionMealSelection> selectedMeals = const [],
+      this.subscriptionCost = 0.0,
+      this.isCreatingSubscription = false,
+      this.subscriptionError,
+      this.subscriptionCreatedSuccessfully = false,
+      final List<String> validationWarnings = const [],
+      this.pricingDetails,
+      final List<Vendor> availableVendors = const [],
+      final Map<int, Vendor> selectedVendorsByWeek = const {},
+      final List<WeeklyVendorAssignment> weeklyAssignments = const [],
+      this.multiVendorCost = 0.0,
+      final Map<int, double> weeklyVendorCosts = const {},
+      this.currentSubscriptionType = MonthlySubscriptionType.singleVendor,
+      this.vendorLoadingStatus = AppStatus.init,
+      this.validationStatus = AppStatus.init,
+      this.pricingStatus = AppStatus.init})
+      : _selectedMeals = selectedMeals,
+        _validationWarnings = validationWarnings,
+        _availableVendors = availableVendors,
+        _selectedVendorsByWeek = selectedVendorsByWeek,
+        _weeklyAssignments = weeklyAssignments,
+        _weeklyVendorCosts = weeklyVendorCosts;
 
   @override
   final Vendor vendor;
@@ -201,6 +409,101 @@ class _VendorDetailState implements VendorDetailState {
   final int selectedDayIndex;
   @override
   final MenuItem? selectedMenuItem;
+// Subscription-related fields
+  @override
+  final DateTime? selectedSubscriptionStartDate;
+  final List<SubscriptionMealSelection> _selectedMeals;
+  @override
+  @JsonKey()
+  List<SubscriptionMealSelection> get selectedMeals {
+    if (_selectedMeals is EqualUnmodifiableListView) return _selectedMeals;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedMeals);
+  }
+
+  @override
+  @JsonKey()
+  final double subscriptionCost;
+  @override
+  @JsonKey()
+  final bool isCreatingSubscription;
+  @override
+  final String? subscriptionError;
+  @override
+  @JsonKey()
+  final bool subscriptionCreatedSuccessfully;
+// Enhanced validation and pricing fields
+  final List<String> _validationWarnings;
+// Enhanced validation and pricing fields
+  @override
+  @JsonKey()
+  List<String> get validationWarnings {
+    if (_validationWarnings is EqualUnmodifiableListView)
+      return _validationWarnings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_validationWarnings);
+  }
+
+  @override
+  final SubscriptionPricingResult? pricingDetails;
+// Multi-vendor subscription fields
+  final List<Vendor> _availableVendors;
+// Multi-vendor subscription fields
+  @override
+  @JsonKey()
+  List<Vendor> get availableVendors {
+    if (_availableVendors is EqualUnmodifiableListView)
+      return _availableVendors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_availableVendors);
+  }
+
+  final Map<int, Vendor> _selectedVendorsByWeek;
+  @override
+  @JsonKey()
+  Map<int, Vendor> get selectedVendorsByWeek {
+    if (_selectedVendorsByWeek is EqualUnmodifiableMapView)
+      return _selectedVendorsByWeek;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_selectedVendorsByWeek);
+  }
+
+  final List<WeeklyVendorAssignment> _weeklyAssignments;
+  @override
+  @JsonKey()
+  List<WeeklyVendorAssignment> get weeklyAssignments {
+    if (_weeklyAssignments is EqualUnmodifiableListView)
+      return _weeklyAssignments;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_weeklyAssignments);
+  }
+
+  @override
+  @JsonKey()
+  final double multiVendorCost;
+  final Map<int, double> _weeklyVendorCosts;
+  @override
+  @JsonKey()
+  Map<int, double> get weeklyVendorCosts {
+    if (_weeklyVendorCosts is EqualUnmodifiableMapView)
+      return _weeklyVendorCosts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_weeklyVendorCosts);
+  }
+
+  @override
+  @JsonKey()
+  final MonthlySubscriptionType currentSubscriptionType;
+  @override
+  @JsonKey()
+  final AppStatus vendorLoadingStatus;
+// Enhanced state management fields
+  @override
+  @JsonKey()
+  final AppStatus validationStatus;
+  @override
+  @JsonKey()
+  final AppStatus pricingStatus;
 
   /// Create a copy of VendorDetailState
   /// with the given fields replaced by the non-null parameter values.
@@ -226,16 +529,80 @@ class _VendorDetailState implements VendorDetailState {
             (identical(other.selectedDayIndex, selectedDayIndex) ||
                 other.selectedDayIndex == selectedDayIndex) &&
             (identical(other.selectedMenuItem, selectedMenuItem) ||
-                other.selectedMenuItem == selectedMenuItem));
+                other.selectedMenuItem == selectedMenuItem) &&
+            (identical(other.selectedSubscriptionStartDate,
+                    selectedSubscriptionStartDate) ||
+                other.selectedSubscriptionStartDate ==
+                    selectedSubscriptionStartDate) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedMeals, _selectedMeals) &&
+            (identical(other.subscriptionCost, subscriptionCost) ||
+                other.subscriptionCost == subscriptionCost) &&
+            (identical(other.isCreatingSubscription, isCreatingSubscription) ||
+                other.isCreatingSubscription == isCreatingSubscription) &&
+            (identical(other.subscriptionError, subscriptionError) ||
+                other.subscriptionError == subscriptionError) &&
+            (identical(other.subscriptionCreatedSuccessfully,
+                    subscriptionCreatedSuccessfully) ||
+                other.subscriptionCreatedSuccessfully ==
+                    subscriptionCreatedSuccessfully) &&
+            const DeepCollectionEquality()
+                .equals(other._validationWarnings, _validationWarnings) &&
+            (identical(other.pricingDetails, pricingDetails) ||
+                other.pricingDetails == pricingDetails) &&
+            const DeepCollectionEquality()
+                .equals(other._availableVendors, _availableVendors) &&
+            const DeepCollectionEquality()
+                .equals(other._selectedVendorsByWeek, _selectedVendorsByWeek) &&
+            const DeepCollectionEquality()
+                .equals(other._weeklyAssignments, _weeklyAssignments) &&
+            (identical(other.multiVendorCost, multiVendorCost) ||
+                other.multiVendorCost == multiVendorCost) &&
+            const DeepCollectionEquality()
+                .equals(other._weeklyVendorCosts, _weeklyVendorCosts) &&
+            (identical(
+                    other.currentSubscriptionType, currentSubscriptionType) ||
+                other.currentSubscriptionType == currentSubscriptionType) &&
+            (identical(other.vendorLoadingStatus, vendorLoadingStatus) ||
+                other.vendorLoadingStatus == vendorLoadingStatus) &&
+            (identical(other.validationStatus, validationStatus) ||
+                other.validationStatus == validationStatus) &&
+            (identical(other.pricingStatus, pricingStatus) ||
+                other.pricingStatus == pricingStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, vendor, weeklyMenu, status,
-      menuStatus, errorMessage, selectedDayIndex, selectedMenuItem);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        vendor,
+        weeklyMenu,
+        status,
+        menuStatus,
+        errorMessage,
+        selectedDayIndex,
+        selectedMenuItem,
+        selectedSubscriptionStartDate,
+        const DeepCollectionEquality().hash(_selectedMeals),
+        subscriptionCost,
+        isCreatingSubscription,
+        subscriptionError,
+        subscriptionCreatedSuccessfully,
+        const DeepCollectionEquality().hash(_validationWarnings),
+        pricingDetails,
+        const DeepCollectionEquality().hash(_availableVendors),
+        const DeepCollectionEquality().hash(_selectedVendorsByWeek),
+        const DeepCollectionEquality().hash(_weeklyAssignments),
+        multiVendorCost,
+        const DeepCollectionEquality().hash(_weeklyVendorCosts),
+        currentSubscriptionType,
+        vendorLoadingStatus,
+        validationStatus,
+        pricingStatus
+      ]);
 
   @override
   String toString() {
-    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem)';
+    return 'VendorDetailState(vendor: $vendor, weeklyMenu: $weeklyMenu, status: $status, menuStatus: $menuStatus, errorMessage: $errorMessage, selectedDayIndex: $selectedDayIndex, selectedMenuItem: $selectedMenuItem, selectedSubscriptionStartDate: $selectedSubscriptionStartDate, selectedMeals: $selectedMeals, subscriptionCost: $subscriptionCost, isCreatingSubscription: $isCreatingSubscription, subscriptionError: $subscriptionError, subscriptionCreatedSuccessfully: $subscriptionCreatedSuccessfully, validationWarnings: $validationWarnings, pricingDetails: $pricingDetails, availableVendors: $availableVendors, selectedVendorsByWeek: $selectedVendorsByWeek, weeklyAssignments: $weeklyAssignments, multiVendorCost: $multiVendorCost, weeklyVendorCosts: $weeklyVendorCosts, currentSubscriptionType: $currentSubscriptionType, vendorLoadingStatus: $vendorLoadingStatus, validationStatus: $validationStatus, pricingStatus: $pricingStatus)';
   }
 }
 
@@ -254,7 +621,24 @@ abstract mixin class _$VendorDetailStateCopyWith<$Res>
       AppStatus menuStatus,
       String? errorMessage,
       int selectedDayIndex,
-      MenuItem? selectedMenuItem});
+      MenuItem? selectedMenuItem,
+      DateTime? selectedSubscriptionStartDate,
+      List<SubscriptionMealSelection> selectedMeals,
+      double subscriptionCost,
+      bool isCreatingSubscription,
+      String? subscriptionError,
+      bool subscriptionCreatedSuccessfully,
+      List<String> validationWarnings,
+      SubscriptionPricingResult? pricingDetails,
+      List<Vendor> availableVendors,
+      Map<int, Vendor> selectedVendorsByWeek,
+      List<WeeklyVendorAssignment> weeklyAssignments,
+      double multiVendorCost,
+      Map<int, double> weeklyVendorCosts,
+      MonthlySubscriptionType currentSubscriptionType,
+      AppStatus vendorLoadingStatus,
+      AppStatus validationStatus,
+      AppStatus pricingStatus});
 
   @override
   $VendorCopyWith<$Res> get vendor;
@@ -284,6 +668,23 @@ class __$VendorDetailStateCopyWithImpl<$Res>
     Object? errorMessage = freezed,
     Object? selectedDayIndex = null,
     Object? selectedMenuItem = freezed,
+    Object? selectedSubscriptionStartDate = freezed,
+    Object? selectedMeals = null,
+    Object? subscriptionCost = null,
+    Object? isCreatingSubscription = null,
+    Object? subscriptionError = freezed,
+    Object? subscriptionCreatedSuccessfully = null,
+    Object? validationWarnings = null,
+    Object? pricingDetails = freezed,
+    Object? availableVendors = null,
+    Object? selectedVendorsByWeek = null,
+    Object? weeklyAssignments = null,
+    Object? multiVendorCost = null,
+    Object? weeklyVendorCosts = null,
+    Object? currentSubscriptionType = null,
+    Object? vendorLoadingStatus = null,
+    Object? validationStatus = null,
+    Object? pricingStatus = null,
   }) {
     return _then(_VendorDetailState(
       vendor: null == vendor
@@ -314,6 +715,74 @@ class __$VendorDetailStateCopyWithImpl<$Res>
           ? _self.selectedMenuItem
           : selectedMenuItem // ignore: cast_nullable_to_non_nullable
               as MenuItem?,
+      selectedSubscriptionStartDate: freezed == selectedSubscriptionStartDate
+          ? _self.selectedSubscriptionStartDate
+          : selectedSubscriptionStartDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      selectedMeals: null == selectedMeals
+          ? _self._selectedMeals
+          : selectedMeals // ignore: cast_nullable_to_non_nullable
+              as List<SubscriptionMealSelection>,
+      subscriptionCost: null == subscriptionCost
+          ? _self.subscriptionCost
+          : subscriptionCost // ignore: cast_nullable_to_non_nullable
+              as double,
+      isCreatingSubscription: null == isCreatingSubscription
+          ? _self.isCreatingSubscription
+          : isCreatingSubscription // ignore: cast_nullable_to_non_nullable
+              as bool,
+      subscriptionError: freezed == subscriptionError
+          ? _self.subscriptionError
+          : subscriptionError // ignore: cast_nullable_to_non_nullable
+              as String?,
+      subscriptionCreatedSuccessfully: null == subscriptionCreatedSuccessfully
+          ? _self.subscriptionCreatedSuccessfully
+          : subscriptionCreatedSuccessfully // ignore: cast_nullable_to_non_nullable
+              as bool,
+      validationWarnings: null == validationWarnings
+          ? _self._validationWarnings
+          : validationWarnings // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      pricingDetails: freezed == pricingDetails
+          ? _self.pricingDetails
+          : pricingDetails // ignore: cast_nullable_to_non_nullable
+              as SubscriptionPricingResult?,
+      availableVendors: null == availableVendors
+          ? _self._availableVendors
+          : availableVendors // ignore: cast_nullable_to_non_nullable
+              as List<Vendor>,
+      selectedVendorsByWeek: null == selectedVendorsByWeek
+          ? _self._selectedVendorsByWeek
+          : selectedVendorsByWeek // ignore: cast_nullable_to_non_nullable
+              as Map<int, Vendor>,
+      weeklyAssignments: null == weeklyAssignments
+          ? _self._weeklyAssignments
+          : weeklyAssignments // ignore: cast_nullable_to_non_nullable
+              as List<WeeklyVendorAssignment>,
+      multiVendorCost: null == multiVendorCost
+          ? _self.multiVendorCost
+          : multiVendorCost // ignore: cast_nullable_to_non_nullable
+              as double,
+      weeklyVendorCosts: null == weeklyVendorCosts
+          ? _self._weeklyVendorCosts
+          : weeklyVendorCosts // ignore: cast_nullable_to_non_nullable
+              as Map<int, double>,
+      currentSubscriptionType: null == currentSubscriptionType
+          ? _self.currentSubscriptionType
+          : currentSubscriptionType // ignore: cast_nullable_to_non_nullable
+              as MonthlySubscriptionType,
+      vendorLoadingStatus: null == vendorLoadingStatus
+          ? _self.vendorLoadingStatus
+          : vendorLoadingStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      validationStatus: null == validationStatus
+          ? _self.validationStatus
+          : validationStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
+      pricingStatus: null == pricingStatus
+          ? _self.pricingStatus
+          : pricingStatus // ignore: cast_nullable_to_non_nullable
+              as AppStatus,
     ));
   }
 

@@ -8,6 +8,7 @@ import 'package:meal_app/app/auth_bloc/auth_bloc.dart';
 import 'package:meal_app/injection/injection.dart';
 import 'package:meal_app/models/user.dart';
 import 'package:meal_app/models/menu_item.dart'; // Added import
+import 'package:meal_app/views/vendor_detail_page/vendor_detail_page.dart';
 
 import '../../global_widgets/vendor_card.dart';
 import '../../utils/enums.dart';
@@ -505,7 +506,8 @@ class HomePage extends StatelessWidget {
             vendor: state.vendors[index],
             isSelected: state.selectedVendor == state.vendors[index],
             onTap: () {
-              context.read<HomeCubit>().selectVendor(state.vendors[index]);
+              context.pushNamed(VendorDetailPage.routeName,
+                  extra: state.vendors[index]);
             },
           );
         },

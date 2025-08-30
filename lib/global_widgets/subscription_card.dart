@@ -160,6 +160,8 @@ class SubscriptionCard extends StatelessWidget {
       SubscriptionStatus.paused => Colors.orange,
       SubscriptionStatus.cancelled => Colors.red,
       SubscriptionStatus.expired => Colors.grey,
+      SubscriptionStatus.pending => Colors.blue,
+      SubscriptionStatus.completed => Colors.teal,
     };
   }
 }

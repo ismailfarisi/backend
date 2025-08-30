@@ -37,6 +37,8 @@ const _$SubscriptionStatusEnumMap = {
   SubscriptionStatus.paused: 'paused',
   SubscriptionStatus.cancelled: 'cancelled',
   SubscriptionStatus.expired: 'expired',
+  SubscriptionStatus.pending: 'pending',
+  SubscriptionStatus.completed: 'completed',
 };
 
 _MealVendorSelection _$MealVendorSelectionFromJson(Map<String, dynamic> json) =>
