@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meal_app/models/vendor.dart';
+import 'package:meal_app/utils/onboarding_service.dart';
 import 'package:meal_app/views/home_layout/home_layout.dart';
 import 'package:meal_app/views/home_page/home_page.dart';
 import 'package:meal_app/views/login/login_page.dart';
@@ -10,6 +11,7 @@ import 'package:meal_app/views/order_page/order_page.dart';
 import 'package:meal_app/views/profile_page/profile_page.dart';
 import 'package:meal_app/views/register_page/register_page.dart';
 import 'package:meal_app/views/vendor_detail_page/vendor_detail_page.dart';
+import 'package:meal_app/views/vendor_list_page/vendor_list_page.dart';
 
 import '../app/auth_bloc/auth_bloc.dart';
 import '../injection/injection.dart';
@@ -21,17 +23,23 @@ class AppRouter {
       refreshListenable: GoRouterRefreshStream(getIt<AuthBloc>().stream),
       // observers: [routerObserver],
       initialLocation: "/${OnboardingScreen.routeName}",
-      // redirect: (context, state) {
-      //   final authState = getIt<AuthBloc>().state;
-      //   if (authState.authStatus == AuthStatus.Authenticated) {
-      //     return "/${HomePage.routeName}";
-      //   } else if (authState.authStatus == AuthStatus.UnAuthenticated) {
-      //     return "/${HomePage.routeName}";
-      //     // "/${LoginPage.routeName}";
-      //   } else {
-      //     return null;
-      //   }
-      // },
+      redirect: (context, state) async {
+        final onboardingService = getIt<OnboardingService>();
+        final hasSeenOnboarding = await onboardingService.hasSeenOnboarding();
+
+        // If user hasn't seen onboarding and is not already on onboarding page
+        if (!hasSeenOnboarding && state.matchedLocation != "/${OnboardingScreen.routeName}") {
+          return "/${OnboardingScreen.routeName}";
+        }
+
+        // If user has seen onboarding and is on onboarding page, redirect to home
+        if (hasSeenOnboarding && state.matchedLocation == "/${OnboardingScreen.routeName}") {
+          return "/${HomePage.routeName}";
+        }
+
+        // No redirect needed
+        return null;
+      },
       routes: [
         ShellRoute(
             builder: (context, state, child) => HomeLayout(child: child),
@@ -87,6 +95,12 @@ class AppRouter {
                 vendor: vendor,
               ));
             }),
+        GoRoute(
+          path: "/${VendorListPage.routeName}",
+          name: VendorListPage.routeName,
+          pageBuilder: (context, state) =>
+              const CupertinoPage(child: VendorListPage()),
+        ),
       ]);
 }
 

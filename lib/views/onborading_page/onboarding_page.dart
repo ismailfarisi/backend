@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meal_app/injection/injection.dart';
+import 'package:meal_app/utils/onboarding_service.dart';
 import 'package:meal_app/views/home_page/home_page.dart';
 
 class OnboardingContent {
@@ -61,15 +63,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.dispose();
   }
 
-  void _onNextPage() {
+  void _onNextPage() async {
     if (_currentPage < onboardingContents.length - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     } else {
+      // Mark onboarding as completed
+      await getIt<OnboardingService>().setOnboardingCompleted();
       // Navigate to app or auth flow
-      context.pushReplacementNamed(HomePage.routeName);
+      if (mounted) {
+        context.pushReplacementNamed(HomePage.routeName);
+      }
     }
   }
 
@@ -86,8 +92,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               child: Padding(
                 padding: EdgeInsets.all(16.w),
                 child: TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/auth');
+                  onPressed: () async {
+                    await getIt<OnboardingService>().setOnboardingCompleted();
+                    if (context.mounted) {
+                      context.pushReplacementNamed(HomePage.routeName);
+                    }
                   },
                   child: Text(
                     'Skip',

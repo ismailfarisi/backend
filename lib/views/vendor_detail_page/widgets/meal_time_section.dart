@@ -5,16 +5,14 @@ import 'meal_option_card.dart';
 
 class MealTimeSection extends StatelessWidget {
   final String title;
+  final IconData? icon;
   final List<MenuItem> options;
-  final MenuItem? selectedItem;
-  final Function(MenuItem) onItemSelected;
 
   const MealTimeSection({
     Key? key,
     required this.title,
+    this.icon,
     required this.options,
-    this.selectedItem,
-    required this.onItemSelected,
   }) : super(key: key);
 
   @override
@@ -24,32 +22,54 @@ class MealTimeSection extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        SizedBox(
-          height: 180,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            itemCount: options.length,
-            itemBuilder: (context, index) {
-              final item = options[index];
-              return SizedBox(
-                width: 260,
-                child: Padding(
-                  padding: const EdgeInsets.all(4),
-                  child: MealOptionCard(
-                    menuItem: item,
-                    isSelected: item == selectedItem,
-                    onTap: () => onItemSelected(item),
+          child: Row(
+            children: [
+              if (icon != null) ...[
+                Icon(
+                  icon,
+                  size: 20,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                const SizedBox(width: 8),
+              ],
+              Text(
+                title,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  '${options.length}',
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              );
-            },
+              ),
+            ],
           ),
+        ),
+        ListView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          itemCount: options.length,
+          itemBuilder: (context, index) {
+            final item = options[index];
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+              child: MealOptionCard(
+                menuItem: item,
+              ),
+            );
+          },
         ),
       ],
     );

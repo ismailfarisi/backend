@@ -5,7 +5,6 @@ import 'package:meal_app/models/monthly_subscription.dart';
 import 'package:meal_app/services/subscription_validation_service.dart';
 import 'package:meal_app/services/subscription_business_rules.dart';
 
-import '../models/menu_item.dart';
 import '../models/subscription.dart';
 import '../models/vendor.dart';
 import '../models/vendor_menu.dart';
@@ -16,6 +15,10 @@ import '../utils/result.dart';
 abstract class VendorRepo {
   // Existing methods
   Future<Result<Subscription?>> getCurrentSubscription();
+  Future<Result<List<Vendor>>> getVendors({
+    required double lat,
+    required double long,
+  });
   Future<Result<List<Vendor>>> getRecommendedVendors(
       {required double lat, required double long});
   Future<Result<VendorMenu>> getWeeklyMenu(String vendorId);
@@ -118,6 +121,11 @@ abstract class VendorRepo {
   /// Get subscription preview before creation
   Future<Result<SubscriptionPreview>> getSubscriptionPreview(
     SubscriptionCreationRequest request,
+  );
+
+  /// Get monthly subscription by ID
+  Future<Result<MonthlySubscription>> getMonthlySubscriptionById(
+    String subscriptionId,
   );
 
   // Legacy support - deprecated

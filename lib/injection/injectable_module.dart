@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
 import '../utils/token_interceptor.dart';
@@ -11,9 +12,9 @@ abstract class RegisterModules {
 
   @Environment('Stage')
   @Named('BaseUrl')
-  String get baseUrl => //'https://meal.habllen.com/api/';
-      //   'http://192.168.1.59:3000/';
-      'http://10.0.2.2:3000/';
+  String get baseUrl => 'https://backend.habllen.com/api/';
+  //   'http://192.168.1.59:3000/';
+  //'http://10.0.2.2:3000/';
   @Environment('Prod')
   @Named('AwsBucket')
   String get awsProdBucket =>
@@ -39,4 +40,7 @@ abstract class RegisterModules {
         responseHeader: false));
     return dio;
   }
+
+  @lazySingleton
+  FlutterSecureStorage get secureStorage => const FlutterSecureStorage();
 }

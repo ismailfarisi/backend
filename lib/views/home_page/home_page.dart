@@ -112,17 +112,20 @@ class HomePage extends StatelessWidget {
     final theme = Theme.of(context);
 
     return SliverAppBar(
-      expandedHeight: 180.h, // Increased height to accommodate search bar
+      expandedHeight: 140.h,
       floating: true,
       pinned: true,
       backgroundColor: theme.colorScheme.surface,
       elevation: 0,
       flexibleSpace: FlexibleSpaceBar(
-        titlePadding: EdgeInsets.zero, // Remove default padding
-        title: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+        titlePadding: EdgeInsets.zero,
+        background: Padding(
+          padding: EdgeInsets.only(
+            left: 16.w,
+            right: 16.w,
+            top: kToolbarHeight + 8.h,
+          ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
